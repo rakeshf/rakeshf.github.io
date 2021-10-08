@@ -1,4 +1,4 @@
-navigator.mediaDevices.getUserMedia({video: { zoom: true }})
+navigator.mediaDevices.getUserMedia({video: { zoom: true, facingMode: 'environment' }})
 .then(mediaStream => {
   document.querySelector('video').srcObject = mediaStream;
 
