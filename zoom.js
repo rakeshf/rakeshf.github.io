@@ -5,7 +5,7 @@ navigator.mediaDevices.getUserMedia({video: { zoom: true }})
   const [track] = mediaStream.getVideoTracks();
   const capabilities = track.getCapabilities();
   const settings = track.getSettings();
-
+  
   const input = document.querySelector('input[type="range"]');
 
   // Check whether zoom is supported or not.
@@ -14,13 +14,14 @@ navigator.mediaDevices.getUserMedia({video: { zoom: true }})
   }
 
   // Map zoom to a slider element.
-  input.min = capabilities.zoom.min;
-  input.max = capabilities.zoom.max;
-  input.step = capabilities.zoom.step;
-  input.value = settings.zoom;
-  input.oninput = function(event) {
-    track.applyConstraints({advanced: [ {zoom: 1} ]});
-  }
-  input.hidden = false;
+  track.applyConstraints({advanced: [ {zoom: 1} ]});
+//   input.min = capabilities.zoom.min;
+//   input.max = capabilities.zoom.max;
+//   input.step = capabilities.zoom.step;
+//   input.value = settings.zoom;
+//   input.oninput = function(event) {
+//     track.applyConstraints({advanced: [ {zoom: 1} ]});
+//   }
+//   input.hidden = false;
 })
 .catch(error => ChromeSamples.log('Argh!', error.name || error));
