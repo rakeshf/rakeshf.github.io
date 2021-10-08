@@ -19,7 +19,7 @@ navigator.mediaDevices.getUserMedia({video: { zoom: true }})
   input.step = capabilities.zoom.step;
   input.value = settings.zoom;
   input.oninput = function(event) {
-    track.applyConstraints({advanced: [ {zoom: event.target.value} ]});
+    track.applyConstraints({advanced: [ {zoom: 1} ]});
   }
   input.hidden = false;
 })
