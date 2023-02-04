@@ -12,23 +12,19 @@
         <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
       </a>
     </div>
-        <!-- Article data -->
+<!-- Article data -->
 <div class="row mb-3">
 <div class="col-6">
-<a href="" class="text-info">
     <i class="fas fa-plane"></i>
-    <a href="{{ "/tags/" | relURL }}{{ $tag | urlize }}">{{ $tag }}</a>
-</a>
+    <a href="{{ "/tags/" | relURL }}{{ $tag | urlize }}" class="text-info">{{ $tag }}</a>
 </div>
-
 <div class="col-6 text-end">
 <u> {{ partial "date.html" .Date }}</u>
 </div>
 </div>
 
 <!-- Article title and description -->
-<a href="" class="text-dark">
-    <a href="{{ .RelPermalink }}"><h5>{{ .Title }}</h5></a>
+<a href="{{ .RelPermalink }}" class="text-dark"><h5>{{ .Title }}</h5></a>
 <p>{{ substr $s 0 120 }}...</p>
 </a>
 </div>
