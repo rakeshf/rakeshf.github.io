@@ -2,125 +2,125 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Lucifer Digital</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://luciferdigital.com/tags/</link>
     <description>Recent content in Tags on Lucifer Digital</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 23 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://luciferdigital.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>chords</title>
-      <link>http://localhost:1313/tags/chords/</link>
+      <link>https://luciferdigital.com/tags/chords/</link>
       <pubDate>Wed, 23 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/chords/</guid>
+      <guid>https://luciferdigital.com/tags/chords/</guid>
       <description></description>
     </item>
     
     <item>
       <title>css</title>
-      <link>http://localhost:1313/tags/css/</link>
+      <link>https://luciferdigital.com/tags/css/</link>
       <pubDate>Wed, 23 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/css/</guid>
+      <guid>https://luciferdigital.com/tags/css/</guid>
       <description></description>
     </item>
     
     <item>
       <title>html</title>
-      <link>http://localhost:1313/tags/html/</link>
+      <link>https://luciferdigital.com/tags/html/</link>
       <pubDate>Wed, 23 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/html/</guid>
+      <guid>https://luciferdigital.com/tags/html/</guid>
       <description></description>
     </item>
     
     <item>
       <title>markdown</title>
-      <link>http://localhost:1313/tags/markdown/</link>
+      <link>https://luciferdigital.com/tags/markdown/</link>
       <pubDate>Wed, 23 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/markdown/</guid>
+      <guid>https://luciferdigital.com/tags/markdown/</guid>
       <description></description>
     </item>
     
     <item>
       <title>music</title>
-      <link>http://localhost:1313/tags/music/</link>
+      <link>https://luciferdigital.com/tags/music/</link>
       <pubDate>Wed, 23 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/music/</guid>
+      <guid>https://luciferdigital.com/tags/music/</guid>
       <description></description>
     </item>
     
     <item>
       <title>text</title>
-      <link>http://localhost:1313/tags/text/</link>
+      <link>https://luciferdigital.com/tags/text/</link>
       <pubDate>Wed, 23 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/text/</guid>
+      <guid>https://luciferdigital.com/tags/text/</guid>
       <description></description>
     </item>
     
     <item>
       <title>themes</title>
-      <link>http://localhost:1313/tags/themes/</link>
+      <link>https://luciferdigital.com/tags/themes/</link>
       <pubDate>Wed, 23 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/themes/</guid>
+      <guid>https://luciferdigital.com/tags/themes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>privacy</title>
-      <link>http://localhost:1313/tags/privacy/</link>
+      <link>https://luciferdigital.com/tags/privacy/</link>
       <pubDate>Tue, 22 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/privacy/</guid>
+      <guid>https://luciferdigital.com/tags/privacy/</guid>
       <description></description>
     </item>
     
     <item>
       <title>shortcodes</title>
-      <link>http://localhost:1313/tags/shortcodes/</link>
+      <link>https://luciferdigital.com/tags/shortcodes/</link>
       <pubDate>Tue, 22 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/shortcodes/</guid>
+      <guid>https://luciferdigital.com/tags/shortcodes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>math</title>
-      <link>http://localhost:1313/tags/math/</link>
+      <link>https://luciferdigital.com/tags/math/</link>
       <pubDate>Mon, 21 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/math/</guid>
+      <guid>https://luciferdigital.com/tags/math/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mermaid</title>
-      <link>http://localhost:1313/tags/mermaid/</link>
+      <link>https://luciferdigital.com/tags/mermaid/</link>
       <pubDate>Sun, 20 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/mermaid/</guid>
+      <guid>https://luciferdigital.com/tags/mermaid/</guid>
       <description></description>
     </item>
     
     <item>
       <title>python</title>
-      <link>http://localhost:1313/tags/python/</link>
+      <link>https://luciferdigital.com/tags/python/</link>
       <pubDate>Wed, 02 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/python/</guid>
+      <guid>https://luciferdigital.com/tags/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>emoji</title>
-      <link>http://localhost:1313/tags/emoji/</link>
+      <link>https://luciferdigital.com/tags/emoji/</link>
       <pubDate>Mon, 13 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/emoji/</guid>
+      <guid>https://luciferdigital.com/tags/emoji/</guid>
       <description></description>
     </item>
     

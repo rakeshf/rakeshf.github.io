@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>python on Lucifer Digital</title>
-    <link>http://localhost:1313/tags/python/</link>
+    <link>https://luciferdigital.com/tags/python/</link>
     <description>Recent content in python on Lucifer Digital</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 02 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://luciferdigital.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Chapter 2</title>
-      <link>http://localhost:1313/sections/python-tutorial/chapter-2/</link>
+      <link>https://luciferdigital.com/sections/python-tutorial/chapter-2/</link>
       <pubDate>Wed, 02 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/sections/python-tutorial/chapter-2/</guid>
+      <guid>https://luciferdigital.com/sections/python-tutorial/chapter-2/</guid>
       <description>This is Chapter 2.</description>
     </item>
     
     <item>
       <title>Chapter 1</title>
-      <link>http://localhost:1313/sections/python-tutorial/chapter-1/</link>
+      <link>https://luciferdigital.com/sections/python-tutorial/chapter-1/</link>
       <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/sections/python-tutorial/chapter-1/</guid>
+      <guid>https://luciferdigital.com/sections/python-tutorial/chapter-1/</guid>
       <description>This is Chapter 1.</description>
     </item>
     

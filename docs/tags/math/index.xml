@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>math on Lucifer Digital</title>
-    <link>http://localhost:1313/tags/math/</link>
+    <link>https://luciferdigital.com/tags/math/</link>
     <description>Recent content in math on Lucifer Digital</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 21 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/math/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 21 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://luciferdigital.com/tags/math/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Write Math Equations</title>
-      <link>http://localhost:1313/posts/write-math-equations/</link>
+      <link>https://luciferdigital.com/posts/write-math-equations/</link>
       <pubDate>Mon, 21 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/write-math-equations/</guid>
+      <guid>https://luciferdigital.com/posts/write-math-equations/</guid>
       <description>Write math equations with ease. At first enable math:true in front matter.
 Then write this-
 $$ \varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887… $$ to produce this-

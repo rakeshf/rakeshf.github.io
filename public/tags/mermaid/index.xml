@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>mermaid on Lucifer Digital</title>
-    <link>http://localhost:1313/tags/mermaid/</link>
+    <link>https://luciferdigital.com/tags/mermaid/</link>
     <description>Recent content in mermaid on Lucifer Digital</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/mermaid/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://luciferdigital.com/tags/mermaid/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Make Diagrams with Mermaid</title>
-      <link>http://localhost:1313/posts/make-diagrams-with-mermaid/</link>
+      <link>https://luciferdigital.com/posts/make-diagrams-with-mermaid/</link>
       <pubDate>Sun, 20 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/make-diagrams-with-mermaid/</guid>
+      <guid>https://luciferdigital.com/posts/make-diagrams-with-mermaid/</guid>
       <description>Mermaid is an awesome software engineering diagramming tool. Write markdowns like this-
 graph TD A[Client] --&amp;gt; B[Load Balancer] B --&amp;gt; C[Server01] B --&amp;gt; D[Server02] to generate diagrams like this-</description>
     </item>
