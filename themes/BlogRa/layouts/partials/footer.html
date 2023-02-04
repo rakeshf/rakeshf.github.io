@@ -1,18 +1,48 @@
-<footer class="text-center py-5">
-    <p>
-        {{ with .Site.Params.footer }}
-            {{ . }}
-        {{ else }}
-        © 2021 <a href="https://rafed.github.io/" target="_blank">DevRa</a>.
-        <a href="https://github.com/rafed/BlogRa/" target="_blank">BlogRa</a> theme for
-        <a href="https://github.com/gohugoio/hugo/" target="_blank">
-            Hugo
-        </a>. 
-        {{ end }}
-    </p>
-</footer>
+  <!--Footer-->
+  <footer class="bg-light text-lg-start">
+    <div class="py-4 text-center">
+      <a role="button" class="btn btn-primary btn-lg m-2"
+        href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA" rel="nofollow" target="_blank">
+        Learn Bootstrap 5
+      </a>
+      <a role="button" class="btn btn-primary btn-lg m-2" href="https://mdbootstrap.com/docs/standard/" target="_blank">
+        Download MDB UI KIT
+      </a>
+    </div>
 
-{{ with .Site.Params.GoogleSearch }}
-<script async src="https://cse.google.com/cse.js?cx={{ . }}"></script>
-<gcse:searchresults-only></gcse:searchresults-only>
-{{ end }}
+    <hr class="m-0" />
+
+    <div class="text-center py-4 align-items-center">
+      <p>Follow MDB on social media</p>
+      <a href="https://www.youtube.com/" class="btn btn-primary m-1" role="button"
+        rel="nofollow" target="_blank">
+        <i class="fab fa-youtube"></i>
+      </a>
+      <a href="https://www.facebook.com/" class="btn btn-primary m-1" role="button" rel="nofollow"
+        target="_blank">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://twitter.com/" class="btn btn-primary m-1" role="button" rel="nofollow"
+        target="_blank">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <!-- <a href="https://github.com/" class="btn btn-primary m-1" role="button" rel="nofollow"
+        target="_blank">
+        <i class="fab fa-github"></i>
+      </a> -->
+    </div>
+    {{ with .Site.Params.GoogleSearch }}
+        <script async src="https://cse.google.com/cse.js?cx={{ . }}"></script>
+        <gcse:searchresults-only></gcse:searchresults-only>
+    {{ end }}
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      Powered By:
+      <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!--Footer-->
+
+
+

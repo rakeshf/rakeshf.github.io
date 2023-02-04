@@ -1,15 +1,15 @@
-<div class="suggestion col-sm-12 col-md-6 col-lg-4">
+<!-- <div class="suggestion col-sm-12 col-md-6 col-lg-4">
     {{ if .Params.image }}
     <a href="{{ .RelPermalink }}">
-        <!-- This is a workaround for a Hugo bug -->
-        {{ $image := .Page.Resources.Match .Params.image }}
+    This is a workaround for a Hugo bug -->
+        <!-- {{ $image := .Page.Resources.Match .Params.image }}
         {{ $image := index $image 0 }}
-        {{/* $image := $image.Resize "500x" */}}
-        <img src={{ $image.RelPermalink }} alt="{{ .Title }}" loading="lazy">
-    </a>
-    {{ end }}
+        {{/* $image := $image.Resize "500x" */}} -->
+        <!-- <img src={{ $image.RelPermalink }} alt="{{ .Title }}" loading="lazy">
+    </a> -->
+    <!-- {{ end }} --> 
 
-    <div class="content">
+    <!-- <div class="content">
         <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
 
         <div class="date-time">
@@ -39,4 +39,33 @@
             {{ end }}
         </div>
     </div>
+</div> -->
+{{ $s := .Summary | plainify | htmlUnescape }}
+<div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+    <!-- Featured image -->
+    <div class="bg-image hover-overlay shadow-1-strong ripple mb-4" data-mdb-ripple-color="light">
+      <img src="https://mdbootstrap.com/img/new/fluid/city/113.jpg" class="img-fluid" />
+      <a href="#!">
+        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+      </a>
+    </div>
+        <!-- Article data -->
+<div class="row mb-3">
+<div class="col-6">
+<a href="" class="text-info">
+<i class="fas fa-plane"></i>
+Travels
+</a>
+</div>
+
+<div class="col-6 text-end">
+<u> {{ partial "date.html" .Date }}</u>
+</div>
+</div>
+
+<!-- Article title and description -->
+<a href="" class="text-dark">
+<h5>{{ .Title }}</h5>
+<p>{{ substr $s 0 120 }}...</p>
+</a>
 </div>

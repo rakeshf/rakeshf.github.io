@@ -1,93 +1,83 @@
-<header id="header">
-  <div class="top-bar">
-    <div class="container-md">
+<header>
+  <!-- Intro settings -->
+  <style>
+    #intro {
+      /* Margin to fix overlapping fixed navbar */
+      margin-top: 58px;
+    }
 
-      <div class="row align-items-center">
-        <div class="col-3 col-sm-4 social-buttons d-none d-sm-block">
-          {{ partial "social-media-presence.html" . }}
-        </div>
+    @media (max-width: 991px) {
+      #intro {
+        /* Margin to fix overlapping fixed navbar */
+        margin-top: 45px;
+      }
+    }
 
-        <div class="ra-toggler col-3 col-sm-4 d-block d-sm-none">
-          <button class="bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <i class="fas fa-bars"></i>
-          </button>
-        </div>
-
-        <div class="col-6 col-sm-4">
-          <h2 class="title"><a href="{{ "/" | relURL }}">{{ .Site.Title }}</a></h2>
-        </div>
-
-        {{ if .Site.Params.GoogleSearch }}
-        <div class="col-3 col-sm-4">
-          <div class="col col-md-8 offset-md-4 d-none d-sm-block">
-            <form id="cse-search-box-form-id" class="input-group search-bar" onsubmit="return executeQuery('lg');"
-              role="search">
-              <input id="cse-search-input-box-id" type="text" class="form-control" placeholder="Search">
-              <button class="btn" type="submit">
-                <i class="fa fa-search"></i>
-              </button>
-            </form>
-          </div>
-        </div>
-        {{ end }}
-
-      </div>
-    </div>
-  </div>
-
-  <div class="container-md">
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mx-auto">
-
-          <li class="nav-item d-block d-sm-none">
-            <ul class="social-buttons">
-              {{ partial "social-media-presence.html" . }}
-            </ul>
+  </style>  
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container-fluid">
+      <!-- Navbar brand -->
+      <a class="navbar-brand" target="_blank" href="https://mdbootstrap.com/docs/standard/">
+        <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="16" alt="" loading="lazy"
+          style="margin-top: -3px;" />
+      </a>
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
+        aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarExample01">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" aria-current="page" href="#intro">Home</a>
           </li>
-
-          {{ range .Site.Menus.main }}
-          {{ if .HasChildren }}
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
-              {{ .Name }}
-            </a>
-            <div class="dropdown-menu">
-              {{ range .Children }}
-              {{ if eq .Name "divider" }}
-                <div class="dropdown-divider"></div>
-              {{ else }}
-                <a class="dropdown-item" href="{{ .URL }}">{{ .Name }}</a>
-              {{ end }}
-              {{ end }}
-            </div>
-          </li>
-          {{ else }}
           <li class="nav-item">
-            <a class="nav-link 
-              {{ if eq .URL $.RelPermalink }}
-              active {{ $.RelPermalink }}
-              {{ end }}
-              " 
-              href="{{ .URL }}">
-              {{ .Name }}
-            </a>
+            <a class="nav-link" href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA" rel="nofollow"
+              target="_blank">Learn Bootstrap 5</a>
           </li>
-          {{ end }}
-          {{ end }}
+          <li class="nav-item">
+            <a class="nav-link" href="https://mdbootstrap.com/docs/standard/" target="_blank">Download MDB UI KIT</a>
+          </li>
         </ul>
 
-        {{ if .Site.Params.GoogleSearch }}
-        <form id="cse-search-box-form-id2" class="d-flex search-bar d-block d-sm-none"
-          onsubmit="return executeQuery('xs');" role="search">
-          <input id="cse-search-input-box-id2" type="text" class="form-control" placeholder="Search">
-          <button class="btn" type="submit">
-            <i class="fa fa-search"></i>
-          </button>
-        </form>
-        {{ end }}
-
+        <ul class="navbar-nav d-flex flex-row">
+          <!-- Icons -->
+          <li class="nav-item me-3 me-lg-0">
+            <a class="nav-link" href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA" rel="nofollow"
+              target="_blank">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </li>
+          <li class="nav-item me-3 me-lg-0">
+            <a class="nav-link" href="https://www.facebook.com/mdbootstrap" rel="nofollow" target="_blank">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </li>
+          <li class="nav-item me-3 me-lg-0">
+            <a class="nav-link" href="https://twitter.com/MDBootstrap" rel="nofollow" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+          <li class="nav-item me-3 me-lg-0">
+            <a class="nav-link" href="https://github.com/mdbootstrap/mdb-ui-kit" rel="nofollow" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+  <!-- Jumbotron -->
+  <div id="intro" class="p-5 text-center bg-light">
+    <h1 class="mb-3 h2">Lucifer Digital</h1>
+    <p class="mb-3">Best & free guide of responsive web design</p>
+    <a class="btn btn-primary m-2" href="https://www.youtube.com/watch?v=c9B4TPnak1A" role="button" rel="nofollow"
+      target="_blank">Start tutorial</a>
+    <a class="btn btn-primary m-2" href="https://mdbootstrap.com/docs/standard/" target="_blank"
+      role="button">Download MDB UI KIT</a>
   </div>
+  <!-- Jumbotron -->
 </header>
+<!--Main Navigation-->

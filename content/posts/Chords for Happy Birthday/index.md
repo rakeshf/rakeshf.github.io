@@ -1,7 +1,7 @@
 ---
 title: Chords for Happy Birthday
-date: 2020-12-23
-tags: [music, chords]
+date: 2023-01-23
+tags: [music, chords, privacy]
 image: hbd.png
 ---
 

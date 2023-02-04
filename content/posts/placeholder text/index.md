@@ -1,8 +1,8 @@
 ---
 title: "Placeholder Text"
-date: 2020-12-23
+date: 2023-01-23
 description: "Lorem Ipsum Dolor Si Amet"
-tags: ["markdown", "text"]
+tags: ["markdown", "privacy"]
 image: blog.jpg
 ---
 

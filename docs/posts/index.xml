@@ -1,34 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Lucifer Digital</title>
+    <title>Posts on My blog</title>
     <link>https://luciferdigital.com/posts/</link>
-    <description>Recent content in Posts on Lucifer Digital</description>
+    <description>Recent content in Posts on My blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 23 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://luciferdigital.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://luciferdigital.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Chords for Happy Birthday</title>
       <link>https://luciferdigital.com/posts/chords-for-happy-birthday/</link>
-      <pubDate>Wed, 23 Dec 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 23 Jan 2023 00:00:00 +0000</pubDate>
       
       <guid>https://luciferdigital.com/posts/chords-for-happy-birthday/</guid>
       <description> C G Happy birthday to you G C Happy birthday to you C F Happy birthday dear BlogRa C Bdim C Happy birthday to you </description>
     </item>
     
     <item>
-      <title>Markdown Syntax Guide</title>
-      <link>https://luciferdigital.com/posts/markdown-syntax/</link>
-      <pubDate>Wed, 23 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://luciferdigital.com/posts/markdown-syntax/</guid>
-      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>Placeholder Text</title>
       <link>https://luciferdigital.com/posts/placeholder-text/</link>
-      <pubDate>Wed, 23 Dec 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 23 Jan 2023 00:00:00 +0000</pubDate>
       
       <guid>https://luciferdigital.com/posts/placeholder-text/</guid>
       <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de
@@ -38,7 +29,7 @@ pectora summo.&lt;/p&gt;</description>
     <item>
       <title>Rich Content</title>
       <link>https://luciferdigital.com/posts/rich-content/</link>
-      <pubDate>Tue, 22 Dec 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 22 Jan 2023 00:00:00 +0000</pubDate>
       
       <guid>https://luciferdigital.com/posts/rich-content/</guid>
       <description>&lt;p&gt;Hugo ships with several &lt;a href=&#34;https://gohugo.io/content-management/shortcodes/#use-hugo-s-built-in-shortcodes&#34;&gt;Built-in Shortcodes&lt;/a&gt; for rich content, along with a &lt;a href=&#34;https://gohugo.io/about/hugo-and-gdpr/&#34;&gt;Privacy Config&lt;/a&gt; and a set of Simple Shortcodes that enable static and no-JS versions of various social media embeds.&lt;/p&gt;</description>

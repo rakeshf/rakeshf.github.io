@@ -1,23 +1,13 @@
 {{ define "main" }}
-
-<main class="bg-offwhite">
-    <div class="container-md">
-        <div class="row">
-            {{ $paginator := .Paginate (.Pages.ByDate.Reverse) 9 }}
-
-            <h1 class="section-title">
-                {{ .Title }} - (Page {{ $paginator.PageNumber }}/{{ $paginator.TotalPages }})
-            </h1>
-
-            {{ range $paginator.Pages }}
+<section>
+    {{ $paginator := .Paginate (where .Pages "Type" "posts") 9 }}
+    <div class="row gx-5">
+        {{ range $paginator.Pages }}
             {{ partial "suggestion.html" . }}
-            {{ end }}
-
-            <div class="text-center">
-                {{- template "_internal/pagination.html" . -}}
-            </div>
-        </div>
+        {{ end }}
     </div>
-</main>
-
+</section>
+<nav class="my-4" aria-label="...">
+    {{ template "_internal/pagination.html" . }}
+</nav>
 {{ end }}

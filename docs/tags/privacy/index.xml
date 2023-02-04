@@ -1,19 +1,47 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>privacy on Lucifer Digital</title>
+    <title>privacy on My blog</title>
     <link>https://luciferdigital.com/tags/privacy/</link>
-    <description>Recent content in privacy on Lucifer Digital</description>
+    <description>Recent content in privacy on My blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 22 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://luciferdigital.com/tags/privacy/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://luciferdigital.com/tags/privacy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Chords for Happy Birthday</title>
+      <link>https://luciferdigital.com/posts/chords-for-happy-birthday/</link>
+      <pubDate>Mon, 23 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://luciferdigital.com/posts/chords-for-happy-birthday/</guid>
+      <description> C G Happy birthday to you G C Happy birthday to you C F Happy birthday dear BlogRa C Bdim C Happy birthday to you </description>
+    </item>
+    
+    <item>
+      <title>Placeholder Text</title>
+      <link>https://luciferdigital.com/posts/placeholder-text/</link>
+      <pubDate>Mon, 23 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://luciferdigital.com/posts/placeholder-text/</guid>
+      <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de
+pectora summo.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Rich Content</title>
       <link>https://luciferdigital.com/posts/rich-content/</link>
-      <pubDate>Tue, 22 Dec 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 22 Jan 2023 00:00:00 +0000</pubDate>
       
       <guid>https://luciferdigital.com/posts/rich-content/</guid>
       <description>&lt;p&gt;Hugo ships with several &lt;a href=&#34;https://gohugo.io/content-management/shortcodes/#use-hugo-s-built-in-shortcodes&#34;&gt;Built-in Shortcodes&lt;/a&gt; for rich content, along with a &lt;a href=&#34;https://gohugo.io/about/hugo-and-gdpr/&#34;&gt;Privacy Config&lt;/a&gt; and a set of Simple Shortcodes that enable static and no-JS versions of various social media embeds.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Emoji Support</title>
+      <link>https://luciferdigital.com/posts/emoji-support/</link>
+      <pubDate>Mon, 13 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://luciferdigital.com/posts/emoji-support/</guid>
+      <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
     </item>
     
   </channel>
