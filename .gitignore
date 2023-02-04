@@ -1,6 +1,9 @@
+/public/
+/resources/_gen/
+
+hugo.exe
+hugo.linux
+hugo.darwin
 hugo.log
 hugo_stats.json
 .hugo_build.lock
-hugo.exe
-hugo.darwin
-hugo.linux

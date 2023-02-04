@@ -6,6 +6,20 @@ summaryLength   = 25
 theme         = "BlogRa"
 languageCode  = "en-us"
 title         = "Lucifer Digital"
+defaultContentLanguage = 'en'
+
+
+[languages]
+  [languages.en]
+    title = 'My blog'
+    weight = 1
+  [languages.ar]
+    languagedirection = 'rtl'
+    title = 'لوسيفر ديجيتال'
+    weight = 2
+  [languages.fr]
+    title = 'Mon blogue'
+    weight = 3
 
 disqusShortname = ""
 
