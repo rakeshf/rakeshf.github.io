@@ -1,0 +1,84 @@
+baseURL = "http://localhost:1313/"
+canonifyURLs=true
+pluralizeListTitles = false
+summaryLength   = 25
+
+theme         = "BlogRa"
+languageCode  = "en-us"
+title         = "Lucifer Digital"
+
+disqusShortname = ""
+
+[params]
+    description     = "Digital Review site"
+    contactEmail    = "your-email@domain.com"
+    footer          = ""
+    googleSearch    = "google-cse-key"
+    googleAnalytics = "G-172Q7FB6V6"      # Google Analytics v4
+    adsense         = ""
+    math            = false   # best to enable this in the front matter of a page
+    mermaid         = false   # best to enable this in the front matter of a page
+
+    # Social Media Params
+    facebook   = "https://www.facebook.com/"
+    twitter    = ""
+    youtube    = "https://www.youtube.com/"
+    instagram  = ""
+    github     = "https://github.com/"
+    pinterest  = ""
+    linkedin   = "https://www.linkedin.com/"
+
+    # The Strapi server URL
+    StrapiServerURL = 'http://localhost:1337'
+
+
+# Configure the site menu here
+[menu]
+    [[menu.main]]
+        name = "Home"
+        url = "/"
+        weight = 1
+
+    [[menu.main]]
+        identifier = "blog"
+        name = "Blog"
+        weight = 2
+            [[menu.main]]
+                parent = "blog"
+                name = "Posts"
+                url = "/posts/"
+                weight = 1
+            [[menu.main]]
+                parent = "blog"
+                name = "Sections"
+                url = "/sections/"
+                weight = 2
+            [[menu.main]]
+                parent = "blog"
+                name = "divider"
+                weight = 3
+            [[menu.main]]
+                parent = "blog"
+                name = "Tags"
+                url = "/tags/"
+                weight = 4
+    [[menu.main]]
+        name = "About"
+        url = "/about/"
+        weight = 3
+    [[menu.main]]
+        name = "Contact"
+        url = "/contact/"
+        weight = 4
+
+[markup.goldmark.parser.attribute]
+    block = true
+
+# Don't touch this
+[markup.goldmark.renderer]
+    unsafe = true
+
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.102.3"
