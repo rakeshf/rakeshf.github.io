@@ -1,13 +1,13 @@
 {{ define "main" }}
 <section>
-    {{ $paginator := .Paginate (where .Pages "Type" "posts") 9 }}
+    {{ $paginator := .Paginate (where .Pages "Type" "posts") 3 }}
     <div class="row gx-5">
         {{ range $paginator.Pages }}
             {{ partial "suggestion.html" . }}
         {{ end }}
     </div>
+    <nav class="my-4" aria-label="...">
+        {{ template "_internal/pagination.html" . }}
+    </nav>
 </section>
-<nav class="my-4" aria-label="...">
-    {{ template "_internal/pagination.html" . }}
-</nav>
 {{ end }}

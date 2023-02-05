@@ -1,58 +1,64 @@
 {{ define "main" }}
-
-<main class="blog-content">
-    <div class="container-md">
-        <div class="row">
-            <!-- <div class="col-lg-8 offset-lg-2 px-lg-4"> -->
-            <div class="col-lg-2 d-none d-xl-block">
-                <div class="ad-left-offset"></div>
-                {{ partial "ads.html" "ads/vertical-ad.js"}}
+<!--Main layout-->
+<main class="mt-4 mb-5">
+    <div class="container">
+      <!--Grid row-->
+      <div class="row">
+        <h1>{{ .Title }}</h1>
+        <!--Grid column-->
+        <div class="col-md-8 mb-4">
+          <!--Section: Post data-mdb-->
+          <section class="border-bottom mb-4">
+            {{ with .Page.Params.image }}
+            <figure>
+                {{ $image := $.Page.Resources.GetMatch . }}
+                <img id="cover-image" src={{ $image.RelPermalink }} alt="{{ $.Title }}"
+              class="img-fluid shadow-2-strong rounded-5 mb-4" />
+            </figure>
+            {{ end }}
+            <div class="row align-items-center mb-4">
+              <div class="col-lg-6 text-center text-lg-start mb-3 m-lg-0">
+                <span> Published <u>{{ partial "date.html" .Date }}</u> &centerdot;{{ partial "time-to-read.html" .}}</span>
+              </div>
             </div>
-
-            <div class="col-md-12 col-lg-8 px-lg-4">
-                {{ partial "ads.html" "ads/horizontal-ad.js" }}
-
-                <h1 class="title">{{ .Title }}</h1>
-
-                <div class="container-fluid px-0 mb-4">
-                    <div class="row align-items-end">
-                        <div class="col-md-4 date-time">
-                            {{ partial "date.html" .Date }}
-                            &centerdot;
-                            {{ partial "time-to-read.html" .}}
-                        </div>
-
-                        <div class="col-md-8 tags ">
-                            {{ range .Params.tags }}
-                            <a href="{{ "/tags/" | relURL }}{{ . | urlize }}"><span
-                                    class="tag bg-dark">{{ . }}</span></a>
-                            {{ end }}
-                        </div>
-                    </div>
-                </div>
-
-                {{ with .Page.Params.image }}
-                <figure>
-                    {{ $image := $.Page.Resources.GetMatch . }}
-                    <img id="cover-image" src={{ $image.RelPermalink }} alt="{{ $.Title }}">
-                </figure>
-                {{ end }}
-
-                {{ .Content }}
-
-                {{ partial "social-media-share.html" . }}
-
-                {{ partial "ads.html" "ads/horizontal-ad.js" }}
-                <br>
-                {{ partial "disqus.html" . }}
-            </div>
-
-            <div class="col-lg-2 d-none d-xl-block">
-                <div class="ad-right-offset"></div>
-                {{ partial "ads.html" "ads/vertical-ad.js"}}
-            </div>
+          </section>
+          <!--Section: Post data-mdb-->
+  
+          <!--Section: Text-->
+          <section>
+            {{ .Content }}
+          </section>
+          <!--Section: Text-->
+  
+          <!--Section: Share buttons-->
+          <section class="text-center border-top border-bottom py-4 mb-4">
+            {{ partial "social-media-share.html" . }}
+          </section>
         </div>
+        <!--Grid column-->
+  
+        <!--Grid column-->
+        <div class="col-md-4 mb-4">
+          <!--Section: Sidebar-->
+          <section class="sticky-top" style="top: 80px;">
+            <!--Section: Ad-->
+            <section class="text-center border-bottom pb-4 mb-4">
+              <h5>Your Preference 1</h5>
+            </section>
+            <!--Section: Ad-->
+            <!--Section: Video-->
+            <section class="text-center">
+              <h5 class="mb-4">Your Preference 2</h5>
+            </section>
+            <!--Section: Video-->
+          </section>
+          <!--Section: Sidebar-->
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
     </div>
-</main>
-
+  </main>
+  <!--Main layout-->
 {{ end }}
+
