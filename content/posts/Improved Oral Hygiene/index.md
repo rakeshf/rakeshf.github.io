@@ -31,7 +31,7 @@ Electric toothbrushes can be a great option for kids, as they can provide many o
 It's important to note that it is still recommended that kids brush with adult supervision, even when using an electric toothbrush, to ensure they are brushing properly and effectively.
 
 
-Here is a list of some of the latest electric toothbrushes available on the market as of my knowledge cut-off in 2021:
+Here is a list of some of the latest electric toothbrushes available on the market:
 
 1. Philips Sonicare DiamondClean Smart
 2. Oral-B Pro 5000
