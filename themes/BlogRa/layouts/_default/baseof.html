@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
-
 <head>
-    {{- partial "head-metadata.html" . -}}
+  {{- partial "head-metadata.html" . -}}
 </head>
-
 <body>
-    {{- partial "page-header.html" . -}}
-    {{- block "main" . }}{{- end }}
-    {{- partialCached "footer.html" . -}}
+  {{- partial "page-header.html" . -}}
+  <!--Main layout-->
+  <main class="mt-4 mb-5">
+    <div class="container">
+      {{- block "main" . }}{{- end }}
+      <!--Grid row-->
+    </div>
+  </main>
+  <!--Main layout-->
+  {{- partialCached "footer.html" . -}}
 </body>
-
 </html>
