@@ -11,10 +11,10 @@ defaultContentLanguage = 'en'
 
 [languages]
   [languages.en]
-    title = 'My blog'
+    title = 'Lucifer Digital'
     weight = 1
   [languages.de]
-    title = 'Mein Blog'
+    title = 'Lucifer Digital'
     weight = 2
 
 disqusShortname = ""
