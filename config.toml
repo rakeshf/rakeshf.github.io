@@ -58,28 +58,6 @@ disqusShortname = ""
                 name = "Posts"
                 url = "/posts/"
                 weight = 1
-            [[menu.main]]
-                parent = "blog"
-                name = "Sections"
-                url = "/sections/"
-                weight = 2
-            [[menu.main]]
-                parent = "blog"
-                name = "divider"
-                weight = 3
-            [[menu.main]]
-                parent = "blog"
-                name = "Tags"
-                url = "/tags/"
-                weight = 4
-    [[menu.main]]
-        name = "About"
-        url = "/about/"
-        weight = 3
-    [[menu.main]]
-        name = "Contact"
-        url = "/contact/"
-        weight = 4
 
 [markup.goldmark.parser.attribute]
     block = true

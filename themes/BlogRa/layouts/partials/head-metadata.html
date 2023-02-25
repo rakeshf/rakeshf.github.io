@@ -26,14 +26,12 @@
 {{ $js := resources.Get "main.js" | minify }}
 {{ $bundle := slice $bootstrap_js $js | resources.Concat "bundle.js" }}
 <script src="{{ $bundle.RelPermalink }}"></script>
-
-
 <!-- EXTERNAL THINGS -->
 <!-- Google search is in FOOTER -->
 <!-- Google adsense -->
 {{ if .Site.Params.adsense }}
 <script data-ad-client="{{ .Site.Params.adsense }}" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-{{ end }}
+{{ end }} 
 
 <!-- Google Analytics -->
 {{ if not .Site.Params.adsense }}
@@ -49,3 +47,4 @@
 {{ if or .Params.mermaid .Site.Params.mermaid }}
     {{ partial "mermaid.html" . }}
 {{ end }}
+
