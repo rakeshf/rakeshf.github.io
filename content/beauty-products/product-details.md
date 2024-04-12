@@ -4,7 +4,8 @@ date: 2024-04-08T15:35:53+05:30
 draft: false
 description: 4.5
 productratings: 4.5
-keywords: []
+keywords: ['iphone']
+tags: ['iphone']
 slug: 'iPhone-15-pro-max-256G-red'
 ---
 

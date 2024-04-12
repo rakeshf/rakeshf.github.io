@@ -4,6 +4,7 @@ date: 2024-04-08T12:07:06+05:30
 draft: false
 description: "iPhone 15 Pro Max "
 keywords: ["pdp", "page", "iPhone 15 Pro Max"]
+tags: ["iphone"]
 slug: "phone/iphone15-pro-max/015/"
 ---
 

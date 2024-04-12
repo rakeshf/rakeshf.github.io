@@ -8,7 +8,7 @@ pageRef = '/'
 weight = 10
 
 [[menus.main]]
-name = 'Posts'
+name = 'Best Sellers'
 pageRef = '/posts'
 weight = 20
 
@@ -18,7 +18,7 @@ pageRef = '/tags'
 weight = 30
 
 [[menus.main]]
-name = 'Beauty  products'
+name = 'Luxury Beauty'
 pageRef = '/beauty-products'
 weight = 30
 

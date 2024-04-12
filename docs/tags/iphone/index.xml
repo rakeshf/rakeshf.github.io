@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Beauty-Products on </title>
-    <link>/beauty-products/</link>
-    <description>Recent content in Beauty-Products on </description>
+    <title>Iphone on </title>
+    <link>/tags/iphone/</link>
+    <description>Recent content in Iphone on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 08 Apr 2024 15:35:53 +0530</lastBuildDate>
-    <atom:link href="/beauty-products/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/iphone/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>iPhone 15 pro max 256G red</title>
       <link>/beauty-products/iphone-15-pro-max-256g-red/</link>
       <pubDate>Mon, 08 Apr 2024 15:35:53 +0530</pubDate>
       <guid>/beauty-products/iphone-15-pro-max-256g-red/</guid>
+      <description>Laborum voluptate pariatur ex culpa magna nostrud est incididunt fugiat pariatur do dolor ipsum enim. Consequat tempor do dolor eu. Non id id anim anim excepteur excepteur pariatur nostrud qui irure ullamco.&#xA;A B Telefon: +49 (0) 1234567890 Telefax: +49 (0) 1234567890 </description>
+    </item>
+    <item>
+      <title>Product Details Page</title>
+      <link>/posts/phone/iphone15-pro-max/015/</link>
+      <pubDate>Mon, 08 Apr 2024 12:07:06 +0530</pubDate>
+      <guid>/posts/phone/iphone15-pro-max/015/</guid>
       <description>Laborum voluptate pariatur ex culpa magna nostrud est incididunt fugiat pariatur do dolor ipsum enim. Consequat tempor do dolor eu. Non id id anim anim excepteur excepteur pariatur nostrud qui irure ullamco.&#xA;A B Telefon: +49 (0) 1234567890 Telefax: +49 (0) 1234567890 </description>
     </item>
   </channel>
