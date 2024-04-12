@@ -1,0 +1,54 @@
+# theme.toml template for a Hugo theme
+# See https://github.com/gohugoio/hugoThemes#themetoml for an example
+
+name = "Lightbi"
+license = "MIT"
+licenselink = "https://github.com/binokochumolvarghese/lightbi-hugo/blob/master/LICENSE"
+description = "A minimal and clean blog theme for Hugo."
+homepage = "https://github.com/binokochumolvarghese/lightbi-hugo"
+demosite = "https://lightbi-hugo-theme.netlify.app/"
+tags = [
+  "blog", 
+  "bootstrap",
+  "bootstrap icons",
+  "company",
+  "dark",
+  "dark mode",
+  "light",
+  "minimal",
+  "multilingual",
+  "portfolio", 
+  "responsive",
+  "personal"
+  ]
+features = [
+  "blog",
+  "newsletter",
+  "notes",
+  "minimal",
+  "cover image",
+  "responsive",
+  "seo",
+  "google analytics",
+  "bootstrap",
+  "syntax highlighting",
+  "multilingual",
+  "dark-mode",  
+  "menu location indicator",
+  "theme toggle",
+  "share icons",
+  "social icons",
+  "favicon",
+  "bootstrap icons"
+  ]
+min_version = "0.41.0"
+
+[author]
+  name = "Bino Kochumol Varghese"
+  homepage = "https://binovarghese.com/"
+
+# If porting an existing theme
+[original]
+  name = "halogenica"
+  homepage = "http://halogenica.net"
+  repo = "https://github.com/halogenica/Hugo-BeautifulHugo/"

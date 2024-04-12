@@ -1,0 +1,131 @@
+{{- if eq .Kind "taxonomyTerm" }}
+  {{- range $key, $value := .Data.Terms.ByCount }}
+    {{- $.Scratch.Add "most_used" (slice $value.Name) }}
+  {{- end }}
+  {{- if not ($.Scratch.Get "most_used") }}
+    {{- $description := printf "A full overview of all pages with %s, ordered by %s" .Data.Plural .Data.Singular | truncate 180 }}
+    {{- $.Scratch.Set "Description" $description }}
+  {{- else }}
+    {{- $description := printf "A full overview of all pages with %s, ordered by %s, such as: %s" .Data.Plural .Data.Singular ( delimit ( $.Scratch.Get "most_used" ) ", " ", and " ) | truncate 180 }}
+    {{- $.Scratch.Set "Description" $description }}
+  {{- end }}
+
+  {{- $title := printf "Overview of all pages with %s, ordered by %s" .Data.Plural .Data.Singular }}
+  {{- $.Scratch.Set "Title" $title }}
+{{- else if eq .Kind "taxonomy" }}
+  {{- $description := printf "Overview of all pages with the %s #%s, such as: %s" .Data.Singular $.Title ( index .Pages 0).Title | truncate 160 }}
+  {{- $.Scratch.Set "Description" $description }}
+
+  {{- $title := printf "Overview of all pages with the %s #%s" .Data.Singular $.Title }}
+  {{- $.Scratch.Set "Title" $title }}
+{{- else }}
+  {{- $.Scratch.Set "Description" ( .Description | default .Params.subtitle | default .Summary ) }}
+  {{- $.Scratch.Set "Title" ( .Title | default .Site.Title ) }}
+{{- end }}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Site Title, Description, Author, and Favicon -->
+{{ if .IsHome }}
+<title>{{ $.Site.Title }}</title>
+{{ if (isset $.Site.Params "description") }}
+<meta name="description" content="{{ $.Site.Params.description }}">
+{{ end }}
+{{- else }}
+{{- with ($.Scratch.Get "Title") }}
+<title>{{ . }} - {{ $.Site.Title }}</title>
+{{- end }}
+{{- with ($.Scratch.Get "Description") }}
+<meta name="description" content="{{ . }}">
+{{- end }}
+{{ end }}
+{{- with .Site.Author.name }}
+<meta name="author" content="{{ . }}">
+{{- end }}
+{{- partial "seo/main.html" . }}
+<link rel="apple-touch-icon" sizes="180x180" href=" {{ "favicon/apple-touch-icon.png" | absURL }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon/favicon-32x32.png"  | absURL }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon/favicon-16x16.png" | absURL }}">
+
+<!-- Hugo Version number -->
+{{ hugo.Generator -}}
+
+<!-- Links and stylesheets -->
+<link rel="alternate" href="{{ "index.xml" | absLangURL }}" type="application/rss+xml" title="{{ .Site.Title }}">
+<script src="{{ "js/dark-mode.js" | absURL }}"></script>
+
+{{- if and .Site.Params.lunrSearch -}}
+  {{- if .Site.Params.selfHosted -}}
+    <script src="{{ "vendor/lunr/lunr.min.js" | absURL }}"></script>
+  {{- else -}}
+    <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli" crossorigin="anonymous"></script>
+  {{- end -}}
+
+  {{- $lang := substr .Site.Language.Lang 0 2 -}}
+  {{- if ne $lang "en" -}}
+    {{- $supported := dict
+      "ar" "PK5uc23sTfaefRIgkr2WwHT10a5kwgAdcWY6C3Pyn8dWmS7pP78yqP0cfTtLuAnD"
+      "da" "m41NvnAVhiFbve9hb+BVVlIzo6d+jS/YLhh2gRMqjCQeoUzwrCaAjAfCD2+aCzmB"
+      "de" "QW+2znawu2QewLDhHebnhId1cgeh1dKtEqwPYTPaZcUHzs5RMSyJdbqqi33W1XXW"
+      "du" "uoqsZgpqpcn1GWuOV2Jl+bpAHeoyb0ckzCZNLn8b90TsEhjd0luyQBQ5qe92Mg1H"
+      "el" "P9Jp9lu6gfSDuCCV7t0w77NtsBnlTEyzdwGwMWwsapfDjVIuUJbY+aA/WKPCDfpC"
+      "es" "0uDB/uXtXqcvIqHmvTGdpvc+f18RLubUfvk5WE3KXX8q2kd8IvB+waXzBs0jc/d/"
+      "fi" "WyKXmuuGDqfa8gcDrNX9oI9y+uMrsXL0bOriLM5wr836sqbfUE6Xh62MYNWY94kh"
+      "fr" "nvbGgUhNgAwhxsaGsCRuu0fdNYWsSxk6mW4HmJdHlT+pvbiEBUdG8j9pWFLtLxkz"
+      "he" "O2pa9SyseQAR5YOdddtBIYVoheGJVw4bSGLHC1VjjhFRt/AtDDw+4pmikUYftsrL"
+      "hi" "IQNPFqApFAwbMgPWkQyEBO5rB1w1ailvpPa7Q47q1WCn///T7+T37aNH41ZVpbPJ"
+      "hu" "4p0zjfM1qjjoAqP4qYJ3Jn/aokf3+nRfhVmwmz+bGDCKiifJkSDVMcsQf4Cl1FYa"
+      "hy" "0zz5fTYfAIJwyj65c2IFJh+du3k6WJuj3tLGFTd0DmDkFigr69WhHNezCxoPPgwz"
+      "it" "qsvt0gcZU6vp4rdh/Yc0jLrDW4jzyT4xNW0nvmlXSQ0OKOF73v3YC5U4iLjqWwQM"
+      "ja" "KaH+nXLoz9Y5m+In1HnrfJd/NQWOtZgW9SRC3roMlZn/U6KAEcOZpI2Pb0/NE4HO"
+      "jp" "cqlcffA4tMo0UePBUBlMkCHR/oUqRFZqko1Dnv050H1ZriQL5DgPVbn42Z6pKMHw"
+      "kn" "/hKm3ST0cCO3++f3TxtGagomh7xxuo4RUE0sOflcLluKvdhLcJO6uC+8pbnzKK2+"
+      "ko" "VKzrYU32smOCSFlBGsqhAi8eHR4usSPHg3+n90teKDaP5zb2MrL3tZ/jdlbXprR4"
+      "nl" "ckDQKvpTFnZanj4TPgJjrZWVbdx8fh7Ny7W280jfu73pBoOjEypg8xoYEjdD3jom"
+      "no" "FSPPn9aVteFXZLWA0RGRVgkcNd6KNkDwomZv40WR5djvZKTtGFPXUzIsA/2b1D1w"
+      "pt" "217HjdynnwJlbugAE0+W3DfqgYXLZIrh+vjqhkQC19znmkWLw3WskvLqcVqM3/Ws"
+      "ro" "rZWSvextXtFzranPekMEHS/gS6XR0YAJi5LmMtvMM+hlVcRJhgoSBZU61F2n9iDD"
+      "ru" "EE/bXBM0dvjjZN4HpfGRzpTiSY0v+3ZDdRQhaJGa06XO7rFruC+8VUD7LWlLxzSF"
+      "sa" "jOxGXBqJacrJq7c8PeUEyj3w8hLi+n85Lmb61zVvG972wDKt8UcdopADPbI1P0Pr"
+      "sv" "NTziweB+rJlGEGRqs19vauwPhkFfgho2EycPyFK4PJfmQ1WrgZ4k4m0qeYpFvktr"
+      "ta" "1RIOBm4POVDLjGeGnHzhNLT0X2LzbPDimE6psf+KnmuGqTA41+nWHgXZI/Fu5rgq"
+      "te" "u7insKxKAU1j7RdiN6PjD5MMBpArKJPyGli33rJS5ohvXAd0mn9Ppys4pKlFwZ4w"
+      "th" "lHyW68gD5doLjwsor+YzuueqfJr+vef+BEcjetM7tJyi9k+fPDPkKId5WAVVwUmJ"
+      "tr" "EBYahmq5J/jx3JeRV2Lj/GHiHb5Tc6Jj3JCar1hogZd8tawvFRASFl1MQFgDk/rr"
+      "vi" "DPTBtjZHpAKy/VbSVLodjP9Xp+knTyFXMXEhIq8U+Gx2qqKh8vd5LWg6Ea/I3BsU"
+      "zh" "/v3iS+WlZHJRZP95jwYmAJvVbF8TqcUcHITaV7QZ4Bfk7ARCUrPnFarwsWRvF4QU"
+    -}}
+
+    {{- if isset $supported $lang -}}
+      {{- if .Site.Params.selfHosted -}}
+        {{- if eq $lang "ja" -}}
+          <script src="{{ "vendor/lunr/tinyseg.js" | absURL }}"></script>
+        {{- end -}}
+        <script src="{{ "vendor/lunr/lunr.stemmer.support.js" | absURL }}"></script>
+        <script src="{{ fmt.Print "vendor/lunr/lunr." $lang ".js" | absURL }}"></script>
+      {{- else -}}
+        {{- if eq $lang "ja" -}}
+          <script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.14.0/tinyseg.js" integrity="sha384-a47JdEnCLFICCCOfV7t/64KguoiCa9QAdTQMSxuSezSbOIohF6h+ap4fr3OWx+cn" crossorigin="anonymous"></script>
+        {{- end -}}
+        <script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.14.0/lunr.stemmer.support.js" integrity="sha384-cNMzF77Cs0v2yLtePgqS6A5MwbVWQjEOk/zv3e88sNiFe+opc629fFoPmfZ+6IEf" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.14.0/lunr.{{ $lang }}.js" integrity="sha384-{{ index $supported $lang }}" crossorigin="anonymous"></script>
+      {{- end -}}
+    {{- else -}}
+      {{- $keys := slice -}}
+      {{- range $k, $v := $supported -}}
+        {{- $keys = append $k $keys -}}
+      {{- end -}}
+      {{- warnf "The site language %q isn't supported by lunr, the search results might be suboptimal. Supported languages are: %q" .Site.Language.Lang $keys -}}
+    {{- end -}}
+  {{- end -}}
+
+  <script src="{{ "js/lunr-search.js" | absURL }}" data-index="{{ (resources.Get "json/search.json" | resources.ExecuteAsTemplate "/search.json" ($.GetPage "/")).RelPermalink }}"></script>
+{{- end -}}
+
+{{- $options := dict "includePaths" (slice "static/vendor/bootstrap/css" "static/vendor/bootstrap-icons") -}}
+{{- with resources.Get "css/main.scss" | resources.ExecuteAsTemplate "style.scss" . | toCSS $options | minify -}}
+<link rel="stylesheet" href="{{ .RelPermalink }}">
+{{- end -}}
+
+{{- partial "head_custom.html" . }}
+{{ template "_default/google_analytics_async.html" . }}

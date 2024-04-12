@@ -1,0 +1,6 @@
+<p>{{ $num := math.Rand | mul 4 | add 1 | int }}
+    {{ range seq $num }}
+    <i class="bi bi-star-fill icon-green"></i>
+    {{ end }}
+    <i class="bi bi-star-half icon-green"></i>
+</p>

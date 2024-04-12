@@ -1,0 +1,12 @@
+module:
+  hugoVersion:
+    min: "0.84.0"
+params:
+  ananke_socials:
+  - name: twitter
+    url: https://twitter.com/theNewDynamic
+    label: TND Twitter
+  - name: github
+    url: https://github.com/theNewDynamic
+    label: TND GitHub Account
+    color: '#ff6800'
