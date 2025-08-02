@@ -30,11 +30,7 @@ const renderCards = (data) => {
         : `<span class="material-icons-outlined text-danger">south</span>`;
 
     const signalBadge = `
-  <span class="badge ${getSignalColor(stock.signal)}"
-        data-bs-toggle="tooltip"
-        data-bs-placement="top"
-        data-bs-html="true"
-        title="${getSignalTooltip(stock.signal)}">
+  <span class="badge ${getSignalColor(stock.signal)}">
     ${stock.signal}
   </span>`;
     const sentimentBadge = `<span class="badge ${getSentimentColor(
