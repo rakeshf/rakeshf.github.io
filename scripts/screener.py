@@ -190,7 +190,7 @@ for symbol in symbols:
 
 # --- Save all results to timestamped JSON file ---
 timestamp = datetime.now().strftime("%Y-%m-%dT%H-%M-%S")
-output_file = os.path.join(output_dir, f"FNO_{timestamp}.json")
+output_file = os.path.join(output_dir, f"{timestamp}.json")
 add_file_to_index(output_file)
 
 with open(output_file, "w") as f:

@@ -77,19 +77,25 @@ fetch("data/index.json")
   .then(fileList => {
     const select = document.getElementById("fileSelector");
     fileList.forEach(file => {
+      // const option = document.createElement("option");
+      const cleanFilename = file.replace(/^(\.\/|\.\.\/)?data\//, "");
       const option = document.createElement("option");
-      option.value = file;
-      option.textContent = file;
+      option.value = cleanFilename;
+      option.textContent = cleanFilename.replace(/\.json$/, "");
       console.log("Adding file option:", file);
       select.appendChild(option);
     });
 
     // Load the first file initially
-    if (fileList.length) loadAndRenderData(fileList[0]);
+    if (fileList.length) {
+        loadAndRenderData(fileList[0]);
+        loadAndRenderFilename(fileList[0]);
+    }
 
     // Reload dashboard on file change
     select.addEventListener("change", () => {
       loadAndRenderData(select.value);
+      loadAndRenderFilename(select.value);
     });
   })
   .catch(err => {
