@@ -17,6 +17,14 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
   <link rel="stylesheet" href="css/main.css" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PB8VW32FTL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-PB8VW32FTL');
+  </script>
 </head>
 
 <body class="p-3">
@@ -51,21 +59,21 @@
     </div>
   </div>
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" id="cardContainer"></div>
-<script>
-  const timestamp = Date.now();
+  <script>
+    const timestamp = Date.now();
 
-  const scripts = [
-    "js/renderCard.js",
-    "js/themeToggle.js",
-    "js/renderTitle.js"
-  ];
+    const scripts = [
+      "js/renderCard.js",
+      "js/themeToggle.js",
+      "js/renderTitle.js"
+    ];
 
-  scripts.forEach(src => {
-    const script = document.createElement("script");
-    script.src = `${src}?v=${timestamp}`;
-    document.body.appendChild(script);
-  });
-</script>
+    scripts.forEach(src => {
+      const script = document.createElement("script");
+      script.src = `${src}?v=${timestamp}`;
+      document.body.appendChild(script);
+    });
+  </script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const tooltipTriggerList = [].slice.call(
@@ -75,10 +83,13 @@
     });
   </script>
   <footer class="mt-5 text-center text-muted small">
-  <hr>
-  <p class="mb-0">
-    <strong>Disclaimer:</strong> This dashboard is for educational and informational purposes only. It does not constitute financial advice. Always consult a certified financial advisor before making any investment decisions. Data may not be real-time or accurate.
-  </p>
-</footer>
+    <hr>
+    <p class="mb-0">
+      <strong>Disclaimer:</strong> This dashboard is for educational and informational purposes only. It does not
+      constitute financial advice. Always consult a certified financial advisor before making any investment decisions.
+      Data may not be real-time or accurate.
+    </p>
+  </footer>
 </body>
+
 </html>
