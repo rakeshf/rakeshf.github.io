@@ -9,8 +9,8 @@ Interactive dashboard to visualize F&O stock data using price movement, open int
 - Display **price, OI, PCR, signals, conflicts**
 
 🛑 Disclaimer
-For educational use only. Not financial advice.
+- For educational use only. Not financial advice.
 
-🧠 Author
-Rakesh Falke
-F&O enthusiast & software architect
+🧠 Author <br><br>
+   Rakesh Falke <br>
+   F&O enthusiast & software architect <br>
