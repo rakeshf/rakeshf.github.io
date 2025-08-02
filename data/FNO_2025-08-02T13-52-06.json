@@ -1,0 +1,38 @@
+[
+  {
+    "symbol": "TCS",
+    "price": 3001.1,
+    "previous_close": 3036.8,
+    "price_change_pct": -1.18,
+    "price_direction": "\u2193",
+    "total_ce_oi": 76769,
+    "total_pe_oi": 56271,
+    "oi_change_pct": 3.09,
+    "ce_oi_change_pct": 3.09,
+    "pe_oi_change_pct": 3.09,
+    "oi_direction": "\u2191",
+    "pcr": 0.73,
+    "sentiment": "Bullish",
+    "signal": "Short Build-up \u26a0\ufe0f",
+    "build_side": "Balanced",
+    "conflict": true
+  },
+  {
+    "symbol": "INFY",
+    "price": 1468.3,
+    "previous_close": 1509.0,
+    "price_change_pct": -2.7,
+    "price_direction": "\u2193",
+    "total_ce_oi": 37341,
+    "total_pe_oi": 20675,
+    "oi_change_pct": 3.09,
+    "ce_oi_change_pct": 3.09,
+    "pe_oi_change_pct": 3.09,
+    "oi_direction": "\u2191",
+    "pcr": 0.55,
+    "sentiment": "Bullish",
+    "signal": "Short Build-up \u26a0\ufe0f",
+    "build_side": "Balanced",
+    "conflict": true
+  }
+]
