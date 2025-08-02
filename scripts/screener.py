@@ -3,7 +3,11 @@ import pandas as pd
 import json
 import os
 from datetime import datetime
+from market_check import parse_args, check_market_conditions
 
+# Parse command line arguments
+args = parse_args()
+check_market_conditions(debug_mode=args.debug)
 # -- List of F&O stocks to analyze --
 symbols = ["TCS", "INFY", "ICICIBANK", "INFY", "ITC"]  # Add more if needed
 
