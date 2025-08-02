@@ -9,7 +9,11 @@ from market_check import parse_args, check_market_conditions
 args = parse_args()
 check_market_conditions(debug_mode=args.debug)
 # -- List of F&O stocks to analyze --
-symbols = ["TCS", "INFY", "ICICIBANK", "INFY", "ITC"]  # Add more if needed
+symbols = [
+    "RELIANCE", "TCS", "INFY", "HDFCBANK", "ICICIBANK", "LT", "ITC", "SBIN", "AXISBANK",
+    "KOTAKBANK", "BHARTIARTL", "BAJFINANCE", "SUNPHARMA", "TECHM", "NTPC", "ONGC", "TATAMOTORS",
+    "BAJAJFINSV", "HDFCLIFE", "ADANIENT", "DIVISLAB", "EICHERMOT", "M&M", "COALINDIA", "JIOFIN"
+]  # Add more if needed
 
 
 # -- Function to add file to index --
