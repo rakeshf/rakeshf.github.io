@@ -42,3 +42,8 @@ body {
     .badge {
       font-size: 0.8rem;
     }
+
+  footer {
+    font-size: 0.9rem;
+    color: #6c757d;
+  }
