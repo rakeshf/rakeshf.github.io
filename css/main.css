@@ -1,0 +1,44 @@
+/* Optional CSS for custom elements */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+    body[data-bs-theme="dark"] {
+      background-color: #121212;
+      color: white;
+    }
+
+    body[data-bs-theme="light"] {
+      background-color: #f8f9fa;
+      color: #212529;
+    }
+
+    .card {
+      border-radius: 1rem;
+    }
+
+    [data-bs-theme="dark"] .card {
+      background-color: #1e1e1e;
+    }
+
+    [data-bs-theme="light"] .card {
+      background-color: #ffffff;
+    }
+
+    .material-icons-outlined {
+      vertical-align: middle;
+      font-size: 20px;
+    }
+
+    select.form-select {
+      background-color: inherit;
+      color: inherit;
+      border: 1px solid #444;
+    }
+
+    .form-check-input {
+      cursor: pointer;
+    }
+
+    .badge {
+      font-size: 0.8rem;
+    }
