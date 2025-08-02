@@ -82,6 +82,9 @@ const renderCards = (data) => {
               ? `<p class="text-danger fw-bold mt-1" data-bs-toggle="tooltip" title="Conflicting data between price and OI movement. Use caution.">⚠️ Conflicting Signal</p>`
               : ""
           }
+          <p class="mb-1">
+            <small class='text-muted'>${getSignalTooltip(stock.signal)}</small>
+          </p>
         </div>
       </div>
     `;
