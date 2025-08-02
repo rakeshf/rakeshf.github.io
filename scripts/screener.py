@@ -9,11 +9,15 @@ from market_check import parse_args, check_market_conditions
 args = parse_args()
 check_market_conditions(debug_mode=args.debug)
 # -- List of F&O stocks to analyze --
-symbols = [
-    "RELIANCE", "TCS", "INFY", "HDFCBANK", "ICICIBANK", "LT", "ITC", "SBIN", "AXISBANK",
-    "KOTAKBANK", "BHARTIARTL", "BAJFINANCE", "SUNPHARMA", "TECHM", "NTPC", "ONGC", "TATAMOTORS",
-    "BAJAJFINSV", "HDFCLIFE", "ADANIENT", "DIVISLAB", "EICHERMOT", "M&M", "COALINDIA", "JIOFIN"
-]  # Add more if needed
+file_path = "../symbols.txt"
+
+if not os.path.exists(file_path):
+    raise FileNotFoundError(f"❌ File not found: {file_path}")
+
+with open(file_path, "r") as file:
+    symbols = [line.strip() for line in file if line.strip()]
+
+print("✅ Symbols loaded:", symbols) # Add more if needed
 
 
 # -- Function to add file to index --
