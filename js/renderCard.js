@@ -155,9 +155,9 @@ const loadAndRenderData = (filename) => {
 
 const getSignalTooltip = (signal) => {
   if (signal.includes("Short Covering"))
-    return "Price ↑, OI ↓ → Short positions are being closed.";
+    return "Price ↑, OI ↓ → Shorts are being closed.";
   if (signal.includes("Long Unwinding"))
-    return "Price ↓, OI ↓ → Long positions are being closed.";
+    return "Price ↓, OI ↓ → Longs are being closed.";
   if (signal.includes("Long Buildup"))
     return "Price ↑, OI ↑ → New long positions are being added.";
   if (signal.includes("Short Buildup"))
