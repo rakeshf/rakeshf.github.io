@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Darvas Box Breakouts</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <meta name="description"
+        content="Darvas Box Breakout Screener for Indian stocks. Identify potential breakout opportunities using the Darvas Box trading strategy. Real-time analysis of NSE stocks like RELIANCE, TCS, INFY, HDFCBANK." />
+    <meta name="keywords"
+        content="Darvas Box, Darvas Strategy, Stock Breakout Screener, NSE Breakouts, Indian Stock Market, RELIANCE breakout, TCS, INFY, HDFCBANK, Technical Analysis, Price Action, Trading Strategy, Stock Screener" />
+    <meta name="author" content="Rakesh Falke" />
+    <meta name="robots" content="index, follow" />
+    <script src="js/themeToggle.js"></script>
+    <link rel="stylesheet" href="css/main.css" />
+    <style>
+        body {
+            padding: 1rem;
+        }
+
+        .table td,
+        .table th {
+            vertical-align: middle;
+        }
+
+        .breakout {
+            font-weight: bold;
+            color: green;
+        }
+
+        @media (max-width: 576px) {
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .table thead {
+                display: none;
+            }
+
+            .table,
+            .table tbody,
+            .table tr,
+            .table td {
+                display: block;
+                width: 100%;
+            }
+
+            .table tr {
+                margin-bottom: 1rem;
+                border: 1px solid #ddd;
+                padding: 0.5rem;
+            }
+
+            .table td {
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+            }
+
+            .table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 1rem;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                text-align: left;
+                font-weight: bold;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="mb-4 text-center">📊 Darvas Box Breakout Screener</h2>
+        <div id="tableContainer"></div>
+    </div>
+
+    <script>
+        fetch("../data/darvas_breakouts.json")
+            .then((res) => res.json())
+            .then((data) => {
+                renderTable(data);
+            });
+
+        function renderTable(data) {
+            const container = document.getElementById("tableContainer");
+
+            if (!data.length) {
+                container.innerHTML =
+                    "<p class='text-muted'>No breakout data available.</p>";
+                return;
+            }
+
+            const table = document.createElement("table");
+            table.className = "table table-bordered table-striped table-responsive";
+
+            const thead = document.createElement("thead");
+            thead.innerHTML = `
+        <tr>
+          <th>Symbol</th>
+          <th>Close Price</th>
+          <th>Box High</th>
+          <th>Signal</th>
+        </tr>
+      `;
+
+            const tbody = document.createElement("tbody");
+            data.forEach((row) => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+          <td data-label="Symbol">${row.Symbol}</td>
+          <td data-label="Close Price">${row.Close}</td>
+          <td data-label="Box High">${row["Box High"]}</td>
+          <td data-label="Signal" class="breakout">${row.Signal}</td>
+        `;
+                tbody.appendChild(tr);
+            });
+
+            table.appendChild(thead);
+            table.appendChild(tbody);
+            container.appendChild(table);
+        }
+    </script>
+</body>
+
+</html>
