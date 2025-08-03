@@ -51,6 +51,7 @@ for symbol in symbols:
         crossover_date = is_golden_cross(df)
         if crossover_date:
             last_price = round(float(df["Close"].iloc[-1].item()), 2)
+
             print(f"🟢 {symbol}: Golden Cross on {crossover_date} at ₹{last_price}")
             results.append({
                 "Symbol": symbol.replace(".NS", ""),

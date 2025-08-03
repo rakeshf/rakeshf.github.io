@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Golden Cross Stocks</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 1rem;
+      background: #f9f9f9;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    table {
+      border-collapse: collapse;
+      margin: 2rem auto;
+      width: 80%;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    th, td {
+      padding: 12px 16px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+    .date {
+      font-size: 0.9em;
+      color: #666;
+      margin-top: -1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Golden Cross Signals</h1>
+  <div class="date" id="updated-date"></div>
+  <table id="gc-table">
+    <thead>
+      <tr>
+        <th>Symbol</th>
+        <th>Golden Cross Date</th>
+        <th>Last Price (₹)</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script src="js/goldenCross.js">
+
+  </script>
+</body>
+</html>
