@@ -1,78 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Golden Cross Stocks</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Golden Cross Screener for Indian Stocks | NSE EMA/SMA Crossover Tracker</title>
-    <meta name="description"
-        content="Discover NSE/BSE stocks forming a Golden Cross using 50/200 SMA or 20/50 EMA crossover strategies. Updated daily. Ideal for swing & long-term traders.">
-    <meta name="keywords"
-        content="Golden Cross, Indian stock market, EMA crossover, SMA golden cross, NSE screener, stock breakout, swing trading India">
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 1rem;
-            background: #f9f9f9;
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-
-        table {
-            border-collapse: collapse;
-            margin: 2rem auto;
-            width: 80%;
-            background: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-        }
-
-        th,
-        td {
-            padding: 12px 16px;
-            border: 1px solid #ddd;
-            text-align: center;
-        }
-
-        th {
-            background-color: #007bff;
-            color: white;
-        }
-
-        tr:hover {
-            background-color: #f1f1f1;
-        }
-
-        .date {
-            font-size: 0.9em;
-            color: #666;
-            margin-top: -1rem;
-            text-align: center;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Golden Cross Stock Screener - Track stocks showing bullish crossover signals based on 50-day and 200-day moving averages.">
+  <meta name="keywords" content="Golden Cross, Stock Screener, Technical Analysis, SMA Crossover, Nifty, Indian Stocks">
+  <title>Golden Cross Screener 📈</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 1rem;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    th, td {
+      padding: 0.75rem;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #34495e;
+      color: white;
+    }
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+    @media (max-width: 600px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      th {
+        display: none;
+      }
+      td {
+        position: relative;
+        padding-left: 50%;
+        text-align: left;
+      }
+      td::before {
+        position: absolute;
+        left: 1rem;
+        top: 0.75rem;
+        font-weight: bold;
+        white-space: nowrap;
+      }
+      td:nth-of-type(1)::before { content: "Symbol"; }
+      td:nth-of-type(2)::before { content: "Golden Cross Date"; }
+      td:nth-of-type(3)::before { content: "Last Price (₹)"; }
+    }
+  </style>
 </head>
-
 <body>
-    <h1>Golden Cross Signals</h1>
-    <div class="date" id="updated-date"></div>
-    <table id="gc-table">
-        <thead>
-            <tr>
-                <th>Symbol</th>
-                <th>Golden Cross Date</th>
-                <th>Last Price (₹)</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+  <h1>📊 Golden Cross Screener</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Symbol</th>
+        <th>Golden Cross Date</th>
+        <th>Last Price (₹)</th>
+      </tr>
+    </thead>
+    <tbody id="results">
+      <!-- Rows will be injected via JS or static HTML -->
+    </tbody>
+  </table>
 
-    <script src="js/goldenCross.js">
-
-    </script>
+  <script>
+    // If loading from a JSON file, you can fetch and populate like this
+    fetch('../data/golden_cross.json')
+      .then(res => res.json())
+      .then(data => {
+        const tbody = document.getElementById('results');
+        data.forEach(row => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${row.Symbol}</td>
+            <td>${row["Golden Cross Date"]}</td>
+            <td>₹${row["Last Price"]}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      })
+      .catch(err => {
+        document.getElementById('results').innerHTML = `<tr><td colspan="3">Failed to load data</td></tr>`;
+        console.error(err);
+      });
+  </script>
 </body>
-
 </html>
