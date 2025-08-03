@@ -1,4 +1,4 @@
 logs/
 .DS_Store
 run_nifty.sh
-setup_darvas_cron.sh
+darvas_cron.sh

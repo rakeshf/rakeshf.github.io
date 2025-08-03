@@ -5,7 +5,18 @@ from datetime import datetime, timedelta
 import os
 import json
 # List of stock symbols (use NSE symbols like "RELIANCE.NS" or US like "AAPL")
-symbols = ["RELIANCE.NS", "TCS.NS", "INFY.NS", "HDFCBANK.NS", "HINDUNILVR.NS", "ITC.NS", "LT.NS", "SBIN.NS", "TATAMOTORS.NS", "MARUTI.NS"]
+# symbols = ["RELIANCE.NS", "TCS.NS", "INFY.NS", "HDFCBANK.NS", "HINDUNILVR.NS", "ITC.NS", "LT.NS", "SBIN.NS", "TATAMOTORS.NS", "MARUTI.NS"]
+
+# -- List of F&O stocks to analyze --
+file_path = "../darvas-box.txt"
+
+if not os.path.exists(file_path):
+    raise FileNotFoundError(f"❌ File not found: {file_path}")
+
+with open(file_path, "r") as file:
+    symbols = [line.strip() for line in file if line.strip()]
+
+print("✅ Symbols loaded:", symbols) # Add more if needed
 
 # -- Output directory --
 output_dir = "../data"
