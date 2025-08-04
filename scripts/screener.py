@@ -104,7 +104,7 @@ output_dir = "../data"
 os.makedirs(output_dir, exist_ok=True)
 
 # -- log directory --
-log_dir = "../logs"
+log_dir = "../logs/stocks"
 os.makedirs(log_dir, exist_ok=True)
 
 # -- Collect all results here --

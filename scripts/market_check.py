@@ -6,7 +6,7 @@ import pytz
 import os
 
 # Optional: path to a log file for tracking (especially when used in cron jobs)
-LOG_PATH = "../logs/market_check.log"
+LOG_PATH = "../logs/scripts/market_check.log"
 
 # Ensure logs directory exists
 os.makedirs(os.path.dirname(LOG_PATH), exist_ok=True)
