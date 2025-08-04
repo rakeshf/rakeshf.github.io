@@ -6,6 +6,24 @@
     "Signal": "\ud83d\udd3c Breakout"
   },
   {
+    "Symbol": "TCS.NS",
+    "Close": 3074.4,
+    "Box High": 3118.0,
+    "Signal": "\ud83d\udd3c Breakout"
+  },
+  {
+    "Symbol": "LT.NS",
+    "Close": 3631.1,
+    "Box High": 3685.3,
+    "Signal": "\ud83d\udd3c Breakout"
+  },
+  {
+    "Symbol": "BHARTIARTL.NS",
+    "Close": 1914.6,
+    "Box High": 1939.2,
+    "Signal": "\ud83d\udd3c Breakout"
+  },
+  {
     "Symbol": "ITC.NS",
     "Close": 416.85,
     "Box High": 419.35,
@@ -15,6 +33,36 @@
     "Symbol": "ASIANPAINT.NS",
     "Close": 2449.8,
     "Box High": 2472.0,
+    "Signal": "\ud83d\udd3c Breakout"
+  },
+  {
+    "Symbol": "ULTRACEMCO.NS",
+    "Close": 12257.0,
+    "Box High": 12381.0,
+    "Signal": "\ud83d\udd3c Breakout"
+  },
+  {
+    "Symbol": "TECHM.NS",
+    "Close": 1475.0,
+    "Box High": 1473.3,
+    "Signal": "\ud83d\udd3c Breakout"
+  },
+  {
+    "Symbol": "CUMMINSIND.NS",
+    "Close": 3566.8,
+    "Box High": 3617.2,
+    "Signal": "\ud83d\udd3c Breakout"
+  },
+  {
+    "Symbol": "INDHOTEL.NS",
+    "Close": 748.8,
+    "Box High": 755.5,
+    "Signal": "\ud83d\udd3c Breakout"
+  },
+  {
+    "Symbol": "PERSISTENT.NS",
+    "Close": 5177.5,
+    "Box High": 5209.5,
     "Signal": "\ud83d\udd3c Breakout"
   },
   {
