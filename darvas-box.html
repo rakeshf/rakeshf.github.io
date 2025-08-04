@@ -78,52 +78,8 @@
         <div id="tableContainer"></div>
     </div>
 
-    <script>
-        fetch("../data/darvas_breakouts.json")
-            .then((res) => res.json())
-            .then((data) => {
-                renderTable(data);
-            });
+    <script src="js/renderTable.js"></script>
 
-        function renderTable(data) {
-            const container = document.getElementById("tableContainer");
-
-            if (!data.length) {
-                container.innerHTML =
-                    "<p class='text-muted'>No breakout data available.</p>";
-                return;
-            }
-
-            const table = document.createElement("table");
-            table.className = "table table-bordered table-striped table-responsive";
-
-            const thead = document.createElement("thead");
-            thead.innerHTML = `
-        <tr>
-          <th>Symbol</th>
-          <th>Close Price</th>
-          <th>Box High</th>
-          <th>Signal</th>
-        </tr>
-      `;
-
-            const tbody = document.createElement("tbody");
-            data.forEach((row) => {
-                const tr = document.createElement("tr");
-                tr.innerHTML = `
-          <td data-label="Symbol">${row.Symbol}</td>
-          <td data-label="Close Price">${row.Close}</td>
-          <td data-label="Box High">${row["Box High"]}</td>
-          <td data-label="Signal" class="breakout">${row.Signal}</td>
-        `;
-                tbody.appendChild(tr);
-            });
-
-            table.appendChild(thead);
-            table.appendChild(tbody);
-            container.appendChild(table);
-        }
-    </script>
 </body>
 
 </html>

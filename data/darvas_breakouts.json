@@ -3,72 +3,84 @@
     "Symbol": "RELIANCE.NS",
     "Close": 1411.5,
     "Box High": 1423.3,
-    "Signal": "\ud83d\udd3c Breakout"
+    "Box Low": 1382.2,
+    "Signal": "\ud83d\udd3c Pre-breakout"
   },
   {
     "Symbol": "TCS.NS",
     "Close": 3074.4,
     "Box High": 3118.0,
-    "Signal": "\ud83d\udd3c Breakout"
+    "Box Low": 3000.0,
+    "Signal": "\ud83d\udd3c Pre-breakout"
   },
   {
     "Symbol": "LT.NS",
     "Close": 3631.1,
     "Box High": 3685.3,
-    "Signal": "\ud83d\udd3c Breakout"
+    "Box Low": 3405.1,
+    "Signal": "\ud83d\udd3c Pre-breakout"
   },
   {
     "Symbol": "BHARTIARTL.NS",
     "Close": 1914.6,
     "Box High": 1939.2,
-    "Signal": "\ud83d\udd3c Breakout"
+    "Box Low": 1878.0,
+    "Signal": "\ud83d\udd3c Pre-breakout"
   },
   {
     "Symbol": "ITC.NS",
     "Close": 416.85,
     "Box High": 419.35,
-    "Signal": "\ud83d\udd3c Breakout"
+    "Box Low": 405.55,
+    "Signal": "\ud83d\udd3c Pre-breakout"
   },
   {
     "Symbol": "ASIANPAINT.NS",
     "Close": 2449.8,
     "Box High": 2472.0,
-    "Signal": "\ud83d\udd3c Breakout"
+    "Box Low": 2320.0,
+    "Signal": "\ud83d\udd3c Pre-breakout"
   },
   {
     "Symbol": "ULTRACEMCO.NS",
     "Close": 12257.0,
     "Box High": 12381.0,
-    "Signal": "\ud83d\udd3c Breakout"
+    "Box Low": 12075.0,
+    "Signal": "\ud83d\udd3c Pre-breakout"
   },
   {
     "Symbol": "TECHM.NS",
     "Close": 1475.0,
     "Box High": 1473.3,
-    "Signal": "\ud83d\udd3c Breakout"
+    "Box Low": 1432.4,
+    "Signal": "\u2705 Confirmed breakout"
   },
   {
     "Symbol": "CUMMINSIND.NS",
     "Close": 3566.8,
     "Box High": 3617.2,
-    "Signal": "\ud83d\udd3c Breakout"
+    "Box Low": 3481.5,
+    "Signal": "\ud83d\udd3c Pre-breakout"
   },
   {
     "Symbol": "INDHOTEL.NS",
     "Close": 748.8,
     "Box High": 755.5,
-    "Signal": "\ud83d\udd3c Breakout"
+    "Box Low": 736.1,
+    "Signal": "\ud83d\udd3c Pre-breakout"
   },
   {
     "Symbol": "PERSISTENT.NS",
     "Close": 5177.5,
     "Box High": 5209.5,
-    "Signal": "\ud83d\udd3c Breakout"
+    "Box Low": 5040.0,
+    "Signal": "\ud83d\udd3c Pre-breakout"
   },
   {
     "Symbol": "POLYCAB.NS",
     "Close": 6919.5,
     "Box High": 6986.0,
-    "Signal": "\ud83d\udd3c Breakout"
+    "Box Low": 6680.0,
+    "Signal": "\ud83d\udd3c Pre-breakout"
   }
 ]
