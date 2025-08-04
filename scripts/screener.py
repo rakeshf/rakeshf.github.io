@@ -3,6 +3,7 @@ import pandas as pd
 import json
 import os
 from datetime import datetime
+from zoneinfo import ZoneInfo
 from market_check import parse_args, check_market_conditions
 
 # Parse command line arguments
@@ -197,7 +198,7 @@ for symbol in symbols:
         print(f"⚠️ Error processing {symbol}: {e}")
 
 # --- Save all results to timestamped JSON file ---
-timestamp = datetime.now().strftime("%Y-%m-%dT%H-%M-%S")
+timestamp = datetime.now(ZoneInfo("Asia/Kolkata")).strftime("%Y-%m-%dT%H-%M-%S")
 output_file = os.path.join(output_dir, f"{timestamp}.json")
 add_file_to_index(output_file)
 

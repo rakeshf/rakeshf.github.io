@@ -3,3 +3,4 @@ logs/
 run_nifty.sh
 darvas_cron.sh
 golden_corn.sh
+__pycache__/
