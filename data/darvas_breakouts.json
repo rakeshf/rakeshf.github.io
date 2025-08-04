@@ -1,26 +1,44 @@
 [
   {
-    "Symbol": "HINDUNILVR.NS",
-    "Close": 2553.7,
-    "Box High": 2549.0,
+    "Symbol": "RELIANCE.NS",
+    "Close": 1411.5,
+    "Box High": 1423.3,
     "Signal": "\ud83d\udd3c Breakout"
   },
   {
     "Symbol": "ITC.NS",
-    "Close": 416.45,
-    "Box High": 414.0,
+    "Close": 416.85,
+    "Box High": 419.35,
     "Signal": "\ud83d\udd3c Breakout"
   },
   {
     "Symbol": "ASIANPAINT.NS",
-    "Close": 2431.0,
-    "Box High": 2443.8,
+    "Close": 2449.8,
+    "Box High": 2472.0,
     "Signal": "\ud83d\udd3c Breakout"
   },
   {
-    "Symbol": "CUMMINSIND.NS",
-    "Close": 3568.7,
-    "Box High": 3596.9,
+    "Symbol": "TECHM.NS",
+    "Close": 1475.0,
+    "Box High": 1473.3,
+    "Signal": "\ud83d\udd3c Breakout"
+  },
+  {
+    "Symbol": "INDHOTEL.NS",
+    "Close": 748.8,
+    "Box High": 755.5,
+    "Signal": "\ud83d\udd3c Breakout"
+  },
+  {
+    "Symbol": "PERSISTENT.NS",
+    "Close": 5177.5,
+    "Box High": 5209.5,
+    "Signal": "\ud83d\udd3c Breakout"
+  },
+  {
+    "Symbol": "POLYCAB.NS",
+    "Close": 6919.5,
+    "Box High": 6986.0,
     "Signal": "\ud83d\udd3c Breakout"
   }
 ]
