@@ -24,7 +24,7 @@ os.makedirs(output_dir, exist_ok=True)
 
 # Parameters
 lookback_days = 90
-box_length = 5  # days to confirm a high/low
+box_length = 10  # days to confirm a high/low
 buffer_pct = 1.0  # price within X% of box high = potential breakout
 
 def get_data(symbol, days):
