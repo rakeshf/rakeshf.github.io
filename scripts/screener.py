@@ -2,13 +2,27 @@ from nsepython import *
 import pandas as pd
 import json
 import os
-from datetime import datetime
+from datetime import datetime, time
+import sys
 from zoneinfo import ZoneInfo
-from market_check import parse_args, check_market_conditions
+from market_check import parse_args, check_market_conditions    
 
 # Parse command line arguments
+
 args = parse_args()
-check_market_conditions(debug_mode=args.debug)
+if not check_market_conditions(debug_mode=args.debug):
+    exit(0)  # Clean exit if market is closed
+
+    now = datetime.now().time()
+    is_weekday = datetime.now().weekday() < 5  # Mon-Fri
+    market_open = time(9, 14)
+    market_close = time(15, 30)
+
+    if not is_weekday or not (market_open <= now <= market_close):
+        print(f"⛔ Market is closed at {now.strftime('%H:%M:%S')}. Skipping execution.")
+        sys.exit(0)  # Exits script cleanly
+    else:
+        print(f"✅ Market is open at {now.strftime('%H:%M:%S')}. Continuing...")
 # -- List of F&O stocks to analyze --
 file_path = "../symbols.txt"
 
