@@ -58,14 +58,19 @@
       </div>
     </div>
   </div>
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" id="cardContainer"></div>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" 
+     id="signalAlertContainer" style="margin-bottom: 2rem;"></div>
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" 
+     id="cardContainer" style="margin-bottom: 2rem;"></div>
   <script>
     const timestamp = Date.now();
 
     const scripts = [
       "js/renderCard.js",
       "js/themeToggle.js",
-      "js/renderTitle.js"
+      "js/renderTitle.js",
+      "js/signalAlert.js",
     ];
 
     scripts.forEach(src => {

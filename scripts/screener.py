@@ -35,6 +35,46 @@ with open(file_path, "r") as file:
 print("✅ Symbols loaded:", symbols) # Add more if needed
 
 
+
+def alert_signal_changes(latest_file, prev_file, alert_file="../data/signal_alerts.json"):
+    """
+    Compare two JSON files containing stock data and alert if 'signal' changed.
+    Saves changes into alert_file.
+    """
+    # Check if files exist
+    if not os.path.exists(latest_file) or not os.path.exists(prev_file):
+        print("❌ One or both files are missing. Skipping signal change check.")
+        return
+
+    # Load JSON
+    with open(latest_file, "r", encoding="utf-8") as f1, open(prev_file, "r", encoding="utf-8") as f2:
+        latest_data = json.load(f1)
+        prev_data = json.load(f2)
+
+    # Convert to dict keyed by symbol
+    latest_map = {s["symbol"]: s for s in latest_data}
+    prev_map = {s["symbol"]: s for s in prev_data}
+
+    # Detect changes
+    changes = []
+    for symbol, latest in latest_map.items():
+        prev = prev_map.get(symbol)
+        if prev and latest.get("signal") != prev.get("signal"):
+            changes.append({
+                "symbol": symbol,
+                "old_signal": prev.get("signal"),
+                "new_signal": latest.get("signal")
+            })
+
+    # Save alerts
+    if changes:
+        with open(alert_file, "w", encoding="utf-8") as f:
+            json.dump(changes, f, indent=2, ensure_ascii=False)
+        print(f"🚨 {len(changes)} signal(s) changed. Alerts saved to {alert_file}")
+    else:
+        print("✅ No signal changes detected.")
+
+
 # -- Function to add file to index --
 
 def add_file_to_index(new_filename, index_path='../data/index.json'):
@@ -217,6 +257,19 @@ add_file_to_index(output_file)
 
 with open(output_file, "w") as f:
     json.dump(all_results, f, indent=2)
+
+# --- Check for signal changes from previous run ---
+index_file = "../data/index.json"
+
+# Load the second-most-recent file from the index
+with open(index_file, "r") as f:
+    index = json.load(f)
+
+if len(index) >= 2:
+    prev_file = index[1]  # previous run
+    alert_signal_changes(output_file, prev_file)
+else:
+    print("⚠️ Not enough history to compare signal changes.")
 
 print(f"\n✅ Combined F&O summary saved to: {output_file}")
 

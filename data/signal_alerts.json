@@ -1,0 +1,12 @@
+[
+  {
+    "symbol": "RELIANCE",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "TCS",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
+  }
+]
