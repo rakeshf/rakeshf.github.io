@@ -43,7 +43,7 @@ def add_file_to_index(new_filename, index_path='../data/index.json'):
     if not os.path.exists(dir_path):
         os.makedirs(dir_path)  # create directory including parents if needed
 
-    # Load existing index or create empty list if file does not exist or is invalid
+    # Load existing index or create empty list
     if os.path.exists(index_path):
         with open(index_path, 'r') as f:
             try:
@@ -53,16 +53,15 @@ def add_file_to_index(new_filename, index_path='../data/index.json'):
     else:
         files = []
 
-    print(f"\n✅ Combined F&O summary saved to: {os.path.basename(output_file)}")
-    # Add new filename if not already present
-    if new_filename not in files:
-        files.append(new_filename)
-        files.sort()
-        with open(index_path, 'w') as f:
-            json.dump(files, f, indent=2)
-        print(f"Added '{new_filename}' to {index_path}")
-    else:
-        print(f"'{new_filename}' already exists in {index_path}")
+    print(f"\n✅ Combined F&O summary saved to: {os.path.basename(new_filename)}")
+
+    # Insert new filename at the top, remove duplicates
+    files = [new_filename] + [f for f in files if f != new_filename]
+
+    # Save updated index
+    with open(index_path, 'w') as f:
+        json.dump(files, f, indent=2)
+        print(f"Updated index: '{new_filename}' added to top of {index_path}")
 
 # -- Function to calculate sentiment and signal --
 def calculate_sentiment_and_signal(price_direction, oi_direction, ce_oi_change_pct, pe_oi_change_pct, pcr):
