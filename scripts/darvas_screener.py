@@ -7,7 +7,6 @@ import json
 
 # --- Input file for symbols ---
 file_path = "../darvas-box.txt"
-
 if not os.path.exists(file_path):
     raise FileNotFoundError(f"❌ File not found: {file_path}")
 
@@ -23,8 +22,8 @@ os.makedirs(output_dir, exist_ok=True)
 # --- Parameters ---
 lookback_days = 90
 box_length = 5          # days to confirm a high/low
-buffer_pct = 1.5        # Pre-breakout buffer range
-stop_loss_pct = 3       # Backtest use only
+buffer_pct = 1.5        # Pre-breakout/breakdown buffer (percent)
+stop_loss_pct = 3       # Backtest only (not used here)
 
 # --- Fetch OHLCV data ---
 def get_data(symbol, days):
@@ -32,65 +31,137 @@ def get_data(symbol, days):
     start = end - timedelta(days=days)
     return yf.download(symbol, start=start, end=end, auto_adjust=False)
 
-# --- Detect Darvas boxes ---
-def find_darvas_boxes(df, box_length=5):
-    highs = df['High'].rolling(window=box_length).max()
-    lows = df['Low'].rolling(window=box_length).min()
+# --- Robust Darvas box detector ---
+def find_darvas_boxes(df, box_length=5, debug=False):
+    """
+    Returns list of (timestamp_of_box, box_low, box_high)
+    Defensive: finds High/Low columns case-insensitively, supports duplicated/MI columns.
+    """
+    # find column names containing 'high'/'low' (case-insensitive)
+    def _find_col(df, keyword):
+        for col in df.columns:
+            if keyword in str(col).lower().strip():
+                return col
+        return None
+
+    high_col = _find_col(df, 'high')
+    low_col = _find_col(df, 'low')
+
+    if high_col is None or low_col is None:
+        if debug:
+            print("DEBUG cols:", list(df.columns))
+        raise KeyError("Could not find 'High' and 'Low' columns (case-insensitive).")
+
+    high_series = df[high_col]
+    low_series = df[low_col]
+    if isinstance(high_series, pd.DataFrame):
+        high_series = high_series.iloc[:, 0]
+    if isinstance(low_series, pd.DataFrame):
+        low_series = low_series.iloc[:, 0]
+
+    highs_roll = high_series.rolling(window=box_length).max()
+    lows_roll = low_series.rolling(window=box_length).min()
+
+    highs_arr = highs_roll.to_numpy()
+    lows_arr = lows_roll.to_numpy()
 
     boxes = []
-    for i in range(box_length, len(df)):
-        recent_highs = df['High'].iloc[i - box_length:i]
-        recent_lows = df['Low'].iloc[i - box_length:i]
-        box_high = highs.iloc[i - 1]
-        box_low = lows.iloc[i - 1]
+    n = len(df)
+    for i in range(box_length, n):
+        recent_highs = high_series.iloc[i - box_length:i]
+        recent_lows = low_series.iloc[i - box_length:i]
 
-        if all(recent_highs <= box_high) and all(recent_lows >= box_low):
+        try:
+            box_high = highs_arr[i - 1]
+            box_low = lows_arr[i - 1]
+        except IndexError:
+            continue
+
+        if pd.isna(box_high) or pd.isna(box_low):
+            continue
+
+        box_high = float(box_high)
+        box_low = float(box_low)
+
+        highs_ok = (recent_highs.le(box_high)).all()
+        lows_ok  = (recent_lows.ge(box_low)).all()
+
+        if highs_ok and lows_ok:
             boxes.append((df.index[i], box_low, box_high))
 
     return boxes
 
-# --- Signal Detection ---
-def check_breakout(df, boxes, buffer_pct=1.0):
+# --- Breakout & breakdown checker ---
+def check_box_signal(df, boxes, buffer_pct=1.5):
+    """
+    Returns (signal_type, direction, last_close, box_high, box_low)
+    signal_type: "Confirmed breakout", "Pre-breakout", "Confirmed breakdown", "Pre-breakdown", "No"
+    direction: "up" / "down" / None
+    """
     if not boxes:
-        return "No", None, None, None
+        return "No", None, None, None, None
 
     _, box_low, box_high = boxes[-1]
 
-    last_close = df['Close'].iloc[-1]
+    # safe scalar access for last close
+    try:
+        last_close = df['Close'].iat[-1]
+    except Exception:
+        last_close = df['Close'].iloc[-1].item()
     last_close = float(last_close)
 
-    box_high = float(box_high)
-    buffer_price = box_high * (1 - buffer_pct / 100)
+    top_buffer = box_high * (1 - buffer_pct / 100.0)
+    bottom_buffer = box_low * (1 + buffer_pct / 100.0)
 
+    # priority: confirmed signals first
     if last_close >= box_high:
-        return "Confirmed", last_close, box_high, box_low
-    elif last_close >= buffer_price:
-        return "Pre-breakout", last_close, box_high, box_low
-    else:
-        return "No", last_close, box_high, box_low
+        return "Confirmed breakout", "up", last_close, box_high, box_low
+    if last_close <= box_low:
+        return "Confirmed breakdown", "down", last_close, box_high, box_low
+    if last_close >= top_buffer:
+        return "Pre-breakout", "up", last_close, box_high, box_low
+    if last_close <= bottom_buffer:
+        return "Pre-breakdown", "down", last_close, box_high, box_low
+
+    return "No", None, last_close, box_high, box_low
 
 # --- Run Screener ---
 def run_screener(symbols):
     results = []
-
     for symbol in symbols:
-        df = get_data(symbol, lookback_days)
+        try:
+            df = get_data(symbol, lookback_days)
+        except Exception as e:
+            print(f"⚠️ Error fetching {symbol}: {e}")
+            continue
+
         if df.empty or len(df) < box_length:
             print(f"⚠️ Skipping {symbol} (insufficient data)")
             continue
 
-        boxes = find_darvas_boxes(df, box_length)
-        signal_type, price, box_high, box_low = check_breakout(df, boxes, buffer_pct)
+        try:
+            boxes = find_darvas_boxes(df, box_length)
+        except KeyError as e:
+            print(f"⚠️ {symbol}: {e}")
+            continue
 
-        if signal_type in ["Pre-breakout", "Confirmed"]:
+        signal_type, direction, price, box_high, box_low = check_box_signal(df, boxes, buffer_pct)
+
+        if signal_type != "No":
+            friendly_map = {
+                "Confirmed breakout": "✅ Confirmed breakout",
+                "Pre-breakout": "🔼 Pre-breakout",
+                "Confirmed breakdown": "🔻 Confirmed breakdown",
+                "Pre-breakdown": "🔽 Pre-breakdown"
+            }
             results.append({
                 'Symbol': symbol,
-                'Close': round(float(price), 2),
-                'Box High': round(float(box_high), 2),
-                'Box Low': round(float(box_low), 2),
-                'Signal': "✅ Confirmed breakout" if signal_type == "Confirmed" else "🔼 Pre-breakout"
+                'Signal': friendly_map.get(signal_type, signal_type),
+                'Direction': direction if direction else '',
+                'Close': round(float(price), 2) if price is not None else None,
+                'Box High': round(float(box_high), 2) if box_high is not None else None,
+                'Box Low': round(float(box_low), 2) if box_low is not None else None,
             })
-
 
     return pd.DataFrame(results)
 
@@ -100,10 +171,9 @@ if __name__ == "__main__":
 
     if not df_results.empty:
         print("\n📊 Darvas Box Screener Signals:")
-        print(df_results)
+        print(df_results.to_string(index=False))
 
         output_path = os.path.join(output_dir, "darvas_breakouts.json")
-        # Convert any Series or numpy types to plain Python types
         records = json.loads(df_results.to_json(orient="records"))
 
         with open(output_path, "w") as f:
@@ -111,4 +181,4 @@ if __name__ == "__main__":
 
         print(f"\n✅ Saved to {output_path}")
     else:
-        print("❌ No breakout signals found today.")
+        print("❌ No breakout/breakdown signals found today.")
