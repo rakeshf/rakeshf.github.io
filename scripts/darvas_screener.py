@@ -154,15 +154,24 @@ def run_screener(symbols):
                 "Confirmed breakdown": "🔻 Confirmed breakdown",
                 "Pre-breakdown": "🔽 Pre-breakdown"
             }
-            results.append({
-                'Symbol': symbol,
-                'Signal': friendly_map.get(signal_type, signal_type),
-                'Direction': direction if direction else '',
-                'Close': round(float(price), 2) if price is not None else None,
-                'Box High': round(float(box_high), 2) if box_high is not None else None,
-                'Box Low': round(float(box_low), 2) if box_low is not None else None,
-            })
 
+        # set target based on direction
+        target = None
+        if direction == "up":
+            target = box_high
+        elif direction == "down":
+            # simple approach: previous swing low within lookback
+            target = df['Low'].iloc[-box_length:].min()
+
+        results.append({
+            'Symbol': symbol,
+            'Signal': friendly_map.get(signal_type, signal_type),
+            'Direction': direction if direction else '',
+            'Close': round(float(price), 2) if price is not None else None,
+            'Box High': round(float(box_high), 2) if box_high is not None else None,
+            'Box Low': round(float(box_low), 2) if box_low is not None else None,
+            'Target': round(float(target), 2) if target is not None else None
+        })
     return pd.DataFrame(results)
 
 # --- Run script ---
