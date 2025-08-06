@@ -1,0 +1,38 @@
+[
+  {
+    "symbol": "RELIANCE",
+    "price": 1390.0,
+    "previous_close": 1411.5,
+    "price_change_pct": -1.52,
+    "price_direction": "\u2193",
+    "total_ce_oi": 108281,
+    "total_pe_oi": 64316,
+    "oi_change_pct": 0.0,
+    "ce_oi_change_pct": 0.0,
+    "pe_oi_change_pct": 0.0,
+    "oi_direction": "\u2193",
+    "pcr": 0.59,
+    "sentiment": "Bullish",
+    "signal": "Short Build-up \u26a0\ufe0f",
+    "build_side": "Balanced",
+    "conflict": false
+  },
+  {
+    "symbol": "TCS",
+    "price": 3060.0,
+    "previous_close": 3074.4,
+    "price_change_pct": -0.47,
+    "price_direction": "\u2193",
+    "total_ce_oi": 83411,
+    "total_pe_oi": 59006,
+    "oi_change_pct": 0.0,
+    "ce_oi_change_pct": 0.0,
+    "pe_oi_change_pct": 0.0,
+    "oi_direction": "\u2193",
+    "pcr": 0.71,
+    "sentiment": "Bullish",
+    "signal": "Long Unwinding",
+    "build_side": "Balanced",
+    "conflict": false
+  }
+]
