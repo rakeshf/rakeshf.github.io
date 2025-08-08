@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>📈 Daily Stock News Sentiment Dashboard</title>
+  <meta name="description" content="Analyze daily sentiment of stock market news headlines using AI. View bullish, bearish, and neutral trends for top stocks.">
+  <meta name="keywords" content="stock news sentiment, AI stock dashboard, bullish stocks, bearish sentiment, daily stock trends, news sentiment analyzer">
+  <meta name="author" content="Rakesh Falke">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #f8f9fa;
+      padding: 2rem;
+    }
+
+    .stock-card {
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      height: 100%;
+    }
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .card-summary {
+      flex-shrink: 0;
+    }
+
+    .card-articles {
+      overflow-y: auto;
+      margin-top: 1rem;
+      flex-grow: 1;
+      max-height: 300px;
+      padding-right: 8px;
+    }
+
+    .article {
+      border-top: 1px solid #dee2e6;
+      padding-top: 10px;
+      margin-top: 10px;
+    }
+
+    .sentiment {
+      font-weight: bold;
+    }
+
+    .score {
+      font-weight: bold;
+      color: #0d6efd;
+    }
+    footer {
+    max-width: 960px;
+    margin: auto;
+    padding: 0 1rem;
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 id="page-title" class="mb-4 text-center">📈 Daily Stock News Sentiment - <span id="date-display"></span></h2>
+    <div id="dashboard" class="row g-4"></div>
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const today = new Date().toISOString().split('T')[0];
+    const jsonFile = `../data/sentiment_${today}.json`;
+
+    fetch(jsonFile)
+      .then(res => {
+        if (!res.ok) throw new Error(`JSON file not found for ${today}`);
+        return res.json();
+      })
+      .then(data => {
+        const container = document.getElementById("dashboard");
+
+        data.forEach(stock => {
+          const col = document.createElement("div");
+          col.className = "col-md-6 col-lg-4";
+
+          const card = document.createElement("div");
+          card.className = "card stock-card";
+
+          const cardBody = document.createElement("div");
+          cardBody.className = "card-body";
+
+          const summaryDiv = document.createElement("div");
+          summaryDiv.className = "card-summary";
+          summaryDiv.innerHTML = `
+            <h5 class="card-title">${stock.stock}</h5>
+            <p class="card-text">
+              🔍 Positive: ${stock.positive} | Negative: ${stock.negative} | Neutral: ${stock.neutral}<br>
+              📊 Average Score: <span class="score">${stock.average_score}</span><br>
+              🧭 Overall Sentiment: <span class="sentiment">${stock.overall}</span>
+            </p>
+          `;
+
+          const articlesDiv = document.createElement("div");
+          articlesDiv.className = "card-articles";
+
+          stock.articles.forEach(article => {
+            const div = document.createElement("div");
+            div.className = "article";
+            div.innerHTML = `
+              <p><strong>📰 ${article.title}</strong></p>
+              <p>Sentiment: ${article.sentiment} | Score: ${article.score}</p>
+              <p><a href="${article.link}" target="_blank">🔗 Read more</a></p>
+            `;
+            articlesDiv.appendChild(div);
+          });
+
+          cardBody.appendChild(summaryDiv);
+          cardBody.appendChild(articlesDiv);
+          card.appendChild(cardBody);
+          col.appendChild(card);
+          container.appendChild(col);
+        });
+      })
+      .catch(error => {
+        document.getElementById("dashboard").innerHTML = `
+          <div class="alert alert-danger text-center" role="alert">
+            ❌ ${error.message}
+          </div>
+        `;
+      });
+
+      // Set today's date in the header
+const today_date = new Date();
+const yyyy = today_date.getFullYear();
+const mm = String(today_date.getMonth() + 1).padStart(2, '0');
+const dd = String(today_date.getDate()).padStart(2, '0');
+const formattedDate = `${yyyy}-${mm}-${dd}`;
+
+document.getElementById("date-display").textContent = formattedDate;
+  </script>
+  <footer class="text-center mt-5 mb-3 text-muted small">
+  <hr>
+  <p><strong>Disclaimer:</strong> This dashboard provides AI-generated sentiment analysis of publicly available news headlines for informational purposes only. It does not constitute financial advice, investment recommendations, or a solicitation to buy or sell any securities. Always conduct your own research or consult a qualified financial advisor before making investment decisions.</p>
+</footer>
+</body>
+</html>
