@@ -164,8 +164,10 @@
         return res.json();
       })
       .then(fileList => {
+       // Reverse the file list here
+       const reversedFileList = fileList.slice().reverse();
         return Promise.all(
-          fileList.map(fileName =>
+          reversedFileList.map(fileName =>
             fetch(fileName + '?t=' + Date.now())
               .then(r => {
                 if (!r.ok) throw new Error(`Failed to load ${fileName}`);
