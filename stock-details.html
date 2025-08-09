@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>NSE F&O Stock Screener – Analyze Option Chain, OI, PCR & Trading Signals</title>
+  <meta name="description"
+    content="Interactive F&O Stock Dashboard to analyze option chain data, PCR, open interest, and signals like Long Unwinding, Short Covering. Supports filtering, dark mode, and data file selection." />
+  <meta name="keywords"
+    content="F&O dashboard, stock analysis, options dashboard, PCR, open interest, option chain, Long Unwinding, Short Covering, bullish sentiment, bearish sentiment, stock screener, OI data, nsepython" />
+  <meta name="author" content="Rakesh Falke" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <link rel="stylesheet" href="css/main.css" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PB8VW32FTL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-PB8VW32FTL');
+  </script>
+</head>
+
+<body class="p-3">
+  <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+    <h2 class="mb-0">F&O Stock Dashboard</h2>
+    <div class="d-flex align-items-center gap-2 mt-2 mt-md-0">
+      <h5 id="summaryDate" class="text-align-center"></h5>
+      <button class="btn btn-outline-secondary" id="modeToggle" title="Toggle Theme">
+        <span class="material-icons-outlined" id="modeIcon">dark_mode</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="row row-cols-1">
+    <div class="d-flex flex-wrap gap-3 align-items-end mb-3">
+      <div>
+        <label for="sentimentFilter" class="form-label">Filter by Sentiment</label>
+        <select class="form-select" id="sentimentFilter">
+          <option>All</option>
+          <option>Bullish</option>
+          <option>Bearish</option>
+          <option>Neutral</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="fileSelector" class="form-label">Select Data File</label>
+        <select class="form-select" id="fileSelector">
+          <!-- Options populated dynamically -->
+        </select>
+      </div>
+    </div>
+  </div>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" 
+     id="signalAlertContainer" style="margin-bottom: 2rem;"></div>
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" 
+     id="cardContainer" style="margin-bottom: 2rem;"></div>
+  <script>
+    const timestamp = Date.now();
+
+    const scripts = [
+      "js/renderCard.js",
+      "js/themeToggle.js",
+      "js/renderTitle.js",
+      "js/signalAlert.js",
+    ];
+
+    scripts.forEach(src => {
+      const script = document.createElement("script");
+      script.src = `${src}?v=${timestamp}`;
+      document.body.appendChild(script);
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const tooltipTriggerList = [].slice.call(
+        document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      );
+      tooltipTriggerList.forEach((el) => new bootstrap.Tooltip(el));
+    });
+  </script>
+  <footer class="mt-5 text-center text-muted small">
+    <hr>
+    <p class="mb-0">
+      <strong>Disclaimer:</strong> This dashboard is for educational and informational purposes only. It does not
+      constitute financial advice. Always consult a certified financial advisor before making any investment decisions.
+      Data may not be real-time or accurate.
+    </p>
+  </footer>
+</body>
+
+</html>

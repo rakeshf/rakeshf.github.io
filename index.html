@@ -1,100 +1,250 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
-
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>NSE F&O Stock Screener – Analyze Option Chain, OI, PCR & Trading Signals</title>
-  <meta name="description"
-    content="Interactive F&O Stock Dashboard to analyze option chain data, PCR, open interest, and signals like Long Unwinding, Short Covering. Supports filtering, dark mode, and data file selection." />
-  <meta name="keywords"
-    content="F&O dashboard, stock analysis, options dashboard, PCR, open interest, option chain, Long Unwinding, Short Covering, bullish sentiment, bearish sentiment, stock screener, OI data, nsepython" />
-  <meta name="author" content="Rakesh Falke" />
+  <title>Combined Stocks OI Charts with Icons & Colors</title>
+  <meta name="description" content="Interactive dashboard showing Open Interest (OI) charts for multiple stocks using combined JSON data." />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-  <link rel="stylesheet" href="css/main.css" />
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PB8VW32FTL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-PB8VW32FTL');
-  </script>
+  <meta name="robots" content="index, follow" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Bootstrap Icons CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      padding-bottom: 70px; /* avoid footer overlap */
+    }
+    .card canvas {
+      width: 100% !important;
+      height: 220px !important;
+    }
+    /* Colored labels */
+    .signal-positive { color: #198754; font-weight: 600; } /* green */
+    .signal-negative { color: #dc3545; font-weight: 600; } /* red */
+    .signal-warning { color: #fd7e14; font-weight: 600; } /* orange */
+
+    .build-balanced { color: #0d6efd; font-weight: 600; } /* blue */
+    .build-long { color: #198754; font-weight: 600; } /* green */
+    .build-short { color: #dc3545; font-weight: 600; } /* red */
+
+    .oi-up { color: #198754; font-weight: 600; } /* green */
+    .oi-down { color: #dc3545; font-weight: 600; } /* red */
+    .oi-neutral { color: #6c757d; font-weight: 600; } /* gray */
+  </style>
 </head>
+<body>
 
-<body class="p-3">
-  <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
-    <h2 class="mb-0">F&O Stock Dashboard</h2>
-    <div class="d-flex align-items-center gap-2 mt-2 mt-md-0">
-      <h5 id="summaryDate" class="text-align-center"></h5>
-      <button class="btn btn-outline-secondary" id="modeToggle" title="Toggle Theme">
-        <span class="material-icons-outlined" id="modeIcon">dark_mode</span>
-      </button>
-    </div>
-  </div>
+<div class="container my-4">
+  <h1 class="mb-4 text-center">Combined Stock Open Interest (OI) Charts</h1>
+  <div class="row" id="gridContainer"></div>
+  <!-- <pre id="debugLog" style="max-height: 150px; overflow-y: auto; background: #eee; padding: 10px; font-size: 12px;"></pre> -->
+</div>
 
-  <div class="row row-cols-1">
-    <div class="d-flex flex-wrap gap-3 align-items-end mb-3">
-      <div>
-        <label for="sentimentFilter" class="form-label">Filter by Sentiment</label>
-        <select class="form-select" id="sentimentFilter">
-          <option>All</option>
-          <option>Bullish</option>
-          <option>Bearish</option>
-          <option>Neutral</option>
-        </select>
-      </div>
+<script>
+  const container = document.getElementById('gridContainer');
+  // const debugLog = document.getElementById('debugLog');
 
-      <div>
-        <label for="fileSelector" class="form-label">Select Data File</label>
-        <select class="form-select" id="fileSelector">
-          <!-- Options populated dynamically -->
-        </select>
-      </div>
-    </div>
-  </div>
-<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" 
-     id="signalAlertContainer" style="margin-bottom: 2rem;"></div>
+  function log(msg) {
+    console.log(msg);
+    // debugLog.textContent += msg + '\n';
+  }
 
-<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" 
-     id="cardContainer" style="margin-bottom: 2rem;"></div>
-  <script>
-    const timestamp = Date.now();
+  // Helper to pick icon and class for signal text
+  function getSignalProps(signal) {
+    if (!signal) return { icon: 'bi bi-question-circle', className: 'text-muted' };
+    signal = signal.toLowerCase();
+    if (signal.includes('long') || signal.includes('build-up') || signal.includes('bullish')) {
+      return { icon: 'bi bi-arrow-up-circle-fill', className: 'signal-positive' };
+    }
+    if (signal.includes('short') || signal.includes('unwinding') || signal.includes('bearish')) {
+      return { icon: 'bi bi-arrow-down-circle-fill', className: 'signal-negative' };
+    }
+    if (signal.includes('warning') || signal.includes('⚠')) {
+      return { icon: 'bi bi-exclamation-triangle-fill', className: 'signal-warning' };
+    }
+    return { icon: 'bi bi-info-circle-fill', className: 'text-secondary' };
+  }
 
-    const scripts = [
-      "js/renderCard.js",
-      "js/themeToggle.js",
-      "js/renderTitle.js",
-      "js/signalAlert.js",
-    ];
+  // Helper for build side
+  function getBuildSideProps(buildSide) {
+    if (!buildSide) return { className: 'text-muted' };
+    buildSide = buildSide.toLowerCase();
+    if (buildSide === 'balanced') return { className: 'build-balanced' };
+    if (buildSide === 'long') return { className: 'build-long' };
+    if (buildSide === 'short') return { className: 'build-short' };
+    return { className: 'text-secondary' };
+  }
 
-    scripts.forEach(src => {
-      const script = document.createElement("script");
-      script.src = `${src}?v=${timestamp}`;
-      document.body.appendChild(script);
-    });
-  </script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const tooltipTriggerList = [].slice.call(
-        document.querySelectorAll('[data-bs-toggle="tooltip"]')
+  // Helper for oi direction
+  function getOiDirectionProps(direction) {
+    if (!direction) return { icon: '', className: 'oi-neutral' };
+    if (direction === '↑') return { icon: 'bi bi-arrow-up', className: 'oi-up' };
+    if (direction === '↓') return { icon: 'bi bi-arrow-down', className: 'oi-down' };
+    return { icon: '', className: 'oi-neutral' };
+  }
+
+  fetch('data/index.json?t=' + Date.now())
+    .then(res => {
+      if (!res.ok) throw new Error('Failed to load index.json');
+      return res.json();
+    })
+    .then(fileList => {
+      log(`index.json loaded, files to fetch: ${fileList.length}`);
+      return Promise.all(
+        fileList.map(fileName =>
+          fetch(fileName + '?t=' + Date.now())
+            .then(r => {
+              if (!r.ok) throw new Error(`Failed to load ${fileName}`);
+              return r.json();
+            })
+            .then(json => {
+              if (!Array.isArray(json)) {
+                log(`Warning: ${fileName} does not contain array, ignoring.`);
+                return [];
+              }
+              log(`Loaded ${fileName} with ${json.length} entries.`);
+              return json;
+            })
+            .catch(e => {
+              log(`Error loading ${fileName}: ${e.message}`);
+              return [];
+            })
+        )
       );
-      tooltipTriggerList.forEach((el) => new bootstrap.Tooltip(el));
-    });
-  </script>
-  <footer class="mt-5 text-center text-muted small">
-    <hr>
-    <p class="mb-0">
-      <strong>Disclaimer:</strong> This dashboard is for educational and informational purposes only. It does not
-      constitute financial advice. Always consult a certified financial advisor before making any investment decisions.
-      Data may not be real-time or accurate.
-    </p>
-  </footer>
-</body>
+    })
+    .then(allDataArrays => {
+      const combined = allDataArrays.flat();
+      log(`Total combined entries: ${combined.length}`);
 
+      if (combined.length === 0) {
+        container.innerHTML = '<p class="text-danger">No data available to display.</p>';
+        return;
+      }
+
+      // Group by symbol
+      const grouped = combined.reduce((acc, entry) => {
+        if (!entry.symbol) return acc;
+        if (!acc[entry.symbol]) acc[entry.symbol] = [];
+        acc[entry.symbol].push(entry);
+        return acc;
+      }, {});
+
+      log(`Symbols found: ${Object.keys(grouped).join(', ')}`);
+
+      Object.entries(grouped).forEach(([symbol, entries], idx) => {
+        const col = document.createElement('div');
+        col.className = 'col-12 col-md-6 col-lg-4 mb-4';
+
+        const card = document.createElement('div');
+        card.className = 'card shadow-sm h-100';
+
+        const cardBody = document.createElement('div');
+        cardBody.className = 'card-body d-flex flex-column';
+
+        const title = document.createElement('h5');
+        title.className = 'card-title text-primary';
+        title.textContent = symbol;
+        cardBody.appendChild(title);
+
+        const canvas = document.createElement('canvas');
+        canvas.id = 'chart-' + idx;
+        canvas.style.flexGrow = '1';
+        cardBody.appendChild(canvas);
+
+        // Signal with icon & color
+        const { icon: signalIcon, className: signalClass } = getSignalProps(entries[0].signal);
+        const signalText = document.createElement('p');
+        signalText.className = `mt-3 mb-1 ${signalClass}`;
+        signalText.innerHTML = `<i class="${signalIcon} me-2"></i> Signal: ${entries[0].signal || 'N/A'}`;
+        cardBody.appendChild(signalText);
+
+        // Build Side with color
+        const { className: buildClass } = getBuildSideProps(entries[0].build_side);
+        const buildSideText = document.createElement('p');
+        buildSideText.className = `mb-0 ${buildClass}`;
+        buildSideText.textContent = `Build Side: ${entries[0].build_side || 'N/A'}`;
+        cardBody.appendChild(buildSideText);
+
+        // OI Direction with icon & color
+        const { icon: oiIcon, className: oiClass } = getOiDirectionProps(entries[0].oi_direction);
+        const oiDirectionText = document.createElement('p');
+        oiDirectionText.className = `mb-0 ${oiClass}`;
+        oiDirectionText.innerHTML = ` OI Direction: ${entries[0].oi_direction || 'N/A'}`;
+        cardBody.appendChild(oiDirectionText);
+
+        card.appendChild(cardBody);
+        col.appendChild(card);
+        container.appendChild(col);
+
+        const labels = entries.map((_, i) => `#${i + 1}`);
+
+        const datasets = [
+          {
+            label: 'Total CE OI',
+            data: entries.map(e => e.total_ce_oi),
+            borderColor: '#fd7e14',
+            backgroundColor: '#fd7e1488',
+            fill: false,
+            tension: 0.3,
+            pointRadius: 3
+          },
+          {
+            label: 'Total PE OI',
+            data: entries.map(e => e.total_pe_oi),
+            borderColor: '#6f42c1',
+            backgroundColor: '#6f42c188',
+            fill: false,
+            tension: 0.3,
+            pointRadius: 3
+          }
+        ];
+
+        new Chart(canvas.getContext('2d'), {
+          type: 'line',
+          data: { labels, datasets },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: { mode: 'nearest', intersect: false },
+            scales: {
+              y: {
+                beginAtZero: true,
+                title: { display: true, text: 'Open Interest (OI)' }
+              },
+              x: {
+                title: { display: true, text: 'Record # (Time order)' }
+              }
+            },
+            plugins: {
+              legend: { position: 'top' },
+              tooltip: {
+                callbacks: {
+                  label: ctx => ctx.parsed.y.toLocaleString()
+                }
+              }
+            }
+          }
+        });
+      });
+    })
+    .catch(err => {
+      console.error('Error:', err);
+      container.innerHTML = `<p class="text-danger">Error loading data: ${err.message}</p>`;
+    });
+</script>
+
+<footer class="bg-light text-center text-muted py-3 mt-4" style="position: fixed; bottom: 0; width: 100%; z-index: 1000;">
+  <div class="container">
+    <small>
+      Disclaimer: This data is for informational purposes only. Not financial advice. Use at your own risk.
+    </small>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
