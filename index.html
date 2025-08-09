@@ -15,6 +15,22 @@
   <style>
     body {
       padding-bottom: 70px; /* avoid footer overlap */
+      background-color: #fff;
+      color: #212529;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .dark-mode {
+      background-color: #121212;
+      color: #e1e1e1;
+    }
+    .card {
+      background-color: #fff;
+      color: #212529;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .dark-mode .card {
+      background-color: #1e1e1e;
+      color: #e1e1e1;
     }
     .card canvas {
       width: 100% !important;
@@ -32,24 +48,74 @@
     .oi-up { color: #198754; font-weight: 600; } /* green */
     .oi-down { color: #dc3545; font-weight: 600; } /* red */
     .oi-neutral { color: #6c757d; font-weight: 600; } /* gray */
+
+    /* Dark mode adjustments for chart grid lines */
+    .dark-mode .chartjs-render-monitor {
+      background-color: #1e1e1e !important;
+    }
+
+    /* Footer dark mode */
+    footer {
+      background-color: #f8f9fa;
+      color: #6c757d;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .dark-mode footer {
+      background-color: #121212;
+      color: #999;
+    }
+
+    /* Toggle button styling */
+    #darkModeToggle {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 1100;
+    }
   </style>
 </head>
 <body>
 
+<button id="darkModeToggle" class="btn btn-outline-primary">
+  <i class="bi bi-moon-fill"></i> Dark Mode
+</button>
+
 <div class="container my-4">
   <h1 class="mb-4 text-center">🚀 Stock Movement Overview</h1>
   <div class="row" id="gridContainer"></div>
-  <!-- <pre id="debugLog" style="max-height: 150px; overflow-y: auto; background: #eee; padding: 10px; font-size: 12px;"></pre> -->
 </div>
 
 <script>
   const container = document.getElementById('gridContainer');
-  // const debugLog = document.getElementById('debugLog');
+  const darkModeToggle = document.getElementById('darkModeToggle');
 
-  function log(msg) {
-    console.log(msg);
-    // debugLog.textContent += msg + '\n';
+  // Update toggle button text/icon based on mode
+  function updateToggleText() {
+    if(document.body.classList.contains('dark-mode')) {
+      darkModeToggle.innerHTML = '<i class="bi bi-sun-fill"></i> Light Mode';
+    } else {
+      darkModeToggle.innerHTML = '<i class="bi bi-moon-fill"></i> Dark Mode';
+    }
   }
+
+  // Apply saved mode or default (light)
+  function applySavedMode() {
+    const savedMode = localStorage.getItem('darkMode');
+    if (savedMode === 'enabled') {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+    updateToggleText();
+  }
+
+  // Toggle dark mode and save preference
+  darkModeToggle.addEventListener('click', () => {
+    const isDark = document.body.classList.toggle('dark-mode');
+    localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+    updateToggleText();
+    loadDataAndRender();
+  });
 
   // Helper to pick icon and class for signal text
   function getSignalProps(signal) {
@@ -85,154 +151,159 @@
     return { icon: '', className: 'oi-neutral' };
   }
 
-  fetch('data/index.json?t=' + Date.now())
-    .then(res => {
-      if (!res.ok) throw new Error('Failed to load index.json');
-      return res.json();
-    })
-    .then(fileList => {
-      log(`index.json loaded, files to fetch: ${fileList.length}`);
-      return Promise.all(
-        fileList.map(fileName =>
-          fetch(fileName + '?t=' + Date.now())
-            .then(r => {
-              if (!r.ok) throw new Error(`Failed to load ${fileName}`);
-              return r.json();
-            })
-            .then(json => {
-              if (!Array.isArray(json)) {
-                log(`Warning: ${fileName} does not contain array, ignoring.`);
-                return [];
-              }
-              log(`Loaded ${fileName} with ${json.length} entries.`);
-              return json;
-            })
-            .catch(e => {
-              log(`Error loading ${fileName}: ${e.message}`);
-              return [];
-            })
-        )
-      );
-    })
-    .then(allDataArrays => {
-      const combined = allDataArrays.flat();
-      log(`Total combined entries: ${combined.length}`);
+  // Load and render charts
+  function loadDataAndRender() {
+    container.innerHTML = ''; // clear previous content
 
-      if (combined.length === 0) {
-        container.innerHTML = '<p class="text-danger">No data available to display.</p>';
-        return;
-      }
+    fetch('data/index.json?t=' + Date.now())
+      .then(res => {
+        if (!res.ok) throw new Error('Failed to load index.json');
+        return res.json();
+      })
+      .then(fileList => {
+        return Promise.all(
+          fileList.map(fileName =>
+            fetch(fileName + '?t=' + Date.now())
+              .then(r => {
+                if (!r.ok) throw new Error(`Failed to load ${fileName}`);
+                return r.json();
+              })
+              .then(json => {
+                if (!Array.isArray(json)) return [];
+                return json;
+              })
+              .catch(() => [])
+          )
+        );
+      })
+      .then(allDataArrays => {
+        const combined = allDataArrays.flat();
 
-      // Group by symbol
-      const grouped = combined.reduce((acc, entry) => {
-        if (!entry.symbol) return acc;
-        if (!acc[entry.symbol]) acc[entry.symbol] = [];
-        acc[entry.symbol].push(entry);
-        return acc;
-      }, {});
+        if (combined.length === 0) {
+          container.innerHTML = '<p class="text-danger">No data available to display.</p>';
+          return;
+        }
 
-      log(`Symbols found: ${Object.keys(grouped).join(', ')}`);
+        // Group by symbol
+        const grouped = combined.reduce((acc, entry) => {
+          if (!entry.symbol) return acc;
+          if (!acc[entry.symbol]) acc[entry.symbol] = [];
+          acc[entry.symbol].push(entry);
+          return acc;
+        }, {});
 
-      Object.entries(grouped).forEach(([symbol, entries], idx) => {
-        const col = document.createElement('div');
-        col.className = 'col-12 col-md-6 col-lg-4 mb-4';
+        Object.entries(grouped).forEach(([symbol, entries], idx) => {
+          const col = document.createElement('div');
+          col.className = 'col-12 col-md-6 col-lg-4 mb-4';
 
-        const card = document.createElement('div');
-        card.className = 'card shadow-sm h-100';
+          const card = document.createElement('div');
+          card.className = 'card shadow-sm h-100';
 
-        const cardBody = document.createElement('div');
-        cardBody.className = 'card-body d-flex flex-column';
+          const cardBody = document.createElement('div');
+          cardBody.className = 'card-body d-flex flex-column';
 
-        const title = document.createElement('h5');
-        title.className = 'card-title text-primary';
-        title.textContent = symbol;
-        cardBody.appendChild(title);
+          const title = document.createElement('h5');
+          title.className = 'card-title text-primary';
+          title.textContent = symbol;
+          cardBody.appendChild(title);
 
-        const canvas = document.createElement('canvas');
-        canvas.id = 'chart-' + idx;
-        canvas.style.flexGrow = '1';
-        cardBody.appendChild(canvas);
+          const canvas = document.createElement('canvas');
+          canvas.id = 'chart-' + idx;
+          canvas.style.flexGrow = '1';
+          cardBody.appendChild(canvas);
 
-        // Signal with icon & color
-        const { icon: signalIcon, className: signalClass } = getSignalProps(entries[0].signal);
-        const signalText = document.createElement('p');
-        signalText.className = `mt-3 mb-1 ${signalClass}`;
-        signalText.innerHTML = `<i class="${signalIcon} me-2"></i> Signal: ${entries[0].signal || 'N/A'}`;
-        cardBody.appendChild(signalText);
+          // Signal with icon & color
+          const { icon: signalIcon, className: signalClass } = getSignalProps(entries[0].signal);
+          const signalText = document.createElement('p');
+          signalText.className = `mt-3 mb-1 ${signalClass}`;
+          signalText.innerHTML = `<i class="${signalIcon} me-2"></i> Signal: ${entries[0].signal || 'N/A'}`;
+          cardBody.appendChild(signalText);
 
-        // Build Side with color
-        const { className: buildClass } = getBuildSideProps(entries[0].build_side);
-        const buildSideText = document.createElement('p');
-        buildSideText.className = `mb-0 ${buildClass}`;
-        buildSideText.textContent = `Build Side: ${entries[0].build_side || 'N/A'}`;
-        cardBody.appendChild(buildSideText);
+          // Build Side with color
+          const { className: buildClass } = getBuildSideProps(entries[0].build_side);
+          const buildSideText = document.createElement('p');
+          buildSideText.className = `mb-0 ${buildClass}`;
+          buildSideText.textContent = `Build Side: ${entries[0].build_side || 'N/A'}`;
+          cardBody.appendChild(buildSideText);
 
-        // OI Direction with icon & color
-        const { icon: oiIcon, className: oiClass } = getOiDirectionProps(entries[0].oi_direction);
-        const oiDirectionText = document.createElement('p');
-        oiDirectionText.className = `mb-0 ${oiClass}`;
-        oiDirectionText.innerHTML = ` OI Direction: ${entries[0].oi_direction || 'N/A'}`;
-        cardBody.appendChild(oiDirectionText);
+          // OI Direction with icon & color
+          const { icon: oiIcon, className: oiClass } = getOiDirectionProps(entries[0].oi_direction);
+          const oiDirectionText = document.createElement('p');
+          oiDirectionText.className = `mb-0 ${oiClass}`;
+          oiDirectionText.innerHTML = ` OI Direction: ${entries[0].oi_direction || 'N/A'}`;
+          cardBody.appendChild(oiDirectionText);
 
-        card.appendChild(cardBody);
-        col.appendChild(card);
-        container.appendChild(col);
+          card.appendChild(cardBody);
+          col.appendChild(card);
+          container.appendChild(col);
 
-        const labels = entries.map((_, i) => `#${i + 1}`);
+          const labels = entries.map((_, i) => `#${i + 1}`);
 
-        const datasets = [
-          {
-            label: 'Total CE OI',
-            data: entries.map(e => e.total_ce_oi),
-            borderColor: '#fd7e14',
-            backgroundColor: '#fd7e1488',
-            fill: false,
-            tension: 0.3,
-            pointRadius: 3
-          },
-          {
-            label: 'Total PE OI',
-            data: entries.map(e => e.total_pe_oi),
-            borderColor: '#6f42c1',
-            backgroundColor: '#6f42c188',
-            fill: false,
-            tension: 0.3,
-            pointRadius: 3
-          }
-        ];
-
-        new Chart(canvas.getContext('2d'), {
-          type: 'line',
-          data: { labels, datasets },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            interaction: { mode: 'nearest', intersect: false },
-            scales: {
-              y: {
-                beginAtZero: true,
-                title: { display: true, text: 'Open Interest (OI)' }
-              },
-              x: {
-                title: { display: true, text: 'Record # (Time order)' }
-              }
+          const datasets = [
+            {
+              label: 'Total CE OI',
+              data: entries.map(e => e.total_ce_oi),
+              borderColor: '#fd7e14',
+              backgroundColor: '#fd7e1488',
+              fill: false,
+              tension: 0.3,
+              pointRadius: 3
             },
-            plugins: {
-              legend: { position: 'top' },
-              tooltip: {
-                callbacks: {
-                  label: ctx => ctx.parsed.y.toLocaleString()
+            {
+              label: 'Total PE OI',
+              data: entries.map(e => e.total_pe_oi),
+              borderColor: '#6f42c1',
+              backgroundColor: '#6f42c188',
+              fill: false,
+              tension: 0.3,
+              pointRadius: 3
+            }
+          ];
+
+          new Chart(canvas.getContext('2d'), {
+            type: 'line',
+            data: { labels, datasets },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              interaction: { mode: 'nearest', intersect: false },
+              scales: {
+                y: {
+                  beginAtZero: true,
+                  title: { display: true, text: 'Open Interest (OI)' },
+                  grid: {
+                    color: document.body.classList.contains('dark-mode') ? '#444' : '#e9ecef'
+                  }
+                },
+                x: {
+                  title: { display: true, text: 'Record # (Time order)' },
+                  grid: {
+                    color: document.body.classList.contains('dark-mode') ? '#444' : '#e9ecef'
+                  }
+                }
+              },
+              plugins: {
+                legend: { position: 'top', labels: { color: document.body.classList.contains('dark-mode') ? '#eee' : '#212529' } },
+                tooltip: {
+                  callbacks: {
+                    label: ctx => ctx.parsed.y.toLocaleString()
+                  }
                 }
               }
             }
-          }
+          });
         });
+      })
+      .catch(err => {
+        console.error('Error:', err);
+        container.innerHTML = `<p class="text-danger">Error loading data: ${err.message}</p>`;
       });
-    })
-    .catch(err => {
-      console.error('Error:', err);
-      container.innerHTML = `<p class="text-danger">Error loading data: ${err.message}</p>`;
-    });
+  }
+
+  // On page load
+  applySavedMode();
+  loadDataAndRender();
+
 </script>
 
 <footer class="bg-light text-center text-muted py-3 mt-4" style="position: fixed; bottom: 0; width: 100%; z-index: 1000;">
