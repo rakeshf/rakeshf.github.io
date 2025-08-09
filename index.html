@@ -3,42 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <title>Stock Movement Overview</title>
-  <meta name="description"
-    content="Interactive F&O Stock Dashboard to analyze option chain data, PCR, open interest, and signals like Long Unwinding, Short Covering. Supports filtering, dark mode, and data file selection." />
-  <meta name="keywords"
-    content="F&O dashboard, stock analysis, options dashboard, PCR, open interest, option chain, Long Unwinding, Short Covering, bullish sentiment, bearish sentiment, stock screener, OI data, nsepython" />
+  <meta name="description" content="Interactive F&O Stock Dashboard to analyze option chain data, PCR, open interest, and signals like Long Unwinding, Short Covering. Supports filtering, dark mode, and data file selection." />
+  <meta name="keywords" content="F&O dashboard, stock analysis, options dashboard, PCR, open interest, option chain, Long Unwinding, Short Covering, bullish sentiment, bearish sentiment, stock screener, OI data, nsepython" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="index, follow" />
-  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Bootstrap Icons CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
   <link href="icons8-rupee-48.png" rel="shortcut icon">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    body {
-      padding-bottom: 70px;
-      background-color: #fff;
-      color: #212529;
-      transition: background-color 0.3s, color 0.3s;
+    body { padding-bottom: 70px; background-color: #fff; color: #212529; transition: background-color 0.3s, color 0.3s; }
+    .dark-mode { background-color: #121212; color: #e1e1e1; }
+    .card { background-color: #fff; color: #212529; transition: transform 0.25s ease, box-shadow 0.25s ease; cursor: default; position: relative; overflow: visible; }
+    .dark-mode .card { background-color: #1e1e1e; color: #e1e1e1; }
+    .card.expanded { transform: scale(1.02); z-index: 1100; }
+    /* Expand button: top-right */
+    .expand-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      z-index: 1200;
+      padding: .25rem .4rem;
+      line-height: 1;
     }
-    .dark-mode {
-      background-color: #121212;
-      color: #e1e1e1;
-    }
-    .card {
-      background-color: #fff;
-      color: #212529;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    .dark-mode .card {
-      background-color: #1e1e1e;
-      color: #e1e1e1;
-    }
-    .card canvas {
-      width: 100% !important;
-      height: 220px !important;
-    }
+    .expand-btn i { font-size: 1rem; }
+    .card-body { padding-top: 2.25rem; } /* leave space for the top-right button */
     .signal-positive { color: #198754; font-weight: 600; }
     .signal-negative { color: #dc3545; font-weight: 600; }
     .signal-warning { color: #fd7e14; font-weight: 600; }
@@ -48,21 +37,12 @@
     .oi-up { color: #198754; font-weight: 600; }
     .oi-down { color: #dc3545; font-weight: 600; }
     .oi-neutral { color: #6c757d; font-weight: 600; }
-    footer {
-      background-color: #f8f9fa;
-      color: #6c757d;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    .dark-mode footer {
-      background-color: #121212;
-      color: #999;
-    }
-    #darkModeToggle {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      z-index: 1100;
-    }
+    footer { background-color: #f8f9fa; color: #6c757d; transition: background-color 0.3s, color 0.3s; }
+    .dark-mode footer { background-color: #121212; color: #999; }
+    #darkModeToggle { position: fixed; top: 10px; right: 10px; z-index: 1300; }
+    /* Make canvas area visually constrained so Chart.js can size correctly */
+    .chart-wrapper { width: 100%; min-height: 180px; max-height: 340px; display: flex; }
+    .card canvas { width: 100% !important; height: 100% !important; }
   </style>
 </head>
 <body>
@@ -81,16 +61,13 @@
   const darkModeToggle = document.getElementById('darkModeToggle');
 
   function updateToggleText() {
-    if(document.body.classList.contains('dark-mode')) {
-      darkModeToggle.innerHTML = '<i class="bi bi-sun-fill"></i> Light Mode';
-    } else {
-      darkModeToggle.innerHTML = '<i class="bi bi-moon-fill"></i> Dark Mode';
-    }
+    darkModeToggle.innerHTML = document.body.classList.contains('dark-mode') 
+      ? '<i class="bi bi-sun-fill"></i> Light Mode'
+      : '<i class="bi bi-moon-fill"></i> Dark Mode';
   }
 
   function applySavedMode() {
-    const savedMode = localStorage.getItem('darkMode');
-    if (savedMode === 'enabled') {
+    if (localStorage.getItem('darkMode') === 'enabled') {
       document.body.classList.add('dark-mode');
     } else {
       document.body.classList.remove('dark-mode');
@@ -136,147 +113,167 @@
     return { icon: '', className: 'oi-neutral' };
   }
 
+  function safeNumber(v) { return (typeof v === 'number' && !isNaN(v)) ? v : null; }
+
   function loadDataAndRender() {
     container.innerHTML = '';
 
     fetch('data/index.json?t=' + Date.now())
       .then(res => res.json())
-      .then(fileList => {
-        const reversedFileList = fileList.slice().reverse();
-        return Promise.all(
-          reversedFileList.map(fileName =>
-            fetch(fileName + '?t=' + Date.now())
-              .then(r => r.json())
-              .catch(() => [])
-          )
-        );
-      })
+      .then(fileList => Promise.all(
+        fileList.slice().reverse().map(fileName =>
+          fetch(fileName + '?t=' + Date.now()).then(r => r.json()).catch(() => [])
+        )
+      ))
       .then(allDataArrays => {
         const combined = allDataArrays.flat();
         if (combined.length === 0) {
           container.innerHTML = '<p class="text-danger">No data available to display.</p>';
           return;
         }
+        // Group by symbol
         const grouped = combined.reduce((acc, entry) => {
-          if (!entry.symbol) return acc;
+          if (!entry || !entry.symbol) return acc;
           if (!acc[entry.symbol]) acc[entry.symbol] = [];
           acc[entry.symbol].push(entry);
           return acc;
         }, {});
 
         Object.entries(grouped).forEach(([symbol, entries], idx) => {
+          // create column & card
           const col = document.createElement('div');
           col.className = 'col-12 col-md-6 col-lg-4 mb-4';
           const card = document.createElement('div');
           card.className = 'card shadow-sm h-100';
+          card.style.position = 'relative';
           const cardBody = document.createElement('div');
           cardBody.className = 'card-body d-flex flex-column';
+
+          // top-right expand button (icon)
+          const expandBtn = document.createElement('button');
+          expandBtn.type = 'button';
+          expandBtn.className = 'btn btn-sm btn-outline-secondary expand-btn';
+          expandBtn.setAttribute('title', 'Expand');
+          expandBtn.innerHTML = '<i class="bi bi-arrows-fullscreen"></i>'; // uses bootstrap icons
+          // append button to card so it's positioned correctly
+          card.appendChild(expandBtn);
+
+          // Title
           const title = document.createElement('h5');
           title.className = 'card-title text-primary';
           title.textContent = symbol;
           cardBody.appendChild(title);
+
+          // Chart wrapper & canvas
+          const chartWrapper = document.createElement('div');
+          chartWrapper.className = 'chart-wrapper mb-2 flex-grow-1';
           const canvas = document.createElement('canvas');
           canvas.id = 'chart-' + idx;
-          canvas.style.flexGrow = '1';
-          cardBody.appendChild(canvas);
+          canvas.style.width = '100%';
+          canvas.style.height = '100%';
+          chartWrapper.appendChild(canvas);
+          cardBody.appendChild(chartWrapper);
 
-          const { icon: signalIcon, className: signalClass } = getSignalProps(entries[0].signal);
+          // Signal & meta
+          const { icon: signalIcon, className: signalClass } = getSignalProps(entries[0]?.signal);
           const signalText = document.createElement('p');
-          signalText.className = `mt-3 mb-1 ${signalClass}`;
-          signalText.innerHTML = `<i class="${signalIcon} me-2"></i> Signal: ${entries[0].signal || 'N/A'}`;
+          signalText.className = `mt-2 mb-1 ${signalClass}`;
+          signalText.innerHTML = `<i class="${signalIcon} me-2"></i> Signal: ${entries[0]?.signal || 'N/A'}`;
           cardBody.appendChild(signalText);
 
-          const { className: buildClass } = getBuildSideProps(entries[0].build_side);
+          const { className: buildClass } = getBuildSideProps(entries[0]?.build_side);
           const buildSideText = document.createElement('p');
           buildSideText.className = `mb-0 ${buildClass}`;
-          buildSideText.textContent = `Build Side: ${entries[0].build_side || 'N/A'}`;
+          buildSideText.textContent = `Build Side: ${entries[0]?.build_side || 'N/A'}`;
           cardBody.appendChild(buildSideText);
 
-          const { icon: oiIcon, className: oiClass } = getOiDirectionProps(entries[0].oi_direction);
+          const { icon: oiIcon, className: oiClass } = getOiDirectionProps(entries[0]?.oi_direction);
           const oiDirectionText = document.createElement('p');
           oiDirectionText.className = `mb-0 ${oiClass}`;
-          oiDirectionText.innerHTML = ` OI Direction: ${entries[0].oi_direction || 'N/A'}`;
+          oiDirectionText.innerHTML = ` OI Direction: ${entries[0]?.oi_direction || 'N/A'}`;
           cardBody.appendChild(oiDirectionText);
 
+          // finalize DOM
           card.appendChild(cardBody);
           col.appendChild(card);
           container.appendChild(col);
 
+          // Prepare labels and datasets (keep nulls so Chart.js handles gaps)
           const labels = entries.map(e => {
-            if (!e.timestamp) return '';
-            const date = new Date(e.timestamp);
-            return date.toLocaleTimeString('en-IN', { 
-              hour: '2-digit', minute: '2-digit',
-              hour12: true, timeZone: 'Asia/Kolkata' 
-            });
+            if (!e?.timestamp) return '';
+            return new Date(e.timestamp).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: true, timeZone: 'Asia/Kolkata' });
           });
+          const ceData = entries.map(e => safeNumber(e.total_ce_oi));
+          const peData = entries.map(e => safeNumber(e.total_pe_oi));
 
-          const datasets = [
-            {
-              label: 'Total CE OI',
-              data: entries.map(e => e.total_ce_oi),
-              borderColor: '#fd7e14',
-              backgroundColor: '#fd7e1488',
-              fill: false,
-              tension: 0.3,
-              pointRadius: 3
-            },
-            {
-              label: 'Total PE OI',
-              data: entries.map(e => e.total_pe_oi),
-              borderColor: '#6f42c1',
-              backgroundColor: '#6f42c188',
-              fill: false,
-              tension: 0.3,
-              pointRadius: 3
-            }
-          ];
-
-          new Chart(canvas.getContext('2d'), {
+          // create chart and store reference on canvas for later resize
+          const chart = new Chart(canvas.getContext('2d'), {
             type: 'line',
-            data: { labels, datasets },
+            data: {
+              labels,
+              datasets: [
+                { label: 'Total CE OI', data: ceData, borderColor: '#fd7e14', backgroundColor: '#fd7e1488', fill: false, tension: 0.3, pointRadius: 3 },
+                { label: 'Total PE OI', data: peData, borderColor: '#6f42c1', backgroundColor: '#6f42c188', fill: false, tension: 0.3, pointRadius: 3 }
+              ]
+            },
             options: {
               responsive: true,
               maintainAspectRatio: false,
               interaction: { mode: 'nearest', intersect: false },
               scales: {
-                y: {
-                  beginAtZero: true,
-                  title: { display: true, text: 'Open Interest (OI)' },
-                  grid: {
-                    color: document.body.classList.contains('dark-mode') ? '#444' : '#e9ecef'
-                  }
-                },
-                x: {
-                  title: { display: true, text: 'Timestamp (IST)' },
-                  grid: {
-                    color: document.body.classList.contains('dark-mode') ? '#444' : '#e9ecef'
-                  }
-                }
+                y: { beginAtZero: true, title: { display: true, text: 'Open Interest (OI)' }, grid: { color: document.body.classList.contains('dark-mode') ? '#444' : '#e9ecef' } },
+                x: { title: { display: true, text: 'Timestamp (IST)' }, grid: { color: document.body.classList.contains('dark-mode') ? '#444' : '#e9ecef' } }
               },
               plugins: {
-                legend: { 
-                  position: 'top', 
-                  labels: { color: document.body.classList.contains('dark-mode') ? '#eee' : '#212529' } 
-                },
+                legend: { position: 'top', labels: { color: document.body.classList.contains('dark-mode') ? '#eee' : '#212529' } },
                 tooltip: {
                   callbacks: {
-                    label: ctx => ctx.parsed.y.toLocaleString(),
+                    label: ctx => (ctx.parsed.y === null || ctx.parsed.y === undefined) ? 'N/A' : ctx.parsed.y.toLocaleString(),
                     title: ctx => {
                       const ts = entries[ctx[0].dataIndex]?.timestamp;
-                      if (!ts) return '';
-                      const d = new Date(ts);
-                      return d.toLocaleString('en-IN', { 
-                        timeZone: 'Asia/Kolkata', 
-                        dateStyle: 'medium', 
-                        timeStyle: 'short',
-                        hour12: true
-                      });
+                      return ts ? new Date(ts).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', dateStyle: 'medium', timeStyle: 'short', hour12: true }) : '';
                     }
                   }
                 }
               }
             }
+          });
+          // attach chart ref for resizing later
+          canvas._oiChart = chart;
+
+          // Expand button behavior (only this button toggles expand)
+          expandBtn.addEventListener('click', (evt) => {
+            evt.stopPropagation();
+            // collapse other expanded cards
+            document.querySelectorAll('.card.expanded').forEach(otherCard => {
+              if (otherCard === card) return;
+              otherCard.classList.remove('expanded');
+              const otherCol = otherCard.closest('[class*="col-"]');
+              if (otherCol) otherCol.className = 'col-12 col-md-6 col-lg-4 mb-4';
+              const otherBtn = otherCard.querySelector('.expand-btn');
+              if (otherBtn) otherBtn.innerHTML = '<i class="bi bi-arrows-fullscreen"></i>';
+              const c = otherCard.querySelector('canvas');
+              if (c && c._oiChart) {
+                // give layout a moment to settle
+                setTimeout(() => c._oiChart.resize(), 220);
+              }
+            });
+
+            // toggle current
+            const isNowExpanded = !card.classList.contains('expanded');
+            if (isNowExpanded) {
+              card.classList.add('expanded');
+              col.className = 'col-12 col-md-6 col-lg-12 mb-4';
+              expandBtn.innerHTML = '<i class="bi bi-fullscreen-exit"></i>';
+            } else {
+              card.classList.remove('expanded');
+              col.className = 'col-12 col-md-6 col-lg-4 mb-4';
+              expandBtn.innerHTML = '<i class="bi bi-arrows-fullscreen"></i>';
+            }
+            // resize chart after layout changes
+            setTimeout(() => {
+              if (canvas && canvas._oiChart) canvas._oiChart.resize();
+            }, 220);
           });
         });
       })
