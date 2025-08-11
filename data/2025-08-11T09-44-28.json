@@ -1,0 +1,19 @@
+[
+  {
+    "symbol": "RELIANCE",
+    "price": 1366.0,
+    "previous_close": 1367.8,
+    "price_change_pct": -0.13,
+    "price_direction": "\u2193",
+    "total_ce_oi": 131154,
+    "total_pe_oi": 75080,
+    "oi_change_pct": 0.03,
+    "ce_oi_change_pct": 0.03,
+    "pe_oi_change_pct": 0.02,
+    "oi_direction": "\u2191",
+    "pcr": 0.57,
+    "sentiment": "Bullish",
+    "signal": "Short Build-up \u26a0\ufe0f",
+    "build_side": "Balanced",
+    "conflict": true,
+    "timestamp": 
