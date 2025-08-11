@@ -1,0 +1,339 @@
+[
+  {
+    "stock": "TCS",
+    "date": "2025-08-11",
+    "positive": 5,
+    "negative": 4,
+    "neutral": 1,
+    "average_score": 0.127,
+    "overall": "Positive 📈",
+    "articles": [
+      {
+        "title": "Tata Consultancy Services actual layoffs said to exceed 12,000 - Deccan Herald",
+        "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOczJqRk5iS0lsNjJ2elFhcExrWE0xUWF1VU9QSkYyb2pYQzZkMmM1MjZKaklSNmQwcVhpdmg3NFNEbFNIbHdqX25jdjd1Q28ta0xKeUdJbllSTUp0Yzh2NWlPYXlRb0hWcTZWdXRmTWZuak1XQUVwUEFjRTN2MVRxcS1YMUdRX2tSOWQwQjBWVnBuWER2TXZtTg?oc=5",
+        "score": 0.0,
+        "sentiment": "Neutral 😐"
+      },
+      {
+        "title": "TCS wage hike: Who will get increment? From pay raise to roll-out date — here's all you need to know - Mint",
+        "link": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxOZGhNczdnTDZvWnJhSENMQnkwdjNPREl2ZkdEcEFFN3QwN2JKaUREZl9LZmEtcEhUYnlJYllHS3hGUWNGWUx5SHdHdUdVaXJ5ek1fcGkwd2Vtdl8yM2VnOGRyR2hIUl9DM0pDMXlUbElOc0JyYm5VQnk5NWdpZkNHcGZ4MlRadWFPZ3NjMURXdk5jc0RiQmhQbENmUWwxV2RDZVpzaDBIaTUwazlzMmVZZW5BY0E4R2JKTFpzT3VSVDB4cmh5cjZOcG54bGF0bTRQTTlxaFdNVXo5QjhSRnRBdXRyQXM5ME9ZUVRRNHRRb3ZJU1hJTGEzcnhB0gH_AUFVX3lxTE9QYTByQkFwS0h2YlFEM1cxcmhJQXkzeVUtV2dxRHlacDQ5YktUN2lxNzZMMGNLcDhCNzd0UU0tcGdVOE9sSjJ0TnQ2Y0ZUeEFCOGtHWU10bWdaOXVnZ0hYMjVZSzhuVnRBVk0zbHNMbTVFSzIyZHd2OEdJUnZ2dng2SDR6MTY5ek9wLWdBTEpSZzJ1cGxMUFp6UzZMdGhvN0hPVHkxdmFzV3ptbldoWG5lbHlQSl9OSUdSUzdRdTItM2pUQ2tXanF1eVFTLU11ZGl2SDJjR2JlTUdRSFUwUl9GT2ozNFlXNlNDSFJtbG1CYktvUDc4ZXprMW5hRjBLQQ?oc=5",
+        "score": -0.103,
+        "sentiment": "Negative 📉"
+      },
+      {
+        "title": "TCS salary hike: Company to roll out wage hikes for 80% of employees, effective September 1 - The Hindu",
+        "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOVUpEaEJ3TTlxLTdUeThkLUtwQ256Zk1KUXBrNnhSQS11REt5QlpLbk5reXJvSS01cHdXN2xvQ3NUVnBiMmx4TlBlaGJGSHFHTE12M0N6SkZ3cDFvM0V0M0l1ZTJrWVZ5QkhENnhySjlnR1RMSUdMSHdtSjRWRzdiTzZQSHFHZEZtbk1NaWJJbVU5ZGIwX2ZSYW5FMnZXU1RTUGFXdTFBT1M4S1lEZTN6Vi1TU0JlRm9pOExFVG8tMGVPajJqRkRoOGlLXzVzUThiZVJKZ9IB2wFBVV95cUxOTEQ3MV9EbHV1UE5XZWU1N0Y3dzRSZUxGR3EzTWYxUzVaUmRINlRqcW5mS2E3eWhtNkp4WFRDcmdfd28ycThMWUoycllGSS02ZjJ5QnpQUU9heGRkVlRkeUJGSVh2TGxibmZ2T2hqVVpONlRIWWROcUFqRUxKS18tcGtDeTJ4aE4wOTJuSHZTMFdrbXJwQ1B5c1NGM29vV1RRSmNpanhHSENFYVJTOFJFaTJrRWY5a3pBUU0xWThKVm9XcF9YcVBCelhqM3U1VnlJNUxObGE4UFZ0dW8?oc=5",
+        "score": 0.477,
+        "sentiment": "Positive 📈"
+      },
+      {
+        "title": "TCS 2025: Layoffs, pay hikes, and mega CXO salaries explained - Storyboard18",
+        "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQOE5qTXFzV191WXNtT285OGxsREtPbUtRX3VUTm1WNXQ5MTRPT2p1RTF0NFJfc3A2VEhVVXFPN3lzZUZlVHhoZ3lWZHlWNFZRenRqRXRFSGg1NEdPR0xMM3lOZHdFejgwZ25NX3JIMkhNTzdnVzNla2R6dE5ZQTJNOThNdUx3WUxWR3V2RnE2bVdDSUxIZ0lwVDZmWThZMDFqa0VOQ00wM3RRejFTX1Nv0gG0AUFVX3lxTE8yblJuZHNlQUJ0bVcyN2t3NGJNODV1U29aZDJVYnc2aVQ5dEgxNEZiaTBjVmRRNjRPV216TW1qZVc4ZEQ1UzBqT0JFR3JBajFsM3dPZUxzTlBaVloyUWdFTWZvR2VIb0l4VW5KZEJQZlBfZXd4RUZPOGlFWW5oRWVPem5iakRjN0JVdi10WFBDT0pCT3FlNjluSWhTTTdwWmRUT3REVUp1NXRJbk9JZjVpTnJsQg?oc=5",
+        "score": -0.103,
+        "sentiment": "Negative 📉"
+      },
+      {
+        "title": "TCS Extends Partnership with Weatherford International to Enable AI Driven Business Transformation - Tata Consultancy Services",
+        "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQSDZDSk05T0FIaGZZMUtMSjg1RzJuQnBFQVV1U1k4RXNWXzJFTVEwUjNmMVV3dlAza1J4LWxWc1Vwd09sSjF3QktXbUtkT2RRaTBEUFQ1QlRkVDl4dmJUOURaeE51ajBUd1dzbXZMdkZJeDZ3MV9la2FabWlPQlZrY1hDcnMxRmNIOWlFNjBzSHhPbTlSMDdkcGRDUGpiSUoyQ1laM0N4cVZfQXpmX3FyWURjTVFVSkdqNFo2MXdQTGxXcG1NNnVwNlJrNFBHWkd6VGhMVnA2aDE0d0lX?oc=5",
+        "score": 0.128,
+        "sentiment": "Positive 📈"
+      },
+      {
+        "title": "TCS Share Price Highlights: TCS Stock Price History",
+        "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=689953f8201b48749d407c2cc148af10&url=https%3a%2f%2feconomictimes.indiatimes.com%2fmarkets%2fstocks%2fstock-liveblog%2ftcs-stock-price-today-live-08-aug-2025%2fliveblog%2f123178630.cms&c=691766738661265793&mkt=en-in",
+        "score": 0.296,
+        "sentiment": "Positive 📈"
+      },
+      {
+        "title": "TCS' 34% share price crash from peak hits LIC portfolio — ₹27,000 crore wiped out",
+        "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=689953f8201b48749d407c2cc148af10&url=https%3a%2f%2fwww.msn.com%2fen-in%2fmoney%2fmarkets%2ftcs-34-share-price-crash-from-peak-hits-lic-portfolio-27000-crore-wiped-out%2far-AA1K91mr&c=6985523603230963349&mkt=en-in",
+        "score": -0.128,
+        "sentiment": "Negative 📉"
+      },
+      {
+        "title": "TCS Stock Slumps! IT Giant’s Shares Crash 33% From Peak, Nosedive 25% In 2025",
+        "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=689953f8201b48749d407c2cc148af10&url=https%3a%2f%2fwww.msn.com%2fen-in%2fmoney%2fmarkets%2ftcs-stock-slumps-it-giant-s-shares-crash-33-from-peak-nosedive-25-in-2025-amid-layoffs-scareask-chatgpt%2far-AA1JuH4L&c=17125280483700139522&mkt=en-in",
+        "score": -0.2,
+        "sentiment": "Negative 📉"
+      },
+      {
+        "title": "TCS stock slumps! IT firm's shares plunge 33% from lifetime high, down 25% in 2025; amidst layoffs news, will bearish trend continue?",
+        "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=689953f8201b48749d407c2cc148af10&url=https%3a%2f%2fwww.msn.com%2fen-in%2fmoney%2fmarkets%2ftcs-stock-slumps-it-firms-shares-plunge-33-from-lifetime-high-down-25-in-2025-amidst-layoffs-news-will-bearish-trend-continue%2far-AA1JutZI&c=14006110823310563254&mkt=en-in",
+        "score": 0.359,
+        "sentiment": "Positive 📈"
+      },
+      {
+        "title": "TCS stock hits 33-month low; Jefferies, YES Securities' take on what's next",
+        "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=689953f8201b48749d407c2cc148af10&url=https%3a%2f%2fwww.business-standard.com%2fmarkets%2fnews%2ftcs-hits-33-month-low-slips-25-per-cent-in-2025-analysts-weigh-in-on-what-s-next-after-layoffs-125072900310_1.html&c=221088319484659859&mkt=en-in",
+        "score": 0.547,
+        "sentiment": "Positive 📈"
+      }
+    ]
+  },
+  {
+    "stock": "INFY",
+    "date": "2025-08-11",
+    "positive": 5,
+    "negative": 0,
+    "neutral": 5,
+    "average_score": 0.121,
+    "overall": "Positive 📈",
+    "articles": [
+      {
+        "title": "INFY Outlook for the Week (August 11, 2025 – August 15, 2025) - Equitypandit",
+        "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5kS1diXzYtdHFHS3d2QnlYTHpYSkpqRnJER2FlSGFjeWpkVXF6MEtxNnBfMUlSRDZDQktianllTDlIVVBSc2N5QURTbjQzdmtFSHhqQ1FEeHZXcEw5bEtpVWRZQkZTZw?oc=5",
+        "score": 0.0,
+        "sentiment": "Neutral 😐"
+      },
+      {
+        "title": "Infosys BPM schedules walk-in interview in Bengaluru for tech roles - The Economic Times",
+        "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQVGZwczRDSEUtT3kwcFlvaGlBbUpvY21FLURxRWNzQ18yR01hM2Zqd3F5VkoxSUNsVk1LcTQ3Vm5QVHFEd0piZWtnTjNJMU03bG4yTVpFT3NiSmxaLUNKejkyMDcxMXpETVNfQjh5VHluN1E0ZFNmeUhYN1czV0pNSnhndkRJUnRfLU84dUdRbDBzcm5ET19rWEQ4RjdDaFVzbS02QnVSZmcxZ20xZ3ZjOFZxWk0tUDJiYWV2dklwdEdVWVkwY1pvNnZlcDZHYWZEalVhZkc1UXNoODDSAeABQVVfeXFMT3lCSWZuQXdKYzdwTm1DdHZpaG9DMXIxa295RFZFc2dBT0FybkNUVmVyakVaQ1VibGhRcUVwSlZUTGtxSlVxSFlLdENOSGxMZFZpanE3cENQRzg4czhsTEtRaEo0aGd4eXBwZHMwRXRfcEpCZXpaYy1zYndkQkM3NHp4dUdZdERPQ3VFRTZwUDY1eFJIU2pFLUR0dFhudHY2RncwYjlhaVU3Y29FS1N6N19DUEUySnRpS0xuSmR3VzllTDB3M1g1bXdfNVJDVUtBOFRyNnZXeWhoemtCY21WcGo?oc=5",
+        "score": 0.0,
+        "sentiment": "Neutral 😐"
+      },
+      {
+        "title": "Infy, Adani Ent, Cochin Ship among 5 oversold stocks; trading strategy here - Business Standard",
+        "link": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxNWjlGZ0dWeXA1Um84VkhXUXJPLVdCMUNJRzdILUlsd3pSLTROVUJkcTB3R2ZKTzBKc1hDNjZPOWxBTmEwcUJJMl9POTVOb2NvbGZkUEZ5U1VsRDJZczRxSURYelJQSG9Vc21fVjRfeno2bkxaWnkxMG9YY0FzTFQ5SmJOS3dfYUV2WkVEMXpWRXpDbU1fYldneGdHYm9qamZDMm5uWDlGQV9FTDV4SlZnV2h5Um5qWHdUUWQxcXdxRDBIMFJvd21LQy15N29MclV4cHgwNkttbkE4UmZOV2I4NEtMTjBLT0IwMlY3cWdqS2JEQ2piSkI2dtIB_gFBVV95cUxPSFZuVnFrb0V3WlBDaHBKSzBZOXhSeXlvSGU0RktTQlhIdEw4U3ZTS2NoUjlpTm1vRU5SdUN3dV9RakUxMG9GVUx6eTRYSTVvV3lWS2lMSEl5aFpMbUg5eHozUHNtNlB5QjBvVVBYS09adktHZDdVWXE1VVV6dC1KQ3pMRWVNOXRJNEZ4elNaU1p1VjFwSFMtMFJNNXZxdDJ3RVp4dWc2eHVURW1rN3pQOVJwa1RGVEhXS0EtYzZTRkZwWEhlN1BRMy12YW04djFUVTB5Ui1vYnA5TzRPVFRsdUl4aWM0VmNGRXpUWkdhZzV3dkZxU2JtQms1bllpdw?oc=5",
+        "score": 0.0,
+        "sentiment": "Neutral 😐"
+      },
+      {
+        "title": "Infosys (INFY) and RWE Unite for Digital Workplace Transformation - Yahoo Finance",
+        "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPRnFuTlhmZHJUV0lJb1psVG5DUzNzQmVpbVZzcGhqbTYyWXVpQm9TOE9PcC1URVJ4SUhrd2s3ZzhLVzVHVGVBbk94Ym9RQTFEWS13Mko2MVpxVldnZkx6Ukc1SVVSeFY5WGZaYXVLcDFMa3RpWGd5ckJreWJGZ1JiVktB?oc=5",
+        "score": 0.0,
+        "sentiment": "Neutral 😐"
+      },
+      {
+        "title": "Infosys Recognized as Number One Service Provider in Cloud & Infrastructure Services in the Whitelane Research IT Sourcing Study 2025 UK & Ireland - PR Newswire",
+        "link": "https://news.google.com/rss/articles/CBMipwJBVV95cUxNS3pLdGpQRWF1VXltWk1OU1pCQ0pKSkx6X1h5VDdtT1UzTl9ZOEtTUFdaYXNvMXAwSGJEcEpOSUpfLVNwMmwycUIxRDR5eVVoa01UcEJhWVVidVY3QUcwTExYZjZMZXk0eGN0S2EteE1QZXlPVG40NGxKS3pYQk05YTVEOVBUWkJISkM5OFE1ODd3dktCSTNqdTZwT2hFOExIeHdGbXBlUEZ2clFMYVhEZjJTNllEcUNJM3ZhNTRwdmNrQkliclVNS2tSUVdDZGlRUzRHT2lDZkJKcV9KYkNILWRwNlFpZ25ib0hLeGI3U0hDYlBpbDRaOG9UNHd3eF9zZDNVSFZjY1o0QjdlX1A0a1V1aGt5SVFVNEFBMGw0YWx4eG9XQWQ4?oc=5",
+        "score": 0.077,
+        "sentiment": "Positive 📈"
+      },
+      {
+        "title": "Infosys Share Price Highlights: Infosys Stock Price History",
+        "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=689953fbedb64301acf07291a38f97fd&url=https%3a%2f%2feconomictimes.indiatimes.com%2fmarkets%2fstocks%2fstock-liveblog%2finfosys-stock-price-livestock-price-today-live-updates-07-aug-2025%2fliveblog%2f123154501.cms&c=5618425482962667117&mkt=en-in",
+        "score": 0.296,
+        "sentiment": "Positive 📈"
+      },
+      {
+        "title": "Should you buy, sell or hold Infy stock post Q1 results? Chart check here",
+        "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=689953fbedb64301acf07291a38f97fd&url=https%3a%2f%2fwww.business-standard.com%2fmarkets%2fnews%2finfosys-target-price-should-you-buy-sell-or-hold-infy-stock-post-q1-results-chart-check-here-125072400218_1.html&c=9000969440516075616&mkt=en-in",
+        "score": 0.0,
+        "sentiment": "Neutral 😐"
+      },
+      {
+        "title": "Infosys share price falls nearly 1% in Friday's trading session",
+        "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=689953fbedb64301acf07291a38f97fd&url=https%3a%2f%2fwww.moneycontrol.com%2fnews%2fbusiness%2fstocks%2finfosys-share-price-falls-nearly-1-in-friday-s-trading-session-alpha-article-13422120.html&c=14029399692335545220&mkt=en-in",
+        "score": 0.296,
+        "sentiment": "Positive 📈"
+      },
+      {
+        "title": "Why Infosys, Coforge, Hexaware and TechM are Kotak's Top IT stock picks",
+        "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=689953fbedb64301acf07291a38f97fd&url=https%3a%2f%2fwww.msn.com%2fen-in%2fmoney%2ftopstories%2fwhy-infosys-coforge-hexaware-and-techm-are-kotaks-top-it-stock-picks%2far-AA1JZqUP&c=5489876883827746439&mkt=en-in",
+        "score": 0.202,
+        "sentiment": "Positive 📈"
+      },
+      {
+        "title": "Infosys stock: IT stock slips 1.3% after Q1 results, Rs 8,661 crore in market value wiped off",
+        "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=689953fbedb64301acf07291a38f97fd&url=https%3a%2f%2fwww.msn.com%2fen-in%2fmoney%2fmarkets%2finfosys-stock-it-stock-slips-13-after-q1-results-rs-8661-crore-in-market-value-wiped-off%2far-AA1JdyjJ&c=8014066183515606087&mkt=en-in",
+        "score": 0.34,
+        "sentiment": "Positive 📈"
+      }
+    ]
+  },
+  {
+    "stock": "RELIANCE",
+    "date": "2025-08-11",
+    "positive": 4,
+    "negative": 1,
+    "neutral": 2,
+    "average_score": 0.145,
+    "overall": "Positive 📈",
+    "articles": [
+      {
+        "title": "Reliance Infra share price gains despite Indian stock market crash. Here’s why - Mint",
+        "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOdG42cEJySlBjQWJISk04cVh6Tm53TkNPMWxUOGcyeEVHeDhvLW9BMWpUdUppOGZpbHZoT0Y1aG96MFJrZHc4X3MtM2ZoYUtLRXlHbGZMWGdPVjFTVjBaUmZkVmpIa0h0R1JocVBJeTg5OEJNNlQySWVfcUV6cXAzVGR5M3ZNV3ljcEpMYjUtdDZZWDlONDhaTUVNTDl2SW9WV3p0QTJtLUFUZ3hicGdVczBXc3NHNmhteGpnUDlqY0JteGhHM2VieERsRmhHNzBvam96R0JOV3poSGdhaW54eNIB5gFBVV95cUxNSVh2SFNaLTJkNXJvcWxwZXBxVWRTTUxpazd1ejlTOExEY0d3emVYa2ZOMTBQLUFkSXFPUnpNM2RoWE5OVm5EeWU5dFlfb0pZVlQ5eHE4SVRWTk1GS3VzOGNsZGpPTE9JdFREbHhkRDEyeDFTRWV1Nms0M0xabEJId01DaThjNnB4SG1uVGFleDBBZzRRdWN1WEZQaTM2MW5sT3dEUDdPcGhzbkNqOXBVV1E0N3c1TXcxbmhxT2l1Q2pOQURReWFWZ2FKdVphZWZBTGY1TmwzajdnT0RNV0JsZmMyZTR4UQ?oc=5",
+        "score": 0.226,
+        "sentiment": "Positive 📈"
+      },
+      {
+        "title": "Reliance, Nayara gain USD 16 billion from discounted Russian crude as exports to EU, US rise - The New Indian Express",
+        "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNZUdrVkg2cVEwdnhVZU1xN0JwZ0hKLWQ3MndHMjFhMW50TjZ1RUZkRmZ2SzM2SUpOOUVqN2huSTJRRHpmVmVqVkNSTEpjQkp6RVctOXZrdlM2Ym5ybTdDN0JSR0k2b1p4Y21waEotZl9YVnR5eDNVOWhEZUJpS2M3Rno3azVKdXQ3NzBMcy1zeFpJendhMGNfUjVWQW1ZbE9USTR6NXVSWHVTa05GWEVrZVFoRHR6VFlvdTVfM3Q0cnJQdmpsUk4yT082ZGJsOXNKX21SaXB3Rm85RkhU0gHqAUFVX3lxTE03VTljWEt3aDNpeGx1ckdEY1dGaWFFaFRVeVFOd3BGRUEyXzNmTjFzQ1RqamVaRDFyaUFKQzVnenpWcS1GdjJTMmFSU2lEM3VLT19oS2lGMG1QTnJTaVJkZS1yVlV6ZVJMblRucWxEVzQxTTlEQzUzLW5fdWo3RGtVM041cko5SzJzRU01VTdaQ1FWd2J3ZXM5Z1RTMGVGX3B4LUt0aTktRFNRZUNlNmpxNzlCbm10cmpfUWxvanNWc19vX0dBSE51UnZJS1BZTFFGRW53SG9UNG9OMGxGV21pbG1MNVljWXJMUQ?oc=5",
+        "score": -0.026,
+        "sentiment": "Neutral 😐"
+      },
+      {
+        "title": "PM Narendra Modi says economy strong, seeks self-reliance in tech - Hindustan Times",
+        "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOYkpqVUQ5YkVSNUxXZHJHdEx5UzA0OTJMRFd6OFhKM3FERVpaVno0WTFoVENXOXZ4ZndydmNHS0twSXF4WmlyVkozMUZuc2pacmRVVk1PRXoxZzM4Vjg4b2pkb0dxRTVmZEYxaDcydGVzT3lvb2NOWlBRVy1rU2hlN3ltXzFkNDkwS05MampKWnJSN0xnSjQ3WTByRnJybVdwb3lsRVZld20wNFZUQkRuWWd6OA?oc=5",
+        "score": 0.511,
+        "sentiment": "Positive 📈"
+      },
+      {
+        "title": "Boost for Anil-Ambani Group: Reliance Infra gets SC nod to recover Rs 28,483 cr through subsidiaries in four years - financialexpress.com",
+        "link": "https://news.google.com/rss/articles/CBMiggJBVV95cUxQbmZYYXhib2g2TVpmYi01N3BBU0x6cXczWVVLaVp5cFVJS0pacDdCVzFQUHJKaWUzY0ZpbG9aUVV1ZUFhU1hnUnQwWmdqd05ZdEVKYTd5dTI1MVMxZHJrT0s0TVdNclh1dUV4d19tRUJucTIzMzNWRUcwZENPdUpzcW1HMTFCNzQ5Z1oxeTFyQWF6UXg2U0RvYjVuUk5yWXJtMFl1VkNicHAzVDZxMkc3dExWS1gxUkZ2cmluTFkyTTZfR25hekN3VnJjYUZIcVZLdDBZNHZ1S0NILW9YcnRsTmozeFJmOHNvdkJwSVMzRlpvRDc5Vy1TaTJQNDdkUS1BV3c?oc=5",
+        "score": 0.402,
+        "sentiment": "Positive 📈"
+      },
+      {
+        "title": "Reliance Infra to recover ₹28,483 cr in unpaid power dues from New Delhi consumers - The Economic Times",
+        "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxQQ1JWWGd2ckMxMGZLVTl5M0J3RjdleEIyU3B2aFBGWDRHUld2MDFCZHhWd29DM2FnU3loQjVaMGJJaVdsZllrMFp3bTRqSzZJTHR4RWtGUDhESjVUNGhxWFpvUi1FNC1QbGdWSkcxZXdMbERUbDhadE85eHNZTnFSbjBLMmdMOEktTU5aaUwxeXJuam9VQlJNZDc2Rm1YOWd6RF81TTlLMTBSeFRNZWFfQ1Q4WE1lZGxDT1VkZXV3ZWhYTk9hS2FreGNjLWxVZmRJQU9IR2VHMGtjSXdtdmstbHBUdF85WlI2TjV6RNIB8gFBVV95cUxPV2ZjZHF0NnJWVVpsSDVTU1FzUEwwZjRsb09YVC1HZ1RLdjgySmFOaWNOc2FoMVdGUWZWZ2RycTIydkJQY1h1MW9wUHZKUFRzem1ZX0h1WUk3OVp4ZFFnaXRWU0p6RmFIallEZUFkamhpRmdKb3dnODRvSkRzTjdxODNpUGItMGN0NVNFMUJHczlKZWRhbkhxdkJ1eWFZM003MkF0T2l4UHN2Z09TYnpyWWFoRF80Q014bjIzWDdteE1BdEE4eC1ldHYwRWFHekpYTFNoUlBLSnJGUDFHUnN6Z3FNay1jcVVNZzRkSkJBQU14dw?oc=5",
+        "score": 0.0,
+        "sentiment": "Neutral 😐"
+      },
+      {
+        "title": "Reliance Industries AGM Expectations: RIL's First Dividend Record Date Next Week After 1:1 Bonus; Buy?",
+        "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=689953fe80dd4f3bbb9ebee42dcf5def&url=https%3a%2f%2fwww.goodreturns.in%2fnews%2freliance-industries-agm-expectations-ril-first-dividend-record-date-next-week-after-1-1-bonus-buy-1448555.html&c=3656725744648045066&mkt=en-in",
+        "score": 0.542,
+        "sentiment": "Positive 📈"
+      },
+      {
+        "title": "Top Gainers and Losers on August 05: Triveni Turbine, Reliance Power, BSE, Inox India, Swiggy among top losers today",
+        "link": "https://www.msn.com/en-in/money/markets/top-gainers-and-losers-on-august-05-triveni-turbine-reliance-power-bse-inox-india-swiggy-among-top-losers-today/ar-AA1JVUu7?ocid=BingNewsVerp",
+        "score": -0.637,
+        "sentiment": "Negative 📉"
+      }
+    ]
+  },
+  {
+    "stock": "HDFCBANK",
+    "date": "2025-08-11",
+    "positive": 7,
+    "negative": 0,
+    "neutral": 3,
+    "average_score": 0.288,
+    "overall": "Positive 📈",
+    "articles": [
+      {
+        "title": "Its time for private sector to do heavy lifting: HDFC Bank Chairman - The Hindu",
+        "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOZVRqZXhxUmFId2ItR3VKaU5MMlBQT3p4enhUcUl6UkhGdENZNFlqbnNoTWFzQTdtYTcxNDhfcnd1V3J1MjcxdWVlOGNpTXd0QUtvRlZ1WXVvSXM5bWhMZjFmdEctMGlUcnd0eTNkaXN5NXAtMXRNb1c2RHJjU1BLQzFHUUFfRnN6Q1AybUdVWlhWaWNLWnU1Y2VGVUo0cVdkei05RUx3eEVnMFBzR3VVWDc4dkhuXzBObHdfMNIBwwFBVV95cUxNYW9fRVk3MHlXd2w4VnhKdkZfU3pBaHowRUZ4eHV0RTBEVkFmRzljMGxBY1BxRjBObUcxZ0hTVjBqcy1DX3ROczdGUklTZ0tMaEM5T0xsdFdUeERWUC02Tm1SWXpCeWhwT3ZDZ05KNlhjeEV5SXF5MXN3a2ZlS2wxWk9BS200TGl2T1F6TUpoc1hNQ0FVRlFROFhVQjJBN2taUTdTSnRHaUVpb0tLR0JrU3kyandrZlNGMFFNRHdNRFpiR1U?oc=5",
+        "score": 0.0,
+        "sentiment": "Neutral 😐"
+      },
+      {
+        "title": "SBI regains home loan crown, outpaces HDFC Bank by Rs 8,000 crore to top the housing segment - Moneycontrol",
+        "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOc3VnS1NxQlQ3bXg2MnVmREI0X1FQc01XYkFNQnI2NWZPaldOSldneG9MM2RaUkM2eE5MMEJsdXJyV2Y0N2UwdXFsZkdMc3Vab0xTUXhtN3NBV0RvRTdWcnVRTktEVjlBMmhxeWMxMF9nVGJnbjdsbHZfNVlLZG9qMmR6eVMzSzZmV0txYU92OXc0LWY5Ui12NWFiWV9CTzIxV3luVnhCMktJb2o3TXJnb3hoUS00ZjZIWlh5amowaDJZVXlaWFN6VGlEZnJvLWcxLWhWZm1NRjdaQjBr0gHiAUFVX3lxTFBwT2hrNHBJY3B5bHlIOGtQNVpLbjJoRTEzOHNjR0lXT21oRmFEX09hbEJpdVp5M2xXVm1VY2k5VlVYWnpFQVJYRVBEVDJHaWV2N0o4WE5WdmVhQWhidlRvZ19nWFhHTzRNWW14eERyVzU5OHAySkMyNUVSOG5wMGMyQzZOWmZhRWlTUlFxR0VlS29rbHpUeEZSbjJ0V3BPd0VZakpJc1ItbHRKSlVOMVZRN2xmX3dZN1RxdVh3dV9jTzRpOTcxTGh0bzlobjVfX2o4NnA0Z01nZ0hfdS1zV2p5Q2c?oc=5",
+        "score": 0.202,
+        "sentiment": "Positive 📈"
+      },
+      {
+        "title": "HDFC Bank, ICICI Bank poised for strong FY27 earnings, Says Motilal Oswal’s Khemka - The Economic Times",
+        "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQelBEbzYtRDcwUTZDWTRzZ2JVTS1pdzk4djFtVmpkSTFHTFlHNWxEeTlJOXMtYzlHd2NYWklCV3paVkVLQWRnZUR4Mzc1SThJMlI1dGFDMlZXc1pxbzBEcmJsQWo3YnRFazdFa3lodHFfUTZva01VZ1YzQVFvN2dhYXZOTDI5OHVBWS11ZzFrcmVObkIza21jNW54VkhvbGhMRURpZW9GelV0UlpIRU9WajlLODhqVjZyOTNQamFXZ3F4Qkx1VVB0Q21oZVVzbmo1VnEzRnpxTy1NazNWU2w0ODk3NWlVUUI30gHuAUFVX3lxTE9hQXp5bFdmY1NfcE9IbGtaWHliSzEtckdXMkNudHd0STBEbTRmMnk2WU04NDZMMVItUXVSdU1GZURWN2FJbjVOaWUwTk5xTndQeXVnSTRhYTlnZmgtempScUV4Y3I3c2JGay1EQkdoeFh0M3FmWFB3SFB6NVN5bGtVN19ocVd5YURSMTFJUjQ3MVQwN21SUHJwYUdTOVpoMWRFMTJCTUtYWmxSTjRIN1FQbWdkaFdUbjJLZkhGY1J2THpXc0t4a0RtbHBxWTduSHNRbHR1Qlh2NllVSXNwak1nYjRnRTNzR1VYZzM5UVE?oc=5",
+        "score": 0.649,
+        "sentiment": "Positive 📈"
+      },
+      {
+        "title": "Rs 1.2 crore turns to Rs 7,802 crore! SBI hits jackpot with NSDL. HDFC Bank, NSE aren't far behind - MSN",
+        "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOUlhJbDZlbjNEbmh1ZFpuZ25jQmw4VlpBWk9paFJLeERXMjQtd1R4T2dmLXhKaW03YnpmVDl0VV9uNFN5RGNiMURRWEhQVUg5WUdSaHVXckxLQ2dzMWVPbk8wRGRXZUh1SGtqYTB2alJ1aTI0WG1HY1VfaUJyQmhpMVFENVRTWW82dHktUFRZdzRSYmNwM1drV3dXTkFBb0hWLW1mTWpHQThlTFR2dkRWMXgtZGpiaVBWbGl3QjVGVTFaQ2xWNTludEJEV09FcmducHJEU2sxb0YzMGNxeHc?oc=5",
+        "score": 0.0,
+        "sentiment": "Neutral 😐"
+      },
+      {
+        "title": "HDFC Bank sets up oversight dept for board-level updates - financialexpress.com",
+        "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPdXRvQ09KbXRyQXEyeUhya1d1OGtYd3dqMExQNjd2eHdSSk5qYlZhSHliMnhxckRDRHdOMDBRc0pjajd6Zy1LTUFRMWhhTkthZXJaM1VtUXY4UmwxN1h1MndPZ2dUcnhlbVpSX3ZSVjRaWGNsR096YU51ckxuTy1HYmxhZFdHTGZ6NEI4bjQ2RzZvV2RlVV9GWi1YemlGdEh0WjVGNk1uVXpvcFRFekdUOVZYTGRVaEZnY1JZY1hR?oc=5",
+        "score": 0.0,
+        "sentiment": "Neutral 😐"
+      },
+      {
+        "title": "Market Watchlist: Nifty near make-or-break level as FIIs pile shorts – From HDFC Bank to RIL, 9 stocks on bear radar",
+        "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6899540093574828afb4ca2a246ac176&url=https%3a%2f%2fwww.financialexpress.com%2fmarket%2fstock-insights%2fmarket-watchlist-nifty-near-make-or-break-level-as-fiis-pile-shorts-from-hdfc-bank-to-ril-9-stocks-on-bear-radar%2f3942452%2f&c=8237181144012163610&mkt=en-in",
+        "score": 0.402,
+        "sentiment": "Positive 📈"
+      },
+      {
+        "title": "58,566% Gains, 2 Splits: BUY Crorepati-Making Stock HDFC Bank Ahead Of First 1:1 Bonus, 500% Special Dividend?",
+        "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6899540093574828afb4ca2a246ac176&url=https%3a%2f%2fwww.goodreturns.in%2fpersonal-finance%2f58566-gains-2-splits-buy-crorepati-making-stock-hdfc-bank-first-1-1-bonus-500-special-dividend-1447159.html&c=2385393650244211167&mkt=en-in",
+        "score": 0.823,
+        "sentiment": "Positive 📈"
+      },
+      {
+        "title": "HDFC Bank Share Price Highlights: HDFC Bank Stock Price History",
+        "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6899540093574828afb4ca2a246ac176&url=https%3a%2f%2feconomictimes.indiatimes.com%2fmarkets%2fstocks%2fstock-liveblog%2fhdfc-bank-share-price-live-updates-06-aug-2025%2fliveblog%2f123131358.cms&c=13839841923345218248&mkt=en-in",
+        "score": 0.296,
+        "sentiment": "Positive 📈"
+      },
+      {
+        "title": "HDFC Bank Share Price Declines 0.10% to Rs. 2,023.70: What Investors Should Know!",
+        "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6899540093574828afb4ca2a246ac176&url=https%3a%2f%2fwww.analyticsinsight.net%2fstocks%2fhdfc-bank-share-price-declines-010-to-rs-202370-what-investors-should-know&c=10414252556509945468&mkt=en-in",
+        "score": 0.359,
+        "sentiment": "Positive 📈"
+      },
+      {
+        "title": "Stock Market Highlights: Nifty ends nearly 300 points off the day's low above 24,600 led by HDFC Bank, RIL",
+        "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6899540093574828afb4ca2a246ac176&url=https%3a%2f%2fwww.cnbctv18.com%2fmarket%2fstock-market-live-updates-trump-tariffs-50-percent-nifty-50-sensex-impact-support-trent-hero-bhel-lic-hpcl-textile-share-price-liveblog-19650004.htm&c=2015286779562389742&mkt=en-in",
+        "score": 0.153,
+        "sentiment": "Positive 📈"
+      }
+    ]
+  },
+  {
+    "stock": "SBIN",
+    "date": "2025-08-11",
+    "positive": 5,
+    "negative": 0,
+    "neutral": 5,
+    "average_score": 0.176,
+    "overall": "Positive 📈",
+    "articles": [
+      {
+        "title": "SBIN Outlook for the Week (August 11, 2025 – August 15, 2025) - Equitypandit",
+        "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5RQjVNcXM1Mmp0d0NaT1NMUWh5S1ByaDdEeGlQQkd5TzgwbkpwNTUyOVRZRnVaVHBhSkZYU1VDQmhZLUJ4TkZJNU1SbUFRSTgyUHFQMjBSbzJlUEtvTGptM29QNEdMZw?oc=5",
+        "score": 0.0,
+        "sentiment": "Neutral 😐"
+      },
+      {
+        "title": "Institutions own 29% of State Bank of India (NSE:SBIN) shares but state or government control 58% of the company - simplywall.st",
+        "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOVlZMTjBNRUU1RzI3VmRRU2RveUFma0FBdFRqTjZ0bTI1WGJFak1hS1EyZ1ZfLURuMXJ2aTZVb0ticmhaMmJadHNubG9kcmNKalpZbjhLVWZEMzFGWEhEUXJaRkVZUWZicGhtalNJa0t4cWtSUUM5SVdTZWR3MUdLcmpMRjk4UEpaeHFuWEI0ek4tUlVQd3pCaEFTSVMyUlBrRDY4NWVmNkw1VFF0eDVKMWpGYUlwdjRqUWh0UVBvcmJXNUZYcGpWWnpNY1Ztb2VjWnBzRVZ30gHbAUFVX3lxTE02dTQzNkJKMkNnNHNPODhWcTdrdWU1TVhtb3lGdjhWNDhYdHBUZl9tbHo5YVEwM0RRelB0TmtmTkF2c1NuNVJVVGtnaWMzM1ljb2pDOWNHMTJMSGcwMmRHcmJKVHpJRmt0R2xPOFlsV2x5SEZjd2M3ejdlQnJqb2xTNVF0VG1xcDdJZXMwbGdpRHFKUGFBdlh6RnVNNlBpdUxvVTF5RlEtYTVzYWxiSVMxVU1kdUFibkFYWDQyaDdzUFg3WnJOYTNUNmoxR3I1dTBUNFJFdFFuNXVBMA?oc=5",
+        "score": 0.153,
+        "sentiment": "Positive 📈"
+      },
+      {
+        "title": "State Bank of India (SBIN) Stock Experiences Sudden Dip - Breakthrough financial growth - Autocar Professional",
+        "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNQURGeGlqbG5iMzVQV214bWRGX01xRHFMcUduUFE5X3cwdmJOd2lya2Z5eDMxRWx5c3dXWS1zZ2xVRHgwVHFfbG1GSElYQmdfN05DSE1nUDlmNnRwTkowNWdQMlA5bUlmczFxazZsUjctcVhDUnA1eXE0WmQ4cDdQZU5ycVo1MHBDdkNoQldlWW5zOTlTSWhRVThUUW8?oc=5",
+        "score": 0.382,
+        "sentiment": "Positive 📈"
+      },
+      {
+        "title": "State Bank of India (SBIN) Hits 52 Week High - Capitalize on emerging market sectors - Jammu Links News",
+        "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNNXE5TWNONzVTblQ1MkhQRGMwV1VUc2R5UUlsbmRldzVWMUFDdjd3QmttWXhfdGloeEtTOElLMWJfMGl0c1dDcE50elRsMFdaUlRkSXUtckpTZGR5NFhreWZYRl94UXdwYW1XVXlibXp2azA3eXYwc1hvNjZMbGVCZTNMOWNBOExKZGJYdUJPWDZJS1BCamk1cQ?oc=5",
+        "score": 0.0,
+        "sentiment": "Neutral 😐"
+      },
+      {
+        "title": "Jefferies shares \"buy\" call for SBI, sees 21% potential upside on healthy outlook - TradingView",
+        "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPNTlUUVM4VTltNGxldTRrRVpkZlNjOXZ4Q0hPdV9WMmpMREROdTdCNEFJcUJrbVpBMThEWW4tRkM1Tzh0ZDZlSzY0cWJkaWNTeU9fRkZVX2NvcmhRX0lDTS1hYTA2NjQtZWNja2U0Q29HTUktYWc3R05kQW5LVGlLNUN0YW1rZjcxNnNNdE9ualpvY3ptMFgySWdlX0lvLXU5THNyQWZYbUFJY3drWllXaGludnNhTjdXTjU2MG5Fa2ZhNzU0SVozY3hvUjFETlByRDNVRk9XOA?oc=5",
+        "score": 0.599,
+        "sentiment": "Positive 📈"
+      },
+      {
+        "title": "Stock market today: Trade setup for Nifty 50, Trump tariffs, Q1 results today; 7 stocks to buy or sell on Thursday",
+        "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=68995402ecd046e8b72c816fdcd3c35f&url=https%3a%2f%2fwww.msn.com%2fen-in%2fnews%2fother%2fstock-market-today-trade-setup-for-nifty-50-trump-tariffs-q1-results-today-7-stocks-to-buy-or-sell-on-thursday%2far-AA1K38Za&c=8835299587501882686&mkt=en-in",
+        "score": 0.402,
+        "sentiment": "Positive 📈"
+      },
+      {
+        "title": "Stocks to buy: HDFC AMC to SBIN - Motilal Oswal bets on these three ...",
+        "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=68995402ecd046e8b72c816fdcd3c35f&url=https%3a%2f%2fwww.livemint.com%2fmarket%2fstock-market-news%2fstocks-to-buy-hdfc-amc-to-sbin-motilal-oswal-bets-on-these-three-shares-for-this-week-11729604493381.html&c=14063674089404516879&mkt=en-in",
+        "score": 0.0,
+        "sentiment": "Neutral 😐"
+      },
+      {
+        "title": "India's Volatile Market: HSBC Picks Five Stocks To Watch — Trent, SBI, Infosys, And Two More; Check Full List",
+        "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=68995402ecd046e8b72c816fdcd3c35f&url=https%3a%2f%2fwww.msn.com%2fen-in%2fmoney%2fother%2findia-s-volatile-market-hsbc-picks-five-stocks-to-watch-trent-sbi-infosys-and-two-more-check-full-list%2far-AA1K7YPt&c=5179133123135319241&mkt=en-in",
+        "score": 0.0,
+        "sentiment": "Neutral 😐"
+      },
+      {
+        "title": "Buy or sell: Zydus Life, SBIN, M&M — Ganesh Dongre recommends three ...",
+        "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=68995402ecd046e8b72c816fdcd3c35f&url=https%3a%2f%2fwww.livemint.com%2fmarket%2fstock-market-news%2fbuy-or-sell-zydus-life-sbin-m-m-ganesh-dongre-recommends-three-stocks-for-monday-11725189558158.html&c=9927201114120148598&mkt=en-in",
+        "score": 0.226,
+        "sentiment": "Positive 📈"
+      },
+      {
+        "title": "State Bank of India (SBIN.NS) Stock Price, News, Quote & History ...",
+        "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=68995402ecd046e8b72c816fdcd3c35f&url=https%3a%2f%2fca.finance.yahoo.com%2fquote%2fSBIN.NS%2flatest-news%2f&c=18203132481903624284&mkt=en-in",
+        "score": 0.0,
+        "sentiment": "Neutral 😐"
+      }
+    ]
+  }
+]
