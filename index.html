@@ -281,10 +281,29 @@
             card.appendChild(expandBtn);
 
             // Title
-            const title = document.createElement('h5');
-            title.className = 'card-title text-primary';
-            title.textContent = symbol;
-            cardBody.appendChild(title);
+
+            // Build the title line
+            // console.log('Processing symbol:', symbol, 'with entries:', entries[0]);
+            var signalIndex = entries.length;
+            //const symbol = entries[signalIndex - 1]?.symbol || 'N/A';
+            const price = safeNumber(entries[signalIndex - 1]?.price);
+            const changePct = safeNumber(entries[signalIndex - 1]?.price_change_pct);
+            const cardTitle = document.createElement('h5');
+            cardTitle.className = 'card-title text-primary';
+            cardTitle.innerHTML = `
+              <span class="symbol">${symbol}</span>
+              <small class="${changePct > 0 ? 'text-success' : changePct < 0 ? 'text-danger' : 'text-muted'} text-secondary">
+                ₹${price !== null ? price.toFixed(2) : 'N/A'} 
+                (${changePct !== null ? (changePct > 0 ? '↑ ' : changePct < 0 ? '↓ ' : '') + changePct.toFixed(2) + '%' : 'N/A'})
+              </small>
+            `;
+            cardBody.appendChild(cardTitle);
+
+
+            // const title = document.createElement('h5');
+            // title.className = 'card-title text-primary';
+            // title.textContent = symbol;
+            // cardBody.appendChild(title);
 
             // Chart wrapper & canvas
             const chartWrapper = document.createElement('div');
@@ -297,8 +316,6 @@
             cardBody.appendChild(chartWrapper);
 
             // Signal & meta
-            console.log('Processing symbol:', symbol, 'with entries:', entries[0]);
-            var signalIndex = entries.length;
             const { icon: signalIcon, className: signalClass } = getSignalProps(entries[signalIndex - 1]?.signal);
             const signalText = document.createElement('p');
             signalText.className = `mt-2 mb-1 ${signalClass}`;
