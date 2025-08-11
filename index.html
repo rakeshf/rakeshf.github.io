@@ -220,7 +220,6 @@
     }
 
     function getBuildSideProps(buildSide) {
-      console.log('getBuildSideProps called with:', buildSide);
       if (!buildSide) return { className: 'text-muted' };
       buildSide = buildSide.toLowerCase();
       if (buildSide === 'balanced') return { className: 'build-balanced' };
