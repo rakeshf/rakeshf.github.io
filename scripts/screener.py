@@ -244,7 +244,8 @@ for symbol in symbols:
             "sentiment": sentiment,
             "signal": signal,
             "build_side": build_side,
-            "conflict": conflict_flag
+            "conflict": conflict_flag,
+            "timestamp": datetime.now(ZoneInfo("Asia/Kolkata")).strftime("%Y-%m-%d %H:%M:%S")
         })
 
     except Exception as e:
