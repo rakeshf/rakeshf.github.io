@@ -316,41 +316,60 @@
             cardBody.appendChild(chartWrapper);
 
             // Signal & meta
-            const { icon: signalIcon, className: signalClass } = getSignalProps(entries[signalIndex - 1]?.signal);
-            const signalText = document.createElement('p');
-            signalText.className = `mt-2 mb-1 ${signalClass}`;
-            signalText.innerHTML = `<i class="${signalIcon} me-2"></i> Signal: ${entries[signalIndex - 1]?.signal || 'N/A'}`;
-            cardBody.appendChild(signalText);
+            const table = document.createElement('table');
+            table.className = 'table table-sm mb-0 text-secondary';
 
+            const tbody = document.createElement('tbody');
+
+            // Helper function to add a row with two cells
+            function addRow(label, value, className = '', labelClass = 'text-secondary') {
+              const tr = document.createElement('tr');
+              const tdLabel = document.createElement('td');
+              tdLabel.textContent = label;
+              tdLabel.className = labelClass; // style only the label cell
+              const tdValue = document.createElement('td');
+              tdValue.innerHTML = value;
+              tdValue.className = className;
+              tr.appendChild(tdLabel);
+              tr.appendChild(tdValue);
+              tbody.appendChild(tr);
+            }
+
+            // Signal
+            const { icon: signalIcon, className: signalClass } = getSignalProps(entries[signalIndex - 1]?.signal);
+            addRow('Signal', `<i class="${signalIcon} me-2"></i> ${entries[signalIndex - 1]?.signal || 'N/A'}`, signalClass);
+
+            // Build Side
             const { className: buildClass } = getBuildSideProps(entries[signalIndex - 1]?.build_side);
-            const buildSideText = document.createElement('p');
-            buildSideText.className = `mb-0 ${buildClass}`;
-            buildSideText.textContent = `Build Side: ${entries[signalIndex - 1]?.build_side || 'N/A'}`;
-            cardBody.appendChild(buildSideText);
+            addRow('Build Side', entries[signalIndex - 1]?.build_side || 'N/A', buildClass);
+
             // CE OI Change %
             const ceOiChangePct = safeNumber(entries[signalIndex - 1]?.ce_oi_change_pct);
-            const ceOiChangeText = document.createElement('p');
-            ceOiChangeText.className = ceOiChangePct > 0 ? 'oi-up mb-0' : ceOiChangePct < 0 ? 'oi-down mb-0' : 'oi-neutral mb-0';
-            ceOiChangeText.innerHTML = `CE OI Change %: ${ceOiChangePct !== null ? ceOiChangePct.toFixed(2) + '%' : 'N/A'}`;
-            cardBody.appendChild(ceOiChangeText);
+            addRow(
+              'CE OI Change %',
+              ceOiChangePct !== null ? ceOiChangePct.toFixed(2) + '%' : 'N/A',
+              ceOiChangePct > 0 ? 'oi-up' : ceOiChangePct < 0 ? 'oi-down' : 'oi-neutral'
+            );
 
-            // PE OI Change % 
+            // PE OI Change %
             const peOiChangePct = safeNumber(entries[signalIndex - 1]?.pe_oi_change_pct);
-            const peOiChangeText = document.createElement('p');
-            peOiChangeText.className = peOiChangePct > 0 ? 'oi-up mb-0' : peOiChangePct < 0 ? 'oi-down mb-0' : 'oi-neutral mb-0';
-            peOiChangeText.innerHTML = `PE OI Change %: ${peOiChangePct !== null ? peOiChangePct.toFixed(2) + '%' : 'N/A'}`;
-            cardBody.appendChild(peOiChangeText);
+            addRow(
+              'PE OI Change %',
+              peOiChangePct !== null ? peOiChangePct.toFixed(2) + '%' : 'N/A',
+              peOiChangePct > 0 ? 'oi-up' : peOiChangePct < 0 ? 'oi-down' : 'oi-neutral'
+            );
 
+            // OI Direction
             const { icon: oiIcon, className: oiClass } = getOiDirectionProps(entries[signalIndex - 1]?.oi_direction);
-            const oiDirectionText = document.createElement('p');
-            oiDirectionText.className = `mb-0 ${oiClass}`;
-            oiDirectionText.innerHTML = ` OI Direction: ${entries[signalIndex - 1]?.oi_direction || 'N/A'}`;
-            cardBody.appendChild(oiDirectionText);
+            addRow('OI Direction', `<i class="${oiIcon} ${oiClass}"></i>`);
 
-            // finalize DOM
+            // Append table
+            table.appendChild(tbody);
+            cardBody.appendChild(table);
             card.appendChild(cardBody);
             col.appendChild(card);
             container.appendChild(col);
+
 
             // Prepare labels and datasets (keep nulls so Chart.js handles gaps)
             const labels = entries.map(e => {
