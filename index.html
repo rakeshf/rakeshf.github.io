@@ -290,6 +290,7 @@
             const changePct = safeNumber(entries[signalIndex - 1]?.price_change_pct);
             const cardTitle = document.createElement('h5');
             cardTitle.className = 'card-title text-primary';
+            
             cardTitle.innerHTML = `
               <span class="symbol">${symbol}</span>
               <small class="${changePct > 0 ? 'text-success' : changePct < 0 ? 'text-danger' : 'text-muted'} text-secondary">
@@ -318,6 +319,20 @@
             // Signal & meta
             const table = document.createElement('table');
             table.className = 'table table-sm mb-0 text-secondary';
+            table.id = 'metaTable-' + idx;
+            table.style.tableLayout = 'fixed';
+            table.style.width = '100%';
+            table.style.borderCollapse = 'collapse';
+            table.style.marginTop = '1rem';
+            table.style.fontSize = '0.9rem';
+            table.style.wordBreak = 'break-word';
+            table.style.border = '1px solid #dee2e6';
+            table.style.borderRadius = '0.25rem';
+            table.style.overflow = 'hidden';
+            table.style.backgroundColor = document.body.classList.contains('dark-mode') ? '#1e1e1e' : '#fff';
+            table.style.color = document.body.classList.contains('dark-mode') ? '#e1e1e1' : '#212529';
+            table.style.boxShadow = '0 0 0.25rem rgba(0, 0, 0, 0.1)';
+            table.style.marginBottom = '0';
 
             const tbody = document.createElement('tbody');
 
@@ -366,6 +381,7 @@
             // Append table
             table.appendChild(tbody);
             cardBody.appendChild(table);
+            card.id = 'card-' + idx;
             card.appendChild(cardBody);
             col.appendChild(card);
             container.appendChild(col);
@@ -385,12 +401,26 @@
               data: {
                 labels,
                 datasets: [
-                  { label: 'Total CE OI', data: ceData, borderColor: '#fd7e14', backgroundColor: '#fd7e1488', fill: false, tension: 0.3, pointRadius: 3 },
-                  { label: 'Total PE OI', data: peData, borderColor: '#6f42c1', backgroundColor: '#6f42c188', fill: false, tension: 0.3, pointRadius: 3 }
+                  { label: 'Total CE OI', data: ceData, borderColor: '#fd7e14', backgroundColor: '#fd7e1488', fill: false, tension: 0.3, pointRadius: 2 },
+                  { label: 'Total PE OI', data: peData, borderColor: '#6f42c1', backgroundColor: '#6f42c188', fill: false, tension: 0.3, pointRadius: 2 }
                 ]
               },
               options: {
                 responsive: true,
+                        onClick: (evt, activeEls) => {
+            if (activeEls.length > 0) {
+              const ctx = activeEls[0].element.$context;
+              // You can also access the timestamp if needed
+              const timestamp = entries[ctx.dataIndex]?.timestamp;
+              const signal = entries[ctx.dataIndex]?.signal;
+              const buildSide = entries[ctx.dataIndex]?.build_side;
+              const pe_oi_change_pct = entries[ctx.dataIndex]?.pe_oi_change_pct;
+              const ce_oi_change_pct = entries[ctx.dataIndex]?.ce_oi_change_pct;
+              const oi_direction = entries[ctx.dataIndex]?.oi_direction;
+              const id = `table-${idx}`;
+              console.log("Clicked Point:", { timestamp, signal, buildSide, pe_oi_change_pct, ce_oi_change_pct, id }); // ✅ Log the value
+            }
+        },
                 maintainAspectRatio: false,
                 interaction: { mode: 'nearest', intersect: false },
                 scales: {
