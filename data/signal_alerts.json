@@ -1,22 +1,17 @@
 [
   {
-    "symbol": "RELIANCE",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Build-up ⚠️"
+    "symbol": "HDFCBANK",
+    "old_signal": "Short Covering ⚠️",
+    "new_signal": "Long Build-up"
   },
   {
-    "symbol": "TCS",
-    "old_signal": "Long Unwinding",
+    "symbol": "AXISBANK",
+    "old_signal": "Short Build-up ⚠️",
     "new_signal": "Long Build-up"
   },
   {
-    "symbol": "ITC",
-    "old_signal": "Short Covering ⚠️",
+    "symbol": "IDFCFIRSTB",
+    "old_signal": "Long Unwinding",
     "new_signal": "Short Build-up ⚠️"
-  },
-  {
-    "symbol": "DRREDDY",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Long Build-up"
   }
 ]
