@@ -290,7 +290,7 @@
             const changePct = safeNumber(entries[signalIndex - 1]?.price_change_pct);
             const cardTitle = document.createElement('h5');
             cardTitle.className = 'card-title text-primary';
-            
+
             cardTitle.innerHTML = `
               <span class="symbol">${symbol}</span>
               <small class="${changePct > 0 ? 'text-success' : changePct < 0 ? 'text-danger' : 'text-muted'} text-secondary">
@@ -407,20 +407,53 @@
               },
               options: {
                 responsive: true,
-                        onClick: (evt, activeEls) => {
-            if (activeEls.length > 0) {
-              const ctx = activeEls[0].element.$context;
-              // You can also access the timestamp if needed
-              const timestamp = entries[ctx.dataIndex]?.timestamp;
-              const signal = entries[ctx.dataIndex]?.signal;
-              const buildSide = entries[ctx.dataIndex]?.build_side;
-              const pe_oi_change_pct = entries[ctx.dataIndex]?.pe_oi_change_pct;
-              const ce_oi_change_pct = entries[ctx.dataIndex]?.ce_oi_change_pct;
-              const oi_direction = entries[ctx.dataIndex]?.oi_direction;
-              const id = `table-${idx}`;
-              console.log("Clicked Point:", { timestamp, signal, buildSide, pe_oi_change_pct, ce_oi_change_pct, id }); // ✅ Log the value
-            }
-        },
+                onClick: (evt, activeEls) => {
+                  if (!activeEls.length) return;
+                  const ctx = activeEls[0].element.$context;
+                  const data = entries[ctx.dataIndex];
+
+                  const table = document.getElementById('metaTable-' + idx);
+                  if (!table) return;
+                  const rows = table.querySelectorAll('tr');
+
+                  rows.forEach(row => {
+                    const label = row.cells[0].textContent.trim();
+                    if (!label) return;
+
+                    switch (label) {
+                      case 'Signal': {
+                        const { icon, className } = getSignalProps(data.signal);
+                        row.cells[1].innerHTML = `<i class="${icon} me-2"></i> ${data.signal || 'N/A'}`;
+                        row.cells[1].className = className;
+                        break;
+                      }
+                      case 'Build Side': {
+                        const { className } = getBuildSideProps(data.build_side);
+                        row.cells[1].textContent = data.build_side || 'N/A';
+                        row.cells[1].className = className;
+                        break;
+                      }
+                      case 'CE OI Change %': {
+                        const v = safeNumber(data.ce_oi_change_pct);
+                        row.cells[1].textContent = v !== null ? v.toFixed(2) + '%' : 'N/A';
+                        row.cells[1].className = v > 0 ? 'oi-up' : v < 0 ? 'oi-down' : 'oi-neutral';
+                        break;
+                      }
+                      case 'PE OI Change %': {
+                        const v = safeNumber(data.pe_oi_change_pct);
+                        row.cells[1].textContent = v !== null ? v.toFixed(2) + '%' : 'N/A';
+                        row.cells[1].className = v > 0 ? 'oi-up' : v < 0 ? 'oi-down' : 'oi-neutral';
+                        break;
+                      }
+                      case 'OI Direction': {
+                        const { icon, className } = getOiDirectionProps(data.oi_direction);
+                        row.cells[1].innerHTML = `<i class="${icon}"></i>`;
+                        row.cells[1].className = className;
+                        break;
+                      }
+                    }
+                  });
+                },
                 maintainAspectRatio: false,
                 interaction: { mode: 'nearest', intersect: false },
                 scales: {
