@@ -1,289 +1,289 @@
 [
   {
     "Symbol": "RELIANCE.NS",
-    "Signal": "\ud83d\udd3d Pre-breakdown",
-    "Direction": "down",
-    "Close": 1373.8,
+    "Signal": "\ud83d\udd3c Pre-breakout",
+    "Direction": "up",
+    "Close": 1381.7,
     "Box High": 1401.9,
     "Box Low": 1361.2,
-    "Target": 1361.2
+    "Target": 1401.9
   },
   {
     "Symbol": "TCS.NS",
-    "Signal": "\ud83d\udd3d Pre-breakdown",
+    "Signal": "\ud83d\udd3b Confirmed breakdown",
     "Direction": "down",
-    "Close": 3022.3,
+    "Close": 3011.2,
     "Box High": 3096.4,
-    "Box Low": 3010.9,
-    "Target": 3019.1
+    "Box Low": 3019.1,
+    "Target": 3003.4
   },
   {
     "Symbol": "INFY.NS",
-    "Signal": "\u2705 Confirmed breakout",
-    "Direction": "up",
-    "Close": 1447.7,
-    "Box High": 1442.0,
+    "Signal": "No",
+    "Direction": "",
+    "Close": 1435.8,
+    "Box High": 1470.0,
     "Box Low": 1414.0,
-    "Target": 1442.0
+    "Target": null
   },
   {
     "Symbol": "HDFCBANK.NS",
-    "Signal": "\ud83d\udd3c Pre-breakout",
+    "Signal": "\u2705 Confirmed breakout",
     "Direction": "up",
-    "Close": 1991.1,
-    "Box High": 2001.6,
+    "Close": 2003.6,
+    "Box High": 1997.6,
     "Box Low": 1967.5,
-    "Target": 2001.6
+    "Target": 1997.6
   },
   {
     "Symbol": "ICICIBANK.NS",
     "Signal": "\ud83d\udd3c Pre-breakout",
     "Direction": "up",
-    "Close": 1427.3,
-    "Box High": 1447.9,
-    "Box Low": 1415.2,
-    "Target": 1447.9
+    "Close": 1434.6,
+    "Box High": 1447.6,
+    "Box Low": 1412.0,
+    "Target": 1447.6
   },
   {
     "Symbol": "KOTAKBANK.NS",
-    "Signal": "No",
-    "Direction": "",
-    "Close": 1978.2,
+    "Signal": "\ud83d\udd3c Pre-breakout",
+    "Direction": "up",
+    "Close": 2001.4,
     "Box High": 2024.0,
     "Box Low": 1948.2,
-    "Target": null
+    "Target": 2024.0
   },
   {
     "Symbol": "HINDUNILVR.NS",
-    "Signal": "\ud83d\udd3d Pre-breakdown",
-    "Direction": "down",
-    "Close": 2480.6,
-    "Box High": 2544.0,
-    "Box Low": 2473.4,
-    "Target": 2473.2
+    "Signal": "\u2705 Confirmed breakout",
+    "Direction": "up",
+    "Close": 2568.1,
+    "Box High": 2536.6,
+    "Box Low": 2473.2,
+    "Target": 2536.6
   },
   {
     "Symbol": "LT.NS",
-    "Signal": "\ud83d\udd3c Pre-breakout",
-    "Direction": "up",
-    "Close": 3677.0,
+    "Signal": "\ud83d\udd3d Pre-breakdown",
+    "Direction": "down",
+    "Close": 3635.1,
     "Box High": 3727.9,
-    "Box Low": 3599.2,
-    "Target": 3727.9
+    "Box Low": 3600.0,
+    "Target": 3600.0
   },
   {
     "Symbol": "SBIN.NS",
-    "Signal": "\u2705 Confirmed breakout",
+    "Signal": "\ud83d\udd3c Pre-breakout",
     "Direction": "up",
-    "Close": 826.55,
-    "Box High": 825.5,
+    "Close": 827.65,
+    "Box High": 828.0,
     "Box Low": 790.0,
-    "Target": 825.5
+    "Target": 828.0
   },
   {
     "Symbol": "BHARTIARTL.NS",
-    "Signal": "No",
-    "Direction": "",
-    "Close": 1873.8,
-    "Box High": 1933.3,
+    "Signal": "\ud83d\udd3c Pre-breakout",
+    "Direction": "up",
+    "Close": 1892.3,
+    "Box High": 1893.8,
     "Box Low": 1845.7,
-    "Target": null
+    "Target": 1893.8
   },
   {
     "Symbol": "ITC.NS",
     "Signal": "\ud83d\udd3b Confirmed breakdown",
     "Direction": "down",
-    "Close": 411.45,
+    "Close": 406.3,
     "Box High": 419.8,
-    "Box Low": 411.65,
-    "Target": 411.0
+    "Box Low": 411.0,
+    "Target": 404.85
   },
   {
     "Symbol": "ASIANPAINT.NS",
     "Signal": "\u2705 Confirmed breakout",
     "Direction": "up",
-    "Close": 2528.7,
-    "Box High": 2511.7,
+    "Close": 2587.4,
+    "Box High": 2534.9,
     "Box Low": 2452.0,
-    "Target": 2511.7
+    "Target": 2534.9
   },
   {
     "Symbol": "BAJFINANCE.NS",
-    "Signal": "\ud83d\udd3d Pre-breakdown",
-    "Direction": "down",
-    "Close": 861.45,
+    "Signal": "\u2705 Confirmed breakout",
+    "Direction": "up",
+    "Close": 905.2,
     "Box High": 888.3,
     "Box Low": 849.0,
-    "Target": 849.0
+    "Target": 888.3
   },
   {
     "Symbol": "AXISBANK.NS",
-    "Signal": "\ud83d\udd3c Pre-breakout",
+    "Signal": "\u2705 Confirmed breakout",
     "Direction": "up",
-    "Close": 1068.2,
+    "Close": 1082.6,
     "Box High": 1080.4,
     "Box Low": 1052.6,
     "Target": 1080.4
   },
   {
     "Symbol": "MARUTI.NS",
-    "Signal": "\ud83d\udd3c Pre-breakout",
+    "Signal": "\u2705 Confirmed breakout",
     "Direction": "up",
-    "Close": 12936.0,
+    "Close": 14068.0,
     "Box High": 12959.0,
-    "Box Low": 12429.0,
+    "Box Low": 12482.0,
     "Target": 12959.0
   },
   {
     "Symbol": "ULTRACEMCO.NS",
-    "Signal": "No",
-    "Direction": "",
-    "Close": 12317.0,
+    "Signal": "\u2705 Confirmed breakout",
+    "Direction": "up",
+    "Close": 12765.0,
     "Box High": 12530.0,
-    "Box Low": 12125.0,
-    "Target": null
+    "Box Low": 12135.0,
+    "Target": 12530.0
   },
   {
     "Symbol": "SUNPHARMA.NS",
-    "Signal": "\ud83d\udd3c Pre-breakout",
-    "Direction": "up",
-    "Close": 1641.4,
+    "Signal": "No",
+    "Direction": "",
+    "Close": 1632.7,
     "Box High": 1660.0,
-    "Box Low": 1571.0,
-    "Target": 1660.0
+    "Box Low": 1580.9,
+    "Target": null
   },
   {
     "Symbol": "WIPRO.NS",
-    "Signal": "\u2705 Confirmed breakout",
+    "Signal": "\ud83d\udd3c Pre-breakout",
     "Direction": "up",
-    "Close": 246.81,
-    "Box High": 246.29,
+    "Close": 245.21,
+    "Box High": 248.43,
     "Box Low": 238.4,
-    "Target": 246.29
+    "Target": 248.43
   },
   {
     "Symbol": "NTPC.NS",
-    "Signal": "\ud83d\udd3c Pre-breakout",
-    "Direction": "up",
-    "Close": 339.35,
+    "Signal": "No",
+    "Direction": "",
+    "Close": 336.05,
     "Box High": 343.0,
-    "Box Low": 328.65,
-    "Target": 343.0
+    "Box Low": 329.65,
+    "Target": null
   },
   {
     "Symbol": "TECHM.NS",
-    "Signal": "No",
-    "Direction": "",
-    "Close": 1486.7,
-    "Box High": 1522.7,
-    "Box Low": 1450.0,
-    "Target": null
+    "Signal": "\ud83d\udd3d Pre-breakdown",
+    "Direction": "down",
+    "Close": 1471.2,
+    "Box High": 1529.9,
+    "Box Low": 1469.7,
+    "Target": 1468.1
   },
   {
     "Symbol": "ABB.NS",
     "Signal": "\ud83d\udd3d Pre-breakdown",
     "Direction": "down",
-    "Close": 5030.0,
+    "Close": 5037.5,
     "Box High": 5143.5,
     "Box Low": 5002.5,
     "Target": 5002.5
   },
   {
     "Symbol": "APOLLOTYRE.NS",
-    "Signal": "No",
-    "Direction": "",
-    "Close": 432.3,
+    "Signal": "\u2705 Confirmed breakout",
+    "Direction": "up",
+    "Close": 464.45,
     "Box High": 448.95,
     "Box Low": 421.0,
-    "Target": null
+    "Target": 448.95
   },
   {
     "Symbol": "BEL.NS",
-    "Signal": "\ud83d\udd3c Pre-breakout",
-    "Direction": "up",
-    "Close": 384.9,
-    "Box High": 390.3,
+    "Signal": "\ud83d\udd3d Pre-breakdown",
+    "Direction": "down",
+    "Close": 382.5,
+    "Box High": 389.9,
     "Box Low": 379.55,
-    "Target": 390.3
+    "Target": 379.55
   },
   {
     "Symbol": "CANBK.NS",
     "Signal": "\ud83d\udd3c Pre-breakout",
     "Direction": "up",
-    "Close": 109.26,
+    "Close": 109.34,
     "Box High": 110.49,
-    "Box Low": 106.75,
+    "Box Low": 107.3,
     "Target": 110.49
   },
   {
     "Symbol": "CUMMINSIND.NS",
     "Signal": "No",
     "Direction": "",
-    "Close": 3784.5,
+    "Close": 3783.4,
     "Box High": 3900.1,
-    "Box Low": 3572.9,
+    "Box Low": 3658.0,
     "Target": null
   },
   {
     "Symbol": "DEEPAKNTR.NS",
-    "Signal": "\ud83d\udd3c Pre-breakout",
-    "Direction": "up",
-    "Close": 1856.6,
+    "Signal": "No",
+    "Direction": "",
+    "Close": 1810.5,
     "Box High": 1877.0,
-    "Box Low": 1794.0,
-    "Target": 1877.0
+    "Box Low": 1775.0,
+    "Target": null
   },
   {
     "Symbol": "ESCORTS.NS",
     "Signal": "\u2705 Confirmed breakout",
     "Direction": "up",
-    "Close": 3400.5,
-    "Box High": 3394.5,
-    "Box Low": 3302.0,
-    "Target": 3394.5
+    "Close": 3623.8,
+    "Box High": 3420.2,
+    "Box Low": 3309.2,
+    "Target": 3420.2
   },
   {
     "Symbol": "FEDERALBNK.NS",
     "Signal": "\ud83d\udd3d Pre-breakdown",
     "Direction": "down",
-    "Close": 195.86,
+    "Close": 195.79,
     "Box High": 199.73,
-    "Box Low": 195.0,
-    "Target": 194.99
+    "Box Low": 194.99,
+    "Target": 194.84
   },
   {
     "Symbol": "IDFCFIRSTB.NS",
-    "Signal": "No",
-    "Direction": "",
-    "Close": 68.77,
+    "Signal": "\ud83d\udd3c Pre-breakout",
+    "Direction": "up",
+    "Close": 69.9,
     "Box High": 70.37,
-    "Box Low": 67.62,
-    "Target": null
+    "Box Low": 68.56,
+    "Target": 70.37
   },
   {
     "Symbol": "INDIAMART.NS",
-    "Signal": "No",
-    "Direction": "",
-    "Close": 2545.8,
+    "Signal": "\ud83d\udd3c Pre-breakout",
+    "Direction": "up",
+    "Close": 2572.9,
     "Box High": 2590.3,
-    "Box Low": 2488.0,
-    "Target": null
+    "Box Low": 2511.9,
+    "Target": 2590.3
   },
   {
     "Symbol": "INDHOTEL.NS",
-    "Signal": "\u2705 Confirmed breakout",
+    "Signal": "\ud83d\udd3c Pre-breakout",
     "Direction": "up",
-    "Close": 774.35,
-    "Box High": 771.3,
+    "Close": 775.5,
+    "Box High": 776.9,
     "Box Low": 732.8,
-    "Target": 771.3
+    "Target": 776.9
   },
   {
     "Symbol": "JUBLFOOD.NS",
     "Signal": "No",
     "Direction": "",
-    "Close": 631.85,
-    "Box High": 644.0,
+    "Close": 635.2,
+    "Box High": 670.45,
     "Box Low": 620.0,
     "Target": null
   },
@@ -291,61 +291,61 @@
     "Symbol": "LUPIN.NS",
     "Signal": "No",
     "Direction": "",
-    "Close": 1961.6,
-    "Box High": 2005.8,
-    "Box Low": 1855.0,
+    "Close": 1968.3,
+    "Box High": 2009.8,
+    "Box Low": 1906.3,
     "Target": null
   },
   {
     "Symbol": "MGL.NS",
     "Signal": "No",
     "Direction": "",
-    "Close": 1313.7,
+    "Close": 1339.7,
     "Box High": 1369.0,
-    "Box Low": 1278.0,
+    "Box Low": 1290.8,
     "Target": null
   },
   {
     "Symbol": "PAGEIND.NS",
-    "Signal": "\ud83d\udd3d Pre-breakdown",
-    "Direction": "down",
-    "Close": 43515.0,
-    "Box High": 46720.0,
-    "Box Low": 43405.0,
-    "Target": 43365.0
+    "Signal": "No",
+    "Direction": "",
+    "Close": 44690.0,
+    "Box High": 45495.0,
+    "Box Low": 43365.0,
+    "Target": null
   },
   {
     "Symbol": "PERSISTENT.NS",
-    "Signal": "\ud83d\udd3c Pre-breakout",
-    "Direction": "up",
-    "Close": 5289.0,
-    "Box High": 5290.0,
-    "Box Low": 5008.5,
-    "Target": 5290.0
+    "Signal": "No",
+    "Direction": "",
+    "Close": 5232.5,
+    "Box High": 5330.0,
+    "Box Low": 5066.0,
+    "Target": null
   },
   {
     "Symbol": "POLYCAB.NS",
-    "Signal": "\ud83d\udd3c Pre-breakout",
+    "Signal": "\u2705 Confirmed breakout",
     "Direction": "up",
-    "Close": 6970.0,
-    "Box High": 6980.5,
+    "Close": 7087.0,
+    "Box High": 6983.0,
     "Box Low": 6620.0,
-    "Target": 6980.5
+    "Target": 6983.0
   },
   {
     "Symbol": "RECLTD.NS",
-    "Signal": "\ud83d\udd3d Pre-breakdown",
+    "Signal": "\ud83d\udd3b Confirmed breakdown",
     "Direction": "down",
-    "Close": 381.55,
+    "Close": 378.35,
     "Box High": 389.65,
     "Box Low": 380.1,
-    "Target": 380.1
+    "Target": 377.55
   },
   {
     "Symbol": "ZEEL.NS",
     "Signal": "No",
     "Direction": "",
-    "Close": 116.25,
+    "Close": 116.14,
     "Box High": 118.35,
     "Box Low": 111.6,
     "Target": null
