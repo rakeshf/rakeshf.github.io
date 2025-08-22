@@ -1,67 +1,42 @@
 [
   {
-    "symbol": "INFY",
-    "old_signal": "Short Covering ⚠️",
+    "symbol": "RELIANCE",
+    "old_signal": "Short Build-up ⚠️",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "HDFCBANK",
+    "symbol": "ITC",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "AXISBANK",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Build-up ⚠️"
   },
   {
-    "symbol": "ICICIBANK",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "LT",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "BHARTIARTL",
+    "symbol": "KOTAKBANK",
     "old_signal": "Short Build-up ⚠️",
     "new_signal": "Long Unwinding"
   },
   {
     "symbol": "BAJFINANCE",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Long Unwinding"
+    "old_signal": "Long Unwinding",
+    "new_signal": "Long Build-up"
   },
   {
     "symbol": "HDFCLIFE",
-    "old_signal": "Short Build-up",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "DIVISLAB",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering ⚠️"
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up"
   },
   {
     "symbol": "JIOFIN",
-    "old_signal": "Long Build-up",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "IDFCFIRSTB",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "BHEL",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "BPCL",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Build-up ⚠️"
   },
   {
-    "symbol": "DRREDDY",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering ⚠️"
+    "symbol": "IDFCFIRSTB",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
   }
 ]
