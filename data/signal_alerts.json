@@ -1,27 +1,22 @@
 [
   {
-    "symbol": "INFY",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Build-up ⚠️"
-  },
-  {
-    "symbol": "ADANIENT",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Build-up"
-  },
-  {
-    "symbol": "DIVISLAB",
+    "symbol": "LT",
     "old_signal": "Short Covering ⚠️",
     "new_signal": "Long Build-up"
   },
   {
-    "symbol": "COALINDIA",
-    "old_signal": "Short Covering",
-    "new_signal": "Short Build-up"
-  },
-  {
-    "symbol": "DRREDDY",
+    "symbol": "SBIN",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Build-up ⚠️"
+  },
+  {
+    "symbol": "AXISBANK",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
+  },
+  {
+    "symbol": "SUNPHARMA",
+    "old_signal": "Short Covering ⚠️",
+    "new_signal": "Long Build-up"
   }
 ]
