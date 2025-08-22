@@ -1,56 +1,61 @@
 [
   {
-    "symbol": "TCS",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Build-up ⚠️"
+    "symbol": "RELIANCE",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "INFY",
+    "symbol": "TCS",
     "old_signal": "Short Build-up ⚠️",
     "new_signal": "Long Unwinding"
   },
   {
     "symbol": "HDFCBANK",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
   },
   {
     "symbol": "ITC",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
+  },
+  {
+    "symbol": "SBIN",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
   },
   {
     "symbol": "AXISBANK",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
   },
   {
-    "symbol": "KOTAKBANK",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
+    "symbol": "BHARTIARTL",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering ⚠️"
   },
   {
-    "symbol": "TECHM",
+    "symbol": "NTPC",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Build-up"
   },
   {
-    "symbol": "NTPC",
-    "old_signal": "Short Build-up",
-    "new_signal": "Long Unwinding"
+    "symbol": "ONGC",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
   },
   {
-    "symbol": "ONGC",
+    "symbol": "EICHERMOT",
     "old_signal": "Short Build-up ⚠️",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "HDFCLIFE",
-    "old_signal": "Short Build-up",
-    "new_signal": "Long Unwinding"
+    "symbol": "IDFCFIRSTB",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
   },
   {
-    "symbol": "EICHERMOT",
+    "symbol": "BHEL",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Build-up ⚠️"
   }
