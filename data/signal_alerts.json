@@ -1,37 +1,22 @@
 [
   {
-    "symbol": "RELIANCE",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Build-up ⚠️"
-  },
-  {
-    "symbol": "LT",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "BAJFINANCE",
+    "symbol": "HDFCBANK",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Build-up ⚠️"
   },
   {
     "symbol": "NTPC",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Build-up ⚠️"
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "TATAMOTORS",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Build-up ⚠️"
-  },
-  {
-    "symbol": "COALINDIA",
+    "symbol": "BAJAJFINSV",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Build-up ⚠️"
   },
   {
     "symbol": "IDFCFIRSTB",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
   }
 ]
