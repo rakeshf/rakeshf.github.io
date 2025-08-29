@@ -1,17 +1,42 @@
 [
   {
-    "symbol": "RELIANCE",
+    "symbol": "TCS",
+    "old_signal": "Short Build-up",
+    "new_signal": "Long Build-up"
+  },
+  {
+    "symbol": "ITC",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "BHARTIARTL",
     "old_signal": "Short Build-up ⚠️",
     "new_signal": "Long Build-up"
   },
   {
-    "symbol": "SBIN",
+    "symbol": "TECHM",
     "old_signal": "Short Build-up",
     "new_signal": "Long Build-up"
   },
   {
-    "symbol": "BAJAJFINSV",
+    "symbol": "TATAMOTORS",
     "old_signal": "Short Build-up",
     "new_signal": "Long Build-up"
+  },
+  {
+    "symbol": "DIVISLAB",
+    "old_signal": "Short Build-up",
+    "new_signal": "Long Build-up"
+  },
+  {
+    "symbol": "BHEL",
+    "old_signal": "Short Build-up",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "BPCL",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Long Unwinding"
   }
 ]
