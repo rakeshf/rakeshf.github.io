@@ -1,12 +1,22 @@
 [
   {
-    "symbol": "KOTAKBANK",
+    "symbol": "INFY",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering ⚠️"
+  },
+  {
+    "symbol": "ICICIBANK",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
+  },
+  {
+    "symbol": "SBIN",
     "old_signal": "Short Covering",
-    "new_signal": "Long Build-up"
+    "new_signal": "Short Build-up"
   },
   {
     "symbol": "BAJFINANCE",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Build-up"
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering"
   }
 ]
