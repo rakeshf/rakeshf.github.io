@@ -1,32 +1,42 @@
 [
   {
     "symbol": "LT",
-    "old_signal": "Short Build-up",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "SBIN",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Build-up"
   },
   {
-    "symbol": "ONGC",
+    "symbol": "AXISBANK",
     "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "JIOFIN",
-    "old_signal": "Short Covering ⚠️",
     "new_signal": "Long Build-up"
   },
   {
-    "symbol": "BPCL",
-    "old_signal": "Short Build-up ⚠️",
+    "symbol": "BHARTIARTL",
+    "old_signal": "Long Build-up",
     "new_signal": "Short Covering ⚠️"
   },
   {
-    "symbol": "DRREDDY",
+    "symbol": "ONGC",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
+  },
+  {
+    "symbol": "TATAMOTORS",
     "old_signal": "Long Build-up",
-    "new_signal": "Short Covering ⚠️"
+    "new_signal": "Short Build-up ⚠️"
+  },
+  {
+    "symbol": "BHEL",
+    "old_signal": "Long Build-up",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "BPCL",
+    "old_signal": "Short Covering ⚠️",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "DRREDDY",
+    "old_signal": "Short Covering ⚠️",
+    "new_signal": "Long Build-up"
   }
 ]
