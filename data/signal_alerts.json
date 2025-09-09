@@ -1,22 +1,27 @@
 [
   {
-    "symbol": "TCS",
+    "symbol": "RELIANCE",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
+  },
+  {
+    "symbol": "INFY",
     "old_signal": "Short Covering ⚠️",
     "new_signal": "Long Build-up"
   },
   {
-    "symbol": "NTPC",
+    "symbol": "HDFCBANK",
     "old_signal": "Short Covering ⚠️",
-    "new_signal": "Short Build-up ⚠️"
+    "new_signal": "Long Build-up"
   },
   {
-    "symbol": "COALINDIA",
+    "symbol": "BHARTIARTL",
     "old_signal": "Short Covering ⚠️",
     "new_signal": "Long Build-up"
   },
   {
     "symbol": "BHEL",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up"
   }
 ]
