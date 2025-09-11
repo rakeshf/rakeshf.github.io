@@ -1,32 +1,12 @@
 [
   {
-    "symbol": "HDFCBANK",
-    "old_signal": "Long Unwinding",
+    "symbol": "TATAMOTORS",
+    "old_signal": "Long Build-up",
     "new_signal": "Short Build-up ⚠️"
   },
   {
-    "symbol": "ICICIBANK",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "ITC",
+    "symbol": "BHEL",
     "old_signal": "Short Covering",
     "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "AXISBANK",
-    "old_signal": "Long Unwinding ⚠️",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "TATAMOTORS",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "BHEL",
-    "old_signal": "Short Build-up",
-    "new_signal": "Short Covering"
   }
 ]
