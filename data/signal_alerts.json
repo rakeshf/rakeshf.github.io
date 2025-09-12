@@ -1,17 +1,12 @@
 [
   {
-    "symbol": "RELIANCE",
+    "symbol": "ITC",
     "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering ⚠️"
-  },
-  {
-    "symbol": "HDFCBANK",
-    "old_signal": "Short Covering",
     "new_signal": "Short Build-up ⚠️"
   },
   {
-    "symbol": "EICHERMOT",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Build-up"
+    "symbol": "BPCL",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering ⚠️"
   }
 ]
