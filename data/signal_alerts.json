@@ -1,52 +1,32 @@
 [
   {
-    "symbol": "AXISBANK",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering ⚠️"
-  },
-  {
-    "symbol": "KOTAKBANK",
+    "symbol": "TCS",
     "old_signal": "Short Covering",
     "new_signal": "Long Build-up"
   },
   {
+    "symbol": "INFY",
+    "old_signal": "Short Covering ⚠️",
+    "new_signal": "Long Build-up"
+  },
+  {
     "symbol": "BHARTIARTL",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "TECHM",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Short Covering"
-  },
-  {
-    "symbol": "TATAMOTORS",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "ADANIENT",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
-  },
-  {
-    "symbol": "EICHERMOT",
-    "old_signal": "Short Build-up",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "JIOFIN",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "IDFCFIRSTB",
     "old_signal": "Long Build-up",
     "new_signal": "Short Covering ⚠️"
   },
   {
-    "symbol": "DRREDDY",
+    "symbol": "TATAMOTORS",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering ⚠️"
+  },
+  {
+    "symbol": "BAJAJFINSV",
+    "old_signal": "Short Build-up",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "IDFCFIRSTB",
     "old_signal": "Short Covering ⚠️",
-    "new_signal": "Short Build-up ⚠️"
+    "new_signal": "Long Build-up"
   }
 ]
