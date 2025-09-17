@@ -1,16 +1,26 @@
 [
   {
-    "symbol": "HDFCBANK",
-    "old_signal": "Long Unwinding",
+    "symbol": "RELIANCE",
+    "old_signal": "Short Covering ⚠️",
     "new_signal": "Long Build-up"
   },
   {
-    "symbol": "BAJFINANCE",
+    "symbol": "TCS",
     "old_signal": "Short Covering",
     "new_signal": "Long Build-up"
   },
   {
-    "symbol": "COALINDIA",
+    "symbol": "HDFCBANK",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering ⚠️"
+  },
+  {
+    "symbol": "LT",
+    "old_signal": "Short Covering ⚠️",
+    "new_signal": "Long Build-up"
+  },
+  {
+    "symbol": "AXISBANK",
     "old_signal": "Short Covering ⚠️",
     "new_signal": "Long Build-up"
   }
