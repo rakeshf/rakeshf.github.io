@@ -1,52 +1,87 @@
 [
   {
     "symbol": "RELIANCE",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Long Unwinding"
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering ⚠️"
   },
   {
     "symbol": "INFY",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Long Build-up"
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering ⚠️"
   },
   {
     "symbol": "ICICIBANK",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering ⚠️"
-  },
-  {
-    "symbol": "LT",
-    "old_signal": "Long Build-up",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "ITC",
     "old_signal": "Short Covering ⚠️",
     "new_signal": "Long Build-up"
   },
   {
-    "symbol": "HDFCLIFE",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering ⚠️"
-  },
-  {
-    "symbol": "ADANIENT",
-    "old_signal": "Short Build-up",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "EICHERMOT",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering"
-  },
-  {
-    "symbol": "M&M",
+    "symbol": "LT",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Build-up ⚠️"
   },
   {
-    "symbol": "IDFCFIRSTB",
+    "symbol": "ITC",
     "old_signal": "Long Build-up",
-    "new_signal": "Short Build-up ⚠️"
+    "new_signal": "Short Covering ⚠️"
+  },
+  {
+    "symbol": "SBIN",
+    "old_signal": "Short Build-up",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "KOTAKBANK",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "BAJFINANCE",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up"
+  },
+  {
+    "symbol": "BAJAJFINSV",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "HDFCLIFE",
+    "old_signal": "Short Covering ⚠️",
+    "new_signal": "Long Build-up"
+  },
+  {
+    "symbol": "ADANIENT",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up"
+  },
+  {
+    "symbol": "DIVISLAB",
+    "old_signal": "Short Covering ⚠️",
+    "new_signal": "Long Build-up"
+  },
+  {
+    "symbol": "EICHERMOT",
+    "old_signal": "Short Covering",
+    "new_signal": "Short Build-up"
+  },
+  {
+    "symbol": "M&M",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "COALINDIA",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "IDFCFIRSTB",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "BPCL",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering ⚠️"
   }
 ]
