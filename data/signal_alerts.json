@@ -1,51 +1,66 @@
 [
   {
+    "symbol": "TCS",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Long Unwinding"
+  },
+  {
     "symbol": "INFY",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "ITC",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "SBIN",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering"
-  },
-  {
-    "symbol": "AXISBANK",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Build-up ⚠️"
   },
   {
-    "symbol": "BHARTIARTL",
-    "old_signal": "Short Covering ⚠️",
+    "symbol": "SBIN",
+    "old_signal": "Short Covering",
     "new_signal": "Long Build-up"
   },
   {
-    "symbol": "TECHM",
-    "old_signal": "Short Build-up",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "NTPC",
+    "symbol": "BHARTIARTL",
     "old_signal": "Long Build-up",
     "new_signal": "Short Build-up ⚠️"
   },
   {
-    "symbol": "HDFCLIFE",
+    "symbol": "BAJFINANCE",
+    "old_signal": "Short Build-up",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "SUNPHARMA",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "TECHM",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up"
+  },
+  {
+    "symbol": "NTPC",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Long Build-up"
+  },
+  {
+    "symbol": "BAJAJFINSV",
+    "old_signal": "Short Build-up",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "DIVISLAB",
     "old_signal": "Long Build-up",
     "new_signal": "Short Covering ⚠️"
   },
   {
-    "symbol": "COALINDIA",
-    "old_signal": "Long Build-up",
+    "symbol": "M&M",
+    "old_signal": "Short Build-up ⚠️",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "JIOFIN",
+    "symbol": "COALINDIA",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Long Build-up"
+  },
+  {
+    "symbol": "IDFCFIRSTB",
     "old_signal": "Short Covering ⚠️",
     "new_signal": "Long Build-up"
   }
