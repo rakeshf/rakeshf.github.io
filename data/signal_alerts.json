@@ -1,12 +1,42 @@
 [
   {
-    "symbol": "INFY",
+    "symbol": "LT",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Build-up ⚠️"
   },
   {
-    "symbol": "SBIN",
+    "symbol": "KOTAKBANK",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Build-up"
+  },
+  {
+    "symbol": "BAJFINANCE",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Build-up"
+  },
+  {
+    "symbol": "SUNPHARMA",
     "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up"
+  },
+  {
+    "symbol": "ONGC",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "TATAMOTORS",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Build-up ⚠️"
+  },
+  {
+    "symbol": "DIVISLAB",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
+  },
+  {
+    "symbol": "JIOFIN",
+    "old_signal": "Short Covering ⚠️",
     "new_signal": "Long Build-up"
   }
 ]
