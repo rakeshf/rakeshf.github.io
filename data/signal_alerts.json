@@ -1,77 +1,47 @@
 [
   {
-    "symbol": "HDFCBANK",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "ICICIBANK",
+    "symbol": "RELIANCE",
     "old_signal": "Long Build-up",
     "new_signal": "Short Covering ⚠️"
   },
   {
-    "symbol": "AXISBANK",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering ⚠️"
-  },
-  {
-    "symbol": "KOTAKBANK",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "BHARTIARTL",
+    "symbol": "LT",
     "old_signal": "Short Build-up ⚠️",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "ONGC",
+    "symbol": "ITC",
     "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Build-up"
+    "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "BAJAJFINSV",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "HDFCLIFE",
+    "symbol": "AXISBANK",
     "old_signal": "Short Covering ⚠️",
     "new_signal": "Long Build-up"
   },
   {
-    "symbol": "ADANIENT",
+    "symbol": "ONGC",
     "old_signal": "Long Build-up",
-    "new_signal": "Short Covering ⚠️"
+    "new_signal": "Long Unwinding"
   },
   {
     "symbol": "EICHERMOT",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "M&M",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Build-up ⚠️"
-  },
-  {
-    "symbol": "IDFCFIRSTB",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "BHEL",
     "old_signal": "Long Build-up",
     "new_signal": "Short Covering"
   },
   {
-    "symbol": "BPCL",
+    "symbol": "M&M",
     "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Short Covering ⚠️"
+    "new_signal": "Long Build-up"
   },
   {
-    "symbol": "DRREDDY",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
+    "symbol": "BHEL",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Build-up"
+  },
+  {
+    "symbol": "BPCL",
+    "old_signal": "Short Covering ⚠️",
+    "new_signal": "Long Build-up"
   }
 ]
