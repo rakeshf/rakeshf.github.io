@@ -1,7 +1,17 @@
 [
   {
-    "symbol": "TECHM",
-    "old_signal": "Long Unwinding ⚠️",
+    "symbol": "ITC",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering ⚠️"
+  },
+  {
+    "symbol": "BHARTIARTL",
+    "old_signal": "Long Unwinding",
     "new_signal": "Short Build-up ⚠️"
+  },
+  {
+    "symbol": "TECHM",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Long Unwinding"
   }
 ]
