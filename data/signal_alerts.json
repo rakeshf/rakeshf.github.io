@@ -1,27 +1,22 @@
 [
   {
-    "symbol": "ICICIBANK",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "LT",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Build-up ⚠️"
-  },
-  {
-    "symbol": "ITC",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Build-up ⚠️"
-  },
-  {
-    "symbol": "SBIN",
+    "symbol": "TCS",
     "old_signal": "Short Build-up",
     "new_signal": "Short Build-up ⚠️"
   },
   {
-    "symbol": "M&M",
-    "old_signal": "Short Covering ⚠️",
+    "symbol": "SUNPHARMA",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "ADANIENT",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Build-up ⚠️"
+  },
+  {
+    "symbol": "EICHERMOT",
+    "old_signal": "Short Build-up ⚠️",
     "new_signal": "Long Build-up"
   }
 ]
