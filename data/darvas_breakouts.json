@@ -139,7 +139,7 @@
     "Signal": "\ud83d\udd3d Pre-breakdown",
     "Direction": "down",
     "Close": 12095.0,
-    "Box High": 12698.0,
+    "Box High": 12448.0,
     "Box Low": 11962.0,
     "Target": 11962.0
   },
@@ -193,7 +193,7 @@
     "Signal": "\ud83d\udd3d Pre-breakdown",
     "Direction": "down",
     "Close": 467.65,
-    "Box High": 497.65,
+    "Box High": 495.9,
     "Box Low": 464.0,
     "Target": 463.25
   },
@@ -262,12 +262,12 @@
   },
   {
     "Symbol": "INDIAMART.NS",
-    "Signal": "No",
-    "Direction": "",
+    "Signal": "\ud83d\udd3c Pre-breakout",
+    "Direction": "up",
     "Close": 2398.9,
-    "Box High": 2467.8,
-    "Box Low": 2326.0,
-    "Target": null
+    "Box High": 2404.6,
+    "Box Low": 2307.0,
+    "Target": 2404.6
   },
   {
     "Symbol": "INDHOTEL.NS",
@@ -284,7 +284,7 @@
     "Direction": "",
     "Close": 619.4,
     "Box High": 634.9,
-    "Box Low": 604.4,
+    "Box Low": 604.15,
     "Target": null
   },
   {
@@ -310,8 +310,8 @@
     "Signal": "No",
     "Direction": "",
     "Close": 42110.0,
-    "Box High": 43825.0,
-    "Box Low": 41015.0,
+    "Box High": 42995.0,
+    "Box Low": 40575.0,
     "Target": null
   },
   {
