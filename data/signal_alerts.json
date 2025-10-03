@@ -1,17 +1,37 @@
 [
   {
-    "symbol": "BHARTIARTL",
+    "symbol": "ICICIBANK",
+    "old_signal": "Short Build-up",
+    "new_signal": "Short Build-up ⚠️"
+  },
+  {
+    "symbol": "LT",
     "old_signal": "Long Build-up",
     "new_signal": "Short Covering ⚠️"
   },
   {
-    "symbol": "DIVISLAB",
+    "symbol": "KOTAKBANK",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "BHARTIARTL",
     "old_signal": "Short Covering ⚠️",
     "new_signal": "Long Build-up"
   },
   {
-    "symbol": "DRREDDY",
-    "old_signal": "Short Build-up",
+    "symbol": "ADANIENT",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "M&M",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "BPCL",
+    "old_signal": "Short Build-up ⚠️",
     "new_signal": "Long Build-up"
   }
 ]
