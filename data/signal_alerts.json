@@ -1,47 +1,72 @@
 [
   {
-    "symbol": "RELIANCE",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "TCS",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Build-up ⚠️"
-  },
-  {
     "symbol": "HDFCBANK",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Short Covering"
+    "old_signal": "Short Covering",
+    "new_signal": "Short Covering ⚠️"
   },
   {
-    "symbol": "LT",
+    "symbol": "ICICIBANK",
+    "old_signal": "Short Build-up",
+    "new_signal": "Short Covering ⚠️"
+  },
+  {
+    "symbol": "KOTAKBANK",
     "old_signal": "Long Build-up",
     "new_signal": "Short Covering ⚠️"
   },
   {
-    "symbol": "ITC",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "KOTAKBANK",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "HDFCLIFE",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "ADANIENT",
+    "symbol": "BHARTIARTL",
     "old_signal": "Short Covering ⚠️",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "EICHERMOT",
+    "symbol": "TECHM",
+    "old_signal": "Short Build-up",
+    "new_signal": "Long Build-up"
+  },
+  {
+    "symbol": "NTPC",
+    "old_signal": "Long Build-up",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "ONGC",
+    "old_signal": "Long Build-up",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "TATAMOTORS",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Short Covering ⚠️"
+  },
+  {
+    "symbol": "ADANIENT",
     "old_signal": "Long Unwinding",
-    "new_signal": "Short Build-up"
+    "new_signal": "Short Covering ⚠️"
+  },
+  {
+    "symbol": "EICHERMOT",
+    "old_signal": "Short Build-up",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "COALINDIA",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Short Covering ⚠️"
+  },
+  {
+    "symbol": "IDFCFIRSTB",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering ⚠️"
+  },
+  {
+    "symbol": "BHEL",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "DRREDDY",
+    "old_signal": "Long Build-up",
+    "new_signal": "Long Unwinding"
   }
 ]
