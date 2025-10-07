@@ -1,21 +1,6 @@
 [
   {
-    "symbol": "RELIANCE",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "TCS",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Short Build-up ⚠️"
-  },
-  {
-    "symbol": "HDFCBANK",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "ITC",
+    "symbol": "JIOFIN",
     "old_signal": "Short Covering ⚠️",
     "new_signal": "Long Build-up"
   }
