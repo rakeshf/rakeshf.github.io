@@ -1,27 +1,37 @@
 [
   {
-    "symbol": "HDFCBANK",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Build-up"
+    "symbol": "INFY",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Build-up"
   },
   {
     "symbol": "LT",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Build-up ⚠️"
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Long Build-up"
   },
   {
-    "symbol": "AXISBANK",
+    "symbol": "KOTAKBANK",
+    "old_signal": "Short Build-up",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "SUNPHARMA",
+    "old_signal": "Short Build-up",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "NTPC",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Build-up ⚠️"
   },
   {
-    "symbol": "NTPC",
+    "symbol": "COALINDIA",
     "old_signal": "Short Build-up ⚠️",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "EICHERMOT",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering"
+    "symbol": "IDFCFIRSTB",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Long Unwinding"
   }
 ]
