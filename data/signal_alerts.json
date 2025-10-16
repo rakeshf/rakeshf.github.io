@@ -1,57 +1,67 @@
 [
   {
-    "symbol": "HDFCBANK",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering"
+    "symbol": "RELIANCE",
+    "old_signal": "Short Covering ⚠️",
+    "new_signal": "Long Build-up"
   },
   {
-    "symbol": "KOTAKBANK",
+    "symbol": "HDFCBANK",
     "old_signal": "Short Covering",
     "new_signal": "Long Build-up"
   },
   {
-    "symbol": "BHARTIARTL",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering ⚠️"
-  },
-  {
-    "symbol": "BAJFINANCE",
+    "symbol": "ICICIBANK",
     "old_signal": "Long Build-up",
     "new_signal": "Short Covering"
   },
   {
+    "symbol": "LT",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering ⚠️"
+  },
+  {
+    "symbol": "BHARTIARTL",
+    "old_signal": "Short Covering ⚠️",
+    "new_signal": "Long Build-up"
+  },
+  {
     "symbol": "SUNPHARMA",
-    "old_signal": "Short Build-up",
-    "new_signal": "Long Unwinding"
+    "old_signal": "Long Unwinding",
+    "new_signal": "Long Build-up"
   },
   {
-    "symbol": "TATAMOTORS",
+    "symbol": "NTPC",
     "old_signal": "Short Covering ⚠️",
     "new_signal": "Long Build-up"
   },
   {
-    "symbol": "HDFCLIFE",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
+    "symbol": "DIVISLAB",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Build-up"
   },
   {
-    "symbol": "EICHERMOT",
+    "symbol": "M&M",
     "old_signal": "Short Covering ⚠️",
     "new_signal": "Long Build-up"
   },
   {
-    "symbol": "JIOFIN",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Build-up"
+    "symbol": "COALINDIA",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering ⚠️"
   },
   {
     "symbol": "IDFCFIRSTB",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
+  },
+  {
+    "symbol": "BPCL",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
   },
   {
     "symbol": "DRREDDY",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Long Build-up"
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering ⚠️"
   }
 ]
