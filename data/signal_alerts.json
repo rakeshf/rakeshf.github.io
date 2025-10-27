@@ -1,12 +1,12 @@
 [
   {
-    "symbol": "LT",
+    "symbol": "RELIANCE",
     "old_signal": "Long Build-up",
-    "new_signal": "Short Covering ⚠️"
+    "new_signal": "Short Covering"
   },
   {
-    "symbol": "NTPC",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering ⚠️"
+    "symbol": "IDFCFIRSTB",
+    "old_signal": "Short Build-up",
+    "new_signal": "Long Unwinding"
   }
 ]
