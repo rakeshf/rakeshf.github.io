@@ -1,12 +1,7 @@
 [
   {
-    "symbol": "NTPC",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "IDFCFIRSTB",
-    "old_signal": "Short Covering",
-    "new_signal": "Short Build-up"
+    "symbol": "ADANIENT",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Long Unwinding"
   }
 ]
