@@ -1,7 +1,17 @@
 [
   {
+    "symbol": "RELIANCE",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering ⚠️"
+  },
+  {
     "symbol": "SBIN",
-    "old_signal": "Short Covering",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering ⚠️"
+  },
+  {
+    "symbol": "BHARTIARTL",
+    "old_signal": "Short Covering ⚠️",
     "new_signal": "Long Build-up"
   }
 ]
