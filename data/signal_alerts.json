@@ -1,7 +1,22 @@
 [
   {
+    "symbol": "INFY",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Long Unwinding"
+  },
+  {
     "symbol": "HDFCBANK",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering"
+    "old_signal": "Short Covering",
+    "new_signal": "Long Build-up"
+  },
+  {
+    "symbol": "ICICIBANK",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "AXISBANK",
+    "old_signal": "Short Covering ⚠️",
+    "new_signal": "Long Build-up"
   }
 ]
