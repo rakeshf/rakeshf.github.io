@@ -1,11 +1,11 @@
 [
   {
     "symbol": "LT",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Long Build-up"
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering ⚠️"
   },
   {
-    "symbol": "COALINDIA",
+    "symbol": "NTPC",
     "old_signal": "Long Build-up",
     "new_signal": "Short Covering ⚠️"
   }
