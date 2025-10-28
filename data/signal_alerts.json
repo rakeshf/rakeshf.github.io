@@ -1,7 +1,17 @@
 [
   {
     "symbol": "HDFCBANK",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Build-up"
+    "old_signal": "Short Build-up",
+    "new_signal": "Short Covering ⚠️"
+  },
+  {
+    "symbol": "ICICIBANK",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "KOTAKBANK",
+    "old_signal": "Short Covering",
+    "new_signal": "Short Covering ⚠️"
   }
 ]
