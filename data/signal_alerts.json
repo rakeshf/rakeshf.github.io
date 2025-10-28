@@ -1,42 +1,52 @@
 [
   {
-    "symbol": "LT",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering ⚠️"
-  },
-  {
-    "symbol": "SBIN",
-    "old_signal": "Short Build-up",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "AXISBANK",
+    "symbol": "INFY",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Build-up ⚠️"
   },
   {
-    "symbol": "BHARTIARTL",
-    "old_signal": "Long Build-up",
+    "symbol": "SBIN",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "AXISBANK",
+    "old_signal": "Short Build-up ⚠️",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "DIVISLAB",
+    "symbol": "NTPC",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
+  },
+  {
+    "symbol": "BAJAJFINSV",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Build-up"
   },
   {
-    "symbol": "COALINDIA",
+    "symbol": "DIVISLAB",
     "old_signal": "Short Build-up",
     "new_signal": "Long Unwinding"
   },
   {
+    "symbol": "COALINDIA",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up"
+  },
+  {
     "symbol": "JIOFIN",
-    "old_signal": "Long Build-up",
-    "new_signal": "Long Unwinding"
+    "old_signal": "Long Unwinding",
+    "new_signal": "Long Build-up"
   },
   {
     "symbol": "IDFCFIRSTB",
-    "old_signal": "Short Covering",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "BHEL",
+    "old_signal": "Short Covering ⚠️",
     "new_signal": "Long Build-up"
   }
 ]
