@@ -1,32 +1,17 @@
 [
   {
     "symbol": "ITC",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Build-up ⚠️"
-  },
-  {
-    "symbol": "KOTAKBANK",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Build-up ⚠️"
-  },
-  {
-    "symbol": "ONGC",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "HDFCLIFE",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "COALINDIA",
-    "old_signal": "Short Covering",
+    "old_signal": "Short Build-up ⚠️",
     "new_signal": "Long Build-up"
   },
   {
     "symbol": "IDFCFIRSTB",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
+  },
+  {
+    "symbol": "DRREDDY",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Build-up ⚠️"
   }
 ]
