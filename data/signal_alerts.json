@@ -1,17 +1,27 @@
 [
   {
+    "symbol": "RELIANCE",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering"
+  },
+  {
     "symbol": "AXISBANK",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering ⚠️"
+  },
+  {
+    "symbol": "BHARTIARTL",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "JIOFIN",
     "old_signal": "Short Covering ⚠️",
     "new_signal": "Long Build-up"
   },
   {
-    "symbol": "TECHM",
-    "old_signal": "Short Covering",
+    "symbol": "BPCL",
+    "old_signal": "Short Covering ⚠️",
     "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "JIOFIN",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering ⚠️"
   }
 ]
