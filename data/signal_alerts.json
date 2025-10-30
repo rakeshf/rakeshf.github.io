@@ -1,21 +1,46 @@
 [
   {
-    "symbol": "ICICIBANK",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
+    "symbol": "HDFCBANK",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up"
   },
   {
-    "symbol": "LT",
+    "symbol": "ICICIBANK",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
+  },
+  {
+    "symbol": "BHARTIARTL",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
+  },
+  {
+    "symbol": "SUNPHARMA",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
+  },
+  {
+    "symbol": "BAJAJFINSV",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
+  },
+  {
+    "symbol": "DIVISLAB",
     "old_signal": "Long Build-up",
     "new_signal": "Short Covering ⚠️"
   },
   {
-    "symbol": "BHARTIARTL",
+    "symbol": "IDFCFIRSTB",
     "old_signal": "Short Build-up ⚠️",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "SUNPHARMA",
+    "symbol": "BPCL",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering ⚠️"
+  },
+  {
+    "symbol": "DRREDDY",
     "old_signal": "Short Build-up ⚠️",
     "new_signal": "Long Unwinding"
   }
