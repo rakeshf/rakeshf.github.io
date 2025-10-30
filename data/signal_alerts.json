@@ -1,22 +1,22 @@
 [
   {
-    "symbol": "HDFCBANK",
+    "symbol": "BHARTIARTL",
     "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
+  },
+  {
+    "symbol": "BAJFINANCE",
+    "old_signal": "Short Covering ⚠️",
+    "new_signal": "Short Build-up ⚠️"
+  },
+  {
+    "symbol": "HDFCLIFE",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
+  },
+  {
+    "symbol": "EICHERMOT",
+    "old_signal": "Short Covering",
     "new_signal": "Short Build-up"
-  },
-  {
-    "symbol": "AXISBANK",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Build-up ⚠️"
-  },
-  {
-    "symbol": "BAJAJFINSV",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Short Build-up ⚠️"
-  },
-  {
-    "symbol": "M&M",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Short Build-up ⚠️"
   }
 ]
