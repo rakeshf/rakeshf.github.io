@@ -1,22 +1,27 @@
 [
   {
-    "symbol": "BHARTIARTL",
+    "symbol": "RELIANCE",
     "old_signal": "Long Unwinding",
-    "new_signal": "Short Build-up ⚠️"
+    "new_signal": "Short Build-up"
+  },
+  {
+    "symbol": "SBIN",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up"
   },
   {
     "symbol": "BAJFINANCE",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Short Build-up ⚠️"
-  },
-  {
-    "symbol": "HDFCLIFE",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Build-up ⚠️"
-  },
-  {
-    "symbol": "EICHERMOT",
-    "old_signal": "Short Covering",
+    "old_signal": "Short Build-up ⚠️",
     "new_signal": "Short Build-up"
+  },
+  {
+    "symbol": "ONGC",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "BPCL",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Long Build-up"
   }
 ]
