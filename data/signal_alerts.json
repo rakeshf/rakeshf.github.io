@@ -1,17 +1,27 @@
 [
   {
-    "symbol": "BAJFINANCE",
-    "old_signal": "Short Build-up ⚠️",
+    "symbol": "RELIANCE",
+    "old_signal": "Short Build-up",
     "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "SUNPHARMA",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
   },
   {
     "symbol": "BAJAJFINSV",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
   },
   {
     "symbol": "ADANIENT",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
+    "old_signal": "Long Unwinding",
+    "new_signal": "Long Build-up"
+  },
+  {
+    "symbol": "BHEL",
+    "old_signal": "Short Covering ⚠️",
+    "new_signal": "Long Build-up"
   }
 ]
