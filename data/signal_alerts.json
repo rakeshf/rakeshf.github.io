@@ -1,72 +1,52 @@
 [
   {
-    "symbol": "RELIANCE",
+    "symbol": "INFY",
     "old_signal": "Long Build-up",
-    "new_signal": "Short Covering"
+    "new_signal": "Short Build-up ⚠️"
   },
   {
-    "symbol": "ICICIBANK",
+    "symbol": "HDFCBANK",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering ⚠️"
+  },
+  {
+    "symbol": "LT",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Build-up ⚠️"
   },
   {
-    "symbol": "SBIN",
+    "symbol": "AXISBANK",
     "old_signal": "Short Covering ⚠️",
     "new_signal": "Long Build-up"
   },
   {
-    "symbol": "AXISBANK",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering ⚠️"
-  },
-  {
-    "symbol": "BHARTIARTL",
-    "old_signal": "Long Build-up",
+    "symbol": "NTPC",
+    "old_signal": "Long Unwinding",
     "new_signal": "Short Build-up ⚠️"
   },
   {
-    "symbol": "BAJFINANCE",
+    "symbol": "BAJAJFINSV",
     "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "SUNPHARMA",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "DIVISLAB",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering ⚠️"
+    "new_signal": "Long Unwinding"
   },
   {
     "symbol": "EICHERMOT",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "COALINDIA",
     "old_signal": "Long Build-up",
     "new_signal": "Short Covering"
   },
   {
-    "symbol": "JIOFIN",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Short Build-up ⚠️"
+    "symbol": "COALINDIA",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Build-up"
   },
   {
-    "symbol": "BHEL",
-    "old_signal": "Long Build-up ⚠️",
-    "new_signal": "Long Unwinding ⚠️"
-  },
-  {
-    "symbol": "BPCL",
+    "symbol": "IDFCFIRSTB",
     "old_signal": "Long Build-up",
     "new_signal": "Short Covering ⚠️"
   },
   {
-    "symbol": "DRREDDY",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Short Build-up ⚠️"
+    "symbol": "BHEL",
+    "old_signal": "Long Unwinding ⚠️",
+    "new_signal": "Short Build-up"
   }
 ]
