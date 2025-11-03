@@ -1,67 +1,67 @@
 [
   {
-    "symbol": "HDFCBANK",
+    "symbol": "RELIANCE",
     "old_signal": "Long Build-up",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "HDFCBANK",
+    "old_signal": "Short Covering ⚠️",
+    "new_signal": "Long Build-up"
+  },
+  {
+    "symbol": "AXISBANK",
+    "old_signal": "Short Covering ⚠️",
+    "new_signal": "Long Build-up"
+  },
+  {
+    "symbol": "KOTAKBANK",
+    "old_signal": "Short Build-up ⚠️",
     "new_signal": "Short Covering ⚠️"
   },
   {
-    "symbol": "ICICIBANK",
+    "symbol": "BHARTIARTL",
     "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
+    "new_signal": "Long Build-up"
   },
   {
     "symbol": "BAJFINANCE",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Build-up ⚠️"
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Long Build-up"
   },
   {
     "symbol": "SUNPHARMA",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering ⚠️"
+    "old_signal": "Short Covering ⚠️",
+    "new_signal": "Long Build-up"
   },
   {
-    "symbol": "TECHM",
+    "symbol": "BAJAJFINSV",
     "old_signal": "Short Build-up ⚠️",
     "new_signal": "Long Unwinding"
   },
   {
     "symbol": "HDFCLIFE",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering ⚠️"
-  },
-  {
-    "symbol": "DIVISLAB",
     "old_signal": "Short Covering ⚠️",
     "new_signal": "Long Build-up"
   },
   {
-    "symbol": "EICHERMOT",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "COALINDIA",
-    "old_signal": "Short Covering",
+    "symbol": "M&M",
+    "old_signal": "Short Covering ⚠️",
     "new_signal": "Long Build-up"
   },
   {
     "symbol": "JIOFIN",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "BHEL",
-    "old_signal": "Short Build-up",
-    "new_signal": "Long Unwinding ⚠️"
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
   },
   {
     "symbol": "BPCL",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering ⚠️"
+    "old_signal": "Short Covering ⚠️",
+    "new_signal": "Short Covering"
   },
   {
     "symbol": "DRREDDY",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
   }
 ]
