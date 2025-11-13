@@ -1,72 +1,62 @@
 [
   {
-    "symbol": "INFY",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "LT",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Short Covering ⚠️"
-  },
-  {
-    "symbol": "SBIN",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering"
-  },
-  {
-    "symbol": "AXISBANK",
+    "symbol": "RELIANCE",
     "old_signal": "Short Build-up ⚠️",
     "new_signal": "Long Build-up"
   },
   {
+    "symbol": "ITC",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "SBIN",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Build-up"
+  },
+  {
+    "symbol": "AXISBANK",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Build-up ⚠️"
+  },
+  {
     "symbol": "BHARTIARTL",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering ⚠️"
-  },
-  {
-    "symbol": "TECHM",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Build-up ⚠️"
-  },
-  {
-    "symbol": "NTPC",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Build-up ⚠️"
-  },
-  {
-    "symbol": "ONGC",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Build-up ⚠️"
-  },
-  {
-    "symbol": "BAJAJFINSV",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering ⚠️"
-  },
-  {
-    "symbol": "ADANIENT",
     "old_signal": "Short Covering ⚠️",
     "new_signal": "Long Build-up"
   },
   {
+    "symbol": "BAJFINANCE",
+    "old_signal": "Short Covering ⚠️",
+    "new_signal": "Short Build-up ⚠️"
+  },
+  {
+    "symbol": "SUNPHARMA",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Long Build-up"
+  },
+  {
+    "symbol": "NTPC",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Short Covering ⚠️"
+  },
+  {
+    "symbol": "HDFCLIFE",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
+  },
+  {
     "symbol": "M&M",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up"
+  },
+  {
+    "symbol": "BPCL",
     "old_signal": "Short Build-up",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "COALINDIA",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "JIOFIN",
+    "symbol": "DRREDDY",
     "old_signal": "Long Build-up",
     "new_signal": "Short Covering ⚠️"
-  },
-  {
-    "symbol": "BPCL",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Build-up"
   }
 ]
