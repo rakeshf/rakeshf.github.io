@@ -1,67 +1,47 @@
 [
   {
-    "symbol": "TCS",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "INFY",
-    "old_signal": "Long Build-up",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "ITC",
+    "symbol": "RELIANCE",
     "old_signal": "Short Covering ⚠️",
-    "new_signal": "Short Build-up ⚠️"
+    "new_signal": "Long Unwinding"
   },
   {
     "symbol": "SBIN",
-    "old_signal": "Short Covering",
-    "new_signal": "Short Build-up"
-  },
-  {
-    "symbol": "BAJFINANCE",
-    "old_signal": "Short Covering ⚠️",
+    "old_signal": "Short Build-up",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "TECHM",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "HDFCLIFE",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Short Covering"
-  },
-  {
-    "symbol": "ADANIENT",
-    "old_signal": "Long Build-up",
+    "symbol": "KOTAKBANK",
+    "old_signal": "Long Unwinding",
     "new_signal": "Short Build-up ⚠️"
   },
   {
-    "symbol": "DIVISLAB",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Long Build-up"
+    "symbol": "BAJFINANCE",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
   },
   {
-    "symbol": "EICHERMOT",
+    "symbol": "BAJAJFINSV",
     "old_signal": "Long Build-up",
     "new_signal": "Short Covering ⚠️"
   },
   {
-    "symbol": "M&M",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Build-up ⚠️"
+    "symbol": "HDFCLIFE",
+    "old_signal": "Short Covering",
+    "new_signal": "Short Build-up"
   },
   {
-    "symbol": "COALINDIA",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Build-up ⚠️"
-  },
-  {
-    "symbol": "JIOFIN",
+    "symbol": "EICHERMOT",
     "old_signal": "Short Covering ⚠️",
     "new_signal": "Long Build-up"
+  },
+  {
+    "symbol": "M&M",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "DRREDDY",
+    "old_signal": "Short Covering ⚠️",
+    "new_signal": "Long Unwinding"
   }
 ]
