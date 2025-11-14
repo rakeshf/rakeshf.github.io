@@ -1,17 +1,17 @@
 [
   {
-    "symbol": "TECHM",
+    "symbol": "BHARTIARTL",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Long Build-up"
+  },
+  {
+    "symbol": "ONGC",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Build-up ⚠️"
   },
   {
-    "symbol": "ADANIENT",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "JIOFIN",
-    "old_signal": "Short Covering",
+    "symbol": "DRREDDY",
+    "old_signal": "Short Covering ⚠️",
     "new_signal": "Long Build-up"
   }
 ]
