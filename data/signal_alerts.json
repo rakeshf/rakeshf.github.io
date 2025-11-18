@@ -1,32 +1,47 @@
 [
   {
     "symbol": "RELIANCE",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering ⚠️"
+    "old_signal": "Short Covering ⚠️",
+    "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "KOTAKBANK",
+    "symbol": "ITC",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Build-up ⚠️"
   },
   {
-    "symbol": "BHARTIARTL",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "M&M",
+    "symbol": "KOTAKBANK",
     "old_signal": "Short Build-up ⚠️",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "BPCL",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Build-up"
+    "symbol": "BHARTIARTL",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering ⚠️"
   },
   {
-    "symbol": "DRREDDY",
-    "old_signal": "Short Covering ⚠️",
+    "symbol": "BAJFINANCE",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "SUNPHARMA",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "ADANIENT",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
+  },
+  {
+    "symbol": "BHEL",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "BPCL",
+    "old_signal": "Short Build-up",
     "new_signal": "Long Unwinding"
   }
 ]
