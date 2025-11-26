@@ -1,27 +1,12 @@
 [
   {
     "symbol": "HDFCBANK",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering ⚠️"
-  },
-  {
-    "symbol": "SUNPHARMA",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering ⚠️"
-  },
-  {
-    "symbol": "TECHM",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering ⚠️"
-  },
-  {
-    "symbol": "EICHERMOT",
-    "old_signal": "Short Build-up ⚠️",
+    "old_signal": "Short Covering ⚠️",
     "new_signal": "Long Build-up"
   },
   {
     "symbol": "JIOFIN",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Build-up"
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering"
   }
 ]
