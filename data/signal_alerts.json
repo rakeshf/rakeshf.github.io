@@ -1,17 +1,12 @@
 [
   {
-    "symbol": "BAJFINANCE",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Long Build-up"
+    "symbol": "KOTAKBANK",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering ⚠️"
   },
   {
-    "symbol": "SUNPHARMA",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "JIOFIN",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Build-up"
+    "symbol": "BPCL",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering ⚠️"
   }
 ]
