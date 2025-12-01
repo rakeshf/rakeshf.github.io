@@ -1,57 +1,57 @@
 [
   {
+    "symbol": "RELIANCE",
+    "old_signal": "Short Covering ⚠️",
+    "new_signal": "Long Build-up"
+  },
+  {
     "symbol": "INFY",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "HDFCBANK",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "ICICIBANK",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Build-up"
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering"
   },
   {
     "symbol": "ITC",
-    "old_signal": "Short Build-up",
-    "new_signal": "Long Build-up"
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering"
   },
   {
-    "symbol": "BHARTIARTL",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "SUNPHARMA",
+    "symbol": "AXISBANK",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Build-up ⚠️"
   },
   {
-    "symbol": "HDFCLIFE",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "M&M",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "COALINDIA",
+    "symbol": "KOTAKBANK",
     "old_signal": "Short Covering",
     "new_signal": "Long Build-up"
   },
   {
-    "symbol": "JIOFIN",
+    "symbol": "BHARTIARTL",
     "old_signal": "Long Unwinding",
-    "new_signal": "Short Build-up"
+    "new_signal": "Short Build-up ⚠️"
   },
   {
-    "symbol": "BPCL",
-    "old_signal": "Short Build-up ⚠️",
+    "symbol": "TECHM",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Build-up"
+  },
+  {
+    "symbol": "BAJAJFINSV",
+    "old_signal": "Short Build-up",
     "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "HDFCLIFE",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
+  },
+  {
+    "symbol": "M&M",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
+  },
+  {
+    "symbol": "DRREDDY",
+    "old_signal": "Short Covering ⚠️",
+    "new_signal": "Short Build-up ⚠️"
   }
 ]
