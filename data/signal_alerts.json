@@ -1,67 +1,57 @@
 [
   {
-    "symbol": "HDFCBANK",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
-  },
-  {
     "symbol": "ICICIBANK",
-    "old_signal": "Short Build-up",
-    "new_signal": "Long Unwinding"
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up"
   },
   {
     "symbol": "LT",
-    "old_signal": "Short Build-up",
-    "new_signal": "Long Unwinding"
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up"
   },
   {
     "symbol": "ITC",
-    "old_signal": "Short Build-up",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "AXISBANK",
     "old_signal": "Long Unwinding",
-    "new_signal": "Short Build-up ⚠️"
+    "new_signal": "Short Build-up"
   },
   {
-    "symbol": "BHARTIARTL",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering ⚠️"
-  },
-  {
-    "symbol": "BAJFINANCE",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "BAJAJFINSV",
-    "old_signal": "Short Build-up",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "DIVISLAB",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "EICHERMOT",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering ⚠️"
-  },
-  {
-    "symbol": "M&M",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "JIOFIN",
+    "symbol": "KOTAKBANK",
     "old_signal": "Long Build-up",
     "new_signal": "Short Covering"
   },
   {
-    "symbol": "IDFCFIRSTB",
+    "symbol": "BHARTIARTL",
     "old_signal": "Short Covering ⚠️",
     "new_signal": "Long Build-up"
+  },
+  {
+    "symbol": "BAJFINANCE",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering ⚠️"
+  },
+  {
+    "symbol": "TECHM",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up"
+  },
+  {
+    "symbol": "BAJAJFINSV",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up"
+  },
+  {
+    "symbol": "DIVISLAB",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Build-up"
+  },
+  {
+    "symbol": "M&M",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
+  },
+  {
+    "symbol": "IDFCFIRSTB",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering ⚠️"
   }
 ]
