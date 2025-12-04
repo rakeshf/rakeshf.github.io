@@ -1,67 +1,92 @@
 [
   {
-    "symbol": "TCS",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "ICICIBANK",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "AXISBANK",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering ⚠️"
-  },
-  {
-    "symbol": "KOTAKBANK",
-    "old_signal": "Short Build-up",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "BAJFINANCE",
+    "symbol": "RELIANCE",
     "old_signal": "Short Build-up ⚠️",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "SUNPHARMA",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering ⚠️"
-  },
-  {
-    "symbol": "TECHM",
+    "symbol": "TCS",
     "old_signal": "Long Build-up",
     "new_signal": "Short Covering"
   },
   {
-    "symbol": "NTPC",
+    "symbol": "INFY",
+    "old_signal": "Long Build-up",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "HDFCBANK",
+    "old_signal": "Short Covering ⚠️",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "ICICIBANK",
+    "old_signal": "Long Build-up",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "LT",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering ⚠️"
+  },
+  {
+    "symbol": "SBIN",
     "old_signal": "Short Build-up ⚠️",
     "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "AXISBANK",
+    "old_signal": "Short Covering ⚠️",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "TECHM",
+    "old_signal": "Short Covering",
+    "new_signal": "Short Covering ⚠️"
   },
   {
     "symbol": "HDFCLIFE",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering ⚠️"
+  },
+  {
+    "symbol": "ADANIENT",
     "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
+    "new_signal": "Short Covering ⚠️"
+  },
+  {
+    "symbol": "EICHERMOT",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering ⚠️"
   },
   {
     "symbol": "M&M",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Build-up ⚠️"
-  },
-  {
-    "symbol": "BHEL",
     "old_signal": "Short Build-up ⚠️",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "BPCL",
+    "symbol": "JIOFIN",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Short Covering ⚠️"
+  },
+  {
+    "symbol": "IDFCFIRSTB",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Short Covering ⚠️"
+  },
+  {
+    "symbol": "BHEL",
     "old_signal": "Long Unwinding",
-    "new_signal": "Short Build-up ⚠️"
+    "new_signal": "Short Covering ⚠️"
+  },
+  {
+    "symbol": "BPCL",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Short Covering ⚠️"
   },
   {
     "symbol": "DRREDDY",
-    "old_signal": "Long Build-up",
-    "new_signal": "Short Covering ⚠️"
+    "old_signal": "Short Covering ⚠️",
+    "new_signal": "Long Unwinding"
   }
 ]
