@@ -1,42 +1,72 @@
 [
   {
-    "symbol": "SBIN",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "KOTAKBANK",
-    "old_signal": "Short Build-up",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "BHARTIARTL",
-    "old_signal": "Short Build-up ⚠️",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "TECHM",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "ADANIENT",
-    "old_signal": "Short Covering ⚠️",
-    "new_signal": "Long Build-up"
-  },
-  {
-    "symbol": "EICHERMOT",
+    "symbol": "INFY",
     "old_signal": "Long Build-up",
     "new_signal": "Short Covering ⚠️"
   },
   {
-    "symbol": "JIOFIN",
+    "symbol": "ICICIBANK",
     "old_signal": "Short Build-up",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "SBIN",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Build-up ⚠️"
+  },
+  {
+    "symbol": "AXISBANK",
+    "old_signal": "Short Covering ⚠️",
     "new_signal": "Long Build-up"
   },
   {
-    "symbol": "DRREDDY",
+    "symbol": "KOTAKBANK",
     "old_signal": "Long Unwinding",
-    "new_signal": "Short Build-up ⚠️"
+    "new_signal": "Short Build-up"
+  },
+  {
+    "symbol": "BHARTIARTL",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering ⚠️"
+  },
+  {
+    "symbol": "BAJFINANCE",
+    "old_signal": "Short Covering ⚠️",
+    "new_signal": "Long Build-up"
+  },
+  {
+    "symbol": "SUNPHARMA",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering ⚠️"
+  },
+  {
+    "symbol": "TECHM",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "ADANIENT",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering ⚠️"
+  },
+  {
+    "symbol": "EICHERMOT",
+    "old_signal": "Short Covering ⚠️",
+    "new_signal": "Long Build-up"
+  },
+  {
+    "symbol": "JIOFIN",
+    "old_signal": "Long Build-up",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "BPCL",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "DRREDDY",
+    "old_signal": "Short Build-up ⚠️",
+    "new_signal": "Long Unwinding"
   }
 ]
