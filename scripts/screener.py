@@ -102,6 +102,31 @@ def retry_on_exception(retries=3, delay=1, exceptions=(Exception,)):
 
 @retry_on_exception(retries=3, delay=1)
 def fetch_eq_with_retry(symbol):
+    # Prefer nse_fno for lower latency and smaller payloads; fall back to nse_eq
+    try:
+        fno = nse_fno(symbol)
+        if isinstance(fno, dict):
+            # normalize to same structure used downstream
+            ltp = fno.get("underlyingValue") or fno.get("lastPrice") or fno.get("ltp")
+            prev = fno.get("previousClose") or fno.get("prevClose") or None
+
+            # ensure ltp is numeric (nse_fno sometimes returns '-' or other placeholders)
+            try:
+                ltp_val = float(str(ltp).replace(',', ''))
+            except Exception:
+                ltp_val = None
+
+            if ltp_val is not None:
+                # normalize prev as well when possible
+                try:
+                    prev_val = float(str(prev).replace(',', '')) if prev is not None else None
+                except Exception:
+                    prev_val = None
+                return {"priceInfo": {"lastPrice": ltp_val, "previousClose": prev_val}}
+    except Exception:
+        # swallow and fallback
+        pass
+
     return nse_eq(symbol)
 
 
@@ -173,8 +198,26 @@ def process_symbol(symbol: str, log_dir: str):
 
         # ----- PRICE -----
         eq_data = fetch_eq_with_retry(symbol)
-        ltp = float(eq_data["priceInfo"]["lastPrice"])
-        prev_close = float(eq_data["priceInfo"]["previousClose"])
+        price_info = eq_data.get("priceInfo", {}) if isinstance(eq_data, dict) else {}
+        ltp_raw = price_info.get("lastPrice")
+        prev_close_raw = price_info.get("previousClose")
+
+        # fallbacks and safe conversions
+        if ltp_raw is None:
+            raise ValueError("missing last price for symbol")
+
+        try:
+            ltp = float(ltp_raw)
+        except Exception:
+            ltp = float(str(ltp_raw).replace(',', ''))
+
+        if prev_close_raw in (None, 0):
+            prev_close = ltp
+        else:
+            try:
+                prev_close = float(prev_close_raw)
+            except Exception:
+                prev_close = float(str(prev_close_raw).replace(',', ''))
 
         price_change_pct = safe_pct_change(ltp, prev_close)
         price_direction = "↑" if price_change_pct > 0 else "↓"
