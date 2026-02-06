@@ -5,7 +5,11 @@ import os
 from datetime import datetime, time
 import sys
 from zoneinfo import ZoneInfo
-from market_check import parse_args, check_market_conditions    
+from market_check import parse_args, check_market_conditions
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from pathlib import Path
+import time as _time
+import functools
 
 # -------------------- SAFE HELPERS --------------------
 
@@ -78,6 +82,33 @@ def add_file_to_index(new_filename, index_path="../data/index.json"):
     with open(index_path, "w") as f:
         json.dump(files, f, indent=2)
 
+# -------------------- HELPERS: RETRY / FETCH --------------------
+
+def retry_on_exception(retries=3, delay=1, exceptions=(Exception,)):
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            last_exc = None
+            for i in range(retries):
+                try:
+                    return func(*args, **kwargs)
+                except exceptions as e:
+                    last_exc = e
+                    _time.sleep(delay * (2 ** i))
+            raise last_exc
+        return wrapper
+    return decorator
+
+
+@retry_on_exception(retries=3, delay=1)
+def fetch_eq_with_retry(symbol):
+    return nse_eq(symbol)
+
+
+@retry_on_exception(retries=3, delay=1)
+def fetch_optionchain_with_retry(symbol):
+    return nse_optionchain_scrapper(symbol)
+
 # -------------------- SIGNAL LOGIC --------------------
 
 def calculate_sentiment_and_signal(price_direction, oi_direction,
@@ -130,12 +161,18 @@ os.makedirs(log_dir, exist_ok=True)
 all_results = []
 
 for symbol in symbols:
+    # converted to concurrent processing below
+    pass
+
+# -------------------- CONCURRENT PROCESSING --------------------
+
+def process_symbol(symbol: str, log_dir: str):
     try:
         print(f"\n{'='*60}\n🔍 Analyzing: {symbol}")
         oi_log_file = os.path.join(log_dir, f"{symbol}_oi_log.json")
 
         # ----- PRICE -----
-        eq_data = nse_eq(symbol)
+        eq_data = fetch_eq_with_retry(symbol)
         ltp = float(eq_data["priceInfo"]["lastPrice"])
         prev_close = float(eq_data["priceInfo"]["previousClose"])
 
@@ -143,12 +180,11 @@ for symbol in symbols:
         price_direction = "↑" if price_change_pct > 0 else "↓"
 
         # ----- OPTION CHAIN -----
-        chain = nse_optionchain_scrapper(symbol)
+        chain = fetch_optionchain_with_retry(symbol)
         option_data = chain.get("records", {}).get("data", [])
 
         total_ce_oi = 0
         total_pe_oi = 0
-
         for item in option_data:
             if item.get("CE"):
                 total_ce_oi += item["CE"].get("openInterest", 0)
@@ -190,7 +226,7 @@ for symbol in symbols:
             ce_oi_change_pct, pe_oi_change_pct, pcr
         )
 
-        all_results.append({
+        return {
             "symbol": symbol,
             "price": ltp,
             "previous_close": prev_close,
@@ -208,10 +244,19 @@ for symbol in symbols:
             "build_side": build_side,
             "conflict": conflict,
             "timestamp": datetime.now(ZoneInfo("Asia/Kolkata")).strftime("%Y-%m-%d %H:%M:%S")
-        })
-
+        }
     except Exception as e:
         print(f"⚠️ Error processing {symbol}: {e}")
+        return None
+
+
+max_workers = min(12, max(2, (os.cpu_count() or 2) * 2))
+with ThreadPoolExecutor(max_workers=max_workers) as ex:
+    futures = {ex.submit(process_symbol, s, log_dir): s for s in symbols}
+    for fut in as_completed(futures):
+        res = fut.result()
+        if res:
+            all_results.append(res)
 
 # -------------------- SAVE OUTPUT --------------------
 
