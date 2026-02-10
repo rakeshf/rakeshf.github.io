@@ -1,16 +1,11 @@
 [
   {
-    "symbol": "BHARTIARTL",
+    "symbol": "HDFCBANK",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "ADANIENT",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "HDFCLIFE",
+    "symbol": "BAJAJFINSV",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
