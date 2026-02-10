@@ -1,21 +1,11 @@
 [
   {
-    "symbol": "INFY",
+    "symbol": "HDFCBANK",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   },
   {
-    "symbol": "SBIN",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "ITC",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "HDFCLIFE",
+    "symbol": "DRREDDY",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
