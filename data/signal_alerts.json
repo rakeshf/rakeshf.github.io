@@ -1,11 +1,6 @@
 [
   {
-    "symbol": "HDFCBANK",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "BAJAJFINSV",
+    "symbol": "COALINDIA",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
