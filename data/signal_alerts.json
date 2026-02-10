@@ -1,21 +1,21 @@
 [
   {
     "symbol": "INFY",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "NTPC",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   },
   {
-    "symbol": "COALINDIA",
+    "symbol": "SBIN",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "BHEL",
+    "symbol": "ITC",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "HDFCLIFE",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
