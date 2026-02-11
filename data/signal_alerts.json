@@ -1,11 +1,11 @@
 [
   {
-    "symbol": "LT",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "symbol": "NTPC",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "NTPC",
+    "symbol": "BAJAJFINSV",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   }
