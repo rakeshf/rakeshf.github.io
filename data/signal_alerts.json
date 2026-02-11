@@ -1,7 +1,17 @@
 [
   {
-    "symbol": "ADANIENT",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "symbol": "LT",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "BAJAJFINSV",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "JIOFIN",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   }
 ]
