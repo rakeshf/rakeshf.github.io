@@ -1,52 +1,52 @@
 [
   {
-    "symbol": "SBIN",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "symbol": "ITC",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "RELIANCE",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
-  },
-  {
-    "symbol": "INFY",
+    "symbol": "BAJFINANCE",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   },
   {
     "symbol": "BHARTIARTL",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "ITC",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "symbol": "LT",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "TCS",
+    "symbol": "AXISBANK",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "KOTAKBANK",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
     "symbol": "HDFCLIFE",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   },
   {
     "symbol": "ADANIENT",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "JIOFIN",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   },
   {
     "symbol": "IDFCFIRSTB",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
-  },
-  {
-    "symbol": "DRREDDY",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   }
 ]
