@@ -1,22 +1,22 @@
 [
   {
-    "symbol": "KOTAKBANK",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "symbol": "ICICIBANK",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "ICICIBANK",
+    "symbol": "LT",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   },
   {
     "symbol": "BAJAJFINSV",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   },
   {
     "symbol": "BPCL",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
   }
 ]
