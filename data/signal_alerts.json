@@ -1,11 +1,6 @@
 [
   {
-    "symbol": "NTPC",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
-  },
-  {
-    "symbol": "JIOFIN",
+    "symbol": "ADANIENT",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   }
