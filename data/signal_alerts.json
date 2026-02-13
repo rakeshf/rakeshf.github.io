@@ -1,11 +1,11 @@
 [
   {
-    "symbol": "HDFCBANK",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "symbol": "SBIN",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "HDFCLIFE",
+    "symbol": "EICHERMOT",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
