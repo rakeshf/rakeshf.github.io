@@ -1,17 +1,12 @@
 [
   {
-    "symbol": "RELIANCE",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
-  },
-  {
-    "symbol": "BAJFINANCE",
+    "symbol": "TCS",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "ADANIENT",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "symbol": "BHARTIARTL",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   }
 ]
