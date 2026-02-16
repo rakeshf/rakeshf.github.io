@@ -1,27 +1,7 @@
 [
   {
-    "symbol": "BHARTIARTL",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "KOTAKBANK",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
     "symbol": "EICHERMOT",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "M&M",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "DRREDDY",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
   }
 ]
