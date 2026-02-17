@@ -1,6 +1,26 @@
 [
   {
+    "symbol": "HDFCBANK",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
+  },
+  {
     "symbol": "EICHERMOT",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "IDFCFIRSTB",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "JIOFIN",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "BHEL",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
