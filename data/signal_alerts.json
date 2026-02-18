@@ -1,26 +1,26 @@
 [
   {
     "symbol": "LT",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
-  },
-  {
-    "symbol": "KOTAKBANK",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   },
   {
     "symbol": "AXISBANK",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "NTPC",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "symbol": "KOTAKBANK",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "DRREDDY",
+    "symbol": "RELIANCE",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "M&M",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
