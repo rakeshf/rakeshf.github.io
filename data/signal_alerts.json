@@ -1,21 +1,11 @@
 [
   {
-    "symbol": "BHARTIARTL",
+    "symbol": "RELIANCE",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   },
   {
-    "symbol": "LT",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
-  },
-  {
-    "symbol": "AXISBANK",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
-  },
-  {
-    "symbol": "JIOFIN",
+    "symbol": "HDFCLIFE",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   }
