@@ -1,6 +1,6 @@
 [
   {
-    "symbol": "NTPC",
+    "symbol": "LT",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
