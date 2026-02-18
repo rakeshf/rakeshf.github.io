@@ -1,11 +1,6 @@
 [
   {
-    "symbol": "BHARTIARTL",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "LT",
+    "symbol": "IDFCFIRSTB",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   }
