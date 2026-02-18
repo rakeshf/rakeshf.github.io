@@ -1,61 +1,46 @@
 [
   {
-    "symbol": "ICICIBANK",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
-  },
-  {
-    "symbol": "INFY",
+    "symbol": "TCS",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "HDFCBANK",
+    "symbol": "LT",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "BAJFINANCE",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
-  },
-  {
-    "symbol": "RELIANCE",
+    "symbol": "BHARTIARTL",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   },
   {
     "symbol": "KOTAKBANK",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "ICICIBANK",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "TECHM",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   },
   {
     "symbol": "NTPC",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "BAJAJFINSV",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   },
   {
     "symbol": "DIVISLAB",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "M&M",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
-  },
-  {
-    "symbol": "EICHERMOT",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "IDFCFIRSTB",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "BPCL",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   }
