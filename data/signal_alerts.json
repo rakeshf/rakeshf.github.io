@@ -1,21 +1,11 @@
 [
   {
-    "symbol": "SUNPHARMA",
+    "symbol": "BHARTIARTL",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "NTPC",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "HDFCLIFE",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "COALINDIA",
+    "symbol": "SBIN",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
