@@ -1,36 +1,41 @@
 [
   {
+    "symbol": "RELIANCE",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
+  },
+  {
     "symbol": "SBIN",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "AXISBANK",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   },
   {
-    "symbol": "ICICIBANK",
+    "symbol": "TCS",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   },
   {
-    "symbol": "KOTAKBANK",
+    "symbol": "SUNPHARMA",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   },
   {
-    "symbol": "LT",
+    "symbol": "EICHERMOT",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   },
   {
-    "symbol": "ITC",
+    "symbol": "BHEL",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   },
   {
-    "symbol": "NTPC",
+    "symbol": "IDFCFIRSTB",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "JIOFIN",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   }
