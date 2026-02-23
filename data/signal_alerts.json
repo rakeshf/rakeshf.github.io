@@ -1,26 +1,16 @@
 [
   {
-    "symbol": "ITC",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
-  },
-  {
-    "symbol": "TCS",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
-  },
-  {
-    "symbol": "NTPC",
+    "symbol": "LT",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "BAJAJFINSV",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "symbol": "TCS",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "ONGC",
+    "symbol": "TECHM",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
