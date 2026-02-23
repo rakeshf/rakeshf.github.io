@@ -1,11 +1,16 @@
 [
   {
-    "symbol": "NTPC",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "symbol": "SUNPHARMA",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "SUNPHARMA",
+    "symbol": "BAJAJFINSV",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "COALINDIA",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   }
