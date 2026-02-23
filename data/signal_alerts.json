@@ -1,11 +1,6 @@
 [
   {
-    "symbol": "BAJAJFINSV",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "BHEL",
+    "symbol": "JIOFIN",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   }
