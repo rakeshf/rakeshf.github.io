@@ -1,11 +1,6 @@
 [
   {
-    "symbol": "ONGC",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "BHEL",
+    "symbol": "HDFCLIFE",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
