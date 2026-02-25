@@ -1,11 +1,6 @@
 [
   {
-    "symbol": "RELIANCE",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "HDFCBANK",
+    "symbol": "BAJFINANCE",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
