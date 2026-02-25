@@ -1,6 +1,11 @@
 [
   {
-    "symbol": "BAJFINANCE",
+    "symbol": "ONGC",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "BHEL",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
