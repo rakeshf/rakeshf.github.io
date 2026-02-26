@@ -1,7 +1,17 @@
 [
   {
-    "symbol": "HDFCLIFE",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
+    "symbol": "ICICIBANK",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "INFY",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "LT",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
   }
 ]
