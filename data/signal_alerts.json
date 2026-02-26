@@ -1,42 +1,17 @@
 [
   {
-    "symbol": "BHARTIARTL",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
     "symbol": "ICICIBANK",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
   },
   {
-    "symbol": "RELIANCE",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "ITC",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "KOTAKBANK",
+    "symbol": "LT",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
     "symbol": "ONGC",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "BHEL",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "BPCL",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
   }
 ]
