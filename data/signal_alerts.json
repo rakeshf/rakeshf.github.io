@@ -1,21 +1,21 @@
 [
   {
-    "symbol": "BAJFINANCE",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
-  },
-  {
-    "symbol": "NTPC",
+    "symbol": "ICICIBANK",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   },
   {
     "symbol": "BAJAJFINSV",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "BHEL",
+    "symbol": "NTPC",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "M&M",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
