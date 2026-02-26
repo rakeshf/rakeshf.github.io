@@ -1,27 +1,17 @@
 [
   {
-    "symbol": "INFY",
+    "symbol": "KOTAKBANK",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "ICICIBANK",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "DIVISLAB",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "HDFCLIFE",
+    "symbol": "BHARTIARTL",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   },
   {
-    "symbol": "BPCL",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
+    "symbol": "DIVISLAB",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
   }
 ]
