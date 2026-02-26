@@ -1,16 +1,11 @@
 [
   {
-    "symbol": "ICICIBANK",
+    "symbol": "SBIN",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   },
   {
-    "symbol": "INFY",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
-  },
-  {
-    "symbol": "LT",
+    "symbol": "BHEL",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   }
