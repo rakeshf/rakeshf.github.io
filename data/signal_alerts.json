@@ -1,7 +1,12 @@
 [
   {
-    "symbol": "LT",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
+    "symbol": "RELIANCE",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "BPCL",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
   }
 ]
