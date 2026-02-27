@@ -1,11 +1,11 @@
 [
   {
-    "symbol": "LT",
+    "symbol": "RELIANCE",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   },
   {
-    "symbol": "ONGC",
+    "symbol": "COALINDIA",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   }
