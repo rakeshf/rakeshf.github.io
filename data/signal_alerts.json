@@ -1,27 +1,12 @@
 [
   {
-    "symbol": "INFY",
+    "symbol": "TECHM",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   },
   {
-    "symbol": "ITC",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "TCS",
+    "symbol": "COALINDIA",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
-  },
-  {
-    "symbol": "SUNPHARMA",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "DRREDDY",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
   }
 ]
