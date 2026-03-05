@@ -1,16 +1,16 @@
 [
   {
-    "symbol": "HDFCBANK",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
-  },
-  {
-    "symbol": "BAJAJFINSV",
+    "symbol": "SBIN",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "JIOFIN",
+    "symbol": "HDFCBANK",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "BPCL",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
