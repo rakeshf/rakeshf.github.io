@@ -1,11 +1,6 @@
 [
   {
-    "symbol": "EICHERMOT",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
-  },
-  {
-    "symbol": "BAJAJFINSV",
+    "symbol": "DIVISLAB",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   }
