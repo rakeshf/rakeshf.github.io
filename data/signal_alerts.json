@@ -1,21 +1,16 @@
 [
   {
-    "symbol": "ITC",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
+    "symbol": "TECHM",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
   },
   {
     "symbol": "NTPC",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
   },
   {
-    "symbol": "TECHM",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "JIOFIN",
+    "symbol": "SUNPHARMA",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
