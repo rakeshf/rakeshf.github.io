@@ -1,7 +1,17 @@
 [
   {
     "symbol": "SBIN",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "HDFCBANK",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "DRREDDY",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   }
 ]
