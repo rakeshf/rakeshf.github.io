@@ -1,11 +1,16 @@
 [
   {
     "symbol": "INFY",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "BHARTIARTL",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   },
   {
-    "symbol": "HDFCBANK",
+    "symbol": "JIOFIN",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   }
