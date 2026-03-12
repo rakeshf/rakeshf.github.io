@@ -1,16 +1,6 @@
 [
   {
-    "symbol": "SBIN",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "HDFCBANK",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "DRREDDY",
+    "symbol": "SUNPHARMA",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
