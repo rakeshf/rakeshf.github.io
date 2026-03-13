@@ -1,16 +1,6 @@
 [
   {
-    "symbol": "BAJFINANCE",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "ITC",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "COALINDIA",
+    "symbol": "RELIANCE",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
