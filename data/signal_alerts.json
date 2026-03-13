@@ -1,26 +1,16 @@
 [
   {
+    "symbol": "BAJFINANCE",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "ITC",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
     "symbol": "SUNPHARMA",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
-  },
-  {
-    "symbol": "NTPC",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "BAJAJFINSV",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "ADANIENT",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "COALINDIA",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
