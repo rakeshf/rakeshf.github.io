@@ -1,11 +1,16 @@
 [
   {
-    "symbol": "BAJFINANCE",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "symbol": "INFY",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "INFY",
+    "symbol": "ITC",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "NTPC",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   }
