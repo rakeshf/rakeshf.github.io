@@ -1,26 +1,21 @@
 [
   {
-    "symbol": "SUNPHARMA",
+    "symbol": "SBIN",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "EICHERMOT",
+    "symbol": "ADANIENT",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "DIVISLAB",
+    "symbol": "TECHM",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "JIOFIN",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "IDFCFIRSTB",
+    "symbol": "ONGC",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
