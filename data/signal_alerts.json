@@ -1,21 +1,6 @@
 [
   {
-    "symbol": "SBIN",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "ADANIENT",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "TECHM",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "ONGC",
+    "symbol": "KOTAKBANK",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
