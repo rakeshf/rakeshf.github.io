@@ -1,11 +1,6 @@
 [
   {
-    "symbol": "ICICIBANK",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
-  },
-  {
-    "symbol": "RELIANCE",
+    "symbol": "ADANIENT",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   }
