@@ -1,11 +1,21 @@
 [
   {
-    "symbol": "HDFCBANK",
+    "symbol": "LT",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "BHEL",
+    "symbol": "RELIANCE",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "NTPC",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "DRREDDY",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
