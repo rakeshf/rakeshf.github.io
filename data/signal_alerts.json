@@ -1,11 +1,21 @@
 [
   {
-    "symbol": "BHARTIARTL",
+    "symbol": "SUNPHARMA",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "DIVISLAB",
+    "symbol": "NTPC",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "HDFCLIFE",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "DRREDDY",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
