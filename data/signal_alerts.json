@@ -1,11 +1,16 @@
 [
   {
-    "symbol": "BHARTIARTL",
+    "symbol": "ITC",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   },
   {
-    "symbol": "BAJAJFINSV",
+    "symbol": "SBIN",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "ADANIENT",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   }
