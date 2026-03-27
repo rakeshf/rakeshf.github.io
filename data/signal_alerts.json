@@ -1,7 +1,22 @@
 [
   {
-    "symbol": "INFY",
+    "symbol": "ITC",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "INFY",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "SUNPHARMA",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "BPCL",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
   }
 ]
