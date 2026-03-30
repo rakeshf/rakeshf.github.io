@@ -1,11 +1,6 @@
 [
   {
-    "symbol": "TCS",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "ADANIENT",
+    "symbol": "NTPC",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
