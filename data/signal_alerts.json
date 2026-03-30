@@ -1,6 +1,11 @@
 [
   {
-    "symbol": "DIVISLAB",
+    "symbol": "SUNPHARMA",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "COALINDIA",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
