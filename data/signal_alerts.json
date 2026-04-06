@@ -1,16 +1,11 @@
 [
   {
-    "symbol": "LT",
+    "symbol": "NTPC",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   },
   {
-    "symbol": "BAJFINANCE",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
-  },
-  {
-    "symbol": "BAJAJFINSV",
+    "symbol": "JIOFIN",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   }
