@@ -1,16 +1,21 @@
 [
   {
-    "symbol": "BHARTIARTL",
+    "symbol": "HDFCBANK",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   },
   {
-    "symbol": "ICICIBANK",
+    "symbol": "KOTAKBANK",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   },
   {
-    "symbol": "IDFCFIRSTB",
+    "symbol": "LT",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "BAJAJFINSV",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   }
