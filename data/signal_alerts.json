@@ -1,11 +1,11 @@
 [
   {
-    "symbol": "TECHM",
+    "symbol": "SUNPHARMA",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "COALINDIA",
+    "symbol": "DRREDDY",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
