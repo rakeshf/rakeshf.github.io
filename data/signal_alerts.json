@@ -1,11 +1,16 @@
 [
   {
-    "symbol": "ADANIENT",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
+    "symbol": "BAJAJFINSV",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
   },
   {
-    "symbol": "EICHERMOT",
+    "symbol": "ADANIENT",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "BPCL",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   }
