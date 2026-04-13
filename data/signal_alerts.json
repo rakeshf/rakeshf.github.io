@@ -1,11 +1,11 @@
 [
   {
-    "symbol": "LT",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "symbol": "SUNPHARMA",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "ONGC",
+    "symbol": "DRREDDY",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   }
