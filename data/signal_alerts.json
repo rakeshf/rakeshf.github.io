@@ -1,6 +1,6 @@
 [
   {
-    "symbol": "AXISBANK",
+    "symbol": "LT",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   }
