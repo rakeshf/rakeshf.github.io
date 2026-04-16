@@ -1,6 +1,11 @@
 [
   {
-    "symbol": "KOTAKBANK",
+    "symbol": "TECHM",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "HDFCLIFE",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
