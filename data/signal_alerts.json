@@ -1,12 +1,17 @@
 [
   {
-    "symbol": "ITC",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "symbol": "AXISBANK",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "BPCL",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "symbol": "INFY",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "HDFCBANK",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   }
 ]
