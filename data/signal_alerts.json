@@ -1,42 +1,17 @@
 [
   {
-    "symbol": "AXISBANK",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "RELIANCE",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "TCS",
+    "symbol": "BHARTIARTL",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   },
   {
-    "symbol": "NTPC",
+    "symbol": "TCS",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "ADANIENT",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "EICHERMOT",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "BHEL",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "IDFCFIRSTB",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
+    "symbol": "LT",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
   }
 ]
