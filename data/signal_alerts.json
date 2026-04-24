@@ -1,21 +1,21 @@
 [
   {
-    "symbol": "BAJAJFINSV",
+    "symbol": "SBIN",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "NTPC",
+    "symbol": "HDFCLIFE",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
     "symbol": "M&M",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
   },
   {
-    "symbol": "JIOFIN",
+    "symbol": "IDFCFIRSTB",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
