@@ -1,27 +1,22 @@
 [
   {
-    "symbol": "SBIN",
+    "symbol": "KOTAKBANK",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   },
   {
-    "symbol": "KOTAKBANK",
+    "symbol": "DIVISLAB",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "DIVISLAB",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
-  },
-  {
     "symbol": "JIOFIN",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "BHEL",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "symbol": "DRREDDY",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   }
 ]
