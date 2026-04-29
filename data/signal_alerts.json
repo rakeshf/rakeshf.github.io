@@ -1,6 +1,11 @@
 [
   {
-    "symbol": "BAJAJFINSV",
+    "symbol": "ICICIBANK",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "ADANIENT",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   }
