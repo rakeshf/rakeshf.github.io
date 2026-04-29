@@ -1,16 +1,16 @@
 [
   {
+    "symbol": "BAJFINANCE",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "BAJAJFINSV",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
+  },
+  {
     "symbol": "NTPC",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "DRREDDY",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "BPCL",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   }
