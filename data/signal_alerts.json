@@ -1,16 +1,11 @@
 [
   {
     "symbol": "ICICIBANK",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   },
   {
     "symbol": "AXISBANK",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
-  },
-  {
-    "symbol": "BPCL",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
