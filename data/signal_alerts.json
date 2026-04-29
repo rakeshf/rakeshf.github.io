@@ -1,6 +1,6 @@
 [
   {
-    "symbol": "SBIN",
+    "symbol": "HDFCBANK",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
