@@ -1,16 +1,6 @@
 [
   {
-    "symbol": "NTPC",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "BAJAJFINSV",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "BPCL",
+    "symbol": "SBIN",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
