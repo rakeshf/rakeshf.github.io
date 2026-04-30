@@ -1,7 +1,17 @@
 [
   {
-    "symbol": "TCS",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
+    "symbol": "ITC",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "INFY",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "SUNPHARMA",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
   }
 ]
