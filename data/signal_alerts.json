@@ -1,6 +1,11 @@
 [
   {
-    "symbol": "COALINDIA",
+    "symbol": "AXISBANK",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "IDFCFIRSTB",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
