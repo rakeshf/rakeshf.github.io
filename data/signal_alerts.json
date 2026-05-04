@@ -1,17 +1,22 @@
 [
   {
     "symbol": "AXISBANK",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "HDFCLIFE",
+    "symbol": "NTPC",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "M&M",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
     "symbol": "IDFCFIRSTB",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   }
 ]
