@@ -1,11 +1,6 @@
 [
   {
-    "symbol": "INFY",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "TECHM",
+    "symbol": "ITC",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
