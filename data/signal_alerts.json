@@ -1,11 +1,31 @@
 [
   {
-    "symbol": "BAJFINANCE",
+    "symbol": "ITC",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   },
   {
-    "symbol": "BAJAJFINSV",
+    "symbol": "RELIANCE",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "TCS",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "ADANIENT",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "DIVISLAB",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "EICHERMOT",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   }
