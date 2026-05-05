@@ -1,16 +1,6 @@
 [
   {
-    "symbol": "EICHERMOT",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "DIVISLAB",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "ADANIENT",
+    "symbol": "RELIANCE",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
