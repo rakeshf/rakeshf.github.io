@@ -1,6 +1,11 @@
 [
   {
-    "symbol": "KOTAKBANK",
+    "symbol": "SUNPHARMA",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "DIVISLAB",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   }
