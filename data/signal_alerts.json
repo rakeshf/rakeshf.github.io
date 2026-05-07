@@ -1,6 +1,11 @@
 [
   {
-    "symbol": "RELIANCE",
+    "symbol": "COALINDIA",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "DRREDDY",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   }
