@@ -1,7 +1,22 @@
 [
   {
-    "symbol": "DIVISLAB",
+    "symbol": "INFY",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "RELIANCE",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "ICICIBANK",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "DIVISLAB",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
   }
 ]
