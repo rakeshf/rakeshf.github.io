@@ -1,11 +1,11 @@
 [
   {
-    "symbol": "HDFCLIFE",
+    "symbol": "RELIANCE",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "EICHERMOT",
+    "symbol": "ADANIENT",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
