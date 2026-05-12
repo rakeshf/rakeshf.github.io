@@ -1,6 +1,11 @@
 [
   {
-    "symbol": "BHARTIARTL",
+    "symbol": "SBIN",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "NTPC",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
