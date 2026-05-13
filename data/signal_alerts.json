@@ -1,11 +1,11 @@
 [
   {
-    "symbol": "BAJFINANCE",
+    "symbol": "RELIANCE",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "BAJAJFINSV",
+    "symbol": "SBIN",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
