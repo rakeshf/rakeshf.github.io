@@ -1,17 +1,32 @@
 [
   {
-    "symbol": "SBIN",
+    "symbol": "BHARTIARTL",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "TCS",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "LT",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "symbol": "HDFCBANK",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   },
   {
     "symbol": "SUNPHARMA",
-    "old_signal": "Long Unwinding",
-    "new_signal": "Short Covering"
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "BAJAJFINSV",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "JIOFIN",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   }
 ]
