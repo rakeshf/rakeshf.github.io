@@ -1,11 +1,21 @@
 [
   {
-    "symbol": "KOTAKBANK",
+    "symbol": "HDFCBANK",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "AXISBANK",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   },
   {
-    "symbol": "SBIN",
+    "symbol": "BAJFINANCE",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "IDFCFIRSTB",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   }
