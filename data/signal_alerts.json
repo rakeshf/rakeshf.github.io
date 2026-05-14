@@ -1,11 +1,26 @@
 [
   {
-    "symbol": "EICHERMOT",
+    "symbol": "BAJFINANCE",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "BPCL",
+    "symbol": "AXISBANK",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "BAJAJFINSV",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "IDFCFIRSTB",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "JIOFIN",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
