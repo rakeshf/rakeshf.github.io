@@ -1,16 +1,11 @@
 [
   {
-    "symbol": "ICICIBANK",
+    "symbol": "BAJFINANCE",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "DIVISLAB",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "EICHERMOT",
+    "symbol": "JIOFIN",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
