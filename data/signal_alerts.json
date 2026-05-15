@@ -1,6 +1,16 @@
 [
   {
-    "symbol": "NTPC",
+    "symbol": "HDFCBANK",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "BAJFINANCE",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
+  },
+  {
+    "symbol": "JIOFIN",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
