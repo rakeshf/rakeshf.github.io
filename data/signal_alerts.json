@@ -1,16 +1,6 @@
 [
   {
-    "symbol": "HDFCBANK",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "BAJFINANCE",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "JIOFIN",
+    "symbol": "ICICIBANK",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
