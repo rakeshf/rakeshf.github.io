@@ -1,6 +1,6 @@
 [
   {
-    "symbol": "TCS",
+    "symbol": "BHEL",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
