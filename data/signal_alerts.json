@@ -1,22 +1,22 @@
 [
   {
-    "symbol": "HDFCBANK",
+    "symbol": "ITC",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "SBIN",
+    "symbol": "AXISBANK",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "IDFCFIRSTB",
+    "symbol": "ADANIENT",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "BHEL",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
+    "symbol": "DRREDDY",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
   }
 ]
