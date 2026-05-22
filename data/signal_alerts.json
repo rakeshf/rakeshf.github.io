@@ -1,11 +1,11 @@
 [
   {
-    "symbol": "SBIN",
+    "symbol": "LT",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   },
   {
-    "symbol": "TECHM",
+    "symbol": "BHEL",
     "old_signal": "Short Covering",
     "new_signal": "Long Unwinding"
   }
