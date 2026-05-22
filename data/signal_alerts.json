@@ -1,12 +1,22 @@
 [
   {
-    "symbol": "SUNPHARMA",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "M&M",
+    "symbol": "INFY",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "TCS",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "TECHM",
+    "old_signal": "Long Unwinding",
+    "new_signal": "Short Covering"
+  },
+  {
+    "symbol": "IDFCFIRSTB",
+    "old_signal": "Short Covering",
+    "new_signal": "Long Unwinding"
   }
 ]
