@@ -1,16 +1,11 @@
 [
   {
-    "symbol": "INFY",
-    "old_signal": "Short Covering",
-    "new_signal": "Long Unwinding"
-  },
-  {
-    "symbol": "DIVISLAB",
+    "symbol": "TECHM",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   },
   {
-    "symbol": "BHEL",
+    "symbol": "DRREDDY",
     "old_signal": "Long Unwinding",
     "new_signal": "Short Covering"
   }
