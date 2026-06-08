@@ -242,11 +242,14 @@
 
       fetch('data/index.json?t=' + Date.now())
         .then(res => res.json())
-        .then(fileList => Promise.all(
-          fileList.slice().reverse().map(fileName =>
-            fetch(fileName + '?t=' + Date.now()).then(r => r.json()).catch(() => [])
-          )
-        ))
+        .then(fileList => {
+          const normalizedFiles = fileList.map(fileName => fileName.replace(/^([./]*data\/)/, 'data/'));
+          return Promise.all(
+            normalizedFiles.slice().reverse().map(fileName =>
+              fetch(fileName + '?t=' + Date.now()).then(r => r.json()).catch(() => [])
+            )
+          );
+        })
         .then(allDataArrays => {
           const combined = allDataArrays.flat();
           if (combined.length === 0) {
