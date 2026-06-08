@@ -15,7 +15,6 @@
   <link href="icons8-rupee-48.png" rel="shortcut icon">
   <meta http-equiv="refresh" content="900">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PB8VW32FTL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -175,12 +174,26 @@
 
   <div class="container my-4">
     <h1 class="mb-4 text-center">🚀 Stock Movement Overview</h1>
+    
+    <div class="row mb-4 justify-content-center">
+        <div class="col-auto">
+            <div class="btn-group shadow-sm" role="group" aria-label="Market Filters">
+                <button type="button" class="btn btn-outline-primary active filter-btn" onclick="filterStocks('all', this)">All Stocks</button>
+                <button type="button" class="btn btn-outline-warning filter-btn" onclick="filterStocks('squeeze', this)">🔥 Squeeze On</button>
+                <button type="button" class="btn btn-outline-success filter-btn" onclick="filterStocks('long_buildup', this)">📈 Long Build-up</button>
+                <button type="button" class="btn btn-outline-danger filter-btn" onclick="filterStocks('short_covering', this)">📉 Short Covering</button>
+                <button type="button" class="btn btn-outline-info filter-btn" onclick="filterStocks('high_score', this)">⭐ Top Setups (Score 3+)</button>
+            </div>
+        </div>
+    </div>
+
     <div class="row" id="gridContainer"></div>
   </div>
 
   <script>
     const container = document.getElementById('gridContainer');
     const darkModeToggle = document.getElementById('darkModeToggle');
+    let currentFilter = 'all'; // Keep track of filter during auto-refreshes
 
     function updateToggleText() {
       darkModeToggle.innerHTML = document.body.classList.contains('dark-mode')
@@ -265,9 +278,20 @@
           }, {});
 
           Object.entries(grouped).forEach(([symbol, entries], idx) => {
-            // create column & card
+            // Get the most recent entry for technicals and scoring
+            const latestEntry = entries[entries.length - 1] || {};
+            const technicals = latestEntry.technicals || {};
+            const isSqueeze = technicals.squeeze_on ? 'true' : 'false';
+            const score = latestEntry.master_score || 0;
+            const currentSignal = latestEntry.signal || '';
+
+            // create column & card with added data-attributes for filtering
             const col = document.createElement('div');
-            col.className = 'col-12 col-md-6 col-lg-4 mb-4';
+            col.className = 'col-12 col-md-6 col-lg-4 mb-4 stock-card-wrapper';
+            col.setAttribute('data-signal', currentSignal);
+            col.setAttribute('data-squeeze', isSqueeze);
+            col.setAttribute('data-score', score);
+
             const card = document.createElement('div');
             card.className = 'card shadow-sm h-100';
             card.style.position = 'relative';
@@ -279,35 +303,40 @@
             expandBtn.type = 'button';
             expandBtn.className = 'btn btn-sm btn-outline-secondary expand-btn';
             expandBtn.setAttribute('title', 'Expand');
-            expandBtn.innerHTML = '<i class="bi bi-arrows-fullscreen"></i>'; // uses bootstrap icons
-            // append button to card so it's positioned correctly
+            expandBtn.innerHTML = '<i class="bi bi-arrows-fullscreen"></i>';
             card.appendChild(expandBtn);
 
-            // Title
-
-            // Build the title line
-            // console.log('Processing symbol:', symbol, 'with entries:', entries[0]);
+            // Title and Badges
             var signalIndex = entries.length;
-            //const symbol = entries[signalIndex - 1]?.symbol || 'N/A';
             const price = safeNumber(entries[signalIndex - 1]?.price);
             const changePct = safeNumber(entries[signalIndex - 1]?.price_change_pct);
             const cardTitle = document.createElement('h5');
             cardTitle.className = 'card-title text-primary';
 
+            // Generate HTML for badges
+            let badgeHTML = '';
+            if (isSqueeze === 'true') {
+                badgeHTML += `<span class="badge bg-warning text-dark mb-1" style="font-size: 0.7rem;">🔥 Squeeze</span><br>`;
+            }
+            if (score >= 3) {
+                badgeHTML += `<span class="badge bg-success" style="font-size: 0.7rem;">⭐ Score: ${score}</span>`;
+            }
+
             cardTitle.innerHTML = `
-              <span class="symbol">${symbol}</span>
-              <small class="${changePct > 0 ? 'text-success' : changePct < 0 ? 'text-danger' : 'text-muted'} text-secondary">
-                ₹${price !== null ? price.toFixed(2) : 'N/A'} 
-                (${changePct !== null ? (changePct > 0 ? '↑ ' : changePct < 0 ? '↓ ' : '') + changePct.toFixed(2) + '%' : 'N/A'})
-              </small>
+              <div class="d-flex justify-content-between align-items-start w-100">
+                  <div>
+                    <span class="symbol">${symbol}</span>
+                    <small class="${changePct > 0 ? 'text-success' : changePct < 0 ? 'text-danger' : 'text-muted'} text-secondary d-block mt-1" style="font-size: 0.85rem; font-weight: normal;">
+                      ₹${price !== null ? price.toFixed(2) : 'N/A'} 
+                      (${changePct !== null ? (changePct > 0 ? '↑ ' : changePct < 0 ? '↓ ' : '') + changePct.toFixed(2) + '%' : 'N/A'})
+                    </small>
+                  </div>
+                  <div class="text-end pe-4" style="margin-top: -5px;">
+                     ${badgeHTML}
+                  </div>
+              </div>
             `;
             cardBody.appendChild(cardTitle);
-
-
-            // const title = document.createElement('h5');
-            // title.className = 'card-title text-primary';
-            // title.textContent = symbol;
-            // cardBody.appendChild(title);
 
             // Chart wrapper & canvas
             const chartWrapper = document.createElement('div');
@@ -339,12 +368,11 @@
 
             const tbody = document.createElement('tbody');
 
-            // Helper function to add a row with two cells
             function addRow(label, value, className = '', labelClass = 'text-secondary') {
               const tr = document.createElement('tr');
               const tdLabel = document.createElement('td');
               tdLabel.textContent = label;
-              tdLabel.className = labelClass; // style only the label cell
+              tdLabel.className = labelClass; 
               const tdValue = document.createElement('td');
               tdValue.innerHTML = value;
               tdValue.className = className;
@@ -388,7 +416,6 @@
             card.appendChild(cardBody);
             col.appendChild(card);
             container.appendChild(col);
-
 
             // Prepare labels and datasets (keep nulls so Chart.js handles gaps)
             const labels = entries.map(e => {
@@ -477,48 +504,90 @@
                 }
               }
             });
-            // attach chart ref for resizing later
             canvas._oiChart = chart;
 
-            // Expand button behavior (only this button toggles expand)
             expandBtn.addEventListener('click', (evt) => {
               evt.stopPropagation();
-              // collapse other expanded cards
               document.querySelectorAll('.card.expanded').forEach(otherCard => {
                 if (otherCard === card) return;
                 otherCard.classList.remove('expanded');
                 const otherCol = otherCard.closest('[class*="col-"]');
-                if (otherCol) otherCol.className = 'col-12 col-md-6 col-lg-4 mb-4';
+                if (otherCol) otherCol.className = 'col-12 col-md-6 col-lg-4 mb-4 stock-card-wrapper';
                 const otherBtn = otherCard.querySelector('.expand-btn');
                 if (otherBtn) otherBtn.innerHTML = '<i class="bi bi-arrows-fullscreen"></i>';
                 const c = otherCard.querySelector('canvas');
                 if (c && c._oiChart) {
-                  // give layout a moment to settle
                   setTimeout(() => c._oiChart.resize(), 220);
                 }
               });
 
-              // toggle current
               const isNowExpanded = !card.classList.contains('expanded');
               if (isNowExpanded) {
                 card.classList.add('expanded');
-                col.className = 'col-12 col-md-6 col-lg-12 mb-4';
+                col.className = 'col-12 col-md-6 col-lg-12 mb-4 stock-card-wrapper';
                 expandBtn.innerHTML = '<i class="bi bi-fullscreen-exit"></i>';
               } else {
                 card.classList.remove('expanded');
-                col.className = 'col-12 col-md-6 col-lg-4 mb-4';
+                col.className = 'col-12 col-md-6 col-lg-4 mb-4 stock-card-wrapper';
                 expandBtn.innerHTML = '<i class="bi bi-arrows-fullscreen"></i>';
               }
-              // resize chart after layout changes
               setTimeout(() => {
                 if (canvas && canvas._oiChart) canvas._oiChart.resize();
               }, 220);
             });
           });
+
+          // Re-apply the active filter after data load
+          filterStocks(currentFilter, null);
+
         })
         .catch(err => {
           console.error('Error:', err);
           container.innerHTML = `<p class="text-danger">Error loading data: ${err.message}</p>`;
+        });
+    }
+
+    /**
+     * Filters the stock cards based on the selected criteria
+     */
+    function filterStocks(filterType, clickedBtn) {
+        currentFilter = filterType;
+        
+        // Update active button state
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        if (clickedBtn) {
+            clickedBtn.classList.add('active');
+        } else {
+            // Find the button with the matching filterType and set it to active (for auto-refreshes)
+            const activeBtn = document.querySelector(`.filter-btn[onclick*="${filterType}"]`);
+            if(activeBtn) activeBtn.classList.add('active');
+        }
+
+        // Select all generated stock cards
+        const cards = document.querySelectorAll('.stock-card-wrapper');
+
+        cards.forEach(card => {
+            const signal = card.getAttribute('data-signal') || '';
+            const isSqueeze = card.getAttribute('data-squeeze') === 'true';
+            const score = parseInt(card.getAttribute('data-score')) || 0;
+
+            let shouldShow = false;
+
+            // Routing logic
+            if (filterType === 'all') {
+                shouldShow = true;
+            } else if (filterType === 'squeeze' && isSqueeze) {
+                shouldShow = true;
+            } else if (filterType === 'long_buildup' && signal.includes('Long Build-up')) {
+                shouldShow = true;
+            } else if (filterType === 'short_covering' && signal.includes('Short Covering')) {
+                shouldShow = true;
+            } else if (filterType === 'high_score' && score >= 3) {
+                shouldShow = true;
+            }
+
+            // Toggle visibility by removing or setting the display property
+            card.style.display = shouldShow ? '' : 'none';
         });
     }
 
