@@ -241,19 +241,43 @@
       container.innerHTML = '';
 
       fetch('data/index.json?t=' + Date.now())
-        .then(res => res.json())
+        .then(res => {
+          if (!res.ok) {
+            throw new Error(`Failed to load index.json (${res.status} ${res.statusText})`);
+          }
+          return res.json();
+        })
         .then(fileList => {
+          console.log('Loaded data index:', fileList);
           const normalizedFiles = fileList.map(fileName => fileName.replace(/^([./]*data\/)/, 'data/'));
+          const loadErrors = [];
           return Promise.all(
             normalizedFiles.slice().reverse().map(fileName =>
-              fetch(fileName + '?t=' + Date.now()).then(r => r.json()).catch(() => [])
+              fetch(fileName + '?t=' + Date.now())
+                .then(r => {
+                  if (!r.ok) {
+                    throw new Error(`HTTP ${r.status} ${r.statusText}`);
+                  }
+                  return r.json();
+                })
+                .catch(err => {
+                  console.error(`Failed to load ${fileName}:`, err);
+                  loadErrors.push({ fileName, error: err.message });
+                  return [];
+                })
             )
-          );
+          ).then(allDataArrays => ({ allDataArrays, loadErrors }));
         })
-        .then(allDataArrays => {
+        .then(({ allDataArrays, loadErrors }) => {
           const combined = allDataArrays.flat();
           if (combined.length === 0) {
-            container.innerHTML = '<p class="text-danger">No data available to display.</p>';
+            if (loadErrors.length) {
+              container.innerHTML = `<p class="text-danger">No data available to display. Failed to load: ${loadErrors
+                .map(e => e.fileName)
+                .join(', ')}</p>`;
+            } else {
+              container.innerHTML = '<p class="text-danger">No data available to display.</p>';
+            }
             return;
           }
           // Group by symbol

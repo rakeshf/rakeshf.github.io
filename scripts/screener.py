@@ -1,5 +1,9 @@
 from nsepython import *
 import pandas as pd
+try:
+    import yfinance as yf
+except ImportError:
+    yf = None
 import json
 import os
 from datetime import datetime, time
@@ -65,8 +69,17 @@ def alert_signal_changes(latest_file, prev_file, alert_file="../data/signal_aler
 
 # -------------------- INDEX HANDLER --------------------
 
+def normalize_index_path(path: str) -> str:
+    path = path.replace("../data/", "data/")
+    path = path.replace("./data/", "data/")
+    path = path.lstrip("./")
+    return path
+
+
 def add_file_to_index(new_filename, index_path="../data/index.json"):
     os.makedirs(os.path.dirname(index_path), exist_ok=True)
+
+    normalized = normalize_index_path(new_filename)
 
     if os.path.exists(index_path):
         with open(index_path, "r") as f:
@@ -77,10 +90,11 @@ def add_file_to_index(new_filename, index_path="../data/index.json"):
     else:
         files = []
 
-    files = [new_filename] + [f for f in files if f != new_filename]
+    normalized_files = [normalize_index_path(f) for f in files if isinstance(f, str)]
+    normalized_files = [normalized] + [f for f in normalized_files if f != normalized]
 
     with open(index_path, "w") as f:
-        json.dump(files, f, indent=2)
+        json.dump(normalized_files, f, indent=2)
 
 # -------------------- HELPERS: RETRY / FETCH --------------------
 
@@ -100,34 +114,61 @@ def retry_on_exception(retries=3, delay=1, exceptions=(Exception,)):
     return decorator
 
 
+def fetch_yahoo_price(symbol):
+    if yf is None:
+        raise RuntimeError("yfinance is not installed")
+
+    ticker = yf.Ticker(symbol + ".NS")
+    for attr in ("fast_info", "info"):
+        info = getattr(ticker, attr, None)
+        if not info:
+            continue
+        last_price = info.get("lastPrice") or info.get("regularMarketPrice") or info.get("previousClose") or info.get("close")
+        previous_close = info.get("previousClose") or info.get("regularMarketPreviousClose")
+        if last_price is not None:
+            return {"priceInfo": {"lastPrice": last_price, "previousClose": previous_close}}
+
+    hist = ticker.history(period="2d")
+    if not hist.empty:
+        last_price = float(hist.iloc[-1]["Close"])
+        previous_close = float(hist.iloc[-2]["Close"]) if len(hist) >= 2 else None
+        return {"priceInfo": {"lastPrice": last_price, "previousClose": previous_close}}
+
+    raise ValueError(f"Yahoo Finance returned no valid price data for {symbol}")
+
+
 @retry_on_exception(retries=3, delay=1)
 def fetch_eq_with_retry(symbol):
-    # Prefer nse_fno for lower latency and smaller payloads; fall back to nse_eq
+    # Prefer nse_fno for lower latency and smaller payloads; fall back to nse_eq and Yahoo Finance.
     try:
         fno = nse_fno(symbol)
         if isinstance(fno, dict):
-            # normalize to same structure used downstream
             ltp = fno.get("underlyingValue") or fno.get("lastPrice") or fno.get("ltp")
             prev = fno.get("previousClose") or fno.get("prevClose") or None
-
-            # ensure ltp is numeric (nse_fno sometimes returns '-' or other placeholders)
             try:
                 ltp_val = float(str(ltp).replace(',', ''))
             except Exception:
                 ltp_val = None
-
             if ltp_val is not None:
-                # normalize prev as well when possible
                 try:
                     prev_val = float(str(prev).replace(',', '')) if prev is not None else None
                 except Exception:
                     prev_val = None
                 return {"priceInfo": {"lastPrice": ltp_val, "previousClose": prev_val}}
     except Exception:
-        # swallow and fallback
         pass
 
-    return nse_eq(symbol)
+    try:
+        eq = nse_eq(symbol)
+        if isinstance(eq, dict) and eq:
+            return eq
+    except Exception:
+        pass
+
+    if yf is not None:
+        return fetch_yahoo_price(symbol)
+
+    raise ValueError("Unable to fetch equity data for symbol")
 
 
 @retry_on_exception(retries=3, delay=1)
