@@ -2,8 +2,11 @@ name: Update data
 
 on:
   schedule:
-    # Runs every 15 minutes on working days (Mon-Fri). Times are UTC.
-    - cron: '*/15 * * * 1-5'
+    # Runs every 15 minutes on working days (Mon-Fri) between 09:15 and 15:00 Asia/Kolkata (IST).
+    # GitHub Actions uses UTC; the equivalent UTC window is 03:45–09:30 UTC.
+    - cron: '45 3 * * 1-5'
+    - cron: '*/15 4-8 * * 1-5'
+    - cron: '0,15,30 9 * * 1-5'
   workflow_dispatch: {}
 
 jobs:
