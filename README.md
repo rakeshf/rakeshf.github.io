@@ -59,7 +59,7 @@
 
 ## Contact
 
-LinkedIn: <a href="https://www.linkedin.com/in/rakesh-falke/" target="_blank" rel="noopener noreferrer">Rakesh Falke</a>
+LinkedIn: <a href="https://www.linkedin.com/in/rakesh-falke/" target="_blank" rel="noopener noreferrer">Rakeesh Falke</a>
 
 
 ---
