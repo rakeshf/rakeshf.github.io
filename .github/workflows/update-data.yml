@@ -1,0 +1,43 @@
+name: Update data
+
+on:
+  schedule:
+    # Runs every 15 minutes on working days (Mon-Fri). Times are UTC.
+    - cron: '*/15 * * * 1-5'
+  workflow_dispatch: {}
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Make update script executable
+        run: chmod +x scripts/update_data.sh
+
+      - name: Run update script
+        run: |
+          mkdir -p logs/scripts
+          ./scripts/update_data.sh
+
+      - name: Commit and push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Automated data update by GitHub Actions"
+            git push
+          fi

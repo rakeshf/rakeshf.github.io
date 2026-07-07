@@ -1,0 +1,3 @@
+# Replace /absolute/path/to/repo with the absolute path to your repo root before installing.
+# This example runs hourly at minute 0. Adjust the schedule as needed.
+0 * * * * /usr/bin/env bash /absolute/path/to/repo/scripts/update_data.sh >> /absolute/path/to/repo/logs/scripts/cron_wrapper.log 2>&1
