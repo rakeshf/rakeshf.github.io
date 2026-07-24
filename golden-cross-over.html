@@ -91,6 +91,10 @@
       .then(res => res.json())
       .then(data => {
         const tbody = document.getElementById('results');
+        if (!Array.isArray(data) || data.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="3">No Golden Cross signals found.</td></tr>';
+          return;
+        }
         data.forEach(row => {
           const tr = document.createElement('tr');
           tr.innerHTML = `

@@ -19,9 +19,11 @@ SCRIPTS=(
   sentiment.py
 )
 
+pushd "$REPO_ROOT/scripts" > /dev/null
 for s in "${SCRIPTS[@]}"; do
   echo "--- Running $s ---" >> "$LOG_FILE"
-  "$PYTHON_CMD" "$REPO_ROOT/scripts/$s" >> "$LOG_FILE" 2>&1 || echo "ERROR: $s failed" >> "$LOG_FILE"
+  "$PYTHON_CMD" "$s" >> "$LOG_FILE" 2>&1 || echo "ERROR: $s failed" >> "$LOG_FILE"
 done
+popd > /dev/null
 
 echo "=== Done: $(date -u +"%Y-%m-%dT%H:%M:%SZ") ===" >> "$LOG_FILE"

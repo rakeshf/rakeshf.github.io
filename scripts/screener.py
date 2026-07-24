@@ -1,6 +1,5 @@
 from nsepython import *
 import pandas as pd
-import pandas_ta as ta
 try:
     import yfinance as yf
 except ImportError:
@@ -194,20 +193,29 @@ def calculate_technicals(symbol):
             close_series = df['Close'].squeeze()
 
         # 1. Bollinger Bands & Squeeze
-        bbands = ta.bbands(close_series, length=20, std=2.0)
-        bandwidth_col = [col for col in bbands.columns if "BBB" in col][0]
-        
-        # Calculate 100-day rolling percentile
-        width_percentile = bbands[bandwidth_col].rolling(window=100).rank(pct=True)
+        sma_20 = close_series.rolling(window=20).mean()
+        std_20 = close_series.rolling(window=20).std()
+        upper_band = sma_20 + (2.0 * std_20)
+        lower_band = sma_20 - (2.0 * std_20)
+        bandwidth = ((upper_band - lower_band) / sma_20) * 100
+
+        # Calculate 100-day rolling percentile.
+        width_percentile = bandwidth.rolling(window=100).rank(pct=True)
         is_squeeze = bool(width_percentile.iloc[-1] <= 0.20)
 
         # 2. EMAs
-        ema_5 = ta.ema(close_series, length=5)
-        ema_13 = ta.ema(close_series, length=13)
+        ema_5 = close_series.ewm(span=5, adjust=False).mean()
+        ema_13 = close_series.ewm(span=13, adjust=False).mean()
         ema_bullish = bool(ema_5.iloc[-1] > ema_13.iloc[-1])
 
         # 3. RSI
-        rsi = ta.rsi(close_series, length=14)
+        delta = close_series.diff()
+        gains = delta.clip(lower=0)
+        losses = -delta.clip(upper=0)
+        avg_gain = gains.ewm(alpha=1 / 14, min_periods=14, adjust=False).mean()
+        avg_loss = losses.ewm(alpha=1 / 14, min_periods=14, adjust=False).mean()
+        rs = avg_gain / avg_loss.replace(0, pd.NA)
+        rsi = 100 - (100 / (1 + rs))
         current_rsi = float(rsi.iloc[-1])
 
         return {

@@ -1,0 +1,7 @@
+nsepython
+pandas
+yfinance
+numpy
+pytz
+feedparser
+vaderSentiment

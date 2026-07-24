@@ -448,16 +448,23 @@
             });
             const ceData = entries.map(e => safeNumber(e.total_ce_oi));
             const peData = entries.map(e => safeNumber(e.total_pe_oi));
+            const priceData = entries.map(e => safeNumber(e.price));
+            const hasOiData = ceData.some(v => v !== null && v > 0) || peData.some(v => v !== null && v > 0);
+            const chartDatasets = hasOiData
+              ? [
+                  { label: 'Total CE OI', data: ceData, borderColor: '#fd7e14', backgroundColor: '#fd7e1488', fill: false, tension: 0.3, pointRadius: 2 },
+                  { label: 'Total PE OI', data: peData, borderColor: '#6f42c1', backgroundColor: '#6f42c188', fill: false, tension: 0.3, pointRadius: 2 }
+                ]
+              : [
+                  { label: 'Price', data: priceData, borderColor: '#0d6efd', backgroundColor: '#0d6efd33', fill: true, tension: 0.3, pointRadius: 2 }
+                ];
 
             // create chart and store reference on canvas for later resize
             const chart = new Chart(canvas.getContext('2d'), {
               type: 'line',
               data: {
                 labels,
-                datasets: [
-                  { label: 'Total CE OI', data: ceData, borderColor: '#fd7e14', backgroundColor: '#fd7e1488', fill: false, tension: 0.3, pointRadius: 2 },
-                  { label: 'Total PE OI', data: peData, borderColor: '#6f42c1', backgroundColor: '#6f42c188', fill: false, tension: 0.3, pointRadius: 2 }
-                ]
+                datasets: chartDatasets
               },
               options: {
                 responsive: true,
@@ -511,14 +518,19 @@
                 maintainAspectRatio: false,
                 interaction: { mode: 'nearest', intersect: false },
                 scales: {
-                  y: { beginAtZero: true, title: { display: true, text: 'Open Interest (OI)' }, grid: { color: document.body.classList.contains('dark-mode') ? '#444' : '#e9ecef' } },
+                  y: { beginAtZero: hasOiData, title: { display: true, text: hasOiData ? 'Open Interest (OI)' : 'Price (₹)' }, grid: { color: document.body.classList.contains('dark-mode') ? '#444' : '#e9ecef' } },
                   x: { title: { display: true, text: 'Timestamp (IST)' }, grid: { color: document.body.classList.contains('dark-mode') ? '#444' : '#e9ecef' } }
                 },
                 plugins: {
                   legend: { position: 'top', labels: { color: document.body.classList.contains('dark-mode') ? '#eee' : '#212529' } },
                   tooltip: {
                     callbacks: {
-                      label: ctx => (ctx.parsed.y === null || ctx.parsed.y === undefined) ? 'N/A' : ctx.parsed.y.toLocaleString(),
+                      label: ctx => {
+                        if (ctx.parsed.y === null || ctx.parsed.y === undefined) return 'N/A';
+                        return hasOiData
+                          ? `${ctx.dataset.label}: ${ctx.parsed.y.toLocaleString()}`
+                          : `${ctx.dataset.label}: ₹${ctx.parsed.y.toFixed(2)}`;
+                      },
                       title: ctx => {
                         const ts = entries[ctx[0].dataIndex]?.timestamp;
                         return ts ? new Date(ts).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', dateStyle: 'medium', timeStyle: 'short', hour12: true }) : '';

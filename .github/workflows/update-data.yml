@@ -1,46 +1,50 @@
-name: Update data
+name: Update market JSON data
 
 on:
   schedule:
-    # Runs every 15 minutes on working days (Mon-Fri) between 09:15 and 15:00 Asia/Kolkata (IST).
-    # GitHub Actions uses UTC; the equivalent UTC window is 03:45–09:30 UTC.
-    - cron: '45 3 * * 1-5'
-    - cron: '*/15 4-8 * * 1-5'
-    - cron: '0,15,30 9 * * 1-5'
-  workflow_dispatch: {}
+    # GitHub schedules use UTC. These run every 30 minutes on weekdays during
+    # Indian market hours: 09:15-15:15 Asia/Kolkata.
+    - cron: "45 3 * * 1-5"
+    - cron: "15,45 4-8 * * 1-5"
+    - cron: "15,45 9 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-market-json
+  cancel-in-progress: false
 
 jobs:
-  update:
+  update-data:
     runs-on: ubuntu-latest
+    timeout-minutes: 25
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: "3.11"
+          cache: "pip"
 
-      - name: Make update script executable
-        run: chmod +x scripts/update_data.sh
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
-      - name: Run update script
-        run: |
-          mkdir -p logs/scripts
-          ./scripts/update_data.sh
+      - name: Generate JSON data
+        run: bash scripts/update_data.sh
 
-      - name: Commit and push changes
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit generated data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          if git diff --staged --quiet; then
-            echo "No changes to commit"
+          git add data logs
+          if git diff --cached --quiet; then
+            echo "No generated data changes to commit."
           else
-            git commit -m "Automated data update by GitHub Actions"
+            git commit -m "Update generated market JSON data"
             git push
           fi
