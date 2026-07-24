@@ -9,7 +9,91 @@ const getSignalColor = (signal) => {
   if (!signal) return "bg-light text-dark";
   if (signal.includes("Short Covering")) return "bg-warning text-dark";
   if (signal.includes("Long Unwinding")) return "bg-info text-dark";
+  if (signal.includes("Long Build")) return "bg-success";
+  if (signal.includes("Short Build")) return "bg-danger";
   return "bg-light text-dark";
+};
+
+let currentStockData = [];
+let selectedQuickFilter = "All";
+
+const toNumberOrNull = (value) => {
+  const number = Number(value);
+  return Number.isFinite(number) ? number : null;
+};
+
+const formatCurrency = (value) => {
+  const number = toNumberOrNull(value);
+  return number !== null ? `₹${number.toFixed(2)}` : "N/A";
+};
+
+const formatPercent = (value) => {
+  const number = toNumberOrNull(value);
+  return number !== null ? `${number.toFixed(2)}%` : "N/A";
+};
+
+const formatCompact = (value) => {
+  const number = toNumberOrNull(value);
+  return number !== null && number > 0 ? number.toLocaleString("en-IN") : "N/A";
+};
+
+const getDirectionClass = (value) => {
+  const number = toNumberOrNull(value);
+  if (number === null || number === 0) return "text-secondary";
+  return number > 0 ? "text-success" : "text-danger";
+};
+
+const setText = (id, value) => {
+  const element = document.getElementById(id);
+  if (element) element.textContent = value;
+};
+
+const renderSummary = (data) => {
+  setText("summaryTotal", data.length);
+  setText("summaryBullish", data.filter((stock) => stock.sentiment === "Bullish").length);
+  setText("summaryBearish", data.filter((stock) => stock.sentiment === "Bearish").length);
+  setText("summaryConflicts", data.filter((stock) => stock.conflict).length);
+};
+
+const sortData = (data, sortValue) => {
+  const sorted = [...data];
+  const numberSortDesc = (field) =>
+    sorted.sort((a, b) => (toNumberOrNull(b[field]) ?? -Infinity) - (toNumberOrNull(a[field]) ?? -Infinity));
+
+  if (sortValue === "priceChangeDesc") return numberSortDesc("price_change_pct");
+  if (sortValue === "pcrDesc") return numberSortDesc("pcr");
+  if (sortValue === "oiChangeDesc") return numberSortDesc("oi_change_pct");
+  if (sortValue === "scoreDesc") return numberSortDesc("master_score");
+
+  return sorted.sort((a, b) => String(a.symbol || "").localeCompare(String(b.symbol || "")));
+};
+
+const getFilteredData = () => {
+  const sentimentFilter = document.getElementById("sentimentFilter")?.value || "All";
+  const signalFilter = document.getElementById("signalFilter")?.value || "All";
+  const searchValue = (document.getElementById("symbolSearch")?.value || "").trim().toUpperCase();
+  const sortValue = document.getElementById("sortSelector")?.value || "symbol";
+
+  const filtered = currentStockData.filter((stock) => {
+    const symbolMatch = !searchValue || String(stock.symbol || "").toUpperCase().includes(searchValue);
+    const sentimentMatch = sentimentFilter === "All" || stock.sentiment === sentimentFilter;
+    const quickMatch =
+      selectedQuickFilter === "All" ||
+      stock.sentiment === selectedQuickFilter ||
+      (selectedQuickFilter === "Conflicts" && stock.conflict);
+    const signalMatch =
+      signalFilter === "All" ||
+      (signalFilter === "Conflicts" && stock.conflict) ||
+      String(stock.signal || "").includes(signalFilter);
+
+    return symbolMatch && sentimentMatch && quickMatch && signalMatch;
+  });
+
+  return sortData(filtered, sortValue);
+};
+
+const updateResults = () => {
+  renderCards(getFilteredData());
 };
 
 const renderCards = (data) => {
@@ -17,85 +101,112 @@ const renderCards = (data) => {
   if (!container) return;
   container.innerHTML = "";
 
+  setText("resultCount", `${data.length} result${data.length === 1 ? "" : "s"}`);
+
+  if (!data.length) {
+    container.innerHTML = `
+      <div class="empty-state">
+        <span class="material-icons-outlined">search_off</span>
+        <strong>No stocks match this view</strong>
+        <span>Try changing the search, sentiment, signal, or selected data file.</span>
+      </div>
+    `;
+    return;
+  }
+
   data.forEach((stock) => {
-    const price = Number.isFinite(Number(stock.price)) ? Number(stock.price) : null;
-    const priceChangePct = Number.isFinite(Number(stock.price_change_pct)) ? Number(stock.price_change_pct) : null;
-    const previousClose = Number.isFinite(Number(stock.previous_close)) ? Number(stock.previous_close) : null;
-    const totalCeOi = Number.isFinite(Number(stock.total_ce_oi)) ? Number(stock.total_ce_oi) : null;
-    const totalPeOi = Number.isFinite(Number(stock.total_pe_oi)) ? Number(stock.total_pe_oi) : null;
-    const oiChangePct = Number.isFinite(Number(stock.oi_change_pct)) ? Number(stock.oi_change_pct) : null;
-    const ceOiChangePct = Number.isFinite(Number(stock.ce_oi_change_pct)) ? Number(stock.ce_oi_change_pct) : null;
-    const peOiChangePct = Number.isFinite(Number(stock.pe_oi_change_pct)) ? Number(stock.pe_oi_change_pct) : null;
-    const pcr = Number.isFinite(Number(stock.pcr)) ? Number(stock.pcr) : null;
+    const price = toNumberOrNull(stock.price);
+    const priceChangePct = toNumberOrNull(stock.price_change_pct);
+    const priceDirectionClass = getDirectionClass(priceChangePct);
 
     const card = document.createElement("div");
-    card.className = "col";
+    card.className = "stock-card";
 
     const priceIcon =
-      stock.price_direction === "↑"
+      priceChangePct !== null && priceChangePct >= 0
         ? `<span class="material-icons-outlined text-success">trending_up</span>`
         : `<span class="material-icons-outlined text-danger">trending_down</span>`;
 
-    const oiIcon =
-      stock.oi_direction === "↑"
-        ? `<span class="material-icons-outlined text-success">north</span>`
-        : `<span class="material-icons-outlined text-danger">south</span>`;
-
     const signalBadge = `
   <span class="badge ${getSignalColor(stock.signal)}">
-    ${stock.signal}
+    ${stock.signal || "Signal N/A"}
   </span>`;
     const sentimentBadge = `<span class="badge ${getSentimentColor(
       stock.sentiment
-    )} text-white">${stock.sentiment}</span>`;
+    )} text-white">${stock.sentiment || "N/A"}</span>`;
+    const rsi = stock.technicals ? toNumberOrNull(stock.technicals.rsi) : null;
 
     card.innerHTML = `
-      <div class="card h-100 shadow">
+      <div class="card h-100 stock-card-inner">
         <div class="card-body">
-          <h5 class="card-title">${stock.symbol}</h5>
-          <p class="card-text mb-1">
-            ${priceIcon}
-            ${price !== null ? `₹${price.toFixed(2)}` : 'Price N/A'} (${
-      stock.price_direction || ''
-    } ${priceChangePct !== null ? priceChangePct.toFixed(2) + '%' : 'N/A'})
-          </p>
-          <p class="card-text mb-1">
-            Prev Close: ${previousClose !== null ? `₹${previousClose.toFixed(2)}` : 'N/A'}
-          </p>
-          <p class="card-text mb-1">
-            <span class="material-icons-outlined text-info">equalizer</span>
-            CE OI: <strong>${totalCeOi !== null && totalCeOi > 0 ? totalCeOi.toLocaleString() : 'N/A'}</strong>,
-            PE OI: <strong>${totalPeOi !== null && totalPeOi > 0 ? totalPeOi.toLocaleString() : 'N/A'}</strong>
-          </p>
-          <p class="card-text mb-1">
-            ${oiIcon} OI: ${stock.oi_direction || ''} ${oiChangePct !== null ? oiChangePct.toFixed(2) + '%' : 'N/A'}
-          </p>
-          <p class="card-text mb-1">
-            CE Δ: ${ceOiChangePct !== null ? ceOiChangePct.toFixed(2) + '%' : 'N/A'} &nbsp;
-            PE Δ: ${peOiChangePct !== null ? peOiChangePct.toFixed(2) + '%' : 'N/A'}
-          </p>
-          <p class="card-text mb-1">
-            PCR: <strong>${pcr !== null ? pcr.toFixed(2) : 'N/A'}</strong>
-          </p>
-          <p class="card-text mb-1">
-            Build Side: <strong>${stock.build_side}</strong>
-          </p>
-          <p class="mb-1">
-            ${sentimentBadge} ${signalBadge}
-          </p>
+          <div class="stock-card-top">
+            <div>
+              <h3 class="stock-symbol">${stock.symbol || "UNKNOWN"}</h3>
+              <span class="stock-subtle">Score ${toNumberOrNull(stock.master_score) ?? "N/A"}</span>
+            </div>
+            ${sentimentBadge}
+          </div>
+
+          <div class="price-row">
+            <div>
+              <span class="stock-subtle">Last Price</span>
+              <strong>${price !== null ? formatCurrency(price) : "N/A"}</strong>
+            </div>
+            <span class="price-change ${priceDirectionClass}">
+              ${priceIcon}
+              ${formatPercent(priceChangePct)}
+            </span>
+          </div>
+
+          <div class="metric-grid">
+            <div class="metric-cell">
+              <span>PCR</span>
+              <strong>${toNumberOrNull(stock.pcr) !== null ? toNumberOrNull(stock.pcr).toFixed(2) : "N/A"}</strong>
+            </div>
+            <div class="metric-cell">
+              <span>CE OI</span>
+              <strong>${formatCompact(stock.total_ce_oi)}</strong>
+            </div>
+            <div class="metric-cell">
+              <span>PE OI</span>
+              <strong>${formatCompact(stock.total_pe_oi)}</strong>
+            </div>
+            <div class="metric-cell">
+              <span>OI Chg</span>
+              <strong class="${getDirectionClass(stock.oi_change_pct)}">${formatPercent(stock.oi_change_pct)}</strong>
+            </div>
+            <div class="metric-cell">
+              <span>Build</span>
+              <strong>${stock.build_side || "N/A"}</strong>
+            </div>
+            <div class="metric-cell">
+              <span>RSI</span>
+              <strong>${rsi !== null ? rsi.toFixed(1) : "N/A"}</strong>
+            </div>
+          </div>
+
+          <div class="stock-card-footer">
+            ${signalBadge}
+            <span class="stock-subtle">${getSignalTooltip(stock.signal)}</span>
+          </div>
           ${
             stock.conflict
-              ? `<p class="text-danger fw-bold mt-1" data-bs-toggle="tooltip" title="Conflicting data between price and OI movement. Use caution.">⚠️ Conflicting Signal</p>`
+              ? `<div class="conflict-strip" data-bs-toggle="tooltip" title="Conflicting data between price and OI movement. Use caution.">
+                  <span class="material-icons-outlined">warning</span>
+                  Conflicting Signal
+                </div>`
               : ""
           }
-          <p class="mb-1">
-            <small class='text-muted'>${getSignalTooltip(stock.signal)}</small>
-          </p>
         </div>
       </div>
     `;
     container.appendChild(card);
   });
+
+  if (window.bootstrap?.Tooltip) {
+    const tooltipTriggerList = [].slice.call(container.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.forEach((el) => new bootstrap.Tooltip(el));
+  }
 };
 
 // Load available files into dropdown (assumes data/index.json contains array of filenames)
@@ -104,6 +215,7 @@ fetch("data/index.json")
   .then((fileList) => {
     const select = document.getElementById("fileSelector");
     if (!select) return;
+    select.innerHTML = "";
     const cleanFiles = fileList.map((file) =>
       file.replace(/^(\.\/|\.\.\/)?data\//, "")
     );
@@ -140,34 +252,49 @@ fetch("data/index.json")
 // Load + render cards from a file
 const loadAndRenderData = (filename) => {
   const cleanFilename = filename.replace(/^(\.\/|\.\.\/)?data\//, "");
+  const container = document.getElementById("cardContainer");
+  if (container) {
+    container.innerHTML = `
+      <div class="empty-state">
+        <span class="material-icons-outlined">hourglass_top</span>
+        <strong>Loading F&O data...</strong>
+      </div>
+    `;
+  }
   fetch(`data/${cleanFilename}`)
     .then((response) => {
       if (!response.ok) throw new Error("Failed to fetch data");
       return response.json();
     })
     .then((data) => {
-      renderCards(data);
-
-      // Filter handler
-      const filter = document.getElementById("sentimentFilter");
-      if (filter) {
-        filter.onchange = () => {
-          const selected = filter.value;
-          const filtered =
-            selected === "All"
-              ? data
-              : data.filter((item) => item.sentiment === selected);
-          renderCards(filtered);
-        };
-      }
+      currentStockData = Array.isArray(data) ? data : [];
+      renderSummary(currentStockData);
+      updateResults();
     })
     .catch((error) => {
       document.getElementById(
         "cardContainer"
-      ).innerHTML = `<p class="text-danger">Error loading data: ${error.message}</p>`;
+      ).innerHTML = `<div class="empty-state text-danger"><strong>Error loading data:</strong><span>${error.message}</span></div>`;
       console.error("Fetch error:", error);
     });
 };
+
+["sentimentFilter", "signalFilter", "sortSelector", "symbolSearch"].forEach((id) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.addEventListener("input", updateResults);
+    element.addEventListener("change", updateResults);
+  }
+});
+
+document.querySelectorAll(".quick-filter").forEach((button) => {
+  button.addEventListener("click", () => {
+    selectedQuickFilter = button.dataset.filter || "All";
+    document.querySelectorAll(".quick-filter").forEach((item) => item.classList.remove("active"));
+    button.classList.add("active");
+    updateResults();
+  });
+});
 
 const getSignalTooltip = (signal) => {
   if (!signal) return "Signal data is unavailable.";

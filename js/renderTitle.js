@@ -23,6 +23,6 @@ const loadAndRenderFilename = (filename) => {
     .replace(",", "");
   const summaryDate = document.getElementById("summaryDate");
   if (summaryDate) {
-    summaryDate.textContent = `📅 F&O Summary for ${formatted}`;
+    summaryDate.textContent = `F&O summary for ${formatted}`;
   }
 };
