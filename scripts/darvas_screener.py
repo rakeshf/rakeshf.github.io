@@ -24,6 +24,26 @@ lookback_days = 90
 box_length = 5          # days to confirm a high/low
 buffer_pct = 1.5        # Pre-breakout/breakdown buffer (percent)
 stop_loss_pct = 3       # Backtest only (not used here)
+friendly_map = {
+    "Confirmed breakout": "✅ Confirmed breakout",
+    "Pre-breakout": "🔼 Pre-breakout",
+    "Confirmed breakdown": "🔻 Confirmed breakdown",
+    "Pre-breakdown": "🔽 Pre-breakdown"
+}
+
+def safe_float(value):
+    if value is None:
+        return None
+    try:
+        if hasattr(value, "iloc"):
+            value = value.iloc[0]
+        return float(value)
+    except Exception:
+        return None
+
+def rounded_or_none(value):
+    value = safe_float(value)
+    return round(value, 2) if value is not None else None
 
 # --- Fetch OHLCV data ---
 def get_data(symbol, days):
@@ -147,14 +167,6 @@ def run_screener(symbols):
 
         signal_type, direction, price, box_high, box_low = check_box_signal(df, boxes, buffer_pct)
 
-        if signal_type != "No":
-            friendly_map = {
-                "Confirmed breakout": "✅ Confirmed breakout",
-                "Pre-breakout": "🔼 Pre-breakout",
-                "Confirmed breakdown": "🔻 Confirmed breakdown",
-                "Pre-breakdown": "🔽 Pre-breakdown"
-            }
-
         # set target based on direction
         target = None
         if direction == "up":
@@ -167,10 +179,10 @@ def run_screener(symbols):
             'Symbol': symbol,
             'Signal': friendly_map.get(signal_type, signal_type),
             'Direction': direction if direction else '',
-            'Close': round(float(price), 2) if price is not None else None,
-            'Box High': round(float(box_high), 2) if box_high is not None else None,
-            'Box Low': round(float(box_low), 2) if box_low is not None else None,
-            'Target': round(float(target), 2) if target is not None else None
+            'Close': rounded_or_none(price),
+            'Box High': rounded_or_none(box_high),
+            'Box Low': rounded_or_none(box_low),
+            'Target': rounded_or_none(target)
         })
     return pd.DataFrame(results)
 
