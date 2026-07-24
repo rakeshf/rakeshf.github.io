@@ -11,7 +11,7 @@ const loadAndRenderFilename = (filename) => {
   d.setMinutes(Number(minute));
   d.setSeconds(0);
   d.setMilliseconds(0);
-  formatted = d
+  const formatted = d
     .toLocaleString("en-IN", {
       day: "2-digit",
       month: "short",
@@ -21,7 +21,8 @@ const loadAndRenderFilename = (filename) => {
       hour12: true,
     })
     .replace(",", "");
-  document.getElementById(
-    "summaryDate"
-  ).textContent = `📅 F&O Summary for ${formatted}`;
+  const summaryDate = document.getElementById("summaryDate");
+  if (summaryDate) {
+    summaryDate.textContent = `📅 F&O Summary for ${formatted}`;
+  }
 };

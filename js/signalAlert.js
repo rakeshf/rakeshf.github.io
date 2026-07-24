@@ -33,7 +33,9 @@ fetch("data/signal_alerts.json")
   })
   .catch((err) => {
     console.error("Error loading signal alerts:", err);
-    const container = document.getElementById("cardContainer");
-    container.innerHTML =
-      "<div class='col'><div class='alert alert-warning'>Failed to load signal alert data.</div></div>";
+    const container = document.getElementById("signalAlertContainer");
+    if (container) {
+      container.innerHTML =
+        "<div class='col'><div class='alert alert-warning'>Failed to load signal alert data.</div></div>";
+    }
   });

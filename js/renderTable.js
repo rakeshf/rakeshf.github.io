@@ -1,4 +1,4 @@
-fetch("../data/darvas_breakouts.json")
+fetch("data/darvas_breakouts.json")
     .then((res) => res.json())
     .then((data) => {
         // Filter out rows where Signal is "No" or empty

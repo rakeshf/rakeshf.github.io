@@ -68,14 +68,15 @@
     const timestamp = Date.now();
 
     const scripts = [
+      "js/renderTitle.js",
       "js/renderCard.js",
       "js/themeToggle.js",
-      "js/renderTitle.js",
       "js/signalAlert.js",
     ];
 
     scripts.forEach(src => {
       const script = document.createElement("script");
+      script.async = false;
       script.src = `${src}?v=${timestamp}`;
       document.body.appendChild(script);
     });

@@ -4,7 +4,9 @@
   const setTheme = (theme) => {
     document.documentElement.setAttribute("data-bs-theme", theme);
     localStorage.setItem("theme", theme);
-    modeIcon.textContent = theme === "dark" ? "light_mode" : "dark_mode";
+    if (modeIcon) {
+      modeIcon.textContent = theme === "dark" ? "light_mode" : "dark_mode";
+    }
   };
 
   const toggleTheme = () => {
@@ -12,7 +14,9 @@
     setTheme(current === "dark" ? "light" : "dark");
   };
 
-  modeToggle.addEventListener("click", toggleTheme);
+  if (modeToggle) {
+    modeToggle.addEventListener("click", toggleTheme);
+  }
 
   // On load: apply saved theme
   const saved = localStorage.getItem("theme") || "light";

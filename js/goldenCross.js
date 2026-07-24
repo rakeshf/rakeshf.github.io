@@ -1,4 +1,4 @@
-    fetch('../data/golden_cross.json')
+    fetch('data/golden_cross.json')
       .then(res => res.json())
       .then(data => {
         const tbody = document.querySelector('#gc-table tbody');

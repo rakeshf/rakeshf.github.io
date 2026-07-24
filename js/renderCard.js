@@ -6,6 +6,7 @@ const getSentimentColor = (sentiment) => {
 };
 
 const getSignalColor = (signal) => {
+  if (!signal) return "bg-light text-dark";
   if (signal.includes("Short Covering")) return "bg-warning text-dark";
   if (signal.includes("Long Unwinding")) return "bg-info text-dark";
   return "bg-light text-dark";
@@ -13,6 +14,7 @@ const getSignalColor = (signal) => {
 
 const renderCards = (data) => {
   const container = document.getElementById("cardContainer");
+  if (!container) return;
   container.innerHTML = "";
 
   data.forEach((stock) => {
@@ -93,26 +95,31 @@ fetch("data/index.json")
   .then((res) => res.json())
   .then((fileList) => {
     const select = document.getElementById("fileSelector");
-    fileList.forEach((file) => {
-      // const option = document.createElement("option");
-      const cleanFilename = file.replace(/^(\.\/|\.\.\/)?data\//, "");
+    if (!select) return;
+    const cleanFiles = fileList.map((file) =>
+      file.replace(/^(\.\/|\.\.\/)?data\//, "")
+    );
+    cleanFiles.forEach((cleanFilename) => {
       const option = document.createElement("option");
       option.value = cleanFilename;
       option.textContent = cleanFilename.replace(/\.json$/, "");
-      console.log("Adding file option:", file);
       select.appendChild(option);
     });
 
     // Load the first file initially
-    if (fileList.length) {
-      loadAndRenderData(fileList[0]);
-      loadAndRenderFilename(fileList[0]);
+    if (cleanFiles.length) {
+      loadAndRenderData(cleanFiles[0]);
+      if (typeof loadAndRenderFilename === "function") {
+        loadAndRenderFilename(cleanFiles[0]);
+      }
     }
 
     // Reload dashboard on file change
     select.addEventListener("change", () => {
       loadAndRenderData(select.value);
-      loadAndRenderFilename(select.value);
+      if (typeof loadAndRenderFilename === "function") {
+        loadAndRenderFilename(select.value);
+      }
     });
   })
   .catch((err) => {
@@ -124,7 +131,8 @@ fetch("data/index.json")
 
 // Load + render cards from a file
 const loadAndRenderData = (filename) => {
-  fetch(`data/${filename}`)
+  const cleanFilename = filename.replace(/^(\.\/|\.\.\/)?data\//, "");
+  fetch(`data/${cleanFilename}`)
     .then((response) => {
       if (!response.ok) throw new Error("Failed to fetch data");
       return response.json();
@@ -154,6 +162,7 @@ const loadAndRenderData = (filename) => {
 };
 
 const getSignalTooltip = (signal) => {
+  if (!signal) return "Signal data is unavailable.";
   if (signal.includes("Short Covering"))
     return "Price ↑, OI ↓ → Shorts are being closed.";
   if (signal.includes("Long Unwinding"))

@@ -591,7 +591,7 @@
         const cards = document.querySelectorAll('.stock-card-wrapper');
 
         cards.forEach(card => {
-            const signal = card.getAttribute('data-signal') || '';
+            const signal = (card.getAttribute('data-signal') || '').toLowerCase();
             const isSqueeze = card.getAttribute('data-squeeze') === 'true';
             const score = parseInt(card.getAttribute('data-score')) || 0;
 
@@ -602,9 +602,9 @@
                 shouldShow = true;
             } else if (filterType === 'squeeze' && isSqueeze) {
                 shouldShow = true;
-            } else if (filterType === 'long_buildup' && signal.includes('Long Build-up')) {
+            } else if (filterType === 'long_buildup' && (signal.includes('long build-up') || signal.includes('long buildup'))) {
                 shouldShow = true;
-            } else if (filterType === 'short_covering' && signal.includes('Short Covering')) {
+            } else if (filterType === 'short_covering' && signal.includes('short covering')) {
                 shouldShow = true;
             } else if (filterType === 'high_score' && score >= 3) {
                 shouldShow = true;
