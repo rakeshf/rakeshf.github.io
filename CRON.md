@@ -41,5 +41,7 @@ Notes:
   - `45 3 * * 1-5`        (03:45 UTC => 09:15 IST)
   - `15,45 4-8 * * 1-5`  (04:15–08:45 UTC => 09:45–14:15 IST)
   - `15,45 9 * * 1-5`    (09:15,09:45 UTC => 14:45,15:15 IST)
+- Weekly cleanup runs from `.github/workflows/weekly-data-cleanup.yml` every Monday at 08:30 IST (`0 3 * * 1` UTC). It deletes generated files in `data/` and recreates `data/index.json` as an empty list.
+- Darvas Box and Golden Cross data refresh runs from `.github/workflows/update-screeners.yml` daily at 14:00 IST (`30 8 * * *` UTC). It regenerates `data/darvas_breakouts.json` and `data/golden_cross.json`.
 - If your scripts require dependencies or a virtual environment, update the workflow to install them (for example, add `pip install -r requirements.txt`).
 - GitHub Actions runs on UTC for scheduled cron triggers.

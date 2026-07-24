@@ -1,0 +1,41 @@
+name: Weekly data cleanup
+
+on:
+  schedule:
+    # GitHub schedules use UTC. 03:00 UTC Monday = 08:30 Monday Asia/Kolkata.
+    - cron: "0 3 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: weekly-data-cleanup
+  cancel-in-progress: false
+
+jobs:
+  cleanup-data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Clear generated data folder
+        run: |
+          mkdir -p data
+          find data -type f -delete
+          printf "[]\n" > data/index.json
+
+      - name: Commit cleanup
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "No data cleanup changes to commit."
+          else
+            git commit -m "Weekly cleanup of generated data"
+            git push
+          fi

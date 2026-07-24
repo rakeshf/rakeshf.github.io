@@ -1,0 +1,50 @@
+name: Update Darvas and Golden Cross data
+
+on:
+  schedule:
+    # GitHub schedules use UTC. 08:30 UTC = 14:00 Asia/Kolkata.
+    - cron: "30 8 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-screener-json
+  cancel-in-progress: false
+
+jobs:
+  update-screeners:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate Darvas and Golden Cross JSON
+        working-directory: scripts
+        run: |
+          python golden_cross.py
+          python darvas_screener.py
+
+      - name: Commit screener data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/golden_cross.json data/darvas_breakouts.json
+          if git diff --cached --quiet; then
+            echo "No screener data changes to commit."
+          else
+            git commit -m "Update Darvas and Golden Cross data"
+            git push
+          fi
