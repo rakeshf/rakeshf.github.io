@@ -13,6 +13,7 @@
     <meta name="author" content="Rakesh Falke" />
     <meta name="robots" content="index, follow" />
     <link href="icons8-rupee-48.png" rel="shortcut icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
     <script src="js/themeToggle.js"></script>
       <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PB8VW32FTL"></script>
@@ -26,6 +27,14 @@
     <style>
         body {
             padding: 1rem;
+        }
+
+        .page-toolbar {
+            gap: 0.75rem;
+        }
+
+        #tableSummary {
+            min-height: 1.5rem;
         }
 
         .table td,
@@ -83,8 +92,16 @@
 
 <body>
     <div class="container">
-        <h2 class="mb-4 text-center">📊 Darvas Box Breakout Screener</h2>
-        <div id="tableContainer"></div>
+        <div class="d-flex flex-wrap justify-content-between align-items-center page-toolbar mb-3">
+            <h2 class="mb-0">📊 Darvas Box Breakout Screener</h2>
+            <button class="btn btn-outline-secondary" id="modeToggle" type="button" title="Toggle Theme">
+                <span class="material-icons-outlined" id="modeIcon">dark_mode</span>
+            </button>
+        </div>
+        <div id="tableSummary" class="text-muted small mb-3"></div>
+        <div id="tableContainer">
+            <div class="alert alert-info">Loading Darvas Box signals...</div>
+        </div>
     </div>
 
     <script src="js/renderTable.js"></script>

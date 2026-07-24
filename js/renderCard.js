@@ -18,6 +18,16 @@ const renderCards = (data) => {
   container.innerHTML = "";
 
   data.forEach((stock) => {
+    const price = Number.isFinite(Number(stock.price)) ? Number(stock.price) : null;
+    const priceChangePct = Number.isFinite(Number(stock.price_change_pct)) ? Number(stock.price_change_pct) : null;
+    const previousClose = Number.isFinite(Number(stock.previous_close)) ? Number(stock.previous_close) : null;
+    const totalCeOi = Number.isFinite(Number(stock.total_ce_oi)) ? Number(stock.total_ce_oi) : null;
+    const totalPeOi = Number.isFinite(Number(stock.total_pe_oi)) ? Number(stock.total_pe_oi) : null;
+    const oiChangePct = Number.isFinite(Number(stock.oi_change_pct)) ? Number(stock.oi_change_pct) : null;
+    const ceOiChangePct = Number.isFinite(Number(stock.ce_oi_change_pct)) ? Number(stock.ce_oi_change_pct) : null;
+    const peOiChangePct = Number.isFinite(Number(stock.pe_oi_change_pct)) ? Number(stock.pe_oi_change_pct) : null;
+    const pcr = Number.isFinite(Number(stock.pcr)) ? Number(stock.pcr) : null;
+
     const card = document.createElement("div");
     card.className = "col";
 
@@ -45,29 +55,27 @@ const renderCards = (data) => {
           <h5 class="card-title">${stock.symbol}</h5>
           <p class="card-text mb-1">
             ${priceIcon}
-            ₹${stock.price.toFixed(2)} (${
-      stock.price_direction
-    } ${stock.price_change_pct.toFixed(2)}%)
+            ${price !== null ? `₹${price.toFixed(2)}` : 'Price N/A'} (${
+      stock.price_direction || ''
+    } ${priceChangePct !== null ? priceChangePct.toFixed(2) + '%' : 'N/A'})
           </p>
           <p class="card-text mb-1">
-            Prev Close: ₹${stock.previous_close.toFixed(2)}
+            Prev Close: ${previousClose !== null ? `₹${previousClose.toFixed(2)}` : 'N/A'}
           </p>
           <p class="card-text mb-1">
             <span class="material-icons-outlined text-info">equalizer</span>
-            CE OI: <strong>${stock.total_ce_oi.toLocaleString()}</strong>,
-            PE OI: <strong>${stock.total_pe_oi.toLocaleString()}</strong>
+            CE OI: <strong>${totalCeOi !== null && totalCeOi > 0 ? totalCeOi.toLocaleString() : 'N/A'}</strong>,
+            PE OI: <strong>${totalPeOi !== null && totalPeOi > 0 ? totalPeOi.toLocaleString() : 'N/A'}</strong>
           </p>
           <p class="card-text mb-1">
-            ${oiIcon} OI: ${stock.oi_direction} ${stock.oi_change_pct.toFixed(
-      2
-    )}%
+            ${oiIcon} OI: ${stock.oi_direction || ''} ${oiChangePct !== null ? oiChangePct.toFixed(2) + '%' : 'N/A'}
           </p>
           <p class="card-text mb-1">
-            CE Δ: ${stock.ce_oi_change_pct.toFixed(2)}% &nbsp;
-            PE Δ: ${stock.pe_oi_change_pct.toFixed(2)}%
+            CE Δ: ${ceOiChangePct !== null ? ceOiChangePct.toFixed(2) + '%' : 'N/A'} &nbsp;
+            PE Δ: ${peOiChangePct !== null ? peOiChangePct.toFixed(2) + '%' : 'N/A'}
           </p>
           <p class="card-text mb-1">
-            PCR: <strong>${stock.pcr.toFixed(2)}</strong>
+            PCR: <strong>${pcr !== null ? pcr.toFixed(2) : 'N/A'}</strong>
           </p>
           <p class="card-text mb-1">
             Build Side: <strong>${stock.build_side}</strong>
@@ -167,9 +175,9 @@ const getSignalTooltip = (signal) => {
     return "Price ↑, OI ↓ → Shorts are being closed.";
   if (signal.includes("Long Unwinding"))
     return "Price ↓, OI ↓ → Longs are being closed.";
-  if (signal.includes("Long Buildup"))
+  if (signal.includes("Long Build-up") || signal.includes("Long Buildup"))
     return "Price ↑, OI ↑ → New long positions are being added.";
-  if (signal.includes("Short Buildup"))
+  if (signal.includes("Short Build-up") || signal.includes("Short Buildup"))
     return "Price ↓, OI ↑ → New short positions are being added.";
   return "Signal based on price and OI movement.";
 };
