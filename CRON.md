@@ -33,14 +33,13 @@ Notes:
 
 **GitHub Actions**
 
-You can run the update on GitHub using the scheduled workflow at `.github/workflows/update-data.yml`. It runs every 30 minutes on working days (Monday–Friday) between 09:15 and 15:15 Asia/Kolkata (IST) and can also be triggered manually via `workflow_dispatch`.
+You can run the update on GitHub using the scheduled workflow at `.github/workflows/update-data.yml`. It runs 5 times on working days (Monday-Friday) during Indian market hours and can also be triggered manually via `workflow_dispatch`.
 
 Notes:
 - The workflow checks out the repository, runs `scripts/update_data.sh`, and commits any changed files back to the repo using the default `GITHUB_TOKEN`.
-- The workflow schedule is specified in UTC (GitHub Actions). The IST window 09:15–15:15 corresponds to 03:45–09:45 UTC. The cron entries used are:
-  - `45 3 * * 1-5`        (03:45 UTC => 09:15 IST)
-  - `15,45 4-8 * * 1-5`  (04:15–08:45 UTC => 09:45–14:15 IST)
-  - `15,45 9 * * 1-5`    (09:15,09:45 UTC => 14:45,15:15 IST)
+- The workflow schedule is specified in UTC (GitHub Actions). The cron entries used are:
+  - `0 4-6,9 * * 1-5` (04:00,05:00,06:00,09:00 UTC => 09:30,10:30,11:30,14:30 IST)
+  - `30 7 * * 1-5` (07:30 UTC => 13:00 IST)
 - Weekly cleanup runs from `.github/workflows/weekly-data-cleanup.yml` every Monday at 08:30 IST (`0 3 * * 1` UTC). It deletes generated files in `data/` and recreates `data/index.json` as an empty list.
 - Darvas Box and Golden Cross data refresh runs from `.github/workflows/update-screeners.yml` daily at 14:00 IST (`30 8 * * *` UTC). It regenerates `data/darvas_breakouts.json` and `data/golden_cross.json`.
 - If your scripts require dependencies or a virtual environment, update the workflow to install them (for example, add `pip install -r requirements.txt`).
