@@ -20,13 +20,26 @@
     gtag('config', 'G-PB8VW32FTL');
   </script>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       background: #f8f9fa;
-      padding: 2rem;
+      padding: 0;
+    }
+
+    .page-shell {
+      width: min(1280px, 100%);
+      padding: 1.5rem;
+    }
+
+    #page-title {
+      overflow-wrap: anywhere;
     }
 
     .stock-card {
-      border-radius: 0.75rem;
+      border-radius: 8px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       height: 100%;
     }
@@ -53,6 +66,7 @@
       border-top: 1px solid #dee2e6;
       padding-top: 10px;
       margin-top: 10px;
+      overflow-wrap: anywhere;
     }
 
     .sentiment {
@@ -68,10 +82,31 @@
     margin: auto;
     padding: 0 1rem;
   }
+
+  @media (max-width: 767.98px) {
+    .page-shell {
+      padding: 1rem 0.75rem;
+    }
+
+    #page-title {
+      font-size: 1.45rem;
+      line-height: 1.25;
+    }
+
+    .card-articles {
+      max-height: none;
+      overflow-y: visible;
+      padding-right: 0;
+    }
+
+    footer {
+      padding: 0 0.75rem;
+    }
+  }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="container page-shell">
     <h2 id="page-title" class="mb-4 text-center">📈 Daily Stock News Sentiment - <span id="date-display"></span></h2>
     <div id="dashboard" class="row g-4"></div>
   </div>

@@ -1,8 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Redirecting...</title>
+  <style>
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 1rem;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      color: #212529;
+      background: #f8f9fa;
+    }
+
+    h1 {
+      max-width: 680px;
+      margin: 0;
+      font-size: clamp(1.4rem, 5vw, 2.25rem);
+      overflow-wrap: anywhere;
+    }
+  </style>
   <script>
     // Redirect to homepage after 1 second
     setTimeout(() => {

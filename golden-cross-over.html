@@ -15,24 +15,46 @@
     gtag('config', 'G-PB8VW32FTL');
   </script>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 1rem;
+      padding: 0;
       background-color: #f9f9f9;
       color: #333;
     }
+
+    .page-shell {
+      width: min(980px, 100%);
+      margin: 0 auto;
+      padding: 1.25rem;
+    }
+
     h1 {
+      margin: 0 0 1rem;
       text-align: center;
       color: #2c3e50;
+      overflow-wrap: anywhere;
     }
-    table {
+
+    .table-wrap {
       width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-      background: #fff;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
+
+    table {
+      width: 100%;
+      min-width: 520px;
+      border-collapse: collapse;
+      background: #fff;
+    }
+
     th, td {
       padding: 0.75rem;
       text-align: center;
@@ -45,7 +67,26 @@
     tr:hover {
       background-color: #f1f1f1;
     }
+
     @media (max-width: 600px) {
+      .page-shell {
+        padding: 1rem 0.75rem;
+      }
+
+      h1 {
+        font-size: 1.55rem;
+      }
+
+      .table-wrap {
+        box-shadow: none;
+        overflow-x: visible;
+      }
+
+      table {
+        min-width: 0;
+        background: transparent;
+      }
+
       table, thead, tbody, th, td, tr {
         display: block;
       }
@@ -54,16 +95,30 @@
       }
       td {
         position: relative;
-        padding-left: 50%;
+        min-height: 44px;
+        padding-left: 48%;
         text-align: left;
+        border-bottom: 1px solid #e4e4e4;
+        background: #fff;
       }
+
+      tr {
+        margin-bottom: 0.85rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        background: #fff;
+      }
+
       td::before {
         position: absolute;
-        left: 1rem;
+        left: 0.75rem;
         top: 0.75rem;
+        width: 40%;
         font-weight: bold;
-        white-space: nowrap;
+        overflow-wrap: anywhere;
       }
+
       td:nth-of-type(1)::before { content: "Symbol"; }
       td:nth-of-type(2)::before { content: "Golden Cross Date"; }
       td:nth-of-type(3)::before { content: "Last Price (₹)"; }
@@ -71,19 +126,23 @@
   </style>
 </head>
 <body>
-  <h1>📊 Golden Cross Screener</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Symbol</th>
-        <th>Golden Cross Date</th>
-        <th>Last Price (₹)</th>
-      </tr>
-    </thead>
-    <tbody id="results">
-      <!-- Rows will be injected via JS or static HTML -->
-    </tbody>
-  </table>
+  <main class="page-shell">
+    <h1>📊 Golden Cross Screener</h1>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Golden Cross Date</th>
+            <th>Last Price (₹)</th>
+          </tr>
+        </thead>
+        <tbody id="results">
+          <!-- Rows will be injected via JS or static HTML -->
+        </tbody>
+      </table>
+    </div>
+  </main>
 
   <script>
     // If loading from a JSON file, you can fetch and populate like this

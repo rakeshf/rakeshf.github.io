@@ -2,6 +2,7 @@ body {
   background: #f4f6f8;
   color: #202428;
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
 }
 
 [data-bs-theme="dark"] body {
@@ -25,6 +26,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+  min-width: 0;
 }
 
 .dashboard-header {
@@ -44,11 +46,13 @@ body {
   margin: 0;
   font-size: clamp(1.7rem, 3vw, 2.35rem);
   font-weight: 750;
+  overflow-wrap: anywhere;
 }
 
 .dashboard-subtitle {
   color: #66717b;
   font-size: 0.95rem;
+  overflow-wrap: anywhere;
 }
 
 .summary-grid {
@@ -60,6 +64,7 @@ body {
 
 .summary-tile {
   min-height: 84px;
+  min-width: 0;
   padding: 16px;
   border: 1px solid #d9e0e6;
   border-radius: 8px;
@@ -99,6 +104,11 @@ body {
   gap: 12px;
 }
 
+.mobile-search-toggle,
+.mobile-filter-toggle {
+  display: none;
+}
+
 .control-field .form-label {
   margin-bottom: 4px;
   color: #56616b;
@@ -119,6 +129,7 @@ body {
 
 .quick-filter {
   min-width: 78px;
+  white-space: normal;
 }
 
 .quick-filter.active {
@@ -159,6 +170,7 @@ body {
   justify-content: space-between;
   gap: 12px;
   padding: 12px 14px;
+  min-width: 0;
 }
 
 .signal-symbol {
@@ -174,6 +186,7 @@ body {
   border-radius: 999px;
   font-size: 0.78rem;
   font-weight: 650;
+  overflow-wrap: anywhere;
 }
 
 .old-signal {
@@ -202,6 +215,7 @@ body {
   margin: 0;
   font-size: 1.12rem;
   font-weight: 780;
+  overflow-wrap: anywhere;
 }
 
 .price-row {
@@ -214,6 +228,7 @@ body {
 .price-row strong {
   display: block;
   font-size: 1.35rem;
+  overflow-wrap: anywhere;
 }
 
 .price-change {
@@ -380,6 +395,24 @@ footer {
     top: 0;
   }
 
+  .mobile-search-toggle,
+  .mobile-filter-toggle {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .search-control:not(.is-open) {
+    display: none;
+  }
+
+  .filter-control:not(.is-open) {
+    display: none;
+  }
+
   .stock-card-footer .stock-subtle {
     max-width: none;
     text-align: left;
@@ -392,5 +425,17 @@ footer {
   .metric-grid,
   .stock-grid {
     grid-template-columns: 1fr;
+  }
+
+  .dashboard-shell {
+    padding: 12px;
+  }
+
+  .dashboard-controls {
+    padding: 12px;
+  }
+
+  .quick-filter {
+    flex: 1 1 calc(50% - 8px);
   }
 }

@@ -182,6 +182,27 @@
       z-index: 1300;
     }
 
+    .page-shell {
+      width: min(1440px, 100%);
+    }
+
+    .page-title {
+      padding-right: 9.5rem;
+      overflow-wrap: anywhere;
+    }
+
+    .filter-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .filter-toolbar .filter-btn {
+      border-radius: 0.375rem !important;
+      white-space: normal;
+    }
+
     /* Make canvas area visually constrained so Chart.js can size correctly */
     .chart-wrapper {
       width: 100%;
@@ -194,6 +215,65 @@
       width: 100% !important;
       height: 100% !important;
     }
+
+    @media (max-width: 767.98px) {
+      body {
+        padding-bottom: 96px;
+      }
+
+      #darkModeToggle {
+        position: static;
+        display: flex;
+        width: calc(100% - 2rem);
+        margin: 1rem auto 0;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .page-title {
+        padding-right: 0;
+        font-size: 1.75rem;
+      }
+
+      .filter-toolbar {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .filter-toolbar .filter-btn {
+        width: 100%;
+      }
+
+      .chart-wrapper {
+        min-height: 220px;
+        max-height: 280px;
+      }
+
+      .card.expanded {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .container {
+        padding-right: 0.75rem;
+        padding-left: 0.75rem;
+      }
+
+      .page-title {
+        font-size: 1.45rem;
+      }
+
+      .card-title .d-flex {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .card-title .text-end {
+        padding-right: 0 !important;
+        text-align: left !important;
+      }
+    }
   </style>
 </head>
 
@@ -203,12 +283,12 @@
     <i class="bi bi-moon-fill"></i> Dark Mode
   </button>
 
-  <div class="container my-4">
-    <h1 class="mb-4 text-center">🚀 Stock Movement Overview</h1>
+  <div class="container page-shell my-4">
+    <h1 class="page-title mb-4 text-center">🚀 Stock Movement Overview</h1>
     
     <div class="row mb-4 justify-content-center">
-        <div class="col-auto">
-            <div class="btn-group shadow-sm" role="group" aria-label="Market Filters">
+        <div class="col-12">
+            <div class="filter-toolbar shadow-sm" role="group" aria-label="Market Filters">
                 <button type="button" class="btn btn-outline-primary active filter-btn" onclick="filterStocks('all', this)">All Stocks</button>
                 <button type="button" class="btn btn-outline-warning filter-btn" onclick="filterStocks('squeeze', this)">🔥 Squeeze On</button>
                 <button type="button" class="btn btn-outline-success filter-btn" onclick="filterStocks('long_buildup', this)">📈 Long Build-up</button>

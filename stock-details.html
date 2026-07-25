@@ -62,8 +62,20 @@
   </section>
 
   <section class="dashboard-controls">
+    <button class="btn btn-outline-secondary mobile-search-toggle" id="mobileSearchToggle" type="button"
+      aria-controls="symbolSearchPanel" aria-expanded="false">
+      <span class="material-icons-outlined" id="mobileSearchIcon">search</span>
+      <span id="mobileSearchText">Open Symbol Search</span>
+    </button>
+
+    <button class="btn btn-outline-secondary mobile-filter-toggle" id="mobileFilterToggle" type="button"
+      aria-controls="dashboardFilterPanel" aria-expanded="false">
+      <span class="material-icons-outlined" id="mobileFilterIcon">filter_alt</span>
+      <span id="mobileFilterText">Open Filters</span>
+    </button>
+
     <div class="control-grid">
-      <div class="control-field">
+      <div class="control-field search-control" id="symbolSearchPanel">
         <label for="symbolSearch" class="form-label">Search Symbol</label>
         <div class="input-group">
           <span class="input-group-text"><span class="material-icons-outlined">search</span></span>
@@ -71,7 +83,7 @@
         </div>
       </div>
 
-      <div class="control-field">
+      <div class="control-field filter-control">
         <label for="sentimentFilter" class="form-label">Filter by Sentiment</label>
         <select class="form-select" id="sentimentFilter">
           <option>All</option>
@@ -81,7 +93,7 @@
         </select>
       </div>
 
-      <div class="control-field">
+      <div class="control-field filter-control">
         <label for="signalFilter" class="form-label">Signal</label>
         <select class="form-select" id="signalFilter">
           <option value="All">All Signals</option>
@@ -93,7 +105,7 @@
         </select>
       </div>
 
-      <div class="control-field">
+      <div class="control-field filter-control">
         <label for="sortSelector" class="form-label">Sort By</label>
         <select class="form-select" id="sortSelector">
           <option value="symbol">Symbol A-Z</option>
@@ -104,7 +116,7 @@
         </select>
       </div>
 
-      <div class="control-field">
+      <div class="control-field filter-control">
         <label for="fileSelector" class="form-label">Select Data File</label>
         <select class="form-select" id="fileSelector">
           <!-- Options populated dynamically -->
@@ -112,7 +124,7 @@
       </div>
     </div>
 
-    <div class="quick-filter-group" aria-label="Quick filters">
+    <div class="quick-filter-group filter-control" id="dashboardFilterPanel" aria-label="Quick filters">
       <button class="btn btn-sm btn-primary quick-filter active" type="button" data-filter="All">All</button>
       <button class="btn btn-sm btn-outline-success quick-filter" type="button" data-filter="Bullish">Bullish</button>
       <button class="btn btn-sm btn-outline-danger quick-filter" type="button" data-filter="Bearish">Bearish</button>
@@ -161,6 +173,35 @@
   </script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
+      const mobileSearchToggle = document.getElementById("mobileSearchToggle");
+      const symbolSearchPanel = document.getElementById("symbolSearchPanel");
+      const mobileSearchIcon = document.getElementById("mobileSearchIcon");
+      const mobileSearchText = document.getElementById("mobileSearchText");
+
+      if (mobileSearchToggle && symbolSearchPanel) {
+        mobileSearchToggle.addEventListener("click", () => {
+          const isOpen = symbolSearchPanel.classList.toggle("is-open");
+          mobileSearchToggle.setAttribute("aria-expanded", String(isOpen));
+          if (mobileSearchIcon) mobileSearchIcon.textContent = isOpen ? "close" : "search";
+          if (mobileSearchText) mobileSearchText.textContent = isOpen ? "Close Symbol Search" : "Open Symbol Search";
+        });
+      }
+
+      const mobileFilterToggle = document.getElementById("mobileFilterToggle");
+      const mobileFilterIcon = document.getElementById("mobileFilterIcon");
+      const mobileFilterText = document.getElementById("mobileFilterText");
+      const filterControls = [].slice.call(document.querySelectorAll(".filter-control"));
+
+      if (mobileFilterToggle && filterControls.length) {
+        mobileFilterToggle.addEventListener("click", () => {
+          const isOpen = !filterControls.every((control) => control.classList.contains("is-open"));
+          filterControls.forEach((control) => control.classList.toggle("is-open", isOpen));
+          mobileFilterToggle.setAttribute("aria-expanded", String(isOpen));
+          if (mobileFilterIcon) mobileFilterIcon.textContent = isOpen ? "close" : "filter_alt";
+          if (mobileFilterText) mobileFilterText.textContent = isOpen ? "Close Filters" : "Open Filters";
+        });
+      }
+
       if (!window.bootstrap?.Tooltip) return;
       const tooltipTriggerList = [].slice.call(
         document.querySelectorAll('[data-bs-toggle="tooltip"]')
