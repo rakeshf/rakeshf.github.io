@@ -19,7 +19,7 @@ SCRIPTS=(
 pushd "$REPO_ROOT/scripts" > /dev/null
 for s in "${SCRIPTS[@]}"; do
   echo "--- Running $s ---" >> "$LOG_FILE"
-  "$PYTHON_CMD" "$s" >> "$LOG_FILE" 2>&1 || echo "ERROR: $s failed" >> "$LOG_FILE"
+  "$PYTHON_CMD" "$s" >> "$LOG_FILE" 2>&1
 done
 popd > /dev/null
 

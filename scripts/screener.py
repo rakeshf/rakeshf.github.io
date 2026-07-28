@@ -271,6 +271,7 @@ os.makedirs(log_dir, exist_ok=True)
 
 # -------------------- MAIN LOOP --------------------
 all_results = []
+failed_symbols = []
 
 # -------------------- CONCURRENT PROCESSING --------------------
 def process_symbol(symbol: str, log_dir: str): 
@@ -390,9 +391,25 @@ max_workers = min(12, max(2, (os.cpu_count() or 2) * 2))
 with ThreadPoolExecutor(max_workers=max_workers) as ex: 
     futures = {ex.submit(process_symbol, s, log_dir): s for s in symbols} 
     for fut in as_completed(futures): 
-        res = fut.result() 
-        if res: 
+        symbol = futures[fut]
+        try:
+            res = fut.result()
+        except Exception as e:
+            print(f"⚠️ Worker failed for {symbol}: {e}")
+            failed_symbols.append(symbol)
+            continue
+
+        if res:
             all_results.append(res)
+        else:
+            failed_symbols.append(symbol)
+
+if failed_symbols:
+    print(f"⚠️ Skipped {len(failed_symbols)} failed symbol(s): {', '.join(sorted(failed_symbols))}")
+
+if not all_results:
+    print("❌ No symbol data was generated; not writing an empty market JSON file.")
+    sys.exit(1)
 
 # -------------------- SAVE OUTPUT --------------------
 timestamp = datetime.now(ZoneInfo("Asia/Kolkata")).strftime("%Y-%m-%dT%H-%M-%S")
