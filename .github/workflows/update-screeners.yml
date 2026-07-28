@@ -46,5 +46,6 @@ jobs:
             echo "No screener data changes to commit."
           else
             git commit -m "Update Darvas and Golden Cross data"
+            git pull --rebase origin main
             git push
           fi

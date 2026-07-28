@@ -37,5 +37,6 @@ jobs:
             echo "No data cleanup changes to commit."
           else
             git commit -m "Weekly cleanup of generated data"
+            git pull --rebase origin main
             git push
           fi
