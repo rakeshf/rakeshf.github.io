@@ -22,6 +22,11 @@ def log(message):
 def parse_args():
     parser = argparse.ArgumentParser(description="Market-time controlled script with optional debug mode.")
     parser.add_argument("--debug", action="store_true", help="Run in debug mode (bypass market time checks)")
+    parser.add_argument(
+        "--strict-interval",
+        action="store_true",
+        help="Require the script to start exactly on a 15-minute boundary.",
+    )
     return parser.parse_args()
 
 def get_current_time():
@@ -40,7 +45,7 @@ def is_valid_interval(now):
     """Return True if current time is on a 15-minute boundary (e.g., 09:15, 09:30...)"""
     return now.minute % 15 == 0
 
-def check_market_conditions(debug_mode=False):
+def check_market_conditions(debug_mode=False, strict_interval=False):
     """Main market validation function. Returns True if it's okay to proceed."""
     now = get_current_time()
 
@@ -56,7 +61,7 @@ def check_market_conditions(debug_mode=False):
         log(f"⛔ Outside market hours: {now.strftime('%H:%M')} is not between 09:15–15:30 IST.")
         return False
 
-    if not is_valid_interval(now):
+    if strict_interval and not is_valid_interval(now):
         log(f"⛔ Invalid interval: {now.strftime('%H:%M')} is not on a 15-minute boundary.")
         return False
 
@@ -66,6 +71,6 @@ def check_market_conditions(debug_mode=False):
 # Optional: allow this script to run standalone
 if __name__ == "__main__":
     args = parse_args()
-    success = check_market_conditions(args.debug)
+    success = check_market_conditions(args.debug, args.strict_interval)
     if not success:
         exit(0)

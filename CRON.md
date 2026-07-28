@@ -36,7 +36,7 @@ Notes:
 You can run the update on GitHub using the scheduled workflow at `.github/workflows/update-data.yml`. It runs 5 times on working days (Monday-Friday) during Indian market hours and can also be triggered manually via `workflow_dispatch`.
 
 Notes:
-- The workflow checks out the repository, runs `scripts/update_data.sh`, and commits any changed files back to the repo using the default `GITHUB_TOKEN`.
+- The workflow checks out the repository, runs `scripts/update_data.sh`, and commits any changed files back to the repo using the default `GITHUB_TOKEN`. This frequent workflow only runs `scripts/screener.py`, which generates timestamped files like `data/2026-07-07T13-38-33.json` and updates `data/index.json`.
 - The workflow schedule is specified in UTC (GitHub Actions). The cron entries used are:
   - `0 4-6,9 * * 1-5` (04:00,05:00,06:00,09:00 UTC => 09:30,10:30,11:30,14:30 IST)
   - `30 7 * * 1-5` (07:30 UTC => 13:00 IST)

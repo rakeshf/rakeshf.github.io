@@ -23,7 +23,7 @@ def safe_pct_change(curr, prev):
 
 # -------------------- ARGUMENTS & MARKET CHECK --------------------
 args = parse_args()
-if not check_market_conditions(debug_mode=args.debug): 
+if not check_market_conditions(debug_mode=args.debug, strict_interval=args.strict_interval): 
     sys.exit(0)
 
 # -------------------- SYMBOL LIST --------------------

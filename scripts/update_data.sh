@@ -10,13 +10,10 @@ echo "=== Update run: $(date -u +"%Y-%m-%dT%H:%M:%SZ") ===" >> "$LOG_FILE"
 
 PYTHON_CMD="$(command -v python3 || command -v python)"
 
+# Keep the frequent market cron fast and reliable. Other generated datasets have
+# their own scheduled workflows.
 SCRIPTS=(
-  intra_day.py
-  market_check.py
   screener.py
-  darvas_screener.py
-  golden_cross.py
-  sentiment.py
 )
 
 pushd "$REPO_ROOT/scripts" > /dev/null
