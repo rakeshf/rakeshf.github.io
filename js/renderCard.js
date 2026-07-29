@@ -286,20 +286,29 @@ const loadAndRenderData = (filename) => {
       </div>
     `;
   }
-  fetch(buildDataUrl(`data/${cleanFilename}`))
+
+  const dataUrl = buildDataUrl(cleanFilename.startsWith("data/") ? cleanFilename : `data/${cleanFilename}`);
+
+  fetch(dataUrl)
     .then((response) => {
       if (!response.ok) throw new Error(`Failed to fetch data (${response.status} ${response.statusText})`);
-      return response.json();
+      return response.text();
     })
-    .then((data) => {
-      currentStockData = Array.isArray(data) ? data : [];
+    .then((text) => {
+      let parsed;
+      try {
+        parsed = JSON.parse(text);
+      } catch (error) {
+        throw new Error(`Invalid JSON payload for ${cleanFilename}`);
+      }
+
+      currentStockData = Array.isArray(parsed) ? parsed : [];
       renderSummary(currentStockData);
       updateResults();
     })
     .catch((error) => {
-      document.getElementById(
-        "cardContainer"
-      ).innerHTML = `<div class="empty-state text-danger"><strong>Error loading data:</strong><span>${error.message}</span></div>`;
+      const message = error?.message || String(error);
+      document.getElementById("cardContainer").innerHTML = `<div class="empty-state text-danger"><strong>Error loading data:</strong><span>${message}</span></div>`;
       console.error("Fetch error:", error);
     });
 };
