@@ -1,7 +1,17 @@
 [
   {
+    "Symbol": "ICICIBANK",
+    "Golden Cross Date": "2026-07-28",
+    "Last Price": 1437.9
+  },
+  {
+    "Symbol": "BAJFINANCE",
+    "Golden Cross Date": "2026-07-28",
+    "Last Price": 1054.4
+  },
+  {
     "Symbol": "IDFCFIRSTB",
     "Golden Cross Date": "2026-07-24",
-    "Last Price": 85.75
+    "Last Price": 85.02
   }
 ]
