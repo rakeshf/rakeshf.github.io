@@ -376,7 +376,12 @@
         })
         .then(fileList => {
           console.log('Loaded data index:', fileList);
-          const normalizedFiles = fileList.map(fileName => fileName.replace(/^([./]*data\/)/, 'data/'));
+          const normalizedFiles = (Array.isArray(fileList) ? fileList : [])
+            .filter((fileName) => typeof fileName === 'string')
+            .map((fileName) => String(fileName).trim())
+            .map((fileName) => fileName.replace(/^(\.\/|\.\.\/)?data\//, ''))
+            .map((fileName) => fileName.startsWith('data/') ? fileName : `data/${fileName}`)
+            .filter(Boolean);
           const loadErrors = [];
           return Promise.all(
             normalizedFiles.slice().reverse().map(fileName =>
