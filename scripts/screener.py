@@ -66,9 +66,12 @@ def alert_signal_changes(latest_file, prev_file, alert_file="../data/signal_aler
 # -------------------- INDEX HANDLER --------------------
 
 def normalize_index_path(path: str) -> str:
-    path = path.replace("../data/", "data/")
-    path = path.replace("./data/", "data/")
+    path = path.replace("\\", "/")
+    path = path.replace("../data/", "")
+    path = path.replace("./data/", "")
     path = path.lstrip("./")
+    if path.startswith("data/"):
+        path = path[len("data/"):]
     return path
 
 

@@ -17,6 +17,12 @@ const getSignalColor = (signal) => {
 let currentStockData = [];
 let selectedQuickFilter = "All";
 
+window.buildDataUrl = (path) => {
+  const url = new URL(path, window.location.href);
+  url.searchParams.set("t", Date.now());
+  return url.toString();
+};
+
 const toNumberOrNull = (value) => {
   const number = Number(value);
   return Number.isFinite(number) ? number : null;
@@ -210,15 +216,30 @@ const renderCards = (data) => {
 };
 
 // Load available files into dropdown (assumes data/index.json contains array of filenames)
-fetch("data/index.json")
-  .then((res) => res.json())
+const normalizeFileList = (fileList) => {
+  if (Array.isArray(fileList)) return fileList;
+  if (fileList && Array.isArray(fileList.files)) return fileList.files;
+  return [];
+};
+
+const getFileOptions = (fileList) =>
+  normalizeFileList(fileList)
+    .filter((file) => typeof file === "string")
+    .map((file) => String(file).trim())
+    .map((file) => file.replace(/^(\.\/|\.\.\/)?data\//, ""))
+    .filter(Boolean);
+
+fetch(buildDataUrl("data/index.json"))
+  .then((res) => {
+    if (!res.ok) throw new Error(`Failed to load index.json (${res.status} ${res.statusText})`);
+    return res.json();
+  })
   .then((fileList) => {
     const select = document.getElementById("fileSelector");
     if (!select) return;
     select.innerHTML = "";
-    const cleanFiles = fileList.map((file) =>
-      file.replace(/^(\.\/|\.\.\/)?data\//, "")
-    );
+
+    const cleanFiles = getFileOptions(fileList);
     cleanFiles.forEach((cleanFilename) => {
       const option = document.createElement("option");
       option.value = cleanFilename;
@@ -226,15 +247,18 @@ fetch("data/index.json")
       select.appendChild(option);
     });
 
-    // Load the first file initially
     if (cleanFiles.length) {
       loadAndRenderData(cleanFiles[0]);
       if (typeof loadAndRenderFilename === "function") {
         loadAndRenderFilename(cleanFiles[0]);
       }
+    } else {
+      const container = document.getElementById("cardContainer");
+      if (container) {
+        container.innerHTML = `<div class="empty-state text-warning"><strong>No data files found.</strong><span>Check the data/index.json file and refresh the page.</span></div>`;
+      }
     }
 
-    // Reload dashboard on file change
     select.addEventListener("change", () => {
       loadAndRenderData(select.value);
       if (typeof loadAndRenderFilename === "function") {
@@ -244,14 +268,15 @@ fetch("data/index.json")
   })
   .catch((err) => {
     console.error("Error loading file list:", err);
-    document.getElementById(
-      "cardContainer"
-    ).innerHTML = `<p class="text-danger">Error loading file list: ${err.message}</p>`;
+    const container = document.getElementById("cardContainer");
+    if (container) {
+      container.innerHTML = `<p class="text-danger">Error loading file list: ${err.message}</p>`;
+    }
   });
 
 // Load + render cards from a file
 const loadAndRenderData = (filename) => {
-  const cleanFilename = filename.replace(/^(\.\/|\.\.\/)?data\//, "");
+  const cleanFilename = String(filename || "").replace(/^(\.\/|\.\.\/)?data\//, "");
   const container = document.getElementById("cardContainer");
   if (container) {
     container.innerHTML = `
@@ -261,9 +286,9 @@ const loadAndRenderData = (filename) => {
       </div>
     `;
   }
-  fetch(`data/${cleanFilename}`)
+  fetch(buildDataUrl(`data/${cleanFilename}`))
     .then((response) => {
-      if (!response.ok) throw new Error("Failed to fetch data");
+      if (!response.ok) throw new Error(`Failed to fetch data (${response.status} ${response.statusText})`);
       return response.json();
     })
     .then((data) => {

@@ -1,5 +1,12 @@
-fetch("data/signal_alerts.json")
-  .then((res) => res.json())
+const signalAlertsUrl = typeof window.buildDataUrl === "function"
+  ? window.buildDataUrl("data/signal_alerts.json")
+  : new URL("data/signal_alerts.json", window.location.href).toString();
+
+fetch(signalAlertsUrl)
+  .then((res) => {
+    if (!res.ok) throw new Error(`Failed to load signal alerts (${res.status} ${res.statusText})`);
+    return res.json();
+  })
   .then((data) => {
     const alerts = Array.isArray(data) ? data : [];
     const container = document.getElementById("signalAlertContainer");
