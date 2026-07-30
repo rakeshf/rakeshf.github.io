@@ -1,3 +1,83 @@
+let darvasRows = [];
+
+const setDarvasText = (id, value) => {
+    const element = document.getElementById(id);
+    if (element) element.textContent = value;
+};
+
+const toFiniteNumber = (value) => {
+    const number = parseFloat(value);
+    return Number.isFinite(number) ? number : null;
+};
+
+const getDarvasTarget = (row) => {
+    const direction = (row.Direction ?? "").toLowerCase();
+    const boxHigh = toFiniteNumber(row["Box High"]);
+    const boxLow = toFiniteNumber(row["Box Low"]);
+    let target = row.Target !== undefined ? toFiniteNumber(row.Target) : null;
+
+    if (target === null) {
+        if (direction === "up" && boxHigh !== null && boxLow !== null) {
+            target = 2 * boxHigh - boxLow;
+        } else if (direction === "down" && boxLow !== null) {
+            target = boxLow;
+        }
+    }
+
+    return target;
+};
+
+const getDarvasPctChange = (row) => {
+    const close = toFiniteNumber(row.Close);
+    const target = getDarvasTarget(row);
+    if (close === null || target === null || close === 0) return null;
+    return ((target - close) / close) * 100;
+};
+
+const updateDarvasSummary = (data) => {
+    const upCount = data.filter(row => (row.Direction ?? "").toLowerCase() === "up").length;
+    const downCount = data.filter(row => (row.Direction ?? "").toLowerCase() === "down").length;
+    const confirmedCount = data.filter(row => String(row.Signal ?? "").toLowerCase().includes("confirmed")).length;
+
+    setDarvasText("darvasTotal", data.length);
+    setDarvasText("darvasUpside", upCount);
+    setDarvasText("darvasDownside", downCount);
+    setDarvasText("darvasConfirmed", confirmedCount);
+};
+
+const getFilteredDarvasRows = () => {
+    const query = (document.getElementById("darvasSearch")?.value || "").trim().toUpperCase();
+    const direction = document.getElementById("darvasDirectionFilter")?.value || "All";
+    const signal = document.getElementById("darvasSignalFilter")?.value || "All";
+    const sort = document.getElementById("darvasSort")?.value || "symbol";
+
+    const filtered = darvasRows.filter((row) => {
+        const symbol = String(row.Symbol ?? "").toUpperCase();
+        const rowDirection = String(row.Direction ?? "").toLowerCase();
+        const rowSignal = String(row.Signal ?? "").toLowerCase();
+
+        const matchesQuery = !query || symbol.includes(query);
+        const matchesDirection = direction === "All" || rowDirection === direction;
+        const matchesSignal =
+            signal === "All" ||
+            (signal === "confirmed" && rowSignal.includes("confirmed")) ||
+            (signal === "pre" && rowSignal.includes("pre"));
+
+        return matchesQuery && matchesDirection && matchesSignal;
+    });
+
+    return filtered.sort((a, b) => {
+        if (sort === "pctDesc") return (getDarvasPctChange(b) ?? -Infinity) - (getDarvasPctChange(a) ?? -Infinity);
+        if (sort === "closeDesc") return (toFiniteNumber(b.Close) ?? -Infinity) - (toFiniteNumber(a.Close) ?? -Infinity);
+        if (sort === "targetDesc") return (getDarvasTarget(b) ?? -Infinity) - (getDarvasTarget(a) ?? -Infinity);
+        return String(a.Symbol ?? "").localeCompare(String(b.Symbol ?? ""));
+    });
+};
+
+const updateDarvasTable = () => {
+    renderTable(getFilteredDarvasRows());
+};
+
 fetch("data/darvas_breakouts.json")
     .then((res) => {
         if (!res.ok) {
@@ -7,10 +87,11 @@ fetch("data/darvas_breakouts.json")
     })
     .then((data) => {
         // Filter out rows where Signal is "No" or empty
-        const filtered = data.filter(row => 
+        darvasRows = data.filter(row => 
             row.Signal && row.Signal.toLowerCase() !== "no"
         );
-        renderTable(filtered);
+        updateDarvasSummary(darvasRows);
+        updateDarvasTable();
     })
     .catch((err) => {
         const container = document.getElementById("tableContainer");
@@ -26,9 +107,9 @@ function renderTable(data) {
 
     if (!data.length) {
         container.innerHTML =
-            "<div class='alert alert-secondary'>No breakout/breakdown data available.</div>";
+            "<div class='empty-state'><span class='material-icons-outlined'>search_off</span><strong>No Darvas signals match this view.</strong><span>Try changing search, direction, or signal filter.</span></div>";
         if (summary) {
-            summary.textContent = "No active signals found.";
+            summary.textContent = "0 results";
         }
         return;
     }
@@ -36,11 +117,11 @@ function renderTable(data) {
     if (summary) {
         const upCount = data.filter(row => (row.Direction ?? "").toLowerCase() === "up").length;
         const downCount = data.filter(row => (row.Direction ?? "").toLowerCase() === "down").length;
-        summary.textContent = `${data.length} active signals: ${upCount} upside, ${downCount} downside.`;
+        summary.textContent = `${data.length} result${data.length === 1 ? "" : "s"}: ${upCount} upside, ${downCount} downside.`;
     }
 
     const table = document.createElement("table");
-    table.className = "table table-bordered table-striped table-hover";
+    table.className = "table table-bordered table-striped table-hover screener-table";
 
     const thead = document.createElement("thead");
     thead.innerHTML = `
@@ -62,30 +143,14 @@ function renderTable(data) {
 
     data.forEach((row) => {
         const symbol = row.Symbol ?? "-";
-        const close = parseFloat(row.Close);
-        const boxHigh = parseFloat(row["Box High"]);
-        const boxLow = parseFloat(row["Box Low"]);
+        const close = toFiniteNumber(row.Close);
+        const boxHigh = toFiniteNumber(row["Box High"]);
+        const boxLow = toFiniteNumber(row["Box Low"]);
         const signal = row.Signal ?? "-";
         const direction = (row.Direction ?? "").toLowerCase();
-
-        // Use target from backend if available, else fallback
-        let target = row.Target !== undefined ? parseFloat(row.Target) : null;
-
-        // Fallback logic
-        if (target === null || isNaN(target)) {
-            if (direction === "up") {
-                target = 2 * boxHigh - boxLow; // breakout formula
-            } else if (direction === "down") {
-                target = boxLow; // simple breakdown fallback
-            }
-        }
-
-        // Calculate % change
-        let pctChange = "N/A";
-        if (Number.isFinite(close) && Number.isFinite(target) && close !== 0) {
-            const change = ((target - close) / close) * 100;
-            pctChange = change.toFixed(2) + "%";
-        }
+        const target = getDarvasTarget(row);
+        const pctChangeValue = getDarvasPctChange(row);
+        const pctChange = pctChangeValue !== null ? pctChangeValue.toFixed(2) + "%" : "N/A";
 
         const tr = document.createElement("tr");
 
@@ -111,3 +176,11 @@ function renderTable(data) {
     table.appendChild(tbody);
     container.appendChild(table);
 }
+
+["darvasSearch", "darvasDirectionFilter", "darvasSignalFilter", "darvasSort"].forEach((id) => {
+    const element = document.getElementById(id);
+    if (element) {
+        element.addEventListener("input", updateDarvasTable);
+        element.addEventListener("change", updateDarvasTable);
+    }
+});

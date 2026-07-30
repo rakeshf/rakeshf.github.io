@@ -14,7 +14,7 @@
     <meta name="robots" content="index, follow" />
     <link href="icons8-rupee-48.png" rel="shortcut icon">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
-    <script src="js/themeToggle.js"></script>
+    <script src="js/themeToggle.js" defer></script>
       <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PB8VW32FTL"></script>
   <script>
@@ -24,124 +24,92 @@
     gtag('config', 'G-PB8VW32FTL');
   </script>
     <link rel="stylesheet" href="css/main.css" />
-    <style>
-        body {
-            padding: 0;
-        }
-
-        .page-shell {
-            width: min(1180px, 100%);
-            padding: 1.25rem;
-        }
-
-        .page-toolbar {
-            gap: 0.75rem;
-        }
-
-        .page-title {
-            overflow-wrap: anywhere;
-        }
-
-        #tableSummary {
-            min-height: 1.5rem;
-        }
-
-        #tableContainer {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .table td,
-        .table th {
-            vertical-align: middle;
-        }
-
-        .breakout {
-            font-weight: bold;
-            color: green;
-        }
-
-        @media (max-width: 576px) {
-            .page-shell {
-                padding: 1rem 0.75rem;
-            }
-
-            h2 {
-                font-size: 1.5rem;
-            }
-
-            .page-toolbar {
-                align-items: flex-start !important;
-                flex-direction: column;
-            }
-
-            #modeToggle {
-                width: 100%;
-            }
-
-            .table thead {
-                display: none;
-            }
-
-            .table,
-            .table tbody,
-            .table tr,
-            .table td {
-                display: block;
-                width: 100%;
-            }
-
-            .table tr {
-                margin-bottom: 1rem;
-                border: 1px solid #ddd;
-                border-radius: 8px;
-                padding: 0.5rem;
-                overflow: hidden;
-            }
-
-            .table td {
-                min-height: 42px;
-                text-align: left;
-                padding-left: 44%;
-                position: relative;
-                border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            }
-
-            .table td::before {
-                content: attr(data-label);
-                position: absolute;
-                left: 0.75rem;
-                width: 38%;
-                padding-right: 10px;
-                text-align: left;
-                font-weight: bold;
-                overflow-wrap: anywhere;
-            }
-
-            [data-bs-theme="dark"] .table tr {
-                border-color: #2d3842;
-            }
-
-            [data-bs-theme="dark"] .table td {
-                border-bottom-color: #2d3842;
-            }
-        }
-    </style>
 </head>
 
 <body>
-    <div class="container page-shell">
-        <div class="d-flex flex-wrap justify-content-between align-items-center page-toolbar mb-3">
-            <h2 class="page-title mb-0">📊 Darvas Box Breakout Screener</h2>
+    <main class="dashboard-shell">
+        <div class="dashboard-header">
+            <div>
+                <p class="dashboard-kicker">Technical Screener</p>
+                <h1 class="dashboard-title">Darvas Box Breakouts</h1>
+                <p class="dashboard-subtitle mb-0">Breakout and breakdown setups from the latest generated data.</p>
+            </div>
             <button class="btn btn-outline-secondary" id="modeToggle" type="button" title="Toggle Theme">
                 <span class="material-icons-outlined" id="modeIcon">dark_mode</span>
             </button>
         </div>
-        <div id="tableSummary" class="text-muted small mb-3"></div>
-        <div id="tableContainer">
-            <div class="alert alert-info">Loading Darvas Box signals...</div>
+
+        <section class="summary-grid screener-summary-grid" aria-live="polite">
+            <div class="summary-tile">
+                <span class="summary-label">Active</span>
+                <strong id="darvasTotal">0</strong>
+            </div>
+            <div class="summary-tile">
+                <span class="summary-label">Upside</span>
+                <strong id="darvasUpside">0</strong>
+            </div>
+            <div class="summary-tile">
+                <span class="summary-label">Downside</span>
+                <strong id="darvasDownside">0</strong>
+            </div>
+            <div class="summary-tile">
+                <span class="summary-label">Confirmed</span>
+                <strong id="darvasConfirmed">0</strong>
+            </div>
+        </section>
+
+        <section class="dashboard-controls">
+            <div class="control-grid screener-control-grid">
+                <div class="control-field">
+                    <label class="form-label" for="darvasSearch">Search Symbol</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><span class="material-icons-outlined">search</span></span>
+                        <input class="form-control" id="darvasSearch" type="search" placeholder="RELIANCE" autocomplete="off">
+                    </div>
+                </div>
+                <div class="control-field">
+                    <label class="form-label" for="darvasDirectionFilter">Direction</label>
+                    <select class="form-select" id="darvasDirectionFilter">
+                        <option value="All">All</option>
+                        <option value="up">Upside</option>
+                        <option value="down">Downside</option>
+                    </select>
+                </div>
+                <div class="control-field">
+                    <label class="form-label" for="darvasSignalFilter">Signal</label>
+                    <select class="form-select" id="darvasSignalFilter">
+                        <option value="All">All Signals</option>
+                        <option value="confirmed">Confirmed</option>
+                        <option value="pre">Pre-breakout</option>
+                    </select>
+                </div>
+                <div class="control-field">
+                    <label class="form-label" for="darvasSort">Sort By</label>
+                    <select class="form-select" id="darvasSort">
+                        <option value="symbol">Symbol A-Z</option>
+                        <option value="pctDesc">% Change High-Low</option>
+                        <option value="closeDesc">Close High-Low</option>
+                        <option value="targetDesc">Target High-Low</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-heading">
+            <div>
+                <p class="dashboard-kicker">Current Snapshot</p>
+                <h2>Signals</h2>
+            </div>
+            <span id="tableSummary" class="text-muted small"></span>
+        </section>
+
+        <div id="tableContainer" class="screener-table-wrap">
+            <div class="empty-state">
+                <span class="material-icons-outlined">hourglass_top</span>
+                <strong>Loading Darvas Box signals...</strong>
+            </div>
         </div>
-    </div>
+    </main>
 
     <script src="js/renderTable.js"></script>
 

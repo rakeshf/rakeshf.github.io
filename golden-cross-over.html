@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Golden Cross Stock Screener - Track stocks showing bullish crossover signals based on 50-day and 200-day moving averages.">
   <meta name="keywords" content="Golden Cross, Stock Screener, Technical Analysis, SMA Crossover, Nifty, Indian Stocks">
   <title>Golden Cross Screener 📈</title>
+  <link href="icons8-rupee-48.png" rel="shortcut icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
     <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PB8VW32FTL"></script>
   <script>
@@ -15,121 +19,70 @@
     gtag('config', 'G-PB8VW32FTL');
   </script>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-
-    .page-shell {
-      width: min(980px, 100%);
-      margin: 0 auto;
-      padding: 1.25rem;
-    }
-
-    h1 {
-      margin: 0 0 1rem;
-      text-align: center;
-      color: #2c3e50;
-      overflow-wrap: anywhere;
-    }
-
-    .table-wrap {
-      width: 100%;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-
-    table {
-      width: 100%;
-      min-width: 520px;
-      border-collapse: collapse;
-      background: #fff;
-    }
-
-    th, td {
-      padding: 0.75rem;
-      text-align: center;
-      border-bottom: 1px solid #ddd;
-    }
-    th {
-      background-color: #34495e;
-      color: white;
-    }
-    tr:hover {
-      background-color: #f1f1f1;
-    }
-
-    @media (max-width: 600px) {
-      .page-shell {
-        padding: 1rem 0.75rem;
-      }
-
-      h1 {
-        font-size: 1.55rem;
-      }
-
-      .table-wrap {
-        box-shadow: none;
-        overflow-x: visible;
-      }
-
-      table {
-        min-width: 0;
-        background: transparent;
-      }
-
-      table, thead, tbody, th, td, tr {
-        display: block;
-      }
-      th {
-        display: none;
-      }
-      td {
-        position: relative;
-        min-height: 44px;
-        padding-left: 48%;
-        text-align: left;
-        border-bottom: 1px solid #e4e4e4;
-        background: #fff;
-      }
-
-      tr {
-        margin-bottom: 0.85rem;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        overflow: hidden;
-        background: #fff;
-      }
-
-      td::before {
-        position: absolute;
-        left: 0.75rem;
-        top: 0.75rem;
-        width: 40%;
-        font-weight: bold;
-        overflow-wrap: anywhere;
-      }
-
-      td:nth-of-type(1)::before { content: "Symbol"; }
-      td:nth-of-type(2)::before { content: "Golden Cross Date"; }
-      td:nth-of-type(3)::before { content: "Last Price (₹)"; }
+    .golden-cross-date {
+      font-weight: 700;
     }
   </style>
 </head>
 <body>
-  <main class="page-shell">
-    <h1>📊 Golden Cross Screener</h1>
-    <div class="table-wrap">
-      <table>
+  <main class="dashboard-shell">
+    <div class="dashboard-header">
+      <div>
+        <p class="dashboard-kicker">Trend Screener</p>
+        <h1 class="dashboard-title">Golden Cross Screener</h1>
+        <p class="dashboard-subtitle mb-0">Stocks where shorter moving averages have crossed above the long-term trend.</p>
+      </div>
+      <button class="btn btn-outline-secondary" id="modeToggle" type="button" title="Toggle Theme">
+        <span class="material-icons-outlined" id="modeIcon">dark_mode</span>
+      </button>
+    </div>
+
+    <section class="summary-grid screener-summary-grid" aria-live="polite">
+      <div class="summary-tile">
+        <span class="summary-label">Signals</span>
+        <strong id="goldenTotal">0</strong>
+      </div>
+      <div class="summary-tile">
+        <span class="summary-label">Latest Date</span>
+        <strong class="screener-summary-value" id="goldenLatestDate">N/A</strong>
+      </div>
+      <div class="summary-tile">
+        <span class="summary-label">Highest Price</span>
+        <strong class="screener-summary-value" id="goldenHighestPrice">N/A</strong>
+      </div>
+    </section>
+
+    <section class="dashboard-controls">
+      <div class="control-grid screener-control-grid">
+        <div class="control-field">
+          <label class="form-label" for="goldenSearch">Search Symbol</label>
+          <div class="input-group">
+            <span class="input-group-text"><span class="material-icons-outlined">search</span></span>
+            <input class="form-control" id="goldenSearch" type="search" placeholder="ICICIBANK" autocomplete="off">
+          </div>
+        </div>
+        <div class="control-field">
+          <label class="form-label" for="goldenSort">Sort By</label>
+          <select class="form-select" id="goldenSort">
+            <option value="dateDesc">Latest Cross First</option>
+            <option value="symbol">Symbol A-Z</option>
+            <option value="priceDesc">Price High-Low</option>
+            <option value="priceAsc">Price Low-High</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-heading">
+      <div>
+        <p class="dashboard-kicker">Current Snapshot</p>
+        <h2>Signals</h2>
+      </div>
+      <span class="text-muted small" id="goldenResultCount">0 results</span>
+    </section>
+
+    <div class="screener-table-wrap" id="goldenTableWrap">
+      <table class="table table-bordered table-striped table-hover screener-table">
         <thead>
           <tr>
             <th>Symbol</th>
@@ -138,34 +91,104 @@
           </tr>
         </thead>
         <tbody id="results">
-          <!-- Rows will be injected via JS or static HTML -->
+          <tr><td colspan="3">Loading Golden Cross signals...</td></tr>
         </tbody>
       </table>
     </div>
   </main>
 
+  <script src="js/themeToggle.js"></script>
   <script>
-    // If loading from a JSON file, you can fetch and populate like this
-    fetch('data/golden_cross.json')
-      .then(res => res.json())
+    let goldenRows = [];
+
+    const buildDataUrl = (path) => {
+      const url = new URL(path, window.location.href);
+      url.searchParams.set("t", Date.now());
+      return url.toString();
+    };
+
+    const setText = (id, value) => {
+      const element = document.getElementById(id);
+      if (element) element.textContent = value;
+    };
+
+    const toNumber = (value) => {
+      const number = Number(value);
+      return Number.isFinite(number) ? number : null;
+    };
+
+    const formatPrice = (value) => {
+      const number = toNumber(value);
+      return number !== null ? `₹${number.toFixed(2)}` : "N/A";
+    };
+
+    const updateSummary = (data) => {
+      const dates = data.map((row) => row["Golden Cross Date"]).filter(Boolean).sort();
+      const prices = data.map((row) => toNumber(row["Last Price"])).filter((value) => value !== null);
+
+      setText("goldenTotal", data.length);
+      setText("goldenLatestDate", dates.length ? dates[dates.length - 1] : "N/A");
+      setText("goldenHighestPrice", prices.length ? formatPrice(Math.max(...prices)) : "N/A");
+    };
+
+    const getFilteredRows = () => {
+      const query = (document.getElementById("goldenSearch")?.value || "").trim().toUpperCase();
+      const sort = document.getElementById("goldenSort")?.value || "dateDesc";
+      const filtered = goldenRows.filter((row) =>
+        !query || String(row.Symbol || "").toUpperCase().includes(query)
+      );
+
+      return filtered.sort((a, b) => {
+        if (sort === "symbol") return String(a.Symbol || "").localeCompare(String(b.Symbol || ""));
+        if (sort === "priceDesc") return (toNumber(b["Last Price"]) ?? -Infinity) - (toNumber(a["Last Price"]) ?? -Infinity);
+        if (sort === "priceAsc") return (toNumber(a["Last Price"]) ?? Infinity) - (toNumber(b["Last Price"]) ?? Infinity);
+        return String(b["Golden Cross Date"] || "").localeCompare(String(a["Golden Cross Date"] || ""));
+      });
+    };
+
+    const renderRows = (data) => {
+      const tbody = document.getElementById("results");
+      setText("goldenResultCount", `${data.length} result${data.length === 1 ? "" : "s"}`);
+
+      if (!Array.isArray(data) || data.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="3">No Golden Cross signals match this view.</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = "";
+      data.forEach(row => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td data-label="Symbol"><strong>${row.Symbol || "N/A"}</strong></td>
+          <td data-label="Golden Cross Date" class="golden-cross-date">${row["Golden Cross Date"] || "N/A"}</td>
+          <td data-label="Last Price">${formatPrice(row["Last Price"])}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    };
+
+    const updateTable = () => renderRows(getFilteredRows());
+
+    ["goldenSearch", "goldenSort"].forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.addEventListener("input", updateTable);
+        element.addEventListener("change", updateTable);
+      }
+    });
+
+    fetch(buildDataUrl("data/golden_cross.json"))
+      .then(res => {
+        if (!res.ok) throw new Error(`Failed to load Golden Cross data (${res.status})`);
+        return res.json();
+      })
       .then(data => {
-        const tbody = document.getElementById('results');
-        if (!Array.isArray(data) || data.length === 0) {
-          tbody.innerHTML = '<tr><td colspan="3">No Golden Cross signals found.</td></tr>';
-          return;
-        }
-        data.forEach(row => {
-          const tr = document.createElement('tr');
-          tr.innerHTML = `
-            <td>${row.Symbol}</td>
-            <td>${row["Golden Cross Date"]}</td>
-            <td>₹${row["Last Price"]}</td>
-          `;
-          tbody.appendChild(tr);
-        });
+        goldenRows = Array.isArray(data) ? data : [];
+        updateSummary(goldenRows);
+        updateTable();
       })
       .catch(err => {
-        document.getElementById('results').innerHTML = `<tr><td colspan="3">Failed to load data</td></tr>`;
+        document.getElementById('results').innerHTML = `<tr><td colspan="3">Failed to load data: ${err.message}</td></tr>`;
         console.error(err);
       });
   </script>
