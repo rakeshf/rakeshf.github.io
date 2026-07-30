@@ -10,8 +10,15 @@ const toFiniteNumber = (value) => {
     return Number.isFinite(number) ? number : null;
 };
 
+const getDarvasValue = (id, fallback) => {
+    const element = document.getElementById(id);
+    return element ? element.value : fallback;
+};
+
+const nullFallback = (value, fallback) => value === null ? fallback : value;
+
 const getDarvasTarget = (row) => {
-    const direction = (row.Direction ?? "").toLowerCase();
+    const direction = (row.Direction || "").toLowerCase();
     const boxHigh = toFiniteNumber(row["Box High"]);
     const boxLow = toFiniteNumber(row["Box Low"]);
     let target = row.Target !== undefined ? toFiniteNumber(row.Target) : null;
@@ -35,9 +42,9 @@ const getDarvasPctChange = (row) => {
 };
 
 const updateDarvasSummary = (data) => {
-    const upCount = data.filter(row => (row.Direction ?? "").toLowerCase() === "up").length;
-    const downCount = data.filter(row => (row.Direction ?? "").toLowerCase() === "down").length;
-    const confirmedCount = data.filter(row => String(row.Signal ?? "").toLowerCase().includes("confirmed")).length;
+    const upCount = data.filter(row => (row.Direction || "").toLowerCase() === "up").length;
+    const downCount = data.filter(row => (row.Direction || "").toLowerCase() === "down").length;
+    const confirmedCount = data.filter(row => String(row.Signal || "").toLowerCase().includes("confirmed")).length;
 
     setDarvasText("darvasTotal", data.length);
     setDarvasText("darvasUpside", upCount);
@@ -46,15 +53,15 @@ const updateDarvasSummary = (data) => {
 };
 
 const getFilteredDarvasRows = () => {
-    const query = (document.getElementById("darvasSearch")?.value || "").trim().toUpperCase();
-    const direction = document.getElementById("darvasDirectionFilter")?.value || "All";
-    const signal = document.getElementById("darvasSignalFilter")?.value || "All";
-    const sort = document.getElementById("darvasSort")?.value || "symbol";
+    const query = (getDarvasValue("darvasSearch", "") || "").trim().toUpperCase();
+    const direction = getDarvasValue("darvasDirectionFilter", "All") || "All";
+    const signal = getDarvasValue("darvasSignalFilter", "All") || "All";
+    const sort = getDarvasValue("darvasSort", "symbol") || "symbol";
 
     const filtered = darvasRows.filter((row) => {
-        const symbol = String(row.Symbol ?? "").toUpperCase();
-        const rowDirection = String(row.Direction ?? "").toLowerCase();
-        const rowSignal = String(row.Signal ?? "").toLowerCase();
+        const symbol = String(row.Symbol || "").toUpperCase();
+        const rowDirection = String(row.Direction || "").toLowerCase();
+        const rowSignal = String(row.Signal || "").toLowerCase();
 
         const matchesQuery = !query || symbol.includes(query);
         const matchesDirection = direction === "All" || rowDirection === direction;
@@ -67,10 +74,10 @@ const getFilteredDarvasRows = () => {
     });
 
     return filtered.sort((a, b) => {
-        if (sort === "pctDesc") return (getDarvasPctChange(b) ?? -Infinity) - (getDarvasPctChange(a) ?? -Infinity);
-        if (sort === "closeDesc") return (toFiniteNumber(b.Close) ?? -Infinity) - (toFiniteNumber(a.Close) ?? -Infinity);
-        if (sort === "targetDesc") return (getDarvasTarget(b) ?? -Infinity) - (getDarvasTarget(a) ?? -Infinity);
-        return String(a.Symbol ?? "").localeCompare(String(b.Symbol ?? ""));
+        if (sort === "pctDesc") return nullFallback(getDarvasPctChange(b), -Infinity) - nullFallback(getDarvasPctChange(a), -Infinity);
+        if (sort === "closeDesc") return nullFallback(toFiniteNumber(b.Close), -Infinity) - nullFallback(toFiniteNumber(a.Close), -Infinity);
+        if (sort === "targetDesc") return nullFallback(getDarvasTarget(b), -Infinity) - nullFallback(getDarvasTarget(a), -Infinity);
+        return String(a.Symbol || "").localeCompare(String(b.Symbol || ""));
     });
 };
 
@@ -115,8 +122,8 @@ function renderTable(data) {
     }
 
     if (summary) {
-        const upCount = data.filter(row => (row.Direction ?? "").toLowerCase() === "up").length;
-        const downCount = data.filter(row => (row.Direction ?? "").toLowerCase() === "down").length;
+        const upCount = data.filter(row => (row.Direction || "").toLowerCase() === "up").length;
+        const downCount = data.filter(row => (row.Direction || "").toLowerCase() === "down").length;
         summary.textContent = `${data.length} result${data.length === 1 ? "" : "s"}: ${upCount} upside, ${downCount} downside.`;
     }
 
@@ -142,12 +149,12 @@ function renderTable(data) {
     const formatNumber = (value) => Number.isFinite(value) ? value.toFixed(2) : "N/A";
 
     data.forEach((row) => {
-        const symbol = row.Symbol ?? "-";
+        const symbol = row.Symbol || "-";
         const close = toFiniteNumber(row.Close);
         const boxHigh = toFiniteNumber(row["Box High"]);
         const boxLow = toFiniteNumber(row["Box Low"]);
-        const signal = row.Signal ?? "-";
-        const direction = (row.Direction ?? "").toLowerCase();
+        const signal = row.Signal || "-";
+        const direction = (row.Direction || "").toLowerCase();
         const target = getDarvasTarget(row);
         const pctChangeValue = getDarvasPctChange(row);
         const pctChange = pctChangeValue !== null ? pctChangeValue.toFixed(2) + "%" : "N/A";

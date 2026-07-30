@@ -54,6 +54,13 @@ const setText = (id, value) => {
   if (element) element.textContent = value;
 };
 
+const getControlValue = (id, fallback) => {
+  const element = document.getElementById(id);
+  return element ? element.value : fallback;
+};
+
+const fallbackNumber = (value, fallback) => value === null ? fallback : value;
+
 const renderSummary = (data) => {
   setText("summaryTotal", data.length);
   setText("summaryBullish", data.filter((stock) => stock.sentiment === "Bullish").length);
@@ -64,7 +71,7 @@ const renderSummary = (data) => {
 const sortData = (data, sortValue) => {
   const sorted = [...data];
   const numberSortDesc = (field) =>
-    sorted.sort((a, b) => (toNumberOrNull(b[field]) ?? -Infinity) - (toNumberOrNull(a[field]) ?? -Infinity));
+    sorted.sort((a, b) => fallbackNumber(toNumberOrNull(b[field]), -Infinity) - fallbackNumber(toNumberOrNull(a[field]), -Infinity));
 
   if (sortValue === "priceChangeDesc") return numberSortDesc("price_change_pct");
   if (sortValue === "pcrDesc") return numberSortDesc("pcr");
@@ -75,10 +82,10 @@ const sortData = (data, sortValue) => {
 };
 
 const getFilteredData = () => {
-  const sentimentFilter = document.getElementById("sentimentFilter")?.value || "All";
-  const signalFilter = document.getElementById("signalFilter")?.value || "All";
-  const searchValue = (document.getElementById("symbolSearch")?.value || "").trim().toUpperCase();
-  const sortValue = document.getElementById("sortSelector")?.value || "symbol";
+  const sentimentFilter = getControlValue("sentimentFilter", "All") || "All";
+  const signalFilter = getControlValue("signalFilter", "All") || "All";
+  const searchValue = (getControlValue("symbolSearch", "") || "").trim().toUpperCase();
+  const sortValue = getControlValue("sortSelector", "symbol") || "symbol";
 
   const filtered = currentStockData.filter((stock) => {
     const symbolMatch = !searchValue || String(stock.symbol || "").toUpperCase().includes(searchValue);
@@ -148,7 +155,7 @@ const renderCards = (data) => {
           <div class="stock-card-top">
             <div>
               <h3 class="stock-symbol">${stock.symbol || "UNKNOWN"}</h3>
-              <span class="stock-subtle">Score ${toNumberOrNull(stock.master_score) ?? "N/A"}</span>
+              <span class="stock-subtle">Score ${fallbackNumber(toNumberOrNull(stock.master_score), "N/A")}</span>
             </div>
             ${sentimentBadge}
           </div>
@@ -209,7 +216,7 @@ const renderCards = (data) => {
     container.appendChild(card);
   });
 
-  if (window.bootstrap?.Tooltip) {
+  if (window.bootstrap && window.bootstrap.Tooltip) {
     const tooltipTriggerList = [].slice.call(container.querySelectorAll('[data-bs-toggle="tooltip"]'));
     tooltipTriggerList.forEach((el) => new bootstrap.Tooltip(el));
   }
@@ -307,7 +314,7 @@ const loadAndRenderData = (filename) => {
       updateResults();
     })
     .catch((error) => {
-      const message = error?.message || String(error);
+      const message = error && error.message ? error.message : String(error);
       document.getElementById("cardContainer").innerHTML = `<div class="empty-state text-danger"><strong>Error loading data:</strong><span>${message}</span></div>`;
       console.error("Fetch error:", error);
     });
