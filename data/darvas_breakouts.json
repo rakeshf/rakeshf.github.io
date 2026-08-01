@@ -190,12 +190,12 @@
   },
   {
     "Symbol": "APOLLOTYRE.NS",
-    "Signal": "\ud83d\udd3c Pre-breakout",
-    "Direction": "up",
-    "Close": 428.15,
+    "Signal": "No",
+    "Direction": "",
+    "Close": null,
     "Box High": 431.4,
     "Box Low": 413.4,
-    "Target": 431.4
+    "Target": null
   },
   {
     "Symbol": "BEL.NS",
