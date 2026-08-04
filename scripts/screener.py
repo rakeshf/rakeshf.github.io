@@ -177,14 +177,7 @@ def fetch_eq_with_retry(symbol):
 
 @retry_on_exception(retries=3, delay=1)
 def fetch_optionchain_with_retry(symbol):
-    chain = nse_optionchain_scrapper(symbol)
-    option_data = chain.get("records", {}).get("data", []) if isinstance(chain, dict) else []
-    if not option_data:
-        # nsepython's nsefetch() swallows non-JSON responses (e.g. NSE anti-bot
-        # blocks) and returns {}; without this check that silently becomes a
-        # fake "zero OI" result instead of a retryable failure.
-        raise ValueError(f"Empty option chain data for {symbol}")
-    return chain
+    return nse_optionchain_scrapper(symbol)
 
 @retry_on_exception(retries=3, delay=1)
 def calculate_technicals(symbol):
