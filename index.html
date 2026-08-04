@@ -203,6 +203,20 @@
       white-space: normal;
     }
 
+    .stock-jump-wrapper {
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    @keyframes stock-card-highlight-flash {
+      0%, 100% { box-shadow: none; }
+      20%, 60% { box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.5); }
+    }
+
+    .stock-card-highlight {
+      animation: stock-card-highlight-flash 1.6s ease-in-out;
+    }
+
     /* Make canvas area visually constrained so Chart.js can size correctly */
     .chart-wrapper {
       width: 100%;
@@ -285,7 +299,18 @@
 
   <div class="container page-shell my-4">
     <h1 class="page-title mb-4 text-center">🚀 Stock Movement Overview</h1>
-    
+
+    <div class="row mb-3 justify-content-center">
+        <div class="col-12">
+            <div class="input-group shadow-sm stock-jump-wrapper">
+                <span class="input-group-text"><i class="bi bi-search"></i></span>
+                <input class="form-control" type="search" id="stockJumpInput" list="stockSymbolList"
+                    placeholder="Jump to a stock (e.g. RELIANCE)" autocomplete="off" aria-label="Jump to a stock" />
+                <datalist id="stockSymbolList"></datalist>
+            </div>
+        </div>
+    </div>
+
     <div class="row mb-4 justify-content-center">
         <div class="col-12">
             <div class="filter-toolbar shadow-sm" role="group" aria-label="Market Filters">
@@ -420,6 +445,8 @@
             return acc;
           }, {});
 
+          populateStockSymbolList(Object.keys(grouped));
+
           Object.entries(grouped).forEach(([symbol, entries], idx) => {
             // Get the most recent entry for technicals and scoring
             const latestEntry = entries[entries.length - 1] || {};
@@ -434,6 +461,7 @@
             col.setAttribute('data-signal', currentSignal);
             col.setAttribute('data-squeeze', isSqueeze);
             col.setAttribute('data-score', score);
+            col.setAttribute('data-symbol', symbol);
 
             const card = document.createElement('div');
             card.className = 'card shadow-sm h-100';
@@ -755,6 +783,56 @@
             // Toggle visibility by removing or setting the display property
             card.style.display = shouldShow ? '' : 'none';
         });
+    }
+
+    /**
+     * Populates the symbol datalist used by the "jump to a stock" search box.
+     */
+    function populateStockSymbolList(symbols) {
+      const datalist = document.getElementById('stockSymbolList');
+      if (!datalist) return;
+      datalist.innerHTML = '';
+      symbols.slice().sort().forEach((symbol) => {
+        const option = document.createElement('option');
+        option.value = symbol;
+        datalist.appendChild(option);
+      });
+    }
+
+    /**
+     * Scrolls to and briefly highlights the card for the given symbol,
+     * resetting the active filter first so the card is guaranteed visible.
+     */
+    function jumpToStock(symbol) {
+      const wrapper = document.querySelector(`.stock-card-wrapper[data-symbol="${CSS.escape(symbol)}"]`);
+      if (!wrapper) return;
+
+      const allBtn = document.querySelector(`.filter-btn[onclick*="'all'"]`);
+      filterStocks('all', allBtn);
+
+      wrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      const card = wrapper.querySelector('.card');
+      if (card) {
+        card.classList.remove('stock-card-highlight');
+        // Force reflow so the animation restarts if the same stock is jumped to twice in a row.
+        void card.offsetWidth;
+        card.classList.add('stock-card-highlight');
+        setTimeout(() => card.classList.remove('stock-card-highlight'), 1600);
+      }
+    }
+
+    const stockJumpInput = document.getElementById('stockJumpInput');
+    if (stockJumpInput) {
+      stockJumpInput.addEventListener('input', () => {
+        const value = stockJumpInput.value.trim().toUpperCase();
+        const options = Array.from(document.querySelectorAll('#stockSymbolList option'));
+        const match = options.find((opt) => opt.value.toUpperCase() === value);
+        if (match) {
+          jumpToStock(match.value);
+          stockJumpInput.value = '';
+          stockJumpInput.blur();
+        }
+      });
     }
 
     applySavedMode();
