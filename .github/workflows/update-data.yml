@@ -3,9 +3,13 @@ name: Update market JSON data
 on:
   schedule:
     # GitHub schedules use UTC. These run 5 times on weekdays during
-    # Indian market hours: 09:30, 10:30, 11:30, 13:00, 14:30 Asia/Kolkata.
-    - cron: "0 4-6,9 * * 1-5"
-    - cron: "30 7 * * 1-5"
+    # Indian market hours, using off-peak minutes because top-of-hour
+    # schedules are more likely to be delayed or skipped by GitHub Actions:
+    # 09:35, 10:40, 11:45, 13:05, 14:35 Asia/Kolkata.
+    - cron: "5 4,9 * * 1-5"
+    - cron: "10 5 * * 1-5"
+    - cron: "15 6 * * 1-5"
+    - cron: "35 7 * * 1-5"
   workflow_dispatch:
 
 permissions:
