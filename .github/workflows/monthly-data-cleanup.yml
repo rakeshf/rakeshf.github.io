@@ -1,9 +1,10 @@
-name: Weekly data cleanup
+name: Monthly data cleanup
 
 on:
   schedule:
-    # GitHub schedules use UTC. 03:00 UTC Monday = 08:30 Monday Asia/Kolkata.
-    - cron: "0 3 * * 1"
+    # GitHub schedules use UTC. 03:00 UTC on day 1 = 08:30 Asia/Kolkata
+    # on the first day of each month.
+    - cron: "0 3 1 * *"
   workflow_dispatch:
 
 permissions:
@@ -12,7 +13,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: weekly-data-cleanup
+  group: monthly-data-cleanup
   cancel-in-progress: false
 
 jobs:
@@ -38,7 +39,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No data cleanup changes to commit."
           else
-            git commit -m "Weekly cleanup of generated data"
+            git commit -m "Monthly cleanup of generated data"
             git pull --rebase origin main
             git push
           fi
