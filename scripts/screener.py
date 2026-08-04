@@ -14,6 +14,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 import time as _time
 import functools
+import glob
 
 # -------------------- SAFE HELPERS --------------------
 def safe_pct_change(curr, prev): 
@@ -279,6 +280,40 @@ log_dir = "../logs/stocks"
 os.makedirs(output_dir, exist_ok=True)
 os.makedirs(log_dir, exist_ok=True)
 
+
+def find_nonzero_repo_oi_fallback(symbol: str):
+    """Look through the repo's generated data snapshots for a non-zero OI entry.
+    This acts as a second-stage fallback when the on-demand NSE payload is blocked
+    and the per-symbol cache has been reset to zeros.
+    """
+    history_files = sorted(glob.glob(os.path.join(output_dir, "*.json")))
+    for path in reversed(history_files):
+        try:
+            with open(path, "r") as f:
+                payload = json.load(f)
+            if not isinstance(payload, list):
+                continue
+            for item in payload:
+                if not isinstance(item, dict):
+                    continue
+                if item.get("symbol") != symbol:
+                    continue
+                total_ce_oi = int(item.get("total_ce_oi", 0) or 0)
+                total_pe_oi = int(item.get("total_pe_oi", 0) or 0)
+                if total_ce_oi > 0 or total_pe_oi > 0:
+                    return {
+                        "total_oi": total_ce_oi + total_pe_oi,
+                        "total_ce_oi": total_ce_oi,
+                        "total_pe_oi": total_pe_oi,
+                    }
+        except Exception:
+            continue
+    return {
+        "total_oi": 0,
+        "total_ce_oi": 0,
+        "total_pe_oi": 0,
+    }
+
 # -------------------- MAIN LOOP --------------------
 all_results = []
 failed_symbols = []
@@ -315,38 +350,74 @@ def process_symbol(symbol: str, log_dir: str):
         price_change_pct = safe_pct_change(ltp, prev_close) 
         price_direction = "↑" if price_change_pct > 0 else "↓"
 
-        # ----- OPTION CHAIN ----- 
-        chain = fetch_optionchain_with_retry(symbol) 
-        option_data = chain.get("records", {}).get("data", [])
+        # ----- PREVIOUS OI ----- 
+        prev = None
+        if os.path.exists(oi_log_file): 
+            with open(oi_log_file, "r") as f: 
+                prev = json.load(f)
 
-        total_ce_oi = 0 
-        total_pe_oi = 0 
-        for item in option_data: 
-            if item.get("CE"): 
-                total_ce_oi += item["CE"].get("openInterest", 0) 
-            if item.get("PE"): 
-                total_pe_oi += item["PE"].get("openInterest", 0)
+        # ----- OPTION CHAIN ----- 
+        total_ce_oi = 0
+        total_pe_oi = 0
+        chain_fallback_used = False
+        try:
+            chain = fetch_optionchain_with_retry(symbol)
+            if not isinstance(chain, dict):
+                raise ValueError("option chain payload must be a dictionary")
+
+            records = chain.get("records")
+            if not isinstance(records, dict):
+                raise ValueError("option chain payload missing 'records' section")
+
+            option_data = records.get("data")
+            if not isinstance(option_data, list) or not option_data:
+                raise ValueError("option chain payload missing 'records.data' rows")
+
+            for item in option_data:
+                if item.get("CE"):
+                    total_ce_oi += item["CE"].get("openInterest", 0)
+                if item.get("PE"):
+                    total_pe_oi += item["PE"].get("openInterest", 0)
+        except Exception as chain_error:
+            chain_fallback_used = True
+            print(f"⚠️ Option chain unavailable for {symbol}: {chain_error}. Falling back to cached OI snapshot.")
+
+            fallback_snapshot = None
+            if prev is not None:
+                fallback_snapshot = prev
+            if fallback_snapshot is None or (
+                int(fallback_snapshot.get("total_ce_oi", 0) or 0) == 0
+                and int(fallback_snapshot.get("total_pe_oi", 0) or 0) == 0
+            ):
+                fallback_snapshot = find_nonzero_repo_oi_fallback(symbol)
+
+            if fallback_snapshot is not None:
+                total_ce_oi = int(fallback_snapshot.get("total_ce_oi", 0) or 0)
+                total_pe_oi = int(fallback_snapshot.get("total_pe_oi", 0) or 0)
+            else:
+                total_ce_oi = 0
+                total_pe_oi = 0
 
         curr_total_oi = total_ce_oi + total_pe_oi
 
-        # ----- PREVIOUS OI ----- 
-        if os.path.exists(oi_log_file): 
-            with open(oi_log_file, "r") as f: 
-                prev = json.load(f) 
-            prev_total_oi = prev.get("total_oi", curr_total_oi) 
-            prev_total_ce_oi = prev.get("total_ce_oi", total_ce_oi) 
-            prev_total_pe_oi = prev.get("total_pe_oi", total_pe_oi) 
-        else: 
-            prev_total_oi = curr_total_oi 
-            prev_total_ce_oi = total_ce_oi 
+        if prev is not None:
+            prev_total_oi = prev.get("total_oi", curr_total_oi)
+            prev_total_ce_oi = prev.get("total_ce_oi", total_ce_oi)
+            prev_total_pe_oi = prev.get("total_pe_oi", total_pe_oi)
+        else:
+            prev_total_oi = curr_total_oi
+            prev_total_ce_oi = total_ce_oi
             prev_total_pe_oi = total_pe_oi
 
-        with open(oi_log_file, "w") as f: 
-            json.dump({ 
-                "total_oi": curr_total_oi, 
-                "total_ce_oi": total_ce_oi, 
-                "total_pe_oi": total_pe_oi 
-            }, f)
+        # Preserve the last good cached OI snapshot when the live NSE payload is blocked.
+        # This avoids silently replacing a known-good snapshot with zeros on every failed run.
+        if not chain_fallback_used:
+            with open(oi_log_file, "w") as f:
+                json.dump({
+                    "total_oi": curr_total_oi,
+                    "total_ce_oi": total_ce_oi,
+                    "total_pe_oi": total_pe_oi
+                }, f)
 
         # ----- CHANGES ----- 
         oi_change_pct = safe_pct_change(curr_total_oi, prev_total_oi) 
