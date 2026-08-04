@@ -4,6 +4,9 @@ const signalAlertsUrl = typeof window.buildDataUrl === "function"
 
 fetch(signalAlertsUrl)
   .then((res) => {
+    if (res.status === 404) {
+      return [];
+    }
     if (!res.ok) throw new Error(`Failed to load signal alerts (${res.status} ${res.statusText})`);
     return res.json();
   })

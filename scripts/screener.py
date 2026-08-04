@@ -38,7 +38,11 @@ print("✅ Symbols loaded:", symbols)
 
 # -------------------- SIGNAL CHANGE ALERT --------------------
 def alert_signal_changes(latest_file, prev_file, alert_file="../data/signal_alerts.json"): 
+    os.makedirs(os.path.dirname(alert_file), exist_ok=True)
+
     if not os.path.exists(latest_file) or not os.path.exists(prev_file): 
+        with open(alert_file, "w") as f:
+            json.dump([], f, indent=2)
         return
 
     with open(latest_file, "r") as f1, open(prev_file, "r") as f2: 
@@ -58,10 +62,13 @@ def alert_signal_changes(latest_file, prev_file, alert_file="../data/signal_aler
                 "new_signal": latest.get("signal") 
             })
 
-    if changes: 
-        with open(alert_file, "w") as f: 
-            json.dump(changes, f, indent=2) 
+    with open(alert_file, "w") as f: 
+        json.dump(changes, f, indent=2)
+
+    if changes:
         print(f"🚨 {len(changes)} signal(s) changed")
+    else:
+        print("ℹ️ No signal changes detected; wrote an empty signal alert list.")
 
 # -------------------- INDEX HANDLER --------------------
 
