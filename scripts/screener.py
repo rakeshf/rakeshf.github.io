@@ -177,7 +177,7 @@ def fetch_eq_with_retry(symbol):
     raise ValueError("Unable to fetch equity data for symbol")
 
 @retry_on_exception(retries=3, delay=1)
-def fetch_optionchain_with_retry(symbol): 
+def fetch_optionchain_with_retry(symbol):
     return nse_optionchain_scrapper(symbol)
 
 @retry_on_exception(retries=3, delay=1)
