@@ -5,3 +5,9 @@ darvas_cron.sh
 golden_corn.sh
 delete_files.sh
 __pycache__/
+.venv/
+venv/
+env/
+*.pyc
+.pytest_cache/
+_site/
