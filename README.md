@@ -1,5 +1,5 @@
-# Stock Movement Overview
-
+# Stock Movement Overview   [![Update market JSON data](https://github.com/rakeshf/rakeshf.github.io/actions/workflows/update-data.yml/badge.svg)](https://github.com/rakeshf/rakeshf.github.io/actions/workflows/update-data.yml)
+ 
 🚀 An interactive web dashboard displaying Open Interest (OI) charts and signals for multiple stocks using combined JSON data.
 
 ---
