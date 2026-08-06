@@ -1,3 +1,6 @@
-# Replace /absolute/path/to/repo with the absolute path to your repo root before installing.
-# This example runs hourly at minute 0. Adjust the schedule as needed.
-0 * * * * /usr/bin/env bash /absolute/path/to/repo/scripts/update_data.sh >> /absolute/path/to/repo/logs/scripts/cron_wrapper.log 2>&1
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+MAILTO=""
+
+# Run the market refresh every 15 minutes during trading hours.
+*/15 9-15 * * 1-5 /bin/bash /workspaces/rakeshf.github.io/scripts/update_data.sh >> /workspaces/rakeshf.github.io/logs/scripts/cron_wrapper.log 2>&1

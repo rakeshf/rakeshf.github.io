@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-}"
+export PYTHONUNBUFFERED=1
+
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$REPO_ROOT"
 LOG_DIR="$REPO_ROOT/logs/scripts"
 mkdir -p "$LOG_DIR"
 LOG_FILE="$LOG_DIR/update_data.log"
@@ -10,7 +14,11 @@ VENV_DIR="$REPO_ROOT/.venv"
 
 echo "=== Update run: $(date -u +"%Y-%m-%dT%H:%M:%SZ") ===" >> "$LOG_FILE"
 
-PYTHON_CMD="$(command -v python3 || command -v python)"
+PYTHON_CMD="$(command -v python3 || command -v python || true)"
+if [[ -z "$PYTHON_CMD" ]]; then
+  echo "No python interpreter found in cron PATH" >> "$LOG_FILE"
+  exit 1
+fi
 
 ensure_python_env() {
   if [[ -x "$VENV_DIR/bin/python" ]] && "$VENV_DIR/bin/python" -c "import nsepython, pandas, yfinance, pytz, feedparser, vaderSentiment" >/dev/null 2>&1; then

@@ -1,6 +1,6 @@
 name: Update market JSON data
 
-on:
+'on':
   schedule:
     # GitHub schedules use UTC. These run 5 times on weekdays during
     # Indian market hours, using off-peak minutes because top-of-hour
@@ -37,10 +37,14 @@ jobs:
           cache: "pip"
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
       - name: Generate JSON data
-        run: bash scripts/update_data.sh
+        run: |
+          bash scripts/update_data.sh
+          test -f data/index.json
 
       - name: Commit generated data
         run: |
