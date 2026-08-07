@@ -10,7 +10,6 @@ on:
     - cron: "10 5 * * 1-5"
     - cron: "15 6 * * 1-5"
     - cron: "35 7 * * 1-5"
-  workflow_dispatch:
 
 permissions:
   contents: write
