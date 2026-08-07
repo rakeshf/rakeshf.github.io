@@ -53,28 +53,35 @@ jobs:
           test -f data/index.json
 
       - name: Commit generated data
+        id: commit-generated-data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data
           if git diff --cached --quiet; then
             echo "No generated data changes to commit."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "Update generated market JSON data"
             git pull --rebase origin main
             git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Setup Pages
+        if: steps.commit-generated-data.outputs.changed == 'true'
         uses: actions/configure-pages@v5
 
       - name: Prepare Pages artifact
+        if: steps.commit-generated-data.outputs.changed == 'true'
         run: bash scripts/prepare_pages_artifact.sh
 
       - name: Upload Pages artifact
+        if: steps.commit-generated-data.outputs.changed == 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: "_site"
 
       - name: Deploy to GitHub Pages
+        if: steps.commit-generated-data.outputs.changed == 'true'
         uses: actions/deploy-pages@v4
