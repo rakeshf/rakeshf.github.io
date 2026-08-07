@@ -1,10 +1,6 @@
 name: Update market JSON data
 
-'on':
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+on:
   schedule:
     # GitHub schedules use UTC. These run 5 times on weekdays during
     # Indian market hours, using off-peak minutes because top-of-hour
@@ -33,6 +29,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Show trigger context
+        run: |
+          echo "event_name=${{ github.event_name }}"
+          echo "ref=${{ github.ref }}"
+          echo "sha=${{ github.sha }}"
 
       - name: Set up Python
         uses: actions/setup-python@v5
