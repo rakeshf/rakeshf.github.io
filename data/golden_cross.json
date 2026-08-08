@@ -1,7 +1,17 @@
 [
   {
+    "Symbol": "TECHM",
+    "Golden Cross Date": "2026-08-05",
+    "Last Price": 1635.0
+  },
+  {
+    "Symbol": "MGL",
+    "Golden Cross Date": "2026-08-06",
+    "Last Price": 1139.6
+  },
+  {
     "Symbol": "RECLTD",
     "Golden Cross Date": "2026-08-04",
-    "Last Price": 366.0
+    "Last Price": 367.0
   }
 ]
