@@ -19,12 +19,12 @@
   },
   {
     "Symbol": "INFY.NS",
-    "Signal": "\ud83d\udd3d Pre-breakdown",
-    "Direction": "down",
-    "Close": 1169.2,
+    "Signal": "No",
+    "Direction": "",
+    "Close": null,
     "Box High": 1195.0,
     "Box Low": 1155.6,
-    "Target": 1157.0
+    "Target": null
   },
   {
     "Symbol": "HDFCBANK.NS",
@@ -271,12 +271,12 @@
   },
   {
     "Symbol": "INDHOTEL.NS",
-    "Signal": "\ud83d\udd3d Pre-breakdown",
-    "Direction": "down",
-    "Close": 720.0,
+    "Signal": "No",
+    "Direction": "",
+    "Close": null,
     "Box High": 738.75,
     "Box Low": 713.05,
-    "Target": 713.05
+    "Target": null
   },
   {
     "Symbol": "JUBLFOOD.NS",
