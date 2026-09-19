@@ -176,7 +176,7 @@
     "Direction": "",
     "Close": 1537.1,
     "Box High": 1633.2,
-    "Box Low": 1498.0,
+    "Box Low": 1498.1,
     "Target": null
   },
   {
@@ -238,7 +238,7 @@
     "Signal": "\ud83d\udd3d Pre-breakdown",
     "Direction": "down",
     "Close": 2798.2,
-    "Box High": 3036.0,
+    "Box High": 3002.2,
     "Box Low": 2791.1,
     "Target": 2769.4
   },
