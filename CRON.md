@@ -38,7 +38,7 @@ You can run the update on GitHub using the scheduled workflow at `.github/workfl
 Notes:
 - The workflow checks out the repository, runs `scripts/update_data.sh`, and commits any changed files back to the repo using the default `GITHUB_TOKEN`. This frequent workflow only runs `scripts/screener.py`, which generates timestamped files like `data/2026-07-07T13-38-33.json` and updates `data/index.json`.
 - If one or more symbols fail during a run, `scripts/screener.py` skips those symbols and still writes JSON for the successful symbols. The workflow fails only when no symbol data can be generated.
-- Workflow failures send an email using the `ALERT_SMTP_HOST`, `ALERT_SMTP_PORT`, `ALERT_SMTP_USERNAME`, `ALERT_SMTP_PASSWORD`, and `ALERT_EMAIL_TO` GitHub Actions secrets. Configure these in the repository's Actions secrets before relying on alerts.
+- To receive GitHub's native workflow failure emails, enable Actions email notifications in the `rakeshf` account's GitHub notification settings and watch this repository. Workflow files cannot target a GitHub username directly.
 - The workflow schedule is specified in UTC (GitHub Actions). The cron entries intentionally avoid top-of-hour times because GitHub scheduled workflows can be delayed or skipped when many repositories run at the same minute. The cron entries used are:
   - `5 4,9 * * 1-5` (04:05,09:05 UTC => 09:35,14:35 IST)
   - `10 5 * * 1-5` (05:10 UTC => 10:40 IST)

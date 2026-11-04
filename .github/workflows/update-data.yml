@@ -109,13 +109,3 @@ jobs:
       - name: Deploy to GitHub Pages
         if: steps.commit-generated-data.outputs.changed == 'true'
         uses: actions/deploy-pages@v4
-
-      - name: Email workflow failure
-        if: failure()
-        env:
-          ALERT_SMTP_HOST: ${{ secrets.ALERT_SMTP_HOST }}
-          ALERT_SMTP_PORT: ${{ secrets.ALERT_SMTP_PORT }}
-          ALERT_SMTP_USERNAME: ${{ secrets.ALERT_SMTP_USERNAME }}
-          ALERT_SMTP_PASSWORD: ${{ secrets.ALERT_SMTP_PASSWORD }}
-          ALERT_EMAIL_TO: ${{ secrets.ALERT_EMAIL_TO }}
-        run: python scripts/send_failure_email.py
