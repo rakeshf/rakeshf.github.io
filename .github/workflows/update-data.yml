@@ -10,6 +10,7 @@ on:
     - cron: "10 5 * * 1-5"
     - cron: "15 6 * * 1-5"
     - cron: "35 7 * * 1-5"
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -48,7 +49,8 @@ jobs:
 
       - name: Generate JSON data
         run: |
-          bash scripts/update_data.sh
+          # GitHub may delay scheduled jobs until after market hours.
+          bash scripts/update_data.sh --debug
           test -f data/index.json
 
       - name: Commit generated data
