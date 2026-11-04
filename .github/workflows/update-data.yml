@@ -51,7 +51,30 @@ jobs:
         run: |
           # GitHub may delay scheduled jobs until after market hours.
           bash scripts/update_data.sh --debug
-          test -f data/index.json
+          if git diff --quiet -- data/index.json; then
+            echo "Market-data generation did not update data/index.json." >&2
+            exit 1
+          fi
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          index = json.loads(Path("data/index.json").read_text())
+          if not isinstance(index, list) or not index:
+              raise SystemExit("data/index.json must contain at least one snapshot.")
+
+          latest = index[0]
+          if not isinstance(latest, str):
+              raise SystemExit("The latest data/index.json entry must be a filename.")
+
+          snapshot_path = Path("data") / latest
+          if not snapshot_path.is_file():
+              raise SystemExit(f"Indexed market-data snapshot is missing: {snapshot_path}")
+
+          snapshot = json.loads(snapshot_path.read_text())
+          if not isinstance(snapshot, list) or not snapshot:
+              raise SystemExit(f"Market-data snapshot is empty or invalid: {snapshot_path}")
+          PY
 
       - name: Commit generated data
         id: commit-generated-data
@@ -86,3 +109,13 @@ jobs:
       - name: Deploy to GitHub Pages
         if: steps.commit-generated-data.outputs.changed == 'true'
         uses: actions/deploy-pages@v4
+
+      - name: Email workflow failure
+        if: failure()
+        env:
+          ALERT_SMTP_HOST: ${{ secrets.ALERT_SMTP_HOST }}
+          ALERT_SMTP_PORT: ${{ secrets.ALERT_SMTP_PORT }}
+          ALERT_SMTP_USERNAME: ${{ secrets.ALERT_SMTP_USERNAME }}
+          ALERT_SMTP_PASSWORD: ${{ secrets.ALERT_SMTP_PASSWORD }}
+          ALERT_EMAIL_TO: ${{ secrets.ALERT_EMAIL_TO }}
+        run: python scripts/send_failure_email.py
